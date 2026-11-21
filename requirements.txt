@@ -1,0 +1,9 @@
+# ANADOCTORFADY Requirements - Windows 7/8/10/11 compatible
+# Python 3.8+ recommended (for Win7 use Python 3.8.x)
+reportlab>=4.0.0
+openpyxl>=3.1.0
+hijri-converter>=2.3.0
+arabic-reshaper>=3.0.0
+python-bidi>=0.4.2
+Pillow>=10.0.0
+# Optional: pydicom>=2.4 - only for CBCT (.dcm) slice preview; app works without it

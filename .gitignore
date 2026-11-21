@@ -1,0 +1,33 @@
+# .gitignore — ANADOCTORFADY
+
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv*/
+venv/
+env/
+
+# Local runtime data — NEVER commit patient data or databases
+*.db
+*.sqlite
+*.sqlite3
+anadoctorfady/
+activations.csv
+telemetry.db
+
+# Build outputs (the PyInstaller spec in installer/ is a build INPUT — keep it)
+dist/
+build/
+
+# Secrets / local config
+.env
+*.pem
+*.key
+
+# Logs / OS files
+*.log
+.DS_Store
+Thumbs.db

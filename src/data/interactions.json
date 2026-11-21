@@ -1,0 +1,1178 @@
+[
+ {
+  "drug_a": "Warfarin",
+  "drug_b": "Ibuprofen",
+  "severity": "severe",
+  "message_en": "Warfarin + Ibuprofen: severe bleeding risk - NSAIDs increase bleeding and ulcer risk.",
+  "message_ar": "وارفارين + إيبوبروفين: خطر نزيف شديد - مضادات الالتهاب تزيد خطر النزيف والقرحة."
+ },
+ {
+  "drug_a": "Warfarin",
+  "drug_b": "Diclofenac",
+  "severity": "severe",
+  "message_en": "Warfarin + Diclofenac: severe bleeding risk.",
+  "message_ar": "وارفارين + ديكلوفيناك: خطر نزيف شديد."
+ },
+ {
+  "drug_a": "Warfarin",
+  "drug_b": "Naproxen",
+  "severity": "severe",
+  "message_en": "Warfarin + Naproxen: severe bleeding risk.",
+  "message_ar": "وارفارين + نابروكسين: خطر نزيف شديد."
+ },
+ {
+  "drug_a": "Warfarin",
+  "drug_b": "Aspirin",
+  "severity": "severe",
+  "message_en": "Warfarin + Aspirin: severe bleeding risk - dual anticoagulant effect.",
+  "message_ar": "وارفارين + أسبرين: خطر نزيف شديد - تأثير مضاد تخثر مزدوج."
+ },
+ {
+  "drug_a": "Warfarin",
+  "drug_b": "Amoxicillin",
+  "severity": "severe",
+  "message_en": "Warfarin + Amoxicillin: INR may rise sharply - bleeding risk. Monitor INR.",
+  "message_ar": "وارفارين + أموكسيسيلين: قد يرتفع INR بشدة - خطر نزيف. راقب INR."
+ },
+ {
+  "drug_a": "Warfarin",
+  "drug_b": "Metronidazole",
+  "severity": "severe",
+  "message_en": "Warfarin + Metronidazole: INR rises significantly - bleeding risk.",
+  "message_ar": "وارفارين + ميترونيدازول: يرتفع INR بشدة - خطر نزيف."
+ },
+ {
+  "drug_a": "Warfarin",
+  "drug_b": "Azithromycin",
+  "severity": "moderate",
+  "message_en": "Warfarin + Azithromycin: INR may increase - monitor INR.",
+  "message_ar": "وارفارين + أزيثرومايسين: قد يرتفع INR - راقب INR."
+ },
+ {
+  "drug_a": "Warfarin",
+  "drug_b": "Doxycycline",
+  "severity": "moderate",
+  "message_en": "Warfarin + Doxycycline: INR may increase - monitor INR.",
+  "message_ar": "وارفارين + دوكسيسيكلين: قد يرتفع INR - راقب INR."
+ },
+ {
+  "drug_a": "Warfarin",
+  "drug_b": "Clindamycin",
+  "severity": "moderate",
+  "message_en": "Warfarin + Clindamycin: INR may change - monitor INR.",
+  "message_ar": "وارفارين + كليندامايسين: قد يتغير INR - راقب INR."
+ },
+ {
+  "drug_a": "Clopidogrel",
+  "drug_b": "Ibuprofen",
+  "severity": "severe",
+  "message_en": "Clopidogrel + Ibuprofen: severe bleeding risk.",
+  "message_ar": "كلوبيدوغريل + إيبوبروفين: خطر نزيف شديد."
+ },
+ {
+  "drug_a": "Clopidogrel",
+  "drug_b": "Diclofenac",
+  "severity": "severe",
+  "message_en": "Clopidogrel + Diclofenac: severe bleeding risk.",
+  "message_ar": "كلوبيدوغريل + ديكلوفيناك: خطر نزيف شديد."
+ },
+ {
+  "drug_a": "Clopidogrel",
+  "drug_b": "Aspirin",
+  "severity": "moderate",
+  "message_en": "Clopidogrel + Aspirin: increased bleeding risk (dual antiplatelet).",
+  "message_ar": "كلوبيدوغريل + أسبرين: زيادة خطر النزيف (مضادا صفيحات معاً)."
+ },
+ {
+  "drug_a": "Methotrexate",
+  "drug_b": "Ibuprofen",
+  "severity": "severe",
+  "message_en": "Methotrexate + Ibuprofen: NSAIDs reduce methotrexate clearance - toxicity risk.",
+  "message_ar": "ميثوتريكسات + إيبوبروفين: مضادات الالتهاب تقلل تصفية الميثوتريكسات - خطر سمّية."
+ },
+ {
+  "drug_a": "Methotrexate",
+  "drug_b": "Diclofenac",
+  "severity": "severe",
+  "message_en": "Methotrexate + Diclofenac: toxicity risk - reduced clearance.",
+  "message_ar": "ميثوتريكسات + ديكلوفيناك: خطر سمّية - نقص التصفية."
+ },
+ {
+  "drug_a": "Methotrexate",
+  "drug_b": "Amoxicillin",
+  "severity": "moderate",
+  "message_en": "Methotrexate + Amoxicillin: penicillins may reduce methotrexate clearance.",
+  "message_ar": "ميثوتريكسات + أموكسيسيلين: البنسلينات قد تقلل تصفية الميثوتريكسات."
+ },
+ {
+  "drug_a": "Phenytoin",
+  "drug_b": "Metronidazole",
+  "severity": "moderate",
+  "message_en": "Phenytoin + Metronidazole: metronidazole raises phenytoin levels.",
+  "message_ar": "فينيتوين + ميترونيدازول: الميترونيدازول يرفع مستويات الفينيتوين."
+ },
+ {
+  "drug_a": "Phenytoin",
+  "drug_b": "Fluconazole",
+  "severity": "moderate",
+  "message_en": "Phenytoin + Fluconazole: fluconazole raises phenytoin levels.",
+  "message_ar": "فينيتوين + فلوكونازول: الفلوكونازول يرفع مستويات الفينيتوين."
+ },
+ {
+  "drug_a": "Lisinopril",
+  "drug_b": "Ibuprofen",
+  "severity": "moderate",
+  "message_en": "Lisinopril + Ibuprofen: reduced blood-pressure control and kidney risk.",
+  "message_ar": "ليزينوبريل + إيبوبروفين: ضعف ضبط الضغط وخطر كلوي."
+ },
+ {
+  "drug_a": "Lisinopril",
+  "drug_b": "Diclofenac",
+  "severity": "moderate",
+  "message_en": "Lisinopril + Diclofenac: reduced blood-pressure control and kidney risk.",
+  "message_ar": "ليزينوبريل + ديكلوفيناك: ضعف ضبط الضغط وخطر كلوي."
+ },
+ {
+  "drug_a": "Aspirin",
+  "drug_b": "Ibuprofen",
+  "severity": "moderate",
+  "message_en": "Aspirin + Ibuprofen: ibuprofen blocks aspirin's antiplatelet effect and raises GI bleed risk.",
+  "message_ar": "أسبرين + إيبوبروفين: الإيبوبروفين يمنع تأثير الأسبرين المضاد للصفيحات ويزيد خطر نزيف المعدة."
+ },
+ {
+  "drug_a": "Amoxicillin",
+  "drug_b": "Allopurinol",
+  "severity": "moderate",
+  "message_en": "Amoxicillin + Allopurinol: increased risk of skin rash.",
+  "message_ar": "أموكسيسيلين + ألوبيورينول: زيادة خطر الطفح الجلدي."
+ },
+ {
+  "drug_a": "Metformin",
+  "drug_b": "Ibuprofen",
+  "severity": "moderate",
+  "message_en": "Metformin + Ibuprofen: NSAIDs may impair kidney function - lactic acidosis risk.",
+  "message_ar": "ميتفورمين + إيبوبروفين: مضادات الالتهاب قد تضعف وظيفة الكلى - خطر الحماض اللبني."
+ },
+ {
+  "drug_a": "Metformin",
+  "drug_b": "Prednisolone",
+  "severity": "moderate",
+  "message_en": "Metformin + Prednisolone: steroids raise blood sugar - monitor glucose.",
+  "message_ar": "ميتفورمين + بريدنيزولون: الستيرويدات ترفع سكر الدم - راقب السكر."
+ },
+ {
+  "drug_a": "Insulin Glargine",
+  "drug_b": "Prednisolone",
+  "severity": "moderate",
+  "message_en": "Insulin + Prednisolone: steroids raise blood sugar - adjust insulin dose.",
+  "message_ar": "أنسولين + بريدنيزولون: الستيرويدات ترفع سكر الدم - عدّل جرعة الأنسولين."
+ },
+ {
+  "drug_a": "Prednisolone",
+  "drug_b": "Ibuprofen",
+  "severity": "moderate",
+  "message_en": "Prednisolone + Ibuprofen: increased GI ulcer and bleeding risk.",
+  "message_ar": "بريدنيزولون + إيبوبروفين: زيادة خطر قرحة ونزيف المعدة."
+ },
+ {
+  "drug_a": "Dexamethasone",
+  "drug_b": "Ibuprofen",
+  "severity": "moderate",
+  "message_en": "Dexamethasone + Ibuprofen: increased GI ulcer and bleeding risk.",
+  "message_ar": "ديكساميثازون + إيبوبروفين: زيادة خطر قرحة ونزيف المعدة."
+ },
+ {
+  "drug_a": "Atorvastatin",
+  "drug_b": "Erythromycin",
+  "severity": "moderate",
+  "message_en": "Atorvastatin + Erythromycin: higher statin levels - muscle pain / rhabdomyolysis risk.",
+  "message_ar": "أتورفاستاتين + إريثرومايسين: ارتفاع مستويات الستاتين - خطر ألم عضلي."
+ },
+ {
+  "drug_a": "Carbamazepine",
+  "drug_b": "Erythromycin",
+  "severity": "severe",
+  "message_en": "Carbamazepine + Erythromycin: erythromycin raises carbamazepine to toxic levels.",
+  "message_ar": "كاربامازيبين + إريثرومايسين: الإريثرومايسين يرفع الكاربامازيبين لمستويات سامة."
+ },
+ {
+  "drug_a": "Carbamazepine",
+  "drug_b": "Fluconazole",
+  "severity": "moderate",
+  "message_en": "Carbamazepine + Fluconazole: fluconazole raises carbamazepine levels.",
+  "message_ar": "كاربامازيبين + فلوكونازول: الفلوكونازول يرفع مستويات الكاربامازيبين."
+ },
+ {
+  "drug_a": "Levothyroxine",
+  "drug_b": "Omeprazole",
+  "severity": "moderate",
+  "message_en": "Levothyroxine + Omeprazole: PPI reduces levothyroxine absorption.",
+  "message_ar": "ليفوثيروكسين + أوميبرازول: مثبطات الحموضة تقلل امتصاص الليفوثيروكسين."
+ },
+ {
+  "drug_a": "Glibenclamide",
+  "drug_b": "Fluconazole",
+  "severity": "moderate",
+  "message_en": "Glibenclamide + Fluconazole: fluconazole raises hypoglycaemia risk.",
+  "message_ar": "غليبينكلاميد + فلوكونازول: الفلوكونازول يزيد خطر انخفاض السكر."
+ },
+ {
+  "drug_a": "Atenolol",
+  "drug_b": "Ibuprofen",
+  "severity": "moderate",
+  "message_en": "Atenolol + Ibuprofen: NSAIDs reduce blood-pressure control.",
+  "message_ar": "أتينولول + إيبوبروفين: مضادات الالتهاب تضعف ضبط الضغط."
+ },
+ {
+  "drug_a": "Omeprazole",
+  "drug_b": "Clopidogrel",
+  "severity": "moderate",
+  "message_en": "Omeprazole + Clopidogrel: PPI reduces clopidogrel activation.",
+  "message_ar": "أوميبرازول + كلوبيدوغريل: مثبط الحموضة يقلل تفعيل الكلوبيدوغريل."
+ },
+ {
+  "drug_a": "Clindamycin",
+  "drug_b": "Erythromycin",
+  "severity": "moderate",
+  "message_en": "Clindamycin + Erythromycin: antagonistic - do not combine.",
+  "message_ar": "كليندامايسين + إريثرومايسين: تضاد - لا يجوز الجمع."
+ },
+ {
+  "drug_a": "Amlodipine",
+  "drug_b": "Clarithromycin",
+  "severity": "moderate",
+  "message_en": "Amlodipine + Clarithromycin: low blood pressure risk.",
+  "message_ar": "أملوديبين + كلاريثرومايسين: خطر انخفاض الضغط."
+ },
+ {
+  "drug_a": "Warfarin",
+  "drug_b": "NSAID",
+  "severity": "severe",
+  "message_en": "Warfarin + NSAID: severe bleeding risk.",
+  "message_ar": "وارفارين + مضاد التهاب غير ستيرويدي: خطر نزيف شديد."
+ },
+ {
+  "drug_a": "Methotrexate",
+  "drug_b": "NSAID",
+  "severity": "severe",
+  "message_en": "Methotrexate + NSAID: toxicity risk - reduced clearance.",
+  "message_ar": "ميثوتريكسات + مضاد التهاب غير ستيرويدي: خطر سمّية."
+ },
+ {
+  "drug_a": "Anticoagulant",
+  "drug_b": "NSAID",
+  "severity": "severe",
+  "message_en": "Anticoagulant + NSAID: severe bleeding risk - combined effect on clotting.",
+  "message_ar": "Anticoagulant + NSAID: خطر نزيف شديد - تأثير مشترك على التخثر."
+ },
+ {
+  "drug_a": "Anticoagulant",
+  "drug_b": "Macrolide",
+  "severity": "severe",
+  "message_en": "Anticoagulant + Macrolide: INR may rise sharply - bleeding risk.",
+  "message_ar": "Anticoagulant + Macrolide: قد يرتفع INR بشدة - خطر نزيف."
+ },
+ {
+  "drug_a": "Anticoagulant",
+  "drug_b": "Fluoroquinolone",
+  "severity": "severe",
+  "message_en": "Anticoagulant + Fluoroquinolone: INR may rise - bleeding risk, monitor INR.",
+  "message_ar": "Anticoagulant + Fluoroquinolone: قد يرتفع INR - خطر نزيف، راقب INR."
+ },
+ {
+  "drug_a": "Anticoagulant",
+  "drug_b": "Azole",
+  "severity": "severe",
+  "message_en": "Anticoagulant + Azole: Anticoagulant levels rise - bleeding risk.",
+  "message_ar": "Anticoagulant + Azole: ترتفع مستويات مضاد التخثر - خطر نزيف."
+ },
+ {
+  "drug_a": "Anticoagulant",
+  "drug_b": "Antiplatelet",
+  "severity": "severe",
+  "message_en": "Anticoagulant + Antiplatelet: severe bleeding risk - combined effect on clotting.",
+  "message_ar": "Anticoagulant + Antiplatelet: خطر نزيف شديد - تأثير مشترك على التخثر."
+ },
+ {
+  "drug_a": "Anticoagulant",
+  "drug_b": "SSRI",
+  "severity": "moderate",
+  "message_en": "Anticoagulant + SSRI: Increased bleeding risk with SSRI.",
+  "message_ar": "Anticoagulant + SSRI: زيادة خطر النزيف مع مثبطات السيروتونين."
+ },
+ {
+  "drug_a": "Anticoagulant",
+  "drug_b": "Corticosteroid",
+  "severity": "moderate",
+  "message_en": "Anticoagulant + Corticosteroid: Increased GI bleeding risk.",
+  "message_ar": "Anticoagulant + Corticosteroid: زيادة خطر نزيف المعدة."
+ },
+ {
+  "drug_a": "Statin",
+  "drug_b": "Macrolide",
+  "severity": "severe",
+  "message_en": "Statin + Macrolide: Statin levels rise sharply - muscle damage / rhabdomyolysis risk.",
+  "message_ar": "Statin + Macrolide: ترتفع مستويات الستاتين بشدة - خطر تلف عضلي."
+ },
+ {
+  "drug_a": "Statin",
+  "drug_b": "Azole",
+  "severity": "severe",
+  "message_en": "Statin + Azole: Statin levels rise sharply - muscle damage risk.",
+  "message_ar": "Statin + Azole: ترتفع مستويات الستاتين بشدة - خطر تلف عضلي."
+ },
+ {
+  "drug_a": "Statin",
+  "drug_b": "Fibrate",
+  "severity": "moderate",
+  "message_en": "Statin + Fibrate: Combined muscle toxicity risk.",
+  "message_ar": "Statin + Fibrate: خطر سمّية عضلية مشتركة."
+ },
+ {
+  "drug_a": "Statin",
+  "drug_b": "Fluoroquinolone",
+  "severity": "moderate",
+  "message_en": "Statin + Fluoroquinolone: Increased muscle / tendon risk.",
+  "message_ar": "Statin + Fluoroquinolone: زيادة خطر العضلات والأوتار."
+ },
+ {
+  "drug_a": "SSRI",
+  "drug_b": "NSAID",
+  "severity": "moderate",
+  "message_en": "SSRI + NSAID: Increased bleeding risk (SSRI + NSAID).",
+  "message_ar": "SSRI + NSAID: زيادة خطر النزيف."
+ },
+ {
+  "drug_a": "SSRI",
+  "drug_b": "Tramadol",
+  "severity": "severe",
+  "message_en": "SSRI + Tramadol: Serotonin syndrome risk - do not combine.",
+  "message_ar": "SSRI + Tramadol: خطر متلازمة السيروتونين - لا يجوز الجمع."
+ },
+ {
+  "drug_a": "SSRI",
+  "drug_b": "MAOI",
+  "severity": "severe",
+  "message_en": "SSRI + MAOI: Serotonin syndrome - absolutely contraindicated.",
+  "message_ar": "SSRI + MAOI: متلازمة السيروتونين - ممنوع تماماً."
+ },
+ {
+  "drug_a": "SSRI",
+  "drug_b": "TCA",
+  "severity": "moderate",
+  "message_en": "SSRI + TCA: Increased serotonin / cardiac effects.",
+  "message_ar": "SSRI + TCA: زيادة تأثيرات السيروتونين والقلب."
+ },
+ {
+  "drug_a": "SSRI",
+  "drug_b": "Antiplatelet",
+  "severity": "moderate",
+  "message_en": "SSRI + Antiplatelet: Increased bleeding risk.",
+  "message_ar": "SSRI + Antiplatelet: زيادة خطر النزيف."
+ },
+ {
+  "drug_a": "SNRI",
+  "drug_b": "Tramadol",
+  "severity": "severe",
+  "message_en": "SNRI + Tramadol: Serotonin syndrome risk.",
+  "message_ar": "SNRI + Tramadol: خطر متلازمة السيروتونين."
+ },
+ {
+  "drug_a": "MAOI",
+  "drug_b": "Opioid",
+  "severity": "severe",
+  "message_en": "MAOI + Opioid: Serotonin syndrome / severe CNS effects.",
+  "message_ar": "MAOI + Opioid: متلازمة السيروتونين / تأثيرات شديدة."
+ },
+ {
+  "drug_a": "MAOI",
+  "drug_b": "TCA",
+  "severity": "severe",
+  "message_en": "MAOI + TCA: Serotonin syndrome / hypertensive crisis.",
+  "message_ar": "MAOI + TCA: متلازمة السيروتونين / أزمة ارتفاع ضغط."
+ },
+ {
+  "drug_a": "Methotrexate",
+  "drug_b": "Penicillin",
+  "severity": "moderate",
+  "message_en": "Methotrexate + Penicillin: Penicillins reduce methotrexate clearance.",
+  "message_ar": "Methotrexate + Penicillin: البنسلينات تقلل تصفية الميثوتريكسات."
+ },
+ {
+  "drug_a": "Methotrexate",
+  "drug_b": "Fluoroquinolone",
+  "severity": "moderate",
+  "message_en": "Methotrexate + Fluoroquinolone: Reduced methotrexate clearance - toxicity.",
+  "message_ar": "Methotrexate + Fluoroquinolone: نقص تصفية الميثوتريكسات - سمّية."
+ },
+ {
+  "drug_a": "Methotrexate",
+  "drug_b": "Sulfonamide",
+  "severity": "severe",
+  "message_en": "Methotrexate + Sulfonamide: Bone marrow suppression risk.",
+  "message_ar": "Methotrexate + Sulfonamide: خطر كبت نقي العظم."
+ },
+ {
+  "drug_a": "Methotrexate",
+  "drug_b": "Corticosteroid",
+  "severity": "moderate",
+  "message_en": "Methotrexate + Corticosteroid: Increased infection risk.",
+  "message_ar": "Methotrexate + Corticosteroid: زيادة خطر العدوى."
+ },
+ {
+  "drug_a": "Lithium",
+  "drug_b": "NSAID",
+  "severity": "severe",
+  "message_en": "Lithium + NSAID: Lithium levels rise to toxic range.",
+  "message_ar": "Lithium + NSAID: ترتفع مستويات الليثيوم إلى المدى السام."
+ },
+ {
+  "drug_a": "Lithium",
+  "drug_b": "Diuretic",
+  "severity": "severe",
+  "message_en": "Lithium + Diuretic: Lithium levels rise to toxic range.",
+  "message_ar": "Lithium + Diuretic: ترتفع مستويات الليثيوم إلى المدى السام."
+ },
+ {
+  "drug_a": "Lithium",
+  "drug_b": "ACE-I",
+  "severity": "severe",
+  "message_en": "Lithium + ACE-I: Lithium levels rise - toxicity risk.",
+  "message_ar": "Lithium + ACE-I: ترتفع مستويات الليثيوم - خطر سمّية."
+ },
+ {
+  "drug_a": "Lithium",
+  "drug_b": "ARB",
+  "severity": "moderate",
+  "message_en": "Lithium + ARB: Lithium levels may rise - monitor.",
+  "message_ar": "Lithium + ARB: قد ترتفع مستويات الليثيوم - راقب."
+ },
+ {
+  "drug_a": "Digoxin",
+  "drug_b": "Macrolide",
+  "severity": "moderate",
+  "message_en": "Digoxin + Macrolide: Digoxin levels rise - toxicity risk.",
+  "message_ar": "Digoxin + Macrolide: ترتفع مستويات الديجوكسين - خطر سمّية."
+ },
+ {
+  "drug_a": "Digoxin",
+  "drug_b": "Diuretic",
+  "severity": "moderate",
+  "message_en": "Digoxin + Diuretic: Low potassium raises digoxin toxicity risk.",
+  "message_ar": "Digoxin + Diuretic: انخفاض البوتاسيوم يزيد خطر سمّية الديجوكسين."
+ },
+ {
+  "drug_a": "Digoxin",
+  "drug_b": "Amiodarone",
+  "severity": "moderate",
+  "message_en": "Digoxin + Amiodarone: Digoxin levels rise - monitor levels.",
+  "message_ar": "Digoxin + Amiodarone: ترتفع مستويات الديجوكسين - راقب المستويات."
+ },
+ {
+  "drug_a": "Insulin",
+  "drug_b": "Fluoroquinolone",
+  "severity": "moderate",
+  "message_en": "Insulin + Fluoroquinolone: Blood sugar swings - hypoglycaemia risk.",
+  "message_ar": "Insulin + Fluoroquinolone: تقلبات سكر الدم - خطر انخفاض السكر."
+ },
+ {
+  "drug_a": "Sulfonylurea",
+  "drug_b": "Fluoroquinolone",
+  "severity": "moderate",
+  "message_en": "Sulfonylurea + Fluoroquinolone: Hypoglycaemia risk.",
+  "message_ar": "Sulfonylurea + Fluoroquinolone: خطر انخفاض سكر الدم."
+ },
+ {
+  "drug_a": "Sulfonylurea",
+  "drug_b": "Azole",
+  "severity": "moderate",
+  "message_en": "Sulfonylurea + Azole: Hypoglycaemia risk - azole raises sulfonylurea levels.",
+  "message_ar": "Sulfonylurea + Azole: خطر انخفاض السكر."
+ },
+ {
+  "drug_a": "Insulin",
+  "drug_b": "BetaBlocker",
+  "severity": "moderate",
+  "message_en": "Insulin + BetaBlocker: Beta-blockers mask hypoglycaemia symptoms.",
+  "message_ar": "Insulin + BetaBlocker: حاصرات بيتا تخفي أعراض انخفاض السكر."
+ },
+ {
+  "drug_a": "Sulfonylurea",
+  "drug_b": "BetaBlocker",
+  "severity": "moderate",
+  "message_en": "Sulfonylurea + BetaBlocker: Beta-blockers mask hypoglycaemia symptoms.",
+  "message_ar": "Sulfonylurea + BetaBlocker: حاصرات بيتا تخفي أعراض انخفاض السكر."
+ },
+ {
+  "drug_a": "BetaBlocker",
+  "drug_b": "CCB",
+  "severity": "severe",
+  "message_en": "BetaBlocker + CCB: Severe bradycardia / heart block risk (verapamil/diltiazem).",
+  "message_ar": "BetaBlocker + CCB: خطر بطء قلب شديد / حصار قلبي."
+ },
+ {
+  "drug_a": "BetaBlocker",
+  "drug_b": "Antiarrhythmic",
+  "severity": "moderate",
+  "message_en": "BetaBlocker + Antiarrhythmic: Additive bradycardia risk.",
+  "message_ar": "BetaBlocker + Antiarrhythmic: خطر بطء قلب إضافي."
+ },
+ {
+  "drug_a": "ACE-I",
+  "drug_b": "NSAID",
+  "severity": "moderate",
+  "message_en": "ACE-I + NSAID: Reduced blood-pressure control and kidney risk.",
+  "message_ar": "ACE-I + NSAID: ضعف ضبط الضغط وخطر كلوي."
+ },
+ {
+  "drug_a": "ACE-I",
+  "drug_b": "Diuretic",
+  "severity": "moderate",
+  "message_en": "ACE-I + Diuretic: First-dose hypotension / kidney risk.",
+  "message_ar": "ACE-I + Diuretic: انخفاض ضغط / خطر كلوي."
+ },
+ {
+  "drug_a": "ARB",
+  "drug_b": "NSAID",
+  "severity": "moderate",
+  "message_en": "ARB + NSAID: Reduced blood-pressure control and kidney risk.",
+  "message_ar": "ARB + NSAID: ضعف ضبط الضغط وخطر كلوي."
+ },
+ {
+  "drug_a": "Diuretic",
+  "drug_b": "NSAID",
+  "severity": "moderate",
+  "message_en": "Diuretic + NSAID: Reduced diuretic effect and kidney risk.",
+  "message_ar": "Diuretic + NSAID: ضعف تأثير المدر وخطر كلوي."
+ },
+ {
+  "drug_a": "Diuretic",
+  "drug_b": "Corticosteroid",
+  "severity": "moderate",
+  "message_en": "Diuretic + Corticosteroid: Low potassium risk.",
+  "message_ar": "Diuretic + Corticosteroid: خطر انخفاض البوتاسيوم."
+ },
+ {
+  "drug_a": "Fluoroquinolone",
+  "drug_b": "Corticosteroid",
+  "severity": "moderate",
+  "message_en": "Fluoroquinolone + Corticosteroid: Tendon rupture risk increases.",
+  "message_ar": "Fluoroquinolone + Corticosteroid: يزيد خطر تمزق الأوتار."
+ },
+ {
+  "drug_a": "Fluoroquinolone",
+  "drug_b": "NSAID",
+  "severity": "moderate",
+  "message_en": "Fluoroquinolone + NSAID: Seizure risk increases.",
+  "message_ar": "Fluoroquinolone + NSAID: يزيد خطر النوبات."
+ },
+ {
+  "drug_a": "Tetracycline",
+  "drug_b": "Antacid",
+  "severity": "moderate",
+  "message_en": "Tetracycline + Antacid: Antacids reduce tetracycline absorption - separate doses.",
+  "message_ar": "Tetracycline + Antacid: مضادات الحموضة تقلل امتصاص التتراسيكلين - باعد الجرعات."
+ },
+ {
+  "drug_a": "Tetracycline",
+  "drug_b": "Iron Sulfate",
+  "severity": "moderate",
+  "message_en": "Tetracycline + Iron: Iron reduces tetracycline absorption.",
+  "message_ar": "Tetracycline + Iron: الحديد يقلل امتصاص التتراسيكلين."
+ },
+ {
+  "drug_a": "PPI",
+  "drug_b": "Clopidogrel",
+  "severity": "moderate",
+  "message_en": "PPI + Clopidogrel: PPI reduces clopidogrel activation.",
+  "message_ar": "PPI + Clopidogrel: مثبط الحموضة يقلل تفعيل الكلوبيدوغريل."
+ },
+ {
+  "drug_a": "Macrolide",
+  "drug_b": "CCB",
+  "severity": "moderate",
+  "message_en": "Macrolide + CCB: Low blood pressure risk.",
+  "message_ar": "Macrolide + CCB: خطر انخفاض الضغط."
+ },
+ {
+  "drug_a": "Macrolide",
+  "drug_b": "Antiepileptic",
+  "severity": "severe",
+  "message_en": "Macrolide + Antiepileptic: Macrolides raise carbamazepine/phenytoin to toxic levels.",
+  "message_ar": "Macrolide + Antiepileptic: الماكروليدات ترفع الكاربامازيبين لمستويات سامة."
+ },
+ {
+  "drug_a": "Azole",
+  "drug_b": "Antiepileptic",
+  "severity": "moderate",
+  "message_en": "Azole + Antiepileptic: Azoles raise antiepileptic levels.",
+  "message_ar": "Azole + Antiepileptic: الأزولات ترفع مستويات مضادات الصرع."
+ },
+ {
+  "drug_a": "Opioid",
+  "drug_b": "Benzodiazepine",
+  "severity": "severe",
+  "message_en": "Opioid + Benzodiazepine: Respiratory depression risk - do not combine without supervision.",
+  "message_ar": "Opioid + Benzodiazepine: خطر تثبيط التنفس - لا يجمع بدون إشراف."
+ },
+ {
+  "drug_a": "Opioid",
+  "drug_b": "Sedative",
+  "severity": "severe",
+  "message_en": "Opioid + Sedative: Respiratory depression risk.",
+  "message_ar": "Opioid + Sedative: خطر تثبيط التنفس."
+ },
+ {
+  "drug_a": "Tramadol",
+  "drug_b": "TCA",
+  "severity": "severe",
+  "message_en": "Tramadol + TCA: Seizure and serotonin syndrome risk.",
+  "message_ar": "Tramadol + TCA: خطر نوبات ومتلازمة سيروتونين."
+ },
+ {
+  "drug_a": "Corticosteroid",
+  "drug_b": "NSAID",
+  "severity": "moderate",
+  "message_en": "Corticosteroid + NSAID: Increased GI ulcer and bleeding risk.",
+  "message_ar": "Corticosteroid + NSAID: زيادة خطر قرحة ونزيف المعدة."
+ },
+ {
+  "drug_a": "Corticosteroid",
+  "drug_b": "Diabetes",
+  "severity": "moderate",
+  "message_en": "Corticosteroid + Diabetes: Steroids raise blood sugar - monitor glucose.",
+  "message_ar": "Corticosteroid + Diabetes: الستيرويدات ترفع سكر الدم - راقب السكر."
+ },
+ {
+  "drug_a": "Cephalosporin",
+  "drug_b": "Anticoagulant",
+  "severity": "moderate",
+  "message_en": "Cephalosporin + Anticoagulant: Bleeding risk may increase.",
+  "message_ar": "Cephalosporin + Anticoagulant: قد يزيد خطر النزيف."
+ },
+ {
+  "drug_a": "Sulfonamide",
+  "drug_b": "Anticoagulant",
+  "severity": "moderate",
+  "message_en": "Sulfonamide + Anticoagulant: Bleeding risk - monitor INR.",
+  "message_ar": "Sulfonamide + Anticoagulant: خطر نزيف - راقب INR."
+ },
+ {
+  "drug_a": "Sulfonamide",
+  "drug_b": "Sulfonylurea",
+  "severity": "moderate",
+  "message_en": "Sulfonamide + Sulfonylurea: Hypoglycaemia risk.",
+  "message_ar": "Sulfonamide + Sulfonylurea: خطر انخفاض السكر."
+ },
+ {
+  "drug_a": "Antiplatelet",
+  "drug_b": "NSAID",
+  "severity": "severe",
+  "message_en": "Antiplatelet + NSAID: severe bleeding risk - combined effect on clotting.",
+  "message_ar": "Antiplatelet + NSAID: خطر نزيف شديد - تأثير مشترك على التخثر."
+ },
+ {
+  "drug_a": "Immunosuppressant",
+  "drug_b": "Azole",
+  "severity": "moderate",
+  "message_en": "Immunosuppressant + Azole: Immunosuppressant levels rise - monitor.",
+  "message_ar": "Immunosuppressant + Azole: ترتفع مستويات مثبط المناعة - راقب."
+ },
+ {
+  "drug_a": "Immunosuppressant",
+  "drug_b": "Macrolide",
+  "severity": "moderate",
+  "message_en": "Immunosuppressant + Macrolide: Immunosuppressant levels rise - monitor.",
+  "message_ar": "Immunosuppressant + Macrolide: ترتفع مستويات مثبط المناعة - راقب."
+ },
+ {
+  "drug_a": "Immunosuppressant",
+  "drug_b": "NSAID",
+  "severity": "moderate",
+  "message_en": "Immunosuppressant + NSAID: Kidney risk increases.",
+  "message_ar": "Immunosuppressant + NSAID: يزيد الخطر الكلوي."
+ },
+ {
+  "drug_a": "Thyroid",
+  "drug_b": "PPI",
+  "severity": "moderate",
+  "message_en": "Thyroid + PPI: PPI reduces levothyroxine absorption.",
+  "message_ar": "Thyroid + PPI: مثبط الحموضة يقلل امتصاص الليفوثيروكسين."
+ },
+ {
+  "drug_a": "Thyroid",
+  "drug_b": "Iron Sulfate",
+  "severity": "moderate",
+  "message_en": "Thyroid + Iron: Iron reduces levothyroxine absorption - separate doses.",
+  "message_ar": "Thyroid + Iron: الحديد يقلل امتصاص الليفوثيروكسين - باعد الجرعات."
+ },
+ {
+  "drug_a": "Thyroid",
+  "drug_b": "Calcium Carbonate",
+  "severity": "moderate",
+  "message_en": "Thyroid + Calcium: Calcium reduces levothyroxine absorption.",
+  "message_ar": "Thyroid + Calcium: الكالسيوم يقلل امتصاص الليفوثيروكسين."
+ },
+ {
+  "drug_a": "Allopurinol",
+  "drug_b": "Penicillin",
+  "severity": "moderate",
+  "message_en": "Allopurinol + Penicillin: Increased risk of skin rash.",
+  "message_ar": "Allopurinol + Penicillin: زيادة خطر الطفح الجلدي."
+ },
+ {
+  "drug_a": "Allopurinol",
+  "drug_b": "Azathioprine",
+  "severity": "severe",
+  "message_en": "Allopurinol + Azathioprine: Bone marrow suppression - reduce azathioprine dose.",
+  "message_ar": "Allopurinol + Azathioprine: كبت نقي العظم - قلل جرعة الأزاثيوبرين."
+ },
+ {
+  "drug_a": "Colchicine",
+  "drug_b": "Macrolide",
+  "severity": "severe",
+  "message_en": "Colchicine + Macrolide: Colchicine toxicity risk.",
+  "message_ar": "Colchicine + Macrolide: خطر سمّية الكولشيسين."
+ },
+ {
+  "drug_a": "Colchicine",
+  "drug_b": "Statin",
+  "severity": "moderate",
+  "message_en": "Colchicine + Statin: Muscle toxicity risk.",
+  "message_ar": "Colchicine + Statin: خطر سمّية عضلية."
+ },
+ {
+  "drug_a": "Nitrate",
+  "drug_b": "PDE5",
+  "severity": "severe",
+  "message_en": "Nitrate + PDE5: Severe hypotension - contraindicated (sildenafil).",
+  "message_ar": "Nitrate + PDE5: انخفاض ضغط شديد - ممنوع."
+ },
+ {
+  "drug_a": "Amiodarone",
+  "drug_b": "Fluoroquinolone",
+  "severity": "moderate",
+  "message_en": "Amiodarone + Fluoroquinolone: QT prolongation risk.",
+  "message_ar": "Amiodarone + Fluoroquinolone: خطر إطالة QT."
+ },
+ {
+  "drug_a": "Macrolide",
+  "drug_b": "Fluoroquinolone",
+  "severity": "moderate",
+  "message_en": "Macrolide + Fluoroquinolone: QT prolongation risk.",
+  "message_ar": "Macrolide + Fluoroquinolone: خطر إطالة QT."
+ },
+ {
+  "drug_a": "Antiepileptic",
+  "drug_b": "Contraceptive",
+  "severity": "moderate",
+  "message_en": "Antiepileptic + Contraceptive: Antiepileptics reduce contraceptive efficacy.",
+  "message_ar": "Antiepileptic + Contraceptive: مضادات الصرع تقلل فعالية موانع الحمل."
+ },
+ {
+  "drug_a": "Contraceptive",
+  "drug_b": "Antibiotic",
+  "severity": "moderate",
+  "message_en": "Contraceptive + Antibiotic: Some antibiotics may reduce contraceptive efficacy - use backup.",
+  "message_ar": "Contraceptive + Antibiotic: بعض المضادات قد تقلل فعالية موانع الحمل - استخدم وسيلة احتياطية."
+ },
+ {
+  "drug_a": "Rivaroxaban",
+  "drug_b": "NSAID",
+  "severity": "severe",
+  "message_en": "Rivaroxaban + NSAID: severe bleeding risk - combined effect on clotting.",
+  "message_ar": "Rivaroxaban + NSAID: خطر نزيف شديد - تأثير مشترك على التخثر."
+ },
+ {
+  "drug_a": "Apixaban",
+  "drug_b": "Ibuprofen",
+  "severity": "severe",
+  "message_en": "Apixaban + Ibuprofen: severe bleeding risk - combined effect on clotting.",
+  "message_ar": "Apixaban + Ibuprofen: خطر نزيف شديد - تأثير مشترك على التخثر."
+ },
+ {
+  "drug_a": "Dabigatran",
+  "drug_b": "NSAID",
+  "severity": "severe",
+  "message_en": "Dabigatran + NSAID: severe bleeding risk - combined effect on clotting.",
+  "message_ar": "Dabigatran + NSAID: خطر نزيف شديد - تأثير مشترك على التخثر."
+ },
+ {
+  "drug_a": "Clarithromycin",
+  "drug_b": "Atorvastatin",
+  "severity": "severe",
+  "message_en": "Clarithromycin + Atorvastatin: Statin levels rise - muscle damage risk.",
+  "message_ar": "Clarithromycin + Atorvastatin: ترتفع مستويات الستاتين - خطر تلف عضلي."
+ },
+ {
+  "drug_a": "Sertraline",
+  "drug_b": "Tramadol",
+  "severity": "severe",
+  "message_en": "Sertraline + Tramadol: Serotonin syndrome risk.",
+  "message_ar": "Sertraline + Tramadol: خطر متلازمة السيروتونين."
+ },
+ {
+  "drug_a": "Fluoxetine",
+  "drug_b": "Tramadol",
+  "severity": "severe",
+  "message_en": "Fluoxetine + Tramadol: Serotonin syndrome risk.",
+  "message_ar": "Fluoxetine + Tramadol: خطر متلازمة السيروتونين."
+ },
+ {
+  "drug_a": "Venlafaxine",
+  "drug_b": "Tramadol",
+  "severity": "severe",
+  "message_en": "Venlafaxine + Tramadol: Serotonin syndrome risk.",
+  "message_ar": "Venlafaxine + Tramadol: خطر متلازمة السيروتونين."
+ },
+ {
+  "drug_a": "Amitriptyline",
+  "drug_b": "Tramadol",
+  "severity": "severe",
+  "message_en": "Amitriptyline + Tramadol: Seizure and serotonin syndrome risk.",
+  "message_ar": "Amitriptyline + Tramadol: خطر نوبات ومتلازمة سيروتونين."
+ },
+ {
+  "drug_a": "Verapamil",
+  "drug_b": "Metoprolol",
+  "severity": "severe",
+  "message_en": "Verapamil + Metoprolol: Severe bradycardia / heart block risk.",
+  "message_ar": "Verapamil + Metoprolol: خطر بطء قلب شديد / حصار قلبي."
+ },
+ {
+  "drug_a": "Diltiazem",
+  "drug_b": "Atenolol",
+  "severity": "severe",
+  "message_en": "Diltiazem + Atenolol: Severe bradycardia / heart block risk.",
+  "message_ar": "Diltiazem + Atenolol: خطر بطء قلب شديد / حصار قلبي."
+ },
+ {
+  "drug_a": "Furosemide",
+  "drug_b": "Digoxin",
+  "severity": "moderate",
+  "message_en": "Furosemide + Digoxin: Low potassium raises digoxin toxicity.",
+  "message_ar": "Furosemide + Digoxin: انخفاض البوتاسيوم يزيد سمّية الديجوكسين."
+ },
+ {
+  "drug_a": "Hydrochlorothiazide",
+  "drug_b": "Lithium",
+  "severity": "severe",
+  "message_en": "Hydrochlorothiazide + Lithium: Lithium toxicity risk.",
+  "message_ar": "Hydrochlorothiazide + Lithium: خطر سمّية الليثيوم."
+ },
+ {
+  "drug_a": "Spironolactone",
+  "drug_b": "Lisinopril",
+  "severity": "moderate",
+  "message_en": "Spironolactone + Lisinopril: Hyperkalaemia risk.",
+  "message_ar": "Spironolactone + Lisinopril: خطر ارتفاع البوتاسيوم."
+ },
+ {
+  "drug_a": "Buprenorphine",
+  "drug_b": "Benzodiazepine",
+  "severity": "severe",
+  "message_en": "Buprenorphine + Benzodiazepine: Respiratory depression risk.",
+  "message_ar": "Buprenorphine + Benzodiazepine: خطر تثبيط التنفس."
+ },
+ {
+  "drug_a": "Codeine",
+  "drug_b": "Benzodiazepine",
+  "severity": "severe",
+  "message_en": "Codeine + Benzodiazepine: Respiratory depression risk.",
+  "message_ar": "Codeine + Benzodiazepine: خطر تثبيط التنفس."
+ },
+ {
+  "drug_a": "Morphine",
+  "drug_b": "Diazepam",
+  "severity": "severe",
+  "message_en": "Morphine + Diazepam: Respiratory depression risk.",
+  "message_ar": "Morphine + Diazepam: خطر تثبيط التنفس."
+ },
+ {
+  "drug_a": "Methotrexate",
+  "drug_b": "Trimethoprim",
+  "severity": "severe",
+  "message_en": "Methotrexate + Trimethoprim: additive antifolate toxicity - severe bone-marrow suppression risk. Avoid the combination.",
+  "message_ar": "ميثوتريكسات + تريميثوبريم: سمية مضادة للفولات متراكمة - خطر تثبيط شديد لنقي العظم. تجنب الجمع بينهما."
+ },
+ {
+  "drug_a": "Linezolid",
+  "drug_b": "SSRI",
+  "severity": "severe",
+  "message_en": "Linezolid + SSRI: linezolid is a reversible MAO inhibitor - serotonin syndrome risk with SSRIs. Avoid or wash out.",
+  "message_ar": "لينزوليد + مثبطات استرداد السيروتونين: اللينزوليد مثبط عكوس لأكسيداز أحادي الأمين - خطر متلازمة السيروتونين مع مثبطات استرداد السيروتونين. تجنبه أو اترك فترة غسل."
+ },
+ {
+  "drug_a": "Carbapenem",
+  "drug_b": "Valproic Acid",
+  "severity": "severe",
+  "message_en": "Carbapenem + Valproic Acid: carbapenems sharply lower valproate levels - loss of seizure control. Avoid the combination.",
+  "message_ar": "الكاربابينيمات + حمض الفالبرويك: الكاربابينيمات تخفض مستويات الفالبروات بشدة - فقدان السيطرة على النوبات. تجنب الجمع بينهما."
+ },
+ {
+  "drug_a": "Aminoglycoside",
+  "drug_b": "Diuretic",
+  "severity": "moderate",
+  "message_en": "Aminoglycoside + Diuretic: loop diuretics add to aminoglycoside ototoxicity and nephrotoxicity - monitor hearing and renal function.",
+  "message_ar": "الأمينوغليكوزيدات + مدرات البول: مدرات البول العروية تزيد سمية الأمينوغليكوزيدات على الأذن والكلى - راقب السمع ووظائف الكلى."
+ },
+ {
+  "drug_a": "Citalopram",
+  "drug_b": "Macrolide",
+  "severity": "moderate",
+  "message_en": "Citalopram + Macrolide: additive QT prolongation - arrhythmia risk. Check ECG and electrolytes.",
+  "message_ar": "سيتالوبرام + الماكروليدات: إطالة متراكمة لفترة QT - خطر اضطراب نظم القلب. افحص تخطيط القلب والشوارد."
+ },
+ {
+  "drug_a": "Citalopram",
+  "drug_b": "Fluoroquinolone",
+  "severity": "moderate",
+  "message_en": "Citalopram + Fluoroquinolone: additive QT prolongation - arrhythmia risk. Check ECG and electrolytes.",
+  "message_ar": "سيتالوبرام + الفلوروكينولونات: إطالة متراكمة لفترة QT - خطر اضطراب نظم القلب. افحص تخطيط القلب والشوارد."
+ },
+ {
+  "drug_a": "Escitalopram",
+  "drug_b": "Macrolide",
+  "severity": "moderate",
+  "message_en": "Escitalopram + Macrolide: additive QT prolongation - arrhythmia risk. Check ECG and electrolytes.",
+  "message_ar": "إسيتالوبرام + الماكروليدات: إطالة متراكمة لفترة QT - خطر اضطراب نظم القلب. افحص تخطيط القلب والشوارد."
+ },
+ {
+  "drug_a": "Escitalopram",
+  "drug_b": "Fluoroquinolone",
+  "severity": "moderate",
+  "message_en": "Escitalopram + Fluoroquinolone: additive QT prolongation - arrhythmia risk. Check ECG and electrolytes.",
+  "message_ar": "إسيتالوبرام + الفلوروكينولونات: إطالة متراكمة لفترة QT - خطر اضطراب نظم القلب. افحص تخطيط القلب والشوارد."
+ },
+ {
+  "drug_a": "Ondansetron",
+  "drug_b": "Macrolide",
+  "severity": "moderate",
+  "message_en": "Ondansetron + Macrolide: additive QT prolongation - arrhythmia risk, especially with IV dosing.",
+  "message_ar": "أوندانسيترون + الماكروليدات: إطالة متراكمة لفترة QT - خطر اضطراب نظم القلب، خاصة مع الجرعات الوريدية."
+ },
+ {
+  "drug_a": "Ondansetron",
+  "drug_b": "Fluoroquinolone",
+  "severity": "moderate",
+  "message_en": "Ondansetron + Fluoroquinolone: additive QT prolongation - arrhythmia risk, especially with IV dosing.",
+  "message_ar": "أوندانسيترون + الفلوروكينولونات: إطالة متراكمة لفترة QT - خطر اضطراب نظم القلب، خاصة مع الجرعات الوريدية."
+ },
+ {
+  "drug_a": "Ondansetron",
+  "drug_b": "Antipsychotic",
+  "severity": "moderate",
+  "message_en": "Ondansetron + Antipsychotic: additive QT prolongation - arrhythmia risk. Check ECG and electrolytes.",
+  "message_ar": "أوندانسيترون + مضادات الذهان: إطالة متراكمة لفترة QT - خطر اضطراب نظم القلب. افحص تخطيط القلب والشوارد."
+ },
+ {
+  "drug_a": "Domperidone",
+  "drug_b": "Macrolide",
+  "severity": "severe",
+  "message_en": "Domperidone + Macrolide: macrolides raise domperidone levels and prolong QT - risk of fatal arrhythmia. Combination contraindicated.",
+  "message_ar": "دومبيريدون + الماكروليدات: الماكروليدات ترفع مستويات الدومبيريدون وتطيل QT - خطر اضطراب نظم قاتل. الجمع ممنوع."
+ },
+ {
+  "drug_a": "Domperidone",
+  "drug_b": "Azole",
+  "severity": "moderate",
+  "message_en": "Domperidone + Azole: azoles raise domperidone levels and prolong QT - arrhythmia risk. Avoid strong azoles.",
+  "message_ar": "دومبيريدون + مضادات الفطريات الآزولية: مضادات الفطريات الآزولية ترفع مستويات الدومبيريدون وتطيل QT - خطر اضطراب نظم القلب. تجنب الآزولات القوية."
+ },
+ {
+  "drug_a": "Antipsychotic",
+  "drug_b": "Macrolide",
+  "severity": "moderate",
+  "message_en": "Antipsychotic + Macrolide: additive QT prolongation - arrhythmia risk. Check ECG and electrolytes.",
+  "message_ar": "مضادات الذهان + الماكروليدات: إطالة متراكمة لفترة QT - خطر اضطراب نظم القلب. افحص تخطيط القلب والشوارد."
+ },
+ {
+  "drug_a": "Antipsychotic",
+  "drug_b": "Fluoroquinolone",
+  "severity": "moderate",
+  "message_en": "Antipsychotic + Fluoroquinolone: additive QT prolongation - arrhythmia risk. Check ECG and electrolytes.",
+  "message_ar": "مضادات الذهان + الفلوروكينولونات: إطالة متراكمة لفترة QT - خطر اضطراب نظم القلب. افحص تخطيط القلب والشوارد."
+ },
+ {
+  "drug_a": "Theophylline",
+  "drug_b": "Ciprofloxacin",
+  "severity": "severe",
+  "message_en": "Theophylline + Ciprofloxacin: ciprofloxacin blocks theophylline clearance - theophylline toxicity (seizures, arrhythmia). Halve the dose or avoid.",
+  "message_ar": "ثيوفيلين + سيبروفلوكساسين: السيبروفلوكساسين يعيق تصفية الثيوفيلين - سمية الثيوفيلين (نوبات واضطراب نظم). اخفض الجرعة للنصف أو تجنبه."
+ },
+ {
+  "drug_a": "Theophylline",
+  "drug_b": "Macrolide",
+  "severity": "moderate",
+  "message_en": "Theophylline + Macrolide: macrolides reduce theophylline clearance - theophylline levels rise. Monitor levels.",
+  "message_ar": "ثيوفيلين + الماكروليدات: الماكروليدات تخفض تصفية الثيوفيلين - ترتفع مستوياته. راقب المستويات."
+ },
+ {
+  "drug_a": "Tizanidine",
+  "drug_b": "Ciprofloxacin",
+  "severity": "severe",
+  "message_en": "Tizanidine + Ciprofloxacin: ciprofloxacin multiplies tizanidine levels - profound hypotension and sedation. Combination contraindicated.",
+  "message_ar": "تيزانيدين + سيبروفلوكساسين: السيبروفلوكساسين يضاعف مستويات التيزانيدين - هبوط ضغط شديد وتخدير عميق. الجمع ممنوع."
+ },
+ {
+  "drug_a": "Isotretinoin",
+  "drug_b": "Tetracycline",
+  "severity": "severe",
+  "message_en": "Isotretinoin + Tetracycline: combined use raises intracranial pressure (benign intracranial hypertension). Avoid the combination.",
+  "message_ar": "إيزوتريتينوين + تتراسيكلين: الجمع بينهما يرفع الضغط داخل الجمجمة (فرط ضغط قحفي حميد). تجنب الجمع بينهما."
+ },
+ {
+  "drug_a": "Pseudoephedrine",
+  "drug_b": "MAOI",
+  "severity": "severe",
+  "message_en": "Pseudoephedrine + MAOI: sympathomimetic + MAOI - hypertensive crisis risk. Avoid the combination.",
+  "message_ar": "سودوإفدرين + مثبطات أكسيداز أحادي الأمين: محاكي الودي مع مثبط أكسيداز أحادي الأمين - خطر أزمة ارتفاع ضغط. تجنب الجمع بينهما."
+ },
+ {
+  "drug_a": "Methylphenidate",
+  "drug_b": "MAOI",
+  "severity": "severe",
+  "message_en": "Methylphenidate + MAOI: hypertensive crisis risk. Combination contraindicated; allow a 14-day washout.",
+  "message_ar": "ميثيل فينيدات + مثبطات أكسيداز أحادي الأمين: خطر أزمة ارتفاع ضغط. الجمع ممنوع؛ اترك فترة غسل 14 يوماً."
+ },
+ {
+  "drug_a": "Warfarin",
+  "drug_b": "Analgesic",
+  "severity": "moderate",
+  "message_en": "Warfarin + Analgesic: regular paracetamol (2 g/day or more) raises INR - bleeding risk. Monitor INR when paracetamol is used regularly.",
+  "message_ar": "وارفارين + الباراسيتامول: الباراسيتامول المنتظم (2 غ/يوم أو أكثر) يرفع INR - خطر نزيف. راقب INR عند استعمال الباراسيتامول بانتظام."
+ },
+ {
+  "drug_a": "Warfarin",
+  "drug_b": "Vitamin K",
+  "severity": "moderate",
+  "message_en": "Warfarin + Vitamin K: vitamin K antagonises warfarin - INR falls and clotting risk returns. Keep intake consistent and monitor INR.",
+  "message_ar": "وارفارين + فيتامين ك: فيتامين K يعاكس الوارفارين - ينخفض INR ويعود خطر التخثر. حافظ على تناول ثابت وراقب INR."
+ },
+ {
+  "drug_a": "PDE5",
+  "drug_b": "AlphaBlocker",
+  "severity": "moderate",
+  "message_en": "PDE5 + AlphaBlocker: additive blood-pressure lowering - postural hypotension. Start the PDE5 inhibitor at the lowest dose.",
+  "message_ar": "مثبطات فوسفودايستيراز 5 + حاصرات ألفا: خفض متراكم لضغط الدم - هبوط ضغط وضعي. ابدأ مثبط فوسفودايستيراز 5 بأقل جرعة."
+ },
+ {
+  "drug_a": "BetaBlocker",
+  "drug_b": "Bronchodilator",
+  "severity": "moderate",
+  "message_en": "BetaBlocker + Bronchodilator: beta-blockers antagonise bronchodilators and can worsen bronchospasm - prefer cardioselective agents.",
+  "message_ar": "حاصرات بيتا + موسعات القصبات: حاصرات بيتا تعاكس موسعات القصبات وقد تفاقم التشنج القصبي - فضّل الأدوية الانتقائية للقلب."
+ },
+ {
+  "drug_a": "Levodopa",
+  "drug_b": "Antipsychotic",
+  "severity": "moderate",
+  "message_en": "Levodopa + Antipsychotic: antipsychotics block dopamine and undo levodopa's effect - Parkinson's symptoms worsen.",
+  "message_ar": "ليفودوبا + مضادات الذهان: مضادات الذهان تحجب الدوبامين وتبطل مفعول الليفودوبا - تتفاقم أعراض باركنسون."
+ },
+ {
+  "drug_a": "Epinephrine",
+  "drug_b": "BetaBlocker",
+  "severity": "moderate",
+  "message_en": "Epinephrine + BetaBlocker: non-selective beta-blockers blunt epinephrine and may leave alpha effects unopposed (hypertension) - relevant to dental local anaesthesia with adrenaline. Use the lowest effective dose.",
+  "message_ar": "إبينفرين + حاصرات بيتا: حاصرات بيتا غير الانتقائية تضعف الإبينفرين وقد تترك تأثيرات ألفا دون معاكسة (ارتفاع ضغط) - مهم في التخدير الموضعي السني مع الأدرينالين. استخدم أقل جرعة فعالة."
+ },
+ {
+  "drug_a": "Bupropion",
+  "drug_b": "Tramadol",
+  "severity": "moderate",
+  "message_en": "Bupropion + Tramadol: both lower the seizure threshold - seizure risk adds up. Use with caution.",
+  "message_ar": "بوبروبيون + ترامادول: كلاهما يخفض عتبة النوبات - يتراكم خطر النوبات. استخدم بحذر."
+ },
+ {
+  "drug_a": "Fluoroquinolone",
+  "drug_b": "Antacid",
+  "severity": "moderate",
+  "message_en": "Fluoroquinolone + Antacid: antacids chelate fluoroquinolones and block absorption - separate doses by at least 2 hours.",
+  "message_ar": "الفلوروكينولونات + مضادات الحموضة: مضادات الحموضة تخلّب الفلوروكينولونات وتمنع امتصاصها - باعد بين الجرعات ساعتين على الأقل."
+ },
+ {
+  "drug_a": "Fluoroquinolone",
+  "drug_b": "Calcium Carbonate",
+  "severity": "moderate",
+  "message_en": "Fluoroquinolone + Calcium Carbonate: calcium chelates fluoroquinolones and blocks absorption - separate doses by at least 2 hours.",
+  "message_ar": "الفلوروكينولونات + كربونات الكالسيوم: الكالسيوم يخلّب الفلوروكينولونات ويمنع امتصاصها - باعد بين الجرعات ساعتين على الأقل."
+ },
+ {
+  "drug_a": "Fluoroquinolone",
+  "drug_b": "Iron Sulfate",
+  "severity": "moderate",
+  "message_en": "Fluoroquinolone + Iron Sulfate: iron chelates fluoroquinolones and blocks absorption - separate doses by at least 2 hours.",
+  "message_ar": "الفلوروكينولونات + كبريتات الحديد: الحديد يخلّب الفلوروكينولونات ويمنع امتصاصها - باعد بين الجرعات ساعتين على الأقل."
+ },
+ {
+  "drug_a": "Tetracycline",
+  "drug_b": "Calcium Carbonate",
+  "severity": "moderate",
+  "message_en": "Tetracycline + Calcium Carbonate: calcium chelates tetracyclines and blocks absorption - separate doses by at least 2-3 hours.",
+  "message_ar": "تتراسيكلين + كربونات الكالسيوم: الكالسيوم يخلّب التتراسيكلينات ويمنع امتصاصها - باعد بين الجرعات 2-3 ساعات على الأقل."
+ },
+ {
+  "drug_a": "Allopurinol",
+  "drug_b": "ACE-I",
+  "severity": "severe",
+  "message_en": "Allopurinol + ACE-I: ACE inhibitors (notably captopril) + allopurinol - severe hypersensitivity reactions reported, especially in renal impairment. Monitor closely.",
+  "message_ar": "ألوبيورينول + مثبطات الإنزيم المحول للأنجيوتنسين: مثبطات الإنزيم المحول (خاصة الكابتوبريل) مع الألوبورينول - سُجلت تفاعلات فرط حساسية شديدة، خاصة عند قصور الكلى. راقب عن كثب."
+ },
+ {
+  "drug_a": "Metronidazole",
+  "drug_b": "Lithium",
+  "severity": "moderate",
+  "message_en": "Metronidazole + Lithium: metronidazole can raise lithium levels - lithium toxicity reported. Monitor lithium levels and renal function.",
+  "message_ar": "ميترونيدازول + ليثيوم: الميترونيدازول قد يرفع مستويات الليثيوم - سُجلت سمية ليثيوم. راقب مستويات الليثيوم ووظائف الكلى."
+ },
+ {
+  "drug_a": "Spironolactone",
+  "drug_b": "ARB",
+  "severity": "moderate",
+  "message_en": "Spironolactone + ARB: potassium retention adds up - hyperkalaemia risk. Monitor potassium and renal function.",
+  "message_ar": "سبيرونولاكتون + حاصرات مستقبلات الأنجيوتنسين: يتراكم احتباس البوتاسيوم - خطر فرط بوتاسيوم الدم. راقب البوتاسيوم ووظائف الكلى."
+ },
+ {
+  "drug_a": "Ritonavir",
+  "drug_b": "Statin",
+  "severity": "moderate",
+  "message_en": "Ritonavir + Statin: ritonavir strongly inhibits statin metabolism - myopathy/rhabdomyolysis risk. Use the lowest statin dose; simvastatin is contraindicated.",
+  "message_ar": "ريتونافير + الستاتينات: الريتونافير يثبط بقوة استقلاب الستاتينات - خطر اعتلال العضلات وانحلال الربيدات. استخدم أقل جرعة ستاتين؛ السيمفاستاتين ممنوع."
+ },
+ {
+  "drug_a": "Digoxin",
+  "drug_b": "CCB",
+  "severity": "moderate",
+  "message_en": "Digoxin + CCB: verapamil and diltiazem raise digoxin levels - digoxin toxicity risk. Monitor levels.",
+  "message_ar": "ديجوكسين + حاصرات قنوات الكالسيوم: الفيراباميل والديلتيازيم يرفعان مستويات الديجوكسين - خطر سمية الديجوكسين. راقب المستويات."
+ },
+ {
+  "drug_a": "Ciprofloxacin",
+  "drug_b": "NSAID",
+  "severity": "severe",
+  "message_en": "Ciprofloxacin + NSAID: ciprofloxacin + NSAIDs markedly increase seizure risk, especially with CNS disorders or high doses. Avoid where possible.",
+  "message_ar": "سيبروفلوكساسين + مضادات الالتهاب غير الستيرويدية: السيبروفلوكساسين مع مضادات الالتهاب يزيد خطر النوبات بشكل ملحوظ، خاصة مع اضطرابات الجهاز العصبي أو الجرعات العالية. تجنبه حيث أمكن."
+ },
+ {
+  "drug_a": "Metoclopramide",
+  "drug_b": "Levodopa",
+  "severity": "moderate",
+  "message_en": "Metoclopramide + Levodopa: metoclopramide blocks dopamine and undoes levodopa's effect - Parkinson's symptoms worsen.",
+  "message_ar": "ميتوكلوبراميد + ليفودوبا: الميتوكلوبراميد يحجب الدوبامين ويبطل مفعول الليفودوبا - تتفاقم أعراض باركنسون."
+ },
+ {
+  "drug_a": "Modafinil",
+  "drug_b": "Contraceptive",
+  "severity": "moderate",
+  "message_en": "Modafinil + Contraceptive: modafinil induces contraceptive metabolism - contraceptive failure risk. Use additional barrier protection during and 2 months after treatment.",
+  "message_ar": "مودافينيل + Contraceptive: المودافينيل يحفّز استقلاب موانع الحمل - خطر فشل منع الحمل. استخدمي حماية حاجزية إضافية أثناء العلاج وبعده بشهرين."
+ },
+ {
+  "drug_a": "Atomoxetine",
+  "drug_b": "MAOI",
+  "severity": "severe",
+  "message_en": "Atomoxetine + MAOI: atomoxetine with MAOIs risks severe cardiovascular reactions - combination contraindicated; allow a 14-day washout.",
+  "message_ar": "أتوموكسيتين + MAOI: الأتوموكسيتين مع مثبطات أكسيداز أحادي الأمين يخاطر بتفاعلات قلبية وعائية شديدة - الجمع ممنوع؛ اترك فترة غسل 14 يوماً."
+ }
+]

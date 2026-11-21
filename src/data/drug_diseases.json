@@ -1,0 +1,3423 @@
+{
+ "conditions": {
+  "pregnancy": {
+   "en": "Pregnancy",
+   "ar": "الحمل",
+   "synonyms_en": [
+    "Pregnancy",
+    "Pregnant",
+    "Gestation",
+    "Expecting"
+   ],
+   "synonyms_ar": [
+    "الحمل",
+    "حامل",
+    "حمل"
+   ]
+  },
+  "breastfeeding": {
+   "en": "Breastfeeding",
+   "ar": "الإرضاع",
+   "synonyms_en": [
+    "Breastfeeding",
+    "Lactation",
+    "Nursing mother",
+    "Breast feeding"
+   ],
+   "synonyms_ar": [
+    "الإرضاع",
+    "الرضاعة",
+    "رضاعة طبيعية",
+    "مرضعة",
+    "ترضع"
+   ]
+  },
+  "diabetes": {
+   "en": "Diabetes",
+   "ar": "داء السكري",
+   "synonyms_en": [
+    "Diabetes",
+    "Diabetes mellitus",
+    "DM",
+    "Type 1 diabetes",
+    "Type 2 diabetes",
+    "T1DM",
+    "T2DM",
+    "Diabetic"
+   ],
+   "synonyms_ar": [
+    "داء السكري",
+    "السكري",
+    "مرض السكر",
+    "مرض السكري",
+    "سكر الدم",
+    "مريض سكري"
+   ]
+  },
+  "hypertension": {
+   "en": "Hypertension",
+   "ar": "ارتفاع ضغط الدم",
+   "synonyms_en": [
+    "Hypertension",
+    "High blood pressure",
+    "HTN",
+    "Elevated blood pressure"
+   ],
+   "synonyms_ar": [
+    "ارتفاع ضغط الدم",
+    "ضغط الدم المرتفع",
+    "الضغط المرتفع",
+    "ارتفاع الضغط",
+    "مريض ضغط"
+   ]
+  },
+  "asthma_copd": {
+   "en": "Asthma / COPD",
+   "ar": "الربو والانسداد الرئوي المزمن",
+   "synonyms_en": [
+    "Asthma",
+    "COPD",
+    "Chronic obstructive pulmonary disease",
+    "Asthmatic",
+    "Emphysema",
+    "Chronic bronchitis",
+    "Bronchial asthma"
+   ],
+   "synonyms_ar": [
+    "الربو",
+    "الانسداد الرئوي",
+    "الانسداد الرئوي المزمن",
+    "مرض الانسداد الرئوي المزمن",
+    "ربو قصبي",
+    "انتفاخ الرئة",
+    "التهاب الشعب الهوائية المزمن",
+    "ضيق التنفس المزمن"
+   ]
+  },
+  "heart_disease": {
+   "en": "Heart disease",
+   "ar": "أمراض القلب",
+   "synonyms_en": [
+    "Heart disease",
+    "Cardiac disease",
+    "Cardiovascular disease",
+    "Heart condition"
+   ],
+   "synonyms_ar": [
+    "أمراض القلب",
+    "مرض القلب",
+    "مرض قلبي",
+    "أمراض القلب والأوعية الدموية"
+   ]
+  },
+  "liver_impairment": {
+   "en": "Liver disease",
+   "ar": "أمراض الكبد",
+   "synonyms_en": [
+    "Liver disease",
+    "Hepatitis",
+    "Hepatic impairment",
+    "Liver impairment",
+    "Cirrhosis",
+    "Liver failure",
+    "Fatty liver",
+    "Hepatic disease",
+    "Chronic liver disease"
+   ],
+   "synonyms_ar": [
+    "أمراض الكبد",
+    "التهاب الكبد",
+    "مرض الكبد",
+    "تليف الكبد",
+    "تشمع الكبد",
+    "قصور الكبد",
+    "فشل الكبد",
+    "الكبد الدهني",
+    "مرض كبدي مزمن"
+   ]
+  },
+  "renal_impairment": {
+   "en": "Kidney disease",
+   "ar": "أمراض الكلى",
+   "synonyms_en": [
+    "Kidney disease",
+    "Renal impairment",
+    "CKD",
+    "Chronic kidney disease",
+    "Renal failure",
+    "Kidney failure",
+    "Dialysis",
+    "End-stage renal disease",
+    "ESRD",
+    "Nephropathy"
+   ],
+   "synonyms_ar": [
+    "أمراض الكلى",
+    "مرض الكلى",
+    "الفشل الكلوي",
+    "قصور الكلى",
+    "القصور الكلوي",
+    "مرض الكلى المزمن",
+    "غسيل الكلى",
+    "اعتلال الكلى",
+    "ضعف وظائف الكلى"
+   ]
+  },
+  "thyroid_disorder": {
+   "en": "Thyroid disorder",
+   "ar": "اضطراب الغدة الدرقية",
+   "synonyms_en": [
+    "Thyroid disorder",
+    "Hypothyroidism",
+    "Hyperthyroidism",
+    "Thyroid disease",
+    "Underactive thyroid",
+    "Overactive thyroid",
+    "Hashimoto",
+    "Graves disease"
+   ],
+   "synonyms_ar": [
+    "اضطراب الغدة الدرقية",
+    "قصور الغدة الدرقية",
+    "خمول الغدة الدرقية",
+    "فرط نشاط الغدة الدرقية",
+    "نشاط الغدة الدرقية",
+    "مرض الغدة الدرقية",
+    "هاشيموتو"
+   ]
+  },
+  "epilepsy": {
+   "en": "Epilepsy",
+   "ar": "الصرع",
+   "synonyms_en": [
+    "Epilepsy",
+    "Seizure disorder",
+    "Seizures",
+    "Epileptic",
+    "Convulsions"
+   ],
+   "synonyms_ar": [
+    "الصرع",
+    "نوبات صرع",
+    "نوبات تشنج",
+    "تشنجات",
+    "مريض صرع"
+   ]
+  },
+  "bleeding_disorder": {
+   "en": "Bleeding disorder",
+   "ar": "اضطرابات النزف",
+   "synonyms_en": [
+    "Bleeding disorder",
+    "Anticoagulated",
+    "Haemophilia",
+    "Hemophilia",
+    "Thrombocytopenia",
+    "Coagulopathy",
+    "Von Willebrand disease",
+    "Low platelets",
+    "Bleeding tendency",
+    "On anticoagulants",
+    "Blood thinner"
+   ],
+   "synonyms_ar": [
+    "اضطرابات النزف",
+    "يتناول مميعات",
+    "الهيموفيليا",
+    "مميعات الدم",
+    "أدوية سيولة الدم",
+    "مسيلات الدم",
+    "نقص الصفيحات",
+    "اضطراب تخثر الدم",
+    "قابلية للنزف",
+    "سيولة الدم",
+    "فون ويلبراند",
+    "ناعور"
+   ]
+  },
+  "osteoporosis": {
+   "en": "Osteoporosis",
+   "ar": "هشاشة العظام",
+   "synonyms_en": [
+    "Osteoporosis",
+    "Osteopenia",
+    "Low bone density",
+    "Bone loss"
+   ],
+   "synonyms_ar": [
+    "هشاشة العظام",
+    "ترقق العظام",
+    "نقص كثافة العظام",
+    "وهن العظام"
+   ]
+  },
+  "rheumatoid_autoimmune": {
+   "en": "Rheumatoid arthritis",
+   "ar": "التهاب المفاصل الروماتويدي",
+   "synonyms_en": [
+    "Rheumatoid arthritis",
+    "Rheumatoid",
+    "Autoimmune disease",
+    "Lupus",
+    "SLE",
+    "Systemic lupus",
+    "Autoimmune disorder"
+   ],
+   "synonyms_ar": [
+    "التهاب المفاصل الروماتويدي",
+    "روماتويد",
+    "الروماتويد",
+    "مرض مناعي",
+    "أمراض المناعة الذاتية",
+    "الذئبة",
+    "الذئبة الحمراء"
+   ]
+  },
+  "anaemia": {
+   "en": "Anaemia",
+   "ar": "فقر الدم",
+   "synonyms_en": [
+    "Anaemia",
+    "Anemia",
+    "Low hemoglobin",
+    "Low haemoglobin",
+    "Iron deficiency",
+    "G6PD deficiency",
+    "Hemolytic anemia",
+    "Haemolytic anaemia"
+   ],
+   "synonyms_ar": [
+    "فقر الدم",
+    "الأنيميا",
+    "انخفاض الهيموغلوبين",
+    "نقص الهيموغلوبين",
+    "نقص الحديد",
+    "أنيميا الفول",
+    "عوز G6PD",
+    "فقر الدم الانحلالي"
+   ]
+  },
+  "peptic_ulcer_gi": {
+   "en": "Peptic ulcer",
+   "ar": "القرحة الهضمية",
+   "synonyms_en": [
+    "Peptic ulcer",
+    "GI bleeding",
+    "Gastritis",
+    "Gastric ulcer",
+    "Duodenal ulcer",
+    "Stomach ulcer",
+    "GERD",
+    "Gastrointestinal bleeding",
+    "Reflux",
+    "Ulcer"
+   ],
+   "synonyms_ar": [
+    "القرحة الهضمية",
+    "نزيف هضمي",
+    "التهاب المعدة",
+    "قرحة المعدة",
+    "قرحة الاثني عشر",
+    "نزيف المعدة",
+    "الارتجاع المريئي",
+    "حرقة المعدة",
+    "قرحة هضمية"
+   ]
+  },
+  "sinusitis": {
+   "en": "Sinusitis",
+   "ar": "التهاب الجيوب",
+   "synonyms_en": [
+    "Sinusitis",
+    "Sinus infection",
+    "Chronic sinusitis",
+    "Rhinosinusitis"
+   ],
+   "synonyms_ar": [
+    "التهاب الجيوب",
+    "التهاب الجيوب الأنفية",
+    "جيوب أنفية",
+    "التهاب الأنف والجيوب"
+   ]
+  },
+  "heart_failure": {
+   "en": "Heart failure",
+   "ar": "قصور القلب",
+   "synonyms_en": [
+    "Heart failure",
+    "CHF",
+    "Congestive heart failure",
+    "Cardiac failure",
+    "Ventricular dysfunction"
+   ],
+   "synonyms_ar": [
+    "قصور القلب",
+    "فشل القلب",
+    "ضعف عضلة القلب",
+    "قصور عضلة القلب",
+    "فشل عضلة القلب"
+   ]
+  },
+  "ischemic_heart_disease": {
+   "en": "Ischemic heart disease",
+   "ar": "نقص تروية القلب",
+   "synonyms_en": [
+    "Angina",
+    "Ischemic heart disease",
+    "Ischaemic heart disease",
+    "IHD",
+    "Coronary artery disease",
+    "CAD",
+    "Myocardial infarction",
+    "Heart attack",
+    "Coronary heart disease"
+   ],
+   "synonyms_ar": [
+    "ذبحة صدرية",
+    "نقص تروية القلب",
+    "احتشاء عضلة القلب",
+    "جلطة القلب",
+    "مرض الشريان التاجي",
+    "تصلب شرايين القلب",
+    "نقص التروية القلبية"
+   ]
+  },
+  "arrhythmia": {
+   "en": "Arrhythmia",
+   "ar": "اضطراب نظم القلب",
+   "synonyms_en": [
+    "Arrhythmia",
+    "Atrial fibrillation",
+    "AF",
+    "Bradycardia",
+    "Tachycardia",
+    "Irregular heartbeat",
+    "Palpitations",
+    "QT prolongation",
+    "Heart block"
+   ],
+   "synonyms_ar": [
+    "اضطراب نظم القلب",
+    "رجفان أذيني",
+    "الرجفان الأذيني",
+    "بطء ضربات القلب",
+    "تسارع ضربات القلب",
+    "خفقان القلب",
+    "عدم انتظام ضربات القلب",
+    "اضطراب ضربات القلب"
+   ]
+  },
+  "glaucoma": {
+   "en": "Glaucoma",
+   "ar": "الغلوكوما",
+   "synonyms_en": [
+    "Glaucoma",
+    "Angle-closure glaucoma",
+    "Narrow-angle glaucoma",
+    "Raised intraocular pressure",
+    "Ocular hypertension"
+   ],
+   "synonyms_ar": [
+    "الغلوكوما",
+    "الماء الأزرق",
+    "الزرق",
+    "ارتفاع ضغط العين",
+    "الماء الزرقاء"
+   ]
+  },
+  "parkinsons": {
+   "en": "Parkinson's disease",
+   "ar": "مرض باركنسون",
+   "synonyms_en": [
+    "Parkinson's disease",
+    "Parkinson disease",
+    "Parkinson",
+    "Parkinsonism"
+   ],
+   "synonyms_ar": [
+    "مرض باركنسون",
+    "الشلل الرعاش",
+    "باركنسون",
+    "مرض الرعاش"
+   ]
+  },
+  "psychiatric": {
+   "en": "Psychiatric disorder",
+   "ar": "اضطراب نفسي",
+   "synonyms_en": [
+    "Depression",
+    "Anxiety",
+    "Schizophrenia",
+    "Bipolar disorder",
+    "Psychiatric disorder",
+    "Mental illness",
+    "Psychosis",
+    "Depressive disorder",
+    "Anxiety disorder"
+   ],
+   "synonyms_ar": [
+    "الاكتئاب",
+    "القلق",
+    "الفصام",
+    "اضطراب نفسي",
+    "مرض نفسي",
+    "اضطراب ثنائي القطب",
+    "الاضطراب ثنائي القطب",
+    "ذهان",
+    "حالة نفسية"
+   ]
+  },
+  "gout": {
+   "en": "Gout",
+   "ar": "النقرس",
+   "synonyms_en": [
+    "Gout",
+    "Hyperuricemia",
+    "Hyperuricaemia",
+    "High uric acid"
+   ],
+   "synonyms_ar": [
+    "النقرس",
+    "ارتفاع حمض اليوريك",
+    "زيادة حمض البول",
+    "داء الملوك"
+   ]
+  },
+  "bph": {
+   "en": "Prostate enlargement (BPH)",
+   "ar": "تضخم البروستاتا",
+   "synonyms_en": [
+    "Prostate enlargement",
+    "BPH",
+    "Benign prostatic hyperplasia",
+    "Enlarged prostate",
+    "Prostatic hypertrophy"
+   ],
+   "synonyms_ar": [
+    "تضخم البروستاتا",
+    "تضخم البروستاتا الحميد",
+    "البروستاتا",
+    "ضخامة البروستاتا"
+   ]
+  },
+  "myasthenia_gravis": {
+   "en": "Myasthenia gravis",
+   "ar": "الوهن العضلي الوبيل",
+   "synonyms_en": [
+    "Myasthenia gravis",
+    "MG",
+    "Myasthenia"
+   ],
+   "synonyms_ar": [
+    "الوهن العضلي الوبيل",
+    "وهن عضلي",
+    "الوهن العضلي"
+   ]
+  },
+  "porphyria": {
+   "en": "Porphyria",
+   "ar": "البورفيريا",
+   "synonyms_en": [
+    "Porphyria",
+    "Acute intermittent porphyria",
+    "Acute porphyria"
+   ],
+   "synonyms_ar": [
+    "البورفيريا",
+    "بورفيريا"
+   ]
+  }
+ },
+ "class_rules": [
+  {
+   "class": "NSAID",
+   "condition": "peptic_ulcer_gi",
+   "severity": "severe",
+   "note_en": "NSAIDs can cause or aggravate peptic ulcer and GI bleeding; avoid with active ulcer or recent GI bleed.",
+   "note_ar": "مضادات الالتهاب غير الستيرويدية قد تسبب أو تفاقم القرحة الهضمية والنزف الهضمي؛ تجنبها عند وجود قرحة نشطة أو نزف هضمي حديث."
+  },
+  {
+   "class": "NSAID",
+   "condition": "renal_impairment",
+   "severity": "severe",
+   "note_en": "NSAIDs reduce renal perfusion and can precipitate renal failure; avoid in significant renal impairment.",
+   "note_ar": "مضادات الالتهاب غير الستيرويدية تخفض تروية الكلى وقد تسبب فشلاً كلوياً؛ تجنبها عند وجود قصور كلوي مهم."
+  },
+  {
+   "class": "NSAID",
+   "condition": "hypertension",
+   "severity": "moderate",
+   "note_en": "NSAIDs can raise blood pressure and blunt antihypertensive therapy; monitor BP.",
+   "note_ar": "مضادات الالتهاب غير الستيرويدية قد ترفع ضغط الدم وتضعف فعالية أدوية الضغط؛ راقب الضغط."
+  },
+  {
+   "class": "NSAID",
+   "condition": "heart_failure",
+   "severity": "severe",
+   "note_en": "NSAIDs cause fluid retention and can worsen heart failure; avoid where possible.",
+   "note_ar": "مضادات الالتهاب غير الستيرويدية تسبب احتباس السوائل وقد تفاقم قصور القلب؛ تجنبها قدر الإمكان."
+  },
+  {
+   "class": "NSAID",
+   "condition": "asthma_copd",
+   "severity": "moderate",
+   "note_en": "NSAIDs can trigger bronchospasm in aspirin/NSAID-sensitive asthma; use with caution.",
+   "note_ar": "مضادات الالتهاب غير الستيرويدية قد تثير تشنج القصبات في الربو الحساس لها؛ استخدمها بحذر."
+  },
+  {
+   "class": "NSAID",
+   "condition": "bleeding_disorder",
+   "severity": "moderate",
+   "note_en": "NSAIDs impair platelet function and increase bleeding risk, including after dental extraction.",
+   "note_ar": "مضادات الالتهاب غير الستيرويدية تضعف وظيفة الصفيحات وتزيد خطر النزف، بما فيه بعد قلع الأسنان."
+  },
+  {
+   "class": "NSAID",
+   "condition": "pregnancy",
+   "severity": "severe",
+   "note_en": "Avoid NSAIDs in pregnancy, especially the third trimester (premature ductus closure, oligohydramnios).",
+   "note_ar": "تجنب مضادات الالتهاب غير الستيرويدية أثناء الحمل، خاصة في الثلث الأخير (إغلاق مبكر للقناة الشريانية وقلة السائل الأمنيوسي)."
+  },
+  {
+   "class": "NSAID",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Use NSAIDs with caution in liver disease; risk of GI bleeding and renal deterioration.",
+   "note_ar": "استخدم مضادات الالتهاب غير الستيرويدية بحذر في أمراض الكبد؛ خطر النزف الهضمي وتدهور وظيفة الكلى."
+  },
+  {
+   "class": "NSAID",
+   "condition": "ischemic_heart_disease",
+   "severity": "moderate",
+   "note_en": "NSAIDs increase cardiovascular thrombotic risk; use the lowest dose for the shortest time.",
+   "note_ar": "مضادات الالتهاب غير الستيرويدية تزيد خطر الجلطات القلبية الوعائية؛ استخدم أقل جرعة ولأقصر مدة."
+  },
+  {
+   "class": "NSAID",
+   "condition": "anaemia",
+   "severity": "moderate",
+   "note_en": "NSAIDs can cause occult GI blood loss and worsen anaemia.",
+   "note_ar": "مضادات الالتهاب غير الستيرويدية قد تسبب فقدان دم هضمياً خفياً وتفاقم فقر الدم."
+  },
+  {
+   "class": "Penicillin",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Penicillin doses may need adjustment in severe renal impairment.",
+   "note_ar": "قد تحتاج جرعات البنسلين إلى تعديل عند وجود قصور كلوي شديد."
+  },
+  {
+   "class": "Cephalosporin",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Cephalosporin doses may need adjustment in renal impairment.",
+   "note_ar": "قد تحتاج جرعات السيفالوسبورينات إلى تعديل عند وجود قصور كلوي."
+  },
+  {
+   "class": "Macrolide",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Macrolides are hepatically metabolised and can cause liver injury; use with caution in liver disease.",
+   "note_ar": "تستقلب الماكروليدات في الكبد وقد تسبب أذية كبدية؛ استخدمها بحذر في أمراض الكبد."
+  },
+  {
+   "class": "Macrolide",
+   "condition": "arrhythmia",
+   "severity": "moderate",
+   "note_en": "Macrolides can prolong the QT interval; caution with arrhythmia or QT prolongation.",
+   "note_ar": "الماكروليدات قد تطيل فترة QT؛ الحذر عند وجود اضطراب نظم أو تطاول QT."
+  },
+  {
+   "class": "Macrolide",
+   "condition": "myasthenia_gravis",
+   "severity": "moderate",
+   "note_en": "Macrolides can exacerbate myasthenia gravis; use with caution.",
+   "note_ar": "الماكروليدات قد تفاقم الوهن العضلي الوبيل؛ استخدمها بحذر."
+  },
+  {
+   "class": "Lincosamide",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Clindamycin: use with caution and consider dose adjustment in severe liver impairment.",
+   "note_ar": "الكليندامايسين: استخدمه بحذر وفكر في تعديل الجرعة عند وجود قصور كبدي شديد."
+  },
+  {
+   "class": "Nitroimidazole",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Metronidazole is hepatically metabolised; reduce dose in severe liver impairment.",
+   "note_ar": "يستقلب الميترونيدازول في الكبد؛ خفض الجرعة عند وجود قصور كبدي شديد."
+  },
+  {
+   "class": "Nitroimidazole",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Avoid metronidazole in the first trimester where possible; use only if clearly needed.",
+   "note_ar": "تجنب الميترونيدازول في الثلث الأول من الحمل قدر الإمكان؛ استخدمه فقط عند الحاجة الواضحة."
+  },
+  {
+   "class": "Nitroimidazole",
+   "condition": "breastfeeding",
+   "severity": "moderate",
+   "note_en": "Metronidazole passes into breast milk; consider interrupting breastfeeding during treatment.",
+   "note_ar": "يمر الميترونيدازول إلى حليب الأم؛ فكر في إيقاف الإرضاع مؤقتاً أثناء العلاج."
+  },
+  {
+   "class": "Nitroimidazole",
+   "condition": "epilepsy",
+   "severity": "moderate",
+   "note_en": "Metronidazole can cause CNS effects including seizures; caution in epilepsy/CNS disease.",
+   "note_ar": "الميترونيدازول قد يسبب أعراضاً عصبية مركزية منها النوبات؛ الحذر عند وجود صرع أو مرض عصبي."
+  },
+  {
+   "class": "Tetracycline",
+   "condition": "pregnancy",
+   "severity": "severe",
+   "note_en": "Tetracyclines are contraindicated in pregnancy (fetal bone/teeth effects, maternal hepatotoxicity).",
+   "note_ar": "التتراسيكلينات ممنوعة أثناء الحمل (تأثير على عظام وأسنان الجنين وسمية كبدية للأم)."
+  },
+  {
+   "class": "Tetracycline",
+   "condition": "breastfeeding",
+   "severity": "moderate",
+   "note_en": "Tetracyclines pass into breast milk and may affect infant teeth/bones; avoid prolonged use.",
+   "note_ar": "تمر التتراسيكلينات إلى حليب الأم وقد تؤثر على أسنان وعظام الرضيع؛ تجنب الاستخدام المطول."
+  },
+  {
+   "class": "Tetracycline",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Most tetracyclines accumulate in renal impairment (doxycycline is the exception — no adjustment needed).",
+   "note_ar": "تتراكم معظم التتراسيكلينات عند وجود قصور كلوي (الدوكسيسيكلين هو الاستثناء — لا يحتاج تعديل جرعة)."
+  },
+  {
+   "class": "Tetracycline",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Tetracyclines can be hepatotoxic, especially at high doses; use with caution in liver disease.",
+   "note_ar": "التتراسيكلينات قد تكون سامة للكبد خاصة بالجرعات العالية؛ استخدمها بحذر في أمراض الكبد."
+  },
+  {
+   "class": "Fluoroquinolone",
+   "condition": "epilepsy",
+   "severity": "moderate",
+   "note_en": "Fluoroquinolones lower the seizure threshold; use with caution in epilepsy.",
+   "note_ar": "الفلوروكينولونات تخفض عتبة النوبات؛ استخدمها بحذر عند وجود صرع."
+  },
+  {
+   "class": "Fluoroquinolone",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Avoid fluoroquinolones in pregnancy where possible (animal data on cartilage toxicity).",
+   "note_ar": "تجنب الفلوروكينولونات أثناء الحمل قدر الإمكان (بيانات حيوانية عن سمية الغضاريف)."
+  },
+  {
+   "class": "Fluoroquinolone",
+   "condition": "myasthenia_gravis",
+   "severity": "moderate",
+   "note_en": "Fluoroquinolones may exacerbate muscle weakness in myasthenia gravis; avoid where possible.",
+   "note_ar": "الفلوروكينولونات قد تفاقم ضعف العضلات في الوهن العضلي الوبيل؛ تجنبها قدر الإمكان."
+  },
+  {
+   "class": "Fluoroquinolone",
+   "condition": "diabetes",
+   "severity": "moderate",
+   "note_en": "Fluoroquinolones can cause dysglycaemia (hypo- and hyperglycaemia); monitor blood glucose.",
+   "note_ar": "الفلوروكينولونات قد تسبب اضطراب سكر الدم (انخفاضاً أو ارتفاعاً)؛ راقب سكر الدم."
+  },
+  {
+   "class": "Fluoroquinolone",
+   "condition": "arrhythmia",
+   "severity": "moderate",
+   "note_en": "Fluoroquinolones can prolong the QT interval; caution with arrhythmia or QT prolongation.",
+   "note_ar": "الفلوروكينولونات قد تطيل فترة QT؛ الحذر عند وجود اضطراب نظم أو تطاول QT."
+  },
+  {
+   "class": "Fluoroquinolone",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Most fluoroquinolones need dose adjustment in renal impairment.",
+   "note_ar": "تحتاج معظم الفلوروكينولونات إلى تعديل الجرعة عند وجود قصور كلوي."
+  },
+  {
+   "class": "Sulfonamide",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Co-trimoxazole: dose adjustment and monitoring needed in renal impairment; can raise creatinine and potassium.",
+   "note_ar": "الكوتريموكسازول: يحتاج تعديل جرعة ومراقبة عند وجود قصور كلوي؛ قد يرفع الكرياتينين والبوتاسيوم."
+  },
+  {
+   "class": "Sulfonamide",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Sulfonamides can cause liver injury; use with caution in liver disease.",
+   "note_ar": "السلفوناميدات قد تسبب أذية كبدية؛ استخدمها بحذر في أمراض الكبد."
+  },
+  {
+   "class": "Sulfonamide",
+   "condition": "anaemia",
+   "severity": "moderate",
+   "note_en": "Sulfonamides can cause haemolysis (especially in G6PD deficiency) and worsen anaemia.",
+   "note_ar": "السلفوناميدات قد تسبب انحلال الدم (خاصة عند نقص G6PD) وتفاقم فقر الدم."
+  },
+  {
+   "class": "Sulfonamide",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Avoid co-trimoxazole in pregnancy where possible (folate antagonism; kernicterus risk near term).",
+   "note_ar": "تجنب الكوتريموكسازول أثناء الحمل قدر الإمكان (تضاد الفولات وخطر اليرقان النووي قرب الولادة)."
+  },
+  {
+   "class": "Sulfonamide",
+   "condition": "breastfeeding",
+   "severity": "moderate",
+   "note_en": "Sulfonamides pass into breast milk; avoid if the infant is jaundiced, premature or G6PD-deficient.",
+   "note_ar": "تمر السلفوناميدات إلى حليب الأم؛ تجنبها إذا كان الرضيع مصاباً باليرقان أو خديجاً أو لديه نقص G6PD."
+  },
+  {
+   "class": "Sulfonamide",
+   "condition": "porphyria",
+   "severity": "moderate",
+   "note_en": "Sulfonamides are porphyrinogenic and can precipitate an acute porphyria attack.",
+   "note_ar": "السلفوناميدات من محرضات البورفيريا وقد تثير نوبة بورفيريا حادة."
+  },
+  {
+   "class": "Carbapenem",
+   "condition": "epilepsy",
+   "severity": "moderate",
+   "note_en": "Carbapenems can cause seizures, especially with CNS disease or renal impairment; use with caution in epilepsy.",
+   "note_ar": "الكاربابينيمات قد تسبب نوبات خاصة مع مرض عصبي أو قصور كلوي؛ استخدمها بحذر عند وجود صرع."
+  },
+  {
+   "class": "Carbapenem",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Carbapenem doses must be adjusted in renal impairment.",
+   "note_ar": "يجب تعديل جرعات الكاربابينيمات عند وجود قصور كلوي."
+  },
+  {
+   "class": "Glycopeptide",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Vancomycin is nephrotoxic; dose adjustment and level monitoring needed in renal impairment.",
+   "note_ar": "الفانكومايسين سام للكلى؛ يحتاج تعديل جرعة ومراقبة مستويات عند وجود قصور كلوي."
+  },
+  {
+   "class": "Aminoglycoside",
+   "condition": "renal_impairment",
+   "severity": "severe",
+   "note_en": "Aminoglycosides are nephrotoxic and accumulate in renal impairment; avoid or dose carefully with monitoring.",
+   "note_ar": "الأمينوغليكوزيدات سامة للكلى وتتراكم عند القصور الكلوي؛ تجنبها أو عدل الجرعة بعناية مع المراقبة."
+  },
+  {
+   "class": "Aminoglycoside",
+   "condition": "myasthenia_gravis",
+   "severity": "severe",
+   "note_en": "Aminoglycosides can block neuromuscular transmission and worsen myasthenia gravis; avoid.",
+   "note_ar": "الأمينوغليكوزيدات قد تحصر النقل العصبي العضلي وتفاقم الوهن العضلي الوبيل؛ تجنبها."
+  },
+  {
+   "class": "Aminoglycoside",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Aminoglycosides can cause fetal ototoxicity; use in pregnancy only if clearly needed.",
+   "note_ar": "الأمينوغليكوزيدات قد تسبب سمية أذنية للجنين؛ لا تستخدم أثناء الحمل إلا عند الحاجة الواضحة."
+  },
+  {
+   "class": "Nitrofuran",
+   "condition": "renal_impairment",
+   "severity": "severe",
+   "note_en": "Nitrofurantoin is contraindicated in significant renal impairment (eGFR below about 45) — ineffective and toxic.",
+   "note_ar": "النيتروفورانتوين ممنوع عند وجود قصور كلوي مهم (eGFR أقل من نحو 45) — غير فعال وسام."
+  },
+  {
+   "class": "Nitrofuran",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Avoid nitrofurantoin at term (risk of neonatal haemolysis).",
+   "note_ar": "تجنب النيتروفورانتوين قرب الولادة (خطر انحلال دم الوليد)."
+  },
+  {
+   "class": "Nitrofuran",
+   "condition": "anaemia",
+   "severity": "moderate",
+   "note_en": "Nitrofurantoin can cause haemolysis in G6PD deficiency and worsen anaemia.",
+   "note_ar": "النيتروفورانتوين قد يسبب انحلال الدم عند نقص G6PD ويفاقم فقر الدم."
+  },
+  {
+   "class": "Nitrofuran",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Nitrofurantoin can cause hepatotoxicity; use with caution in liver disease.",
+   "note_ar": "النيتروفورانتوين قد يسبب سمية كبدية؛ استخدمه بحذر في أمراض الكبد."
+  },
+  {
+   "class": "Nitrofuran",
+   "condition": "breastfeeding",
+   "severity": "moderate",
+   "note_en": "Avoid nitrofurantoin while breastfeeding a young, jaundiced or G6PD-deficient infant.",
+   "note_ar": "تجنب النيتروفورانتوين أثناء إرضاع رضيع صغير أو مصاب باليرقان أو لديه نقص G6PD."
+  },
+  {
+   "class": "Phosphonic",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Fosfomycin: use with caution in severe renal impairment.",
+   "note_ar": "الفوسفومايسين: استخدمه بحذر عند وجود قصور كلوي شديد."
+  },
+  {
+   "class": "Oxazolidinone",
+   "condition": "hypertension",
+   "severity": "moderate",
+   "note_en": "Linezolid has monoamine-oxidase activity and can raise blood pressure; monitor BP.",
+   "note_ar": "اللينزوليد له فعالية مثبطة للخميرة المؤكسدة للأمينات الأحادية وقد يرفع ضغط الدم؛ راقب الضغط."
+  },
+  {
+   "class": "Oxazolidinone",
+   "condition": "anaemia",
+   "severity": "moderate",
+   "note_en": "Linezolid can suppress the bone marrow (anaemia, thrombocytopenia), especially beyond 2 weeks.",
+   "note_ar": "اللينزوليد قد يثبط نقي العظم (فقر دم ونقص صفيحات) خاصة بعد أسبوعين من العلاج."
+  },
+  {
+   "class": "Rifamycin",
+   "condition": "liver_impairment",
+   "severity": "severe",
+   "note_en": "Rifampicin is hepatotoxic and contraindicated with jaundice; monitor liver function.",
+   "note_ar": "الريفامبيسين سام للكبد وممنوع عند وجود يرقان؛ راقب وظائف الكبد."
+  },
+  {
+   "class": "Rifamycin",
+   "condition": "porphyria",
+   "severity": "moderate",
+   "note_en": "Rifampicin is an enzyme inducer and can precipitate acute porphyria.",
+   "note_ar": "الريفامبيسين محرض إنزيمي وقد يثير نوبة بورفيريا حادة."
+  },
+  {
+   "class": "Rifamycin",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Rifampicin in pregnancy: use only on specialist advice; vitamin K is given near term.",
+   "note_ar": "الريفامبيسين أثناء الحمل: استخدمه فقط بمشورة اختصاصي؛ يعطى فيتامين K قرب الولادة."
+  },
+  {
+   "class": "Antitubercular",
+   "condition": "liver_impairment",
+   "severity": "severe",
+   "note_en": "Isoniazid and pyrazinamide are hepatotoxic; avoid or monitor closely in liver disease.",
+   "note_ar": "الإيزونيازيد والبيرازيناميد سامان للكبد؛ تجنبهما أو راقب بدقة في أمراض الكبد."
+  },
+  {
+   "class": "Antitubercular",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Some antituberculars (ethambutol, pyrazinamide) need dose adjustment in renal impairment.",
+   "note_ar": "بعض مضادات السل (الإيثامبوتول والبيرازيناميد) تحتاج تعديل جرعة عند وجود قصور كلوي."
+  },
+  {
+   "class": "Antitubercular",
+   "condition": "diabetes",
+   "severity": "moderate",
+   "note_en": "Isoniazid can disturb blood glucose control; monitor in diabetes.",
+   "note_ar": "الإيزونيازيد قد يضطرب ضبط سكر الدم؛ راقب عند وجود داء السكري."
+  },
+  {
+   "class": "Antitubercular",
+   "condition": "epilepsy",
+   "severity": "moderate",
+   "note_en": "Isoniazid can provoke seizures (pyridoxine deficiency); caution in epilepsy.",
+   "note_ar": "الإيزونيازيد قد يثير نوبات (نقص البيريدوكسين)؛ الحذر عند وجود صرع."
+  },
+  {
+   "class": "Antitubercular",
+   "condition": "gout",
+   "severity": "moderate",
+   "note_en": "Pyrazinamide raises uric acid and can precipitate gout.",
+   "note_ar": "البيرازيناميد يرفع حمض اليوريك وقد يثير نوبة نقرس."
+  },
+  {
+   "class": "Sulfone",
+   "condition": "anaemia",
+   "severity": "moderate",
+   "note_en": "Dapsone causes dose-related haemolysis and methaemoglobinaemia; caution in anaemia or G6PD deficiency.",
+   "note_ar": "الدابسون يسبب انحلال دم مرتبطاً بالجرعة وميتهيموغلوبين الدم؛ الحذر عند فقر الدم أو نقص G6PD."
+  },
+  {
+   "class": "Sulfone",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Dapsone is hepatically metabolised; use with caution in liver disease.",
+   "note_ar": "يستقلب الدابسون في الكبد؛ استخدمه بحذر في أمراض الكبد."
+  },
+  {
+   "class": "Amphenicol",
+   "condition": "anaemia",
+   "severity": "severe",
+   "note_en": "Chloramphenicol can cause bone-marrow suppression and aplastic anaemia; avoid with pre-existing marrow depression.",
+   "note_ar": "الكلورامفينيكول قد يسبب تثبيط نقي العظم وفقر دم لا تنسجي؛ تجنبه عند وجود تثبيط نقي سابق."
+  },
+  {
+   "class": "Amphenicol",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Chloramphenicol accumulates in liver impairment; reduce dose and monitor levels.",
+   "note_ar": "يتراكم الكلورامفينيكول عند القصور الكبدي؛ خفض الجرعة وراقب المستويات."
+  },
+  {
+   "class": "Amphenicol",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Chloramphenicol: use with caution and monitor levels in renal impairment.",
+   "note_ar": "الكلورامفينيكول: استخدمه بحذر وراقب المستويات عند وجود قصور كلوي."
+  },
+  {
+   "class": "Antifolate",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Trimethoprim accumulates in renal impairment and raises potassium and creatinine; adjust dose.",
+   "note_ar": "يتراكم التريميثوبريم عند القصور الكلوي ويرفع البوتاسيوم والكرياتينين؛ عدل الجرعة."
+  },
+  {
+   "class": "Antifolate",
+   "condition": "anaemia",
+   "severity": "moderate",
+   "note_en": "Trimethoprim is a folate antagonist and can worsen megaloblastic anaemia.",
+   "note_ar": "التريميثوبريم مضاد للفولات وقد يفاقم فقر الدم ضخم الأرومات."
+  },
+  {
+   "class": "Antifolate",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Avoid trimethoprim in the first trimester where possible (folate antagonism).",
+   "note_ar": "تجنب التريميثوبريم في الثلث الأول من الحمل قدر الإمكان (تضاد الفولات)."
+  },
+  {
+   "class": "Anthelmintic",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Albendazole and related agents: use with caution in liver disease; monitor liver enzymes with prolonged courses.",
+   "note_ar": "الألبيندازول والأدوية المشابهة: استخدمها بحذر في أمراض الكبد؛ راقب إنزيمات الكبد مع الدورات الطويلة."
+  },
+  {
+   "class": "Anthelmintic",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Avoid albendazole/mebendazole in the first trimester where possible (embryotoxicity in animals).",
+   "note_ar": "تجنب الألبيندازول والميبيندازول في الثلث الأول من الحمل قدر الإمكان (سمية جنينية في الحيوانات)."
+  },
+  {
+   "class": "Azole",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Azole antifungals can cause liver injury; monitor liver function and use with caution in liver disease.",
+   "note_ar": "مضادات الفطور الآزولية قد تسبب أذية كبدية؛ راقب وظائف الكبد واستخدمها بحذر في أمراض الكبد."
+  },
+  {
+   "class": "Azole",
+   "condition": "arrhythmia",
+   "severity": "moderate",
+   "note_en": "Azole antifungals can prolong the QT interval; caution with arrhythmia or QT prolongation.",
+   "note_ar": "مضادات الفطور الآزولية قد تطيل فترة QT؛ الحذر عند وجود اضطراب نظم أو تطاول QT."
+  },
+  {
+   "class": "Azole",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Avoid systemic azoles in pregnancy where possible; topical use is lower risk.",
+   "note_ar": "تجنب الآزولات الجهازية أثناء الحمل قدر الإمكان؛ الاستخدام الموضعي أقل خطراً."
+  },
+  {
+   "class": "Allylamine",
+   "condition": "liver_impairment",
+   "severity": "severe",
+   "note_en": "Terbinafine is contraindicated in chronic or active liver disease.",
+   "note_ar": "التيربينافين ممنوع عند وجود مرض كبدي مزمن أو نشط."
+  },
+  {
+   "class": "Allylamine",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Terbinafine: use with caution when creatinine clearance is below 50 ml/min.",
+   "note_ar": "التيربينافين: استخدمه بحذر عندما تكون تصفية الكرياتينين أقل من 50 مل/دقيقة."
+  },
+  {
+   "class": "Allylamine",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Avoid oral terbinafine in pregnancy where possible; topical use is lower risk.",
+   "note_ar": "تجنب التيربينافين الفموي أثناء الحمل قدر الإمكان؛ الاستخدام الموضعي أقل خطراً."
+  },
+  {
+   "class": "Antiviral",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Acyclovir/valaciclovir need dose adjustment in renal impairment; ensure hydration (crystalluria risk).",
+   "note_ar": "الأسيكلوفير والفالاسيكلوفير يحتاجان تعديل جرعة عند القصور الكلوي؛ احرص على الإماهة (خطر البلورات البولية)."
+  },
+  {
+   "class": "NRTI",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Tenofovir is nephrotoxic and entecavir accumulates; dose adjustment needed in renal impairment.",
+   "note_ar": "التينوفوفير سام للكلى والإينتيكافير يتراكم؛ يحتاج الأمر تعديل جرعة عند القصور الكلوي."
+  },
+  {
+   "class": "NRTI",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Stopping entecavir/tenofovir can flare hepatitis B; use with caution in liver disease.",
+   "note_ar": "إيقاف الإينتيكافير أو التينوفوفير قد يثير التهاب الكبد B؛ استخدم بحذر في أمراض الكبد."
+  },
+  {
+   "class": "ProteaseInhibitor",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Ritonavir is hepatically metabolised; use with caution in liver disease.",
+   "note_ar": "يستقلب الريتونافير في الكبد؛ استخدمه بحذر في أمراض الكبد."
+  },
+  {
+   "class": "ProteaseInhibitor",
+   "condition": "diabetes",
+   "severity": "moderate",
+   "note_en": "Ritonavir can worsen glucose control and cause hyperglycaemia; monitor in diabetes.",
+   "note_ar": "الريتونافير قد يفاقم ضبط السكر ويسبب ارتفاع سكر الدم؛ راقب عند وجود داء السكري."
+  },
+  {
+   "class": "ProteaseInhibitor",
+   "condition": "arrhythmia",
+   "severity": "moderate",
+   "note_en": "Ritonavir can prolong PR/QT intervals; caution with conduction disease or arrhythmia.",
+   "note_ar": "الريتونافير قد يطيل فترتي PR وQT؛ الحذر عند وجود مرض توصيل أو اضطراب نظم."
+  },
+  {
+   "class": "Neuraminidase",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Oseltamivir doses must be adjusted in renal impairment.",
+   "note_ar": "يجب تعديل جرعات الأوسيلتاميفير عند وجود قصور كلوي."
+  },
+  {
+   "class": "Analgesic",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Paracetamol: reduce the maximum daily dose in liver disease or low body weight to avoid hepatotoxicity.",
+   "note_ar": "الباراسيتامول: خفض الجرعة اليومية القصوى في أمراض الكبد أو نقص الوزن لتجنب السمية الكبدية."
+  },
+  {
+   "class": "Analgesic",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Paracetamol: extend the dosing interval in severe renal impairment.",
+   "note_ar": "الباراسيتامول: باعد بين الجرعات عند وجود قصور كلوي شديد."
+  },
+  {
+   "class": "Opioid",
+   "condition": "asthma_copd",
+   "severity": "severe",
+   "note_en": "Opioids depress respiration; use with great caution in asthma/COPD or respiratory impairment.",
+   "note_ar": "الأفيونات تثبط التنفس؛ استخدمها بحذر شديد عند وجود ربو أو انسداد رئوي أو قصور تنفسي."
+  },
+  {
+   "class": "Opioid",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Opioids accumulate in liver impairment and can precipitate encephalopathy; reduce dose.",
+   "note_ar": "تتراكم الأفيونات عند القصور الكبدي وقد تثير اعتلالاً دماغياً؛ خفض الجرعة."
+  },
+  {
+   "class": "Opioid",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Opioids and their active metabolites accumulate in renal impairment; reduce dose.",
+   "note_ar": "تتراكم الأفيونات ومستقلباتها الفعالة عند القصور الكلوي؛ خفض الجرعة."
+  },
+  {
+   "class": "Opioid",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Prolonged opioid use in pregnancy can cause neonatal withdrawal; use only if needed.",
+   "note_ar": "الاستخدام المطول للأفيونات أثناء الحمل قد يسبب متلازمة سحب لدى الوليد؛ استخدمها فقط عند الحاجة."
+  },
+  {
+   "class": "Opioid",
+   "condition": "breastfeeding",
+   "severity": "moderate",
+   "note_en": "Opioids pass into breast milk and can sedate the infant; use the lowest effective dose.",
+   "note_ar": "تمر الأفيونات إلى حليب الأم وقد تسبب نعاساً للرضيع؛ استخدم أقل جرعة فعالة."
+  },
+  {
+   "class": "Opioid",
+   "condition": "bph",
+   "severity": "moderate",
+   "note_en": "Opioids can cause urinary retention, especially with prostate enlargement.",
+   "note_ar": "الأفيونات قد تسبب احتباس البول خاصة عند وجود تضخم البروستاتا."
+  },
+  {
+   "class": "Anticoagulant",
+   "condition": "bleeding_disorder",
+   "severity": "severe",
+   "note_en": "Anticoagulants greatly increase bleeding risk; with a bleeding disorder, plan dental surgery with the prescriber/haematology.",
+   "note_ar": "مضادات التخثر تزيد خطر النزف كثيراً؛ عند وجود اضطراب نزف خطط لجراحة الأسنان مع الطبيب الواصف أو اختصاصي الدم."
+  },
+  {
+   "class": "Anticoagulant",
+   "condition": "peptic_ulcer_gi",
+   "severity": "moderate",
+   "note_en": "Anticoagulants increase the risk of bleeding from a peptic ulcer or after GI bleeding.",
+   "note_ar": "مضادات التخثر تزيد خطر النزف من القرحة الهضمية أو بعد نزف هضمي."
+  },
+  {
+   "class": "Anticoagulant",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Anticoagulant effect is increased in liver disease (reduced clotting-factor synthesis); monitor closely.",
+   "note_ar": "يزداد تأثير مضادات التخثر في أمراض الكبد (نقص تصنيع عوامل التخثر)؛ راقب بدقة."
+  },
+  {
+   "class": "Anticoagulant",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Many anticoagulants (DOACs) need dose adjustment or avoidance in renal impairment.",
+   "note_ar": "تحتاج كثير من مضادات التخثر (المباشرة) إلى تعديل جرعة أو تجنب عند وجود قصور كلوي."
+  },
+  {
+   "class": "Anticoagulant",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Direct oral anticoagulants should be avoided in pregnancy; warfarin is teratogenic (see drug rule).",
+   "note_ar": "يجب تجنب مضادات التخثر الفموية المباشرة أثناء الحمل؛ والوارفارين مشوه للأجنة (انظر قاعدة الدواء)."
+  },
+  {
+   "class": "Anticoagulant",
+   "condition": "hypertension",
+   "severity": "moderate",
+   "note_en": "Uncontrolled severe hypertension increases haemorrhage risk on anticoagulants; ensure BP is controlled.",
+   "note_ar": "ارتفاع ضغط الدم الشديد غير المضبوط يزيد خطر النزف مع مضادات التخثر؛ تأكد من ضبط الضغط."
+  },
+  {
+   "class": "Antiplatelet",
+   "condition": "peptic_ulcer_gi",
+   "severity": "moderate",
+   "note_en": "Antiplatelets increase ulcer bleeding risk; consider gastroprotection in peptic ulcer history.",
+   "note_ar": "مضادات الصفيحات تزيد خطر نزف القرحة؛ فكر في حماية المعدة عند وجود سوابق قرحة هضمية."
+  },
+  {
+   "class": "Antiplatelet",
+   "condition": "bleeding_disorder",
+   "severity": "moderate",
+   "note_en": "Antiplatelets increase bleeding risk, including prolonged bleeding after dental procedures.",
+   "note_ar": "مضادات الصفيحات تزيد خطر النزف بما فيه النزف المطول بعد إجراءات الأسنان."
+  },
+  {
+   "class": "Antiplatelet",
+   "condition": "asthma_copd",
+   "severity": "moderate",
+   "note_en": "Some antiplatelet patients have aspirin sensitivity; check for NSAID/aspirin-exacerbated respiratory disease.",
+   "note_ar": "بعض مرضى مضادات الصفيحات لديهم حساسية للأسبرين؛ تحقق من مرض تنفسي متفاقم بالأسبرين ومضادات الالتهاب."
+  },
+  {
+   "class": "Antifibrinolytic",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Tranexamic acid accumulates in renal impairment; reduce dose (seizure risk).",
+   "note_ar": "يتراكم حمض الترانيكساميك عند القصور الكلوي؛ خفض الجرعة (خطر نوبات)."
+  },
+  {
+   "class": "Antifibrinolytic",
+   "condition": "epilepsy",
+   "severity": "moderate",
+   "note_en": "High-dose tranexamic acid can cause seizures; use with caution in epilepsy.",
+   "note_ar": "حمض الترانيكساميك بالجرعات العالية قد يسبب نوبات؛ استخدمه بحذر عند وجود صرع."
+  },
+  {
+   "class": "Corticosteroid",
+   "condition": "diabetes",
+   "severity": "moderate",
+   "note_en": "Systemic corticosteroids raise blood glucose; monitor and adjust diabetes therapy.",
+   "note_ar": "الستيرويدات الجهازية ترفع سكر الدم؛ راقب السكر وعدل علاج السكري."
+  },
+  {
+   "class": "Corticosteroid",
+   "condition": "hypertension",
+   "severity": "moderate",
+   "note_en": "Systemic corticosteroids can raise blood pressure and cause fluid retention; monitor BP.",
+   "note_ar": "الستيرويدات الجهازية قد ترفع ضغط الدم وتسبب احتباس سوائل؛ راقب الضغط."
+  },
+  {
+   "class": "Corticosteroid",
+   "condition": "peptic_ulcer_gi",
+   "severity": "moderate",
+   "note_en": "Systemic corticosteroids increase peptic ulcer/GI bleeding risk, especially with NSAIDs.",
+   "note_ar": "الستيرويدات الجهازية تزيد خطر القرحة الهضمية والنزف الهضمي خاصة مع مضادات الالتهاب غير الستيرويدية."
+  },
+  {
+   "class": "Corticosteroid",
+   "condition": "osteoporosis",
+   "severity": "moderate",
+   "note_en": "Prolonged systemic corticosteroids cause bone loss and increase fracture risk.",
+   "note_ar": "الستيرويدات الجهازية المطولة تسبب فقدان العظم وتزيد خطر الكسور."
+  },
+  {
+   "class": "Corticosteroid",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Systemic corticosteroids in pregnancy: use the lowest effective dose on specialist advice.",
+   "note_ar": "الستيرويدات الجهازية أثناء الحمل: استخدم أقل جرعة فعالة وبمشورة اختصاصي."
+  },
+  {
+   "class": "Corticosteroid",
+   "condition": "psychiatric",
+   "severity": "moderate",
+   "note_en": "Corticosteroids can cause mood change, psychosis or worsen psychiatric illness; monitor.",
+   "note_ar": "الستيرويدات قد تسبب تغير المزاج أو ذهاناً أو تفاقم المرض النفسي؛ راقب المريض."
+  },
+  {
+   "class": "Corticosteroid",
+   "condition": "epilepsy",
+   "severity": "moderate",
+   "note_en": "Corticosteroids have been reported to provoke seizures; use with caution in epilepsy.",
+   "note_ar": "ورد أن الستيرويدات قد تثير نوبات؛ استخدمها بحذر عند وجود صرع."
+  },
+  {
+   "class": "Corticosteroid",
+   "condition": "heart_failure",
+   "severity": "moderate",
+   "note_en": "Corticosteroids cause sodium and fluid retention and can worsen heart failure.",
+   "note_ar": "الستيرويدات تسبب احتباس الصوديوم والسوائل وقد تفاقم قصور القلب."
+  },
+  {
+   "class": "Corticosteroid",
+   "condition": "glaucoma",
+   "severity": "moderate",
+   "note_en": "Corticosteroids can raise intraocular pressure and worsen glaucoma.",
+   "note_ar": "الستيرويدات قد ترفع ضغط العين وتفاقم الغلوكوما."
+  },
+  {
+   "class": "LocalAnaesthetic",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Amide local anaesthetics are hepatically metabolised; reduce dose in severe liver disease.",
+   "note_ar": "المخدرات الموضعية الأميدية تستقلب في الكبد؛ خفض الجرعة عند وجود مرض كبدي شديد."
+  },
+  {
+   "class": "LocalAnaesthetic",
+   "condition": "arrhythmia",
+   "severity": "moderate",
+   "note_en": "Local anaesthetics can affect cardiac conduction at high doses; use the lowest effective dose with arrhythmia.",
+   "note_ar": "المخدرات الموضعية قد تؤثر على توصيل القلب بالجرعات العالية؛ استخدم أقل جرعة فعالة عند وجود اضطراب نظم."
+  },
+  {
+   "class": "BetaBlocker",
+   "condition": "asthma_copd",
+   "severity": "severe",
+   "note_en": "Beta-blockers can cause severe bronchospasm in asthma/COPD; avoid non-selective agents and use cardioselective agents only with great caution.",
+   "note_ar": "حاصرات بيتا قد تسبب تشنجاً قصبياً شديداً في الربو والانسداد الرئوي؛ تجنب غير الانتقائية واستخدم الانتقائية للقلب بحذر شديد فقط."
+  },
+  {
+   "class": "BetaBlocker",
+   "condition": "diabetes",
+   "severity": "moderate",
+   "note_en": "Beta-blockers can mask the warning signs of hypoglycaemia; counsel diabetic patients.",
+   "note_ar": "حاصرات بيتا قد تخفي علامات إنذار هبوط سكر الدم؛ نبه مرضى السكري لذلك."
+  },
+  {
+   "class": "BetaBlocker",
+   "condition": "arrhythmia",
+   "severity": "moderate",
+   "note_en": "Beta-blockers slow AV conduction; caution with bradycardia or heart block.",
+   "note_ar": "حاصرات بيتا تبطئ التوصيل الأذيني البطيني؛ الحذر عند بطء القلب أو حصار القلب."
+  },
+  {
+   "class": "BetaBlocker",
+   "condition": "heart_failure",
+   "severity": "moderate",
+   "note_en": "Initiating or increasing beta-blockers can transiently worsen heart failure; start low under supervision.",
+   "note_ar": "بدء حاصرات بيتا أو زيادة جرعتها قد يفاقم قصور القلب مؤقتاً؛ ابدأ بجرعة منخفضة وتحت إشراف."
+  },
+  {
+   "class": "BetaBlocker",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Beta-blockers in pregnancy may restrict fetal growth; use on specialist advice.",
+   "note_ar": "حاصرات بيتا أثناء الحمل قد تحد من نمو الجنين؛ استخدمها بمشورة اختصاصي."
+  },
+  {
+   "class": "ACE-I",
+   "condition": "pregnancy",
+   "severity": "severe",
+   "note_en": "ACE inhibitors are fetotoxic; contraindicated in pregnancy.",
+   "note_ar": "مثبطات الإنزيم المحول سامة للجنين؛ ممنوعة أثناء الحمل."
+  },
+  {
+   "class": "ACE-I",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "ACE inhibitors can worsen renal function and raise potassium; monitor renal function and K+.",
+   "note_ar": "مثبطات الإنزيم المحول قد تسيء وظيفة الكلى وترفع البوتاسيوم؛ راقب وظيفة الكلى والبوتاسيوم."
+  },
+  {
+   "class": "ACE-I",
+   "condition": "breastfeeding",
+   "severity": "moderate",
+   "note_en": "ACE inhibitors are generally avoided while breastfeeding, especially with newborn or preterm infants.",
+   "note_ar": "تجنب مثبطات الإنزيم المحول عموماً أثناء الإرضاع خاصة مع الولدان أو الخدج."
+  },
+  {
+   "class": "ARB",
+   "condition": "pregnancy",
+   "severity": "severe",
+   "note_en": "ARBs are fetotoxic; contraindicated in pregnancy.",
+   "note_ar": "حاصرات مستقبلات الأنجيوتنسين سامة للجنين؛ ممنوعة أثناء الحمل."
+  },
+  {
+   "class": "ARB",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "ARBs can worsen renal function and raise potassium; monitor renal function and K+.",
+   "note_ar": "حاصرات مستقبلات الأنجيوتنسين قد تسيء وظيفة الكلى وترفع البوتاسيوم؛ راقب وظيفة الكلى والبوتاسيوم."
+  },
+  {
+   "class": "ARB",
+   "condition": "breastfeeding",
+   "severity": "moderate",
+   "note_en": "ARBs are generally avoided while breastfeeding due to lack of safety data.",
+   "note_ar": "تجنب حاصرات مستقبلات الأنجيوتنسين عموماً أثناء الإرضاع لعدم توفر بيانات سلامة."
+  },
+  {
+   "class": "CCB",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Calcium-channel blockers are hepatically metabolised; start with lower doses in liver disease.",
+   "note_ar": "حاصرات قنوات الكالسيوم تستقلب في الكبد؛ ابدأ بجرعات أخفض في أمراض الكبد."
+  },
+  {
+   "class": "CCB",
+   "condition": "heart_failure",
+   "severity": "moderate",
+   "note_en": "Verapamil and diltiazem have negative inotropic effects and can worsen heart failure with reduced ejection fraction.",
+   "note_ar": "الفيراباميل والديلتيازيم لهما تأثير مقلص سلبي وقد يفاقمان قصور القلب مع نقص الكسر القذفي."
+  },
+  {
+   "class": "Diuretic",
+   "condition": "gout",
+   "severity": "moderate",
+   "note_en": "Thiazide and loop diuretics raise uric acid and can precipitate gout.",
+   "note_ar": "المدرات الثيازيدية والعروية ترفع حمض اليوريك وقد تثير نوبة نقرس."
+  },
+  {
+   "class": "Diuretic",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Diuretic response and electrolyte risks change in renal impairment; monitor electrolytes and renal function.",
+   "note_ar": "تتغير الاستجابة للمدرات ومخاطر الشوارد عند القصور الكلوي؛ راقب الشوارد ووظيفة الكلى."
+  },
+  {
+   "class": "Diuretic",
+   "condition": "diabetes",
+   "severity": "moderate",
+   "note_en": "Thiazide and loop diuretics can worsen glucose control; monitor blood glucose.",
+   "note_ar": "المدرات الثيازيدية والعروية قد تسيء ضبط سكر الدم؛ راقب سكر الدم."
+  },
+  {
+   "class": "Diuretic",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Diuresis in severe liver disease can precipitate encephalopathy and electrolyte disturbance; use with caution.",
+   "note_ar": "إدرار البول في مرض الكبد الشديد قد يثير اعتلالاً دماغياً واضطراب شوارد؛ استخدم المدرات بحذر."
+  },
+  {
+   "class": "Diuretic",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Diuretics are not preferred in pregnancy (reduced plasma volume); use on specialist advice.",
+   "note_ar": "المدرات غير مفضلة أثناء الحمل (نقص حجم البلازما)؛ استخدمها بمشورة اختصاصي."
+  },
+  {
+   "class": "Statin",
+   "condition": "liver_impairment",
+   "severity": "severe",
+   "note_en": "Statins are contraindicated in active liver disease or unexplained persistent transaminase elevation.",
+   "note_ar": "الستاتينات ممنوعة عند وجود مرض كبدي نشط أو ارتفاع مستمر غير مفسر في الترانساميناز."
+  },
+  {
+   "class": "Statin",
+   "condition": "pregnancy",
+   "severity": "severe",
+   "note_en": "Statins are contraindicated in pregnancy.",
+   "note_ar": "الستاتينات ممنوعة أثناء الحمل."
+  },
+  {
+   "class": "Statin",
+   "condition": "breastfeeding",
+   "severity": "moderate",
+   "note_en": "Statins should be avoided while breastfeeding.",
+   "note_ar": "يجب تجنب الستاتينات أثناء الإرضاع."
+  },
+  {
+   "class": "Statin",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Use statins with caution and lower starting doses in severe renal impairment.",
+   "note_ar": "استخدم الستاتينات بحذر وبجرعات بدء أخفض عند وجود قصور كلوي شديد."
+  },
+  {
+   "class": "Fibrate",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Fibrates accumulate in renal impairment and increase myopathy risk; reduce dose or avoid if severe.",
+   "note_ar": "تتراكم الفيبراتات عند القصور الكلوي وتزيد خطر اعتلال العضلات؛ خفض الجرعة أو تجنبها إذا كان شديداً."
+  },
+  {
+   "class": "Fibrate",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Fibrates should be avoided in significant liver disease.",
+   "note_ar": "يجب تجنب الفيبراتات عند وجود مرض كبدي مهم."
+  },
+  {
+   "class": "Fibrate",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Avoid fibrates in pregnancy where possible due to limited safety data.",
+   "note_ar": "تجنب الفيبراتات أثناء الحمل قدر الإمكان لندرة بيانات السلامة."
+  },
+  {
+   "class": "Cholesterol",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Ezetimibe: use with caution in moderate-to-severe liver impairment.",
+   "note_ar": "الإيزيتيميب: استخدمه بحذر عند وجود قصور كبدي متوسط إلى شديد."
+  },
+  {
+   "class": "Nitrate",
+   "condition": "anaemia",
+   "severity": "moderate",
+   "note_en": "Nitrates should be used with caution in severe anaemia.",
+   "note_ar": "يجب استخدام النترات بحذر عند وجود فقر دم شديد."
+  },
+  {
+   "class": "Nitrate",
+   "condition": "glaucoma",
+   "severity": "moderate",
+   "note_en": "Nitrates: use with caution in angle-closure glaucoma.",
+   "note_ar": "النترات: استخدمها بحذر عند وجود غلوكوما انسداد الزاوية."
+  },
+  {
+   "class": "CardiacGlycoside",
+   "condition": "renal_impairment",
+   "severity": "severe",
+   "note_en": "Digoxin is renally cleared and has a narrow therapeutic index; toxicity risk is high in renal impairment — reduce dose and monitor levels.",
+   "note_ar": "الديجوكسين يطرح كلوياً وله هامش علاجي ضيق؛ خطر السمية مرتفع عند القصور الكلوي — خفض الجرعة وراقب المستويات."
+  },
+  {
+   "class": "CardiacGlycoside",
+   "condition": "arrhythmia",
+   "severity": "moderate",
+   "note_en": "Digoxin can both treat and provoke arrhythmias; caution with conduction disease and electrolyte disturbance.",
+   "note_ar": "الديجوكسين قد يعالج اضطراب النظم وقد يثيره أيضاً؛ الحذر عند مرض التوصيل واضطراب الشوارد."
+  },
+  {
+   "class": "CardiacGlycoside",
+   "condition": "thyroid_disorder",
+   "severity": "moderate",
+   "note_en": "Thyroid disease alters digoxin sensitivity (hypothyroidism increases toxicity risk); monitor.",
+   "note_ar": "مرض الغدة الدرقية يغير حساسية الديجوكسين (قصور الدرقية يزيد خطر السمية)؛ راقب المريض."
+  },
+  {
+   "class": "Antiarrhythmic",
+   "condition": "thyroid_disorder",
+   "severity": "moderate",
+   "note_en": "Amiodarone (in this class) commonly causes thyroid dysfunction; caution with thyroid disorder.",
+   "note_ar": "الأميودارون (ضمن هذه الفئة) يسبب غالباً اضطراب وظيفة الدرقية؛ الحذر عند وجود اضطراب الغدة الدرقية."
+  },
+  {
+   "class": "Antiarrhythmic",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Several antiarrhythmics are hepatically metabolised or hepatotoxic; use with caution in liver disease.",
+   "note_ar": "عدة مضادات لاضطراب النظم تستقلب في الكبد أو سامة له؛ استخدمها بحذر في أمراض الكبد."
+  },
+  {
+   "class": "Antiarrhythmic",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Antiarrhythmics in pregnancy: use only on specialist advice.",
+   "note_ar": "مضادات اضطراب النظم أثناء الحمل: استخدمها فقط بمشورة اختصاصي."
+  },
+  {
+   "class": "Antiarrhythmic",
+   "condition": "heart_failure",
+   "severity": "moderate",
+   "note_en": "Some antiarrhythmics (e.g. flecainide) are contraindicated in heart failure/structural heart disease.",
+   "note_ar": "بعض مضادات اضطراب النظم (مثل الفليكاينيد) ممنوعة عند قصور القلب أو مرض القلب البنيوي."
+  },
+  {
+   "class": "Vasodilator",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Hydralazine: reduce dose in renal impairment.",
+   "note_ar": "الهيدرالازين: خفض الجرعة عند وجود قصور كلوي."
+  },
+  {
+   "class": "Vasodilator",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Hydralazine is hepatically metabolised; use with caution in liver disease.",
+   "note_ar": "يستقلب الهيدرالازين في الكبد؛ استخدمه بحذر في أمراض الكبد."
+  },
+  {
+   "class": "Vasodilator",
+   "condition": "ischemic_heart_disease",
+   "severity": "moderate",
+   "note_en": "Hydralazine can provoke angina/myocardial ischaemia through reflex tachycardia.",
+   "note_ar": "الهيدرالازين قد يثير ذبحة أو نقص تروية قلبية عبر تسارع القلب الانعكاسي."
+  },
+  {
+   "class": "AlphaBlocker",
+   "condition": "heart_failure",
+   "severity": "moderate",
+   "note_en": "Alpha-blockers (notably doxazosin) have been associated with worsening heart failure; use with caution.",
+   "note_ar": "حاصرات ألفا (خاصة الدوكسازوسين) ارتبطت بتفاقم قصور القلب؛ استخدمها بحذر."
+  },
+  {
+   "class": "AlphaBlocker",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Alpha-blockers: use with caution in severe liver impairment.",
+   "note_ar": "حاصرات ألفا: استخدمها بحذر عند وجود قصور كبدي شديد."
+  },
+  {
+   "class": "AlphaAgonist",
+   "condition": "psychiatric",
+   "severity": "moderate",
+   "note_en": "Clonidine and methyldopa can cause or worsen depression; monitor mood.",
+   "note_ar": "الكلونيدين والميثيل دوبا قد يسببان الاكتئاب أو يفاقمانه؛ راقب المزاج."
+  },
+  {
+   "class": "AlphaAgonist",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Methyldopa can cause liver injury; use with caution in liver disease.",
+   "note_ar": "الميثيل دوبا قد يسبب أذية كبدية؛ استخدمه بحذر في أمراض الكبد."
+  },
+  {
+   "class": "AlphaAgonist",
+   "condition": "arrhythmia",
+   "severity": "moderate",
+   "note_en": "Clonidine can cause bradycardia and AV block; caution with conduction disease.",
+   "note_ar": "الكلونيدين قد يسبب بطء القلب وحصاراً أذينياً بطينياً؛ الحذر عند مرض التوصيل."
+  },
+  {
+   "class": "Biguanide",
+   "condition": "renal_impairment",
+   "severity": "severe",
+   "note_en": "Metformin is contraindicated when eGFR is below 30 (lactic acidosis risk) and needs dose review at lower eGFR.",
+   "note_ar": "الميتفورمين ممنوع عندما يكون eGFR أقل من 30 (خطر الحماض اللبني) ويحتاج مراجعة جرعة عند قيم أخفض من الطبيعي."
+  },
+  {
+   "class": "Biguanide",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Metformin: avoid in severe liver disease (lactic acidosis risk).",
+   "note_ar": "الميتفورمين: تجنبه عند وجود مرض كبدي شديد (خطر الحماض اللبني)."
+  },
+  {
+   "class": "Biguanide",
+   "condition": "heart_failure",
+   "severity": "moderate",
+   "note_en": "Metformin: caution in unstable or acute heart failure (lactic acidosis risk from hypoperfusion).",
+   "note_ar": "الميتفورمين: الحذر عند قصور القلب غير المستقر أو الحاد (خطر الحماض اللبني من نقص التروية)."
+  },
+  {
+   "class": "Biguanide",
+   "condition": "anaemia",
+   "severity": "moderate",
+   "note_en": "Metformin lowers vitamin B12 absorption and can contribute to anaemia; monitor B12.",
+   "note_ar": "الميتفورمين يخفض امتصاص فيتامين B12 وقد يسهم في فقر الدم؛ راقب B12."
+  },
+  {
+   "class": "Sulfonylurea",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Sulfonylureas can cause prolonged hypoglycaemia in renal impairment; prefer shorter-acting agents and lower doses.",
+   "note_ar": "السلفونيل يوريا قد تسبب هبوط سكر مطولاً عند القصور الكلوي؛ فضل قصيرة المفعول وجرعات أخفض."
+  },
+  {
+   "class": "Sulfonylurea",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Sulfonylureas can cause prolonged hypoglycaemia in liver impairment; use with caution.",
+   "note_ar": "السلفونيل يوريا قد تسبب هبوط سكر مطولاً عند القصور الكبدي؛ استخدمها بحذر."
+  },
+  {
+   "class": "Sulfonylurea",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Sulfonylureas are generally avoided in pregnancy; insulin is preferred.",
+   "note_ar": "تجنب السلفونيل يوريا عموماً أثناء الحمل؛ الأنسولين هو المفضل."
+  },
+  {
+   "class": "Sulfonylurea",
+   "condition": "breastfeeding",
+   "severity": "moderate",
+   "note_en": "Sulfonylureas may pass into breast milk with a risk of infant hypoglycaemia; use with caution.",
+   "note_ar": "قد تمر السلفونيل يوريا إلى حليب الأم مع خطر هبوط سكر الرضيع؛ استخدمها بحذر."
+  },
+  {
+   "class": "Insulin",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Insulin requirements fall in renal impairment; reduce dose and monitor glucose (hypoglycaemia risk).",
+   "note_ar": "تنخفض حاجة الأنسولين عند القصور الكلوي؛ خفض الجرعة وراقب السكر (خطر هبوط السكر)."
+  },
+  {
+   "class": "Insulin",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Insulin requirements may fall in liver disease; monitor glucose closely.",
+   "note_ar": "قد تنخفض حاجة الأنسولين في أمراض الكبد؛ راقب السكر بدقة."
+  },
+  {
+   "class": "DPP4",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Most DPP-4 inhibitors need dose adjustment in renal impairment (linagliptin is the exception).",
+   "note_ar": "تحتاج معظم مثبطات DPP-4 إلى تعديل جرعة عند القصور الكلوي (الليناغليبتين هو الاستثناء)."
+  },
+  {
+   "class": "SGLT2",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "SGLT2 inhibitors: glucose-lowering effect falls as eGFR declines; check renal thresholds and volume status.",
+   "note_ar": "مثبطات SGLT2: ينخفض تأثيرها الخافض للسكر مع تراجع eGFR؛ تحقق من العتبات الكلوية وحالة الحجم."
+  },
+  {
+   "class": "SGLT2",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "SGLT2 inhibitors should be avoided in pregnancy due to lack of safety data.",
+   "note_ar": "يجب تجنب مثبطات SGLT2 أثناء الحمل لعدم توفر بيانات سلامة."
+  },
+  {
+   "class": "GLP1",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "GLP-1 agonists: use with caution in severe renal impairment (limited data, GI fluid loss).",
+   "note_ar": "مناهضات GLP-1: استخدمها بحذر عند القصور الكلوي الشديد (بيانات محدودة وفقد سوائل هضمي)."
+  },
+  {
+   "class": "GLP1",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "GLP-1 agonists should be avoided in pregnancy due to lack of safety data.",
+   "note_ar": "يجب تجنب مناهضات GLP-1 أثناء الحمل لعدم توفر بيانات سلامة."
+  },
+  {
+   "class": "Thiazolidinedione",
+   "condition": "heart_failure",
+   "severity": "severe",
+   "note_en": "Pioglitazone causes fluid retention and is contraindicated in heart failure.",
+   "note_ar": "البيوغليتازون يسبب احتباس السوائل وممنوع عند وجود قصور القلب."
+  },
+  {
+   "class": "Thiazolidinedione",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Pioglitazone: avoid in significant liver disease; monitor liver enzymes.",
+   "note_ar": "البيوغليتازون: تجنبه عند وجود مرض كبدي مهم؛ راقب إنزيمات الكبد."
+  },
+  {
+   "class": "Thiazolidinedione",
+   "condition": "osteoporosis",
+   "severity": "moderate",
+   "note_en": "Pioglitazone increases fracture risk, especially in women with osteoporosis.",
+   "note_ar": "البيوغليتازون يزيد خطر الكسور خاصة لدى النساء المصابات بهشاشة العظام."
+  },
+  {
+   "class": "Thiazolidinedione",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Pioglitazone should be avoided in pregnancy due to limited safety data.",
+   "note_ar": "يجب تجنب البيوغليتازون أثناء الحمل لندرة بيانات السلامة."
+  },
+  {
+   "class": "Meglitinide",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Repaglinide is hepatically metabolised; use with caution in liver impairment.",
+   "note_ar": "يستقلب الريباغلينيد في الكبد؛ استخدمه بحذر عند القصور الكبدي."
+  },
+  {
+   "class": "Meglitinide",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Repaglinide: start with low doses in renal impairment (hypoglycaemia risk).",
+   "note_ar": "الريباغلينيد: ابدأ بجرعات منخفضة عند القصور الكلوي (خطر هبوط السكر)."
+  },
+  {
+   "class": "AlphaGlucosidase",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Acarbose: use with caution in liver disease; monitor liver enzymes.",
+   "note_ar": "الأكاربوز: استخدمه بحذر في أمراض الكبد؛ راقب إنزيمات الكبد."
+  },
+  {
+   "class": "AlphaGlucosidase",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Acarbose should be avoided in severe renal impairment.",
+   "note_ar": "يجب تجنب الأكاربوز عند وجود قصور كلوي شديد."
+  },
+  {
+   "class": "AlphaGlucosidase",
+   "condition": "peptic_ulcer_gi",
+   "severity": "moderate",
+   "note_en": "Acarbose is contraindicated with intestinal ulceration/obstruction and cautioned in GI disorders.",
+   "note_ar": "الأكاربوز ممنوع مع تقرح أو انسداد الأمعاء ويستخدم بحذر في الاضطرابات الهضمية."
+  },
+  {
+   "class": "Thyroid",
+   "condition": "arrhythmia",
+   "severity": "moderate",
+   "note_en": "Levothyroxine over-replacement can provoke arrhythmia/AF; titrate dose carefully.",
+   "note_ar": "فرط جرعة الليفوثيروكسين قد يثير اضطراب نظم أو رجفاناً أذينياً؛ عاير الجرعة بعناية."
+  },
+  {
+   "class": "Thyroid",
+   "condition": "ischemic_heart_disease",
+   "severity": "moderate",
+   "note_en": "Levothyroxine can worsen angina if started at full dose in ischaemic heart disease; start low and titrate slowly.",
+   "note_ar": "الليفوثيروكسين قد يفاقم الذبحة إذا بدئ بجرعة كاملة عند نقص تروية القلب؛ ابدأ منخفضاً وعاير ببطء."
+  },
+  {
+   "class": "Thyroid",
+   "condition": "diabetes",
+   "severity": "moderate",
+   "note_en": "Starting levothyroxine can worsen glucose control; monitor blood glucose in diabetes.",
+   "note_ar": "بدء الليفوثيروكسين قد يسيء ضبط سكر الدم؛ راقب السكر عند وجود داء السكري."
+  },
+  {
+   "class": "Thyroid",
+   "condition": "osteoporosis",
+   "severity": "moderate",
+   "note_en": "Long-term levothyroxine over-replacement accelerates bone loss.",
+   "note_ar": "فرط جرعة الليفوثيروكسين المطول يسرع فقدان العظم."
+  },
+  {
+   "class": "Contraceptive",
+   "condition": "pregnancy",
+   "severity": "severe",
+   "note_en": "Hormonal contraceptives must not be used in known or suspected pregnancy.",
+   "note_ar": "يجب عدم استخدام موانع الحمل الهرمونية عند وجود حمل مؤكد أو مشتبه."
+  },
+  {
+   "class": "Contraceptive",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Oestrogen-containing contraceptives should be avoided in significant liver disease.",
+   "note_ar": "يجب تجنب موانع الحمل الحاوية على الإستروجين عند وجود مرض كبدي مهم."
+  },
+  {
+   "class": "Contraceptive",
+   "condition": "hypertension",
+   "severity": "moderate",
+   "note_en": "Combined hormonal contraceptives can raise blood pressure; avoid if hypertension is uncontrolled.",
+   "note_ar": "موانع الحمل الهرمونية المركبة قد ترفع ضغط الدم؛ تجنبها إذا كان الضغط غير مضبوط."
+  },
+  {
+   "class": "Contraceptive",
+   "condition": "breastfeeding",
+   "severity": "moderate",
+   "note_en": "Oestrogen-containing contraceptives can reduce milk production; progestogen-only methods are preferred while breastfeeding.",
+   "note_ar": "موانع الحمل الحاوية على الإستروجين قد تخفض إنتاج الحليب؛ تفضل الطرق البروجستوجينية فقط أثناء الإرضاع."
+  },
+  {
+   "class": "Contraceptive",
+   "condition": "ischemic_heart_disease",
+   "severity": "moderate",
+   "note_en": "Oestrogen-containing contraceptives increase arterial thrombosis risk; avoid in ischaemic heart disease.",
+   "note_ar": "موانع الحمل الحاوية على الإستروجين تزيد خطر الخثار الشرياني؛ تجنبها عند نقص تروية القلب."
+  },
+  {
+   "class": "Androgen",
+   "condition": "pregnancy",
+   "severity": "severe",
+   "note_en": "Testosterone is contraindicated in pregnancy (virilisation of a female fetus).",
+   "note_ar": "التستوستيرون ممنوع أثناء الحمل (تذكير الجنين الأنثى)."
+  },
+  {
+   "class": "Androgen",
+   "condition": "bph",
+   "severity": "moderate",
+   "note_en": "Testosterone can worsen prostate enlargement; assess prostate status before and during therapy.",
+   "note_ar": "التستوستيرون قد يفاقم تضخم البروستاتا؛ قيم حالة البروستاتا قبل العلاج وأثناءه."
+  },
+  {
+   "class": "Androgen",
+   "condition": "heart_failure",
+   "severity": "moderate",
+   "note_en": "Testosterone can cause fluid retention and worsen heart failure.",
+   "note_ar": "التستوستيرون قد يسبب احتباس سوائل ويفاقم قصور القلب."
+  },
+  {
+   "class": "Androgen",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Androgens can cause liver injury; use with caution in liver disease.",
+   "note_ar": "الأندروجينات قد تسبب أذية كبدية؛ استخدمها بحذر في أمراض الكبد."
+  },
+  {
+   "class": "5AlphaReductase",
+   "condition": "pregnancy",
+   "severity": "severe",
+   "note_en": "Finasteride is contraindicated in pregnancy (abnormal genital development in a male fetus); pregnant women should not handle crushed tablets.",
+   "note_ar": "الفيناستيريد ممنوع أثناء الحمل (تشوه تطور الأعضاء التناسلية للجنين الذكر)؛ يجب ألا تلمس الحامل الأقراص المسحوقة."
+  },
+  {
+   "class": "5AlphaReductase",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Finasteride is hepatically metabolised; use with caution in liver disease.",
+   "note_ar": "يستقلب الفيناستيريد في الكبد؛ استخدمه بحذر في أمراض الكبد."
+  },
+  {
+   "class": "Retinoid",
+   "condition": "pregnancy",
+   "severity": "severe",
+   "note_en": "Systemic retinoids (isotretinoin) are highly teratogenic and contraindicated in pregnancy; strict contraception is required.",
+   "note_ar": "الريتينويدات الجهازية (الإيزوتريتينوين) مشوهة للأجنة بدرجة عالية وممنوعة أثناء الحمل؛ يلزم منع حمل صارم."
+  },
+  {
+   "class": "Retinoid",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Systemic retinoids can raise liver enzymes; monitor in liver disease.",
+   "note_ar": "الريتينويدات الجهازية قد ترفع إنزيمات الكبد؛ راقب عند وجود مرض كبدي."
+  },
+  {
+   "class": "Retinoid",
+   "condition": "psychiatric",
+   "severity": "moderate",
+   "note_en": "Isotretinoin has been associated with depression and mood change; monitor patients with psychiatric history.",
+   "note_ar": "ارتبط الإيزوتريتينوين بالاكتئاب وتغير المزاج؛ راقب المرضى ذوي السوابق النفسية."
+  },
+  {
+   "class": "PDE5",
+   "condition": "ischemic_heart_disease",
+   "severity": "moderate",
+   "note_en": "PDE5 inhibitors: use with caution in ischaemic heart disease/recent MI and never with nitrates (drug interaction).",
+   "note_ar": "مثبطات PDE5: استخدمها بحذر عند نقص تروية القلب أو احتشاء حديث وأبداً مع النترات (تداخل دوائي)."
+  },
+  {
+   "class": "PDE5",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "PDE5 inhibitors: use lower doses in severe liver impairment.",
+   "note_ar": "مثبطات PDE5: استخدم جرعات أخفض عند وجود قصور كبدي شديد."
+  },
+  {
+   "class": "PDE5",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "PDE5 inhibitors: use lower doses in severe renal impairment.",
+   "note_ar": "مثبطات PDE5: استخدم جرعات أخفض عند وجود قصور كلوي شديد."
+  },
+  {
+   "class": "Immunosuppressant",
+   "condition": "pregnancy",
+   "severity": "severe",
+   "note_en": "Several immunosuppressants are teratogenic (methotrexate, mycophenolate); avoid in pregnancy and ensure contraception.",
+   "note_ar": "عدة مثبطات مناعة مشوهة للأجنة (الميثوتريكسات والميكوفينولات)؛ تجنبها أثناء الحمل واحرص على منع الحمل."
+  },
+  {
+   "class": "Immunosuppressant",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Immunosuppressants can be hepatotoxic or hepatically metabolised; monitor liver function.",
+   "note_ar": "مثبطات المناعة قد تكون سامة للكبد أو تستقلب فيه؛ راقب وظائف الكبد."
+  },
+  {
+   "class": "Immunosuppressant",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Calcineurin inhibitors are nephrotoxic and others accumulate; monitor renal function.",
+   "note_ar": "مثبطات الكالسينورين سامة للكلى وغيرها يتراكم؛ راقب وظيفة الكلى."
+  },
+  {
+   "class": "Immunosuppressant",
+   "condition": "breastfeeding",
+   "severity": "moderate",
+   "note_en": "Most immunosuppressants should be avoided while breastfeeding.",
+   "note_ar": "يجب تجنب معظم مثبطات المناعة أثناء الإرضاع."
+  },
+  {
+   "class": "Immunosuppressant",
+   "condition": "anaemia",
+   "severity": "moderate",
+   "note_en": "Immunosuppressants can suppress the bone marrow and worsen anaemia/cytopenias; monitor blood counts.",
+   "note_ar": "مثبطات المناعة قد تثبط نقي العظم وتفاقم فقر الدم ونقص العناصر؛ راقب تعداد الدم."
+  },
+  {
+   "class": "Biologic",
+   "condition": "heart_failure",
+   "severity": "moderate",
+   "note_en": "Anti-TNF biologics can worsen heart failure; avoid in moderate-to-severe heart failure.",
+   "note_ar": "المستحضرات الحيوية المضادة لعامل نخر الورم قد تفاقم قصور القلب؛ تجنبها عند قصور القلب المتوسط إلى الشديد."
+  },
+  {
+   "class": "Biologic",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Anti-TNF agents can reactivate hepatitis B; screen and use with caution in liver disease/hepatitis.",
+   "note_ar": "مضادات عامل نخر الورم قد تعيد تنشيط التهاب الكبد B؛ افحص واستخدم بحذر في أمراض الكبد والتهاب الكبد."
+  },
+  {
+   "class": "Biologic",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Biologics in pregnancy: use only on specialist advice.",
+   "note_ar": "المستحضرات الحيوية أثناء الحمل: استخدمها فقط بمشورة اختصاصي."
+  },
+  {
+   "class": "Biologic",
+   "condition": "breastfeeding",
+   "severity": "moderate",
+   "note_en": "Biologics while breastfeeding: seek specialist advice.",
+   "note_ar": "المستحضرات الحيوية أثناء الإرضاع: اطلب مشورة اختصاصي."
+  },
+  {
+   "class": "XanthineOxidase",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Allopurinol doses must be reduced in renal impairment (accumulation, hypersensitivity risk).",
+   "note_ar": "يجب خفض جرعات الألوبيورينول عند القصور الكلوي (التراكم وخطر فرط الحساسية)."
+  },
+  {
+   "class": "Antigout",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Colchicine accumulates in renal impairment; reduce dose (neuromyopathy risk).",
+   "note_ar": "يتراكم الكولشيسين عند القصور الكلوي؛ خفض الجرعة (خطر اعتلال عصبي عضلي)."
+  },
+  {
+   "class": "Antigout",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Colchicine: use with caution and lower doses in liver impairment.",
+   "note_ar": "الكولشيسين: استخدمه بحذر وبجرعات أخفض عند القصور الكبدي."
+  },
+  {
+   "class": "Aminosalicylate",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Mesalazine/sulfasalazine can cause nephrotoxicity; monitor renal function.",
+   "note_ar": "الميسالازين والسلفاسالازين قد يسببان سمية كلوية؛ راقب وظيفة الكلى."
+  },
+  {
+   "class": "Aminosalicylate",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Aminosalicylates: use with caution in liver disease.",
+   "note_ar": "الأمينوساليسيلات: استخدمها بحذر في أمراض الكبد."
+  },
+  {
+   "class": "Aminosalicylate",
+   "condition": "anaemia",
+   "severity": "moderate",
+   "note_en": "Sulfasalazine can cause haemolysis (G6PD deficiency) and folate deficiency; caution in anaemia.",
+   "note_ar": "السلفاسالازين قد يسبب انحلال الدم (نقص G6PD) ونقص الفولات؛ الحذر عند فقر الدم."
+  },
+  {
+   "class": "PPI",
+   "condition": "osteoporosis",
+   "severity": "moderate",
+   "note_en": "Long-term PPI use is associated with reduced bone density and fracture risk; review need periodically.",
+   "note_ar": "الاستخدام المطول لمثبطات مضخة البروتون يرتبط بنقص كثافة العظام وخطر الكسور؛ راجع الحاجة دورياً."
+  },
+  {
+   "class": "PPI",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "PPIs are hepatically metabolised; consider dose reduction in severe liver disease.",
+   "note_ar": "تستقلب مثبطات مضخة البروتون في الكبد؛ فكر في خفض الجرعة عند مرض الكبد الشديد."
+  },
+  {
+   "class": "H2Blocker",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "H2-blocker doses should be reduced in renal impairment.",
+   "note_ar": "يجب خفض جرعات حاصرات H2 عند وجود قصور كلوي."
+  },
+  {
+   "class": "Antiemetic",
+   "condition": "epilepsy",
+   "severity": "moderate",
+   "note_en": "Dopamine-antagonist antiemetics can lower the seizure threshold; use with caution in epilepsy.",
+   "note_ar": "مضادات القيء المضادة للدوبامين قد تخفض عتبة النوبات؛ استخدمها بحذر عند وجود صرع."
+  },
+  {
+   "class": "Antiemetic",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Antiemetics: reduce doses in liver impairment.",
+   "note_ar": "مضادات القيء: خفض الجرعات عند وجود قصور كبدي."
+  },
+  {
+   "class": "Antidiarrheal",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Loperamide undergoes extensive first-pass metabolism; use with caution in liver disease.",
+   "note_ar": "يخضع اللوبيراميد لاستقلاب عبور أول واسع؛ استخدمه بحذر في أمراض الكبد."
+  },
+  {
+   "class": "Antidiarrheal",
+   "condition": "arrhythmia",
+   "severity": "moderate",
+   "note_en": "High-dose loperamide can prolong QT and cause arrhythmia; do not exceed the recommended dose.",
+   "note_ar": "اللوبيراميد بالجرعات العالية قد يطيل QT ويسبب اضطراب نظم؛ لا تتجاوز الجرعة الموصى بها."
+  },
+  {
+   "class": "Antacid",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Aluminium-containing antacids can accumulate in renal failure; avoid prolonged use.",
+   "note_ar": "مضادات الحموضة الحاوية على الألمنيوم قد تتراكم عند الفشل الكلوي؛ تجنب الاستخدام المطول."
+  },
+  {
+   "class": "Prostaglandin",
+   "condition": "asthma_copd",
+   "severity": "moderate",
+   "note_en": "Prostaglandin eye drops (latanoprost) should be used with caution in asthma.",
+   "note_ar": "قطرات البروستاغلاندين العينية (اللاتانوبروست) تستخدم بحذر عند وجود ربو."
+  },
+  {
+   "class": "Antiepileptic",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Antiepileptics in pregnancy carry teratogenic risk (drug-dependent; valproate is highest risk); ensure folate and specialist care.",
+   "note_ar": "مضادات الصرع أثناء الحمل تحمل خطر تشوهات (يختلف حسب الدواء؛ الفالبروات الأعلى خطراً)؛ احرص على الفولات ومتابعة الاختصاصي."
+  },
+  {
+   "class": "Antiepileptic",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Many antiepileptics are hepatically metabolised or hepatotoxic; use with caution in liver disease.",
+   "note_ar": "كثير من مضادات الصرع تستقلب في الكبد أو سامة له؛ استخدمها بحذر في أمراض الكبد."
+  },
+  {
+   "class": "Antiepileptic",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Several antiepileptics (gabapentin, pregabalin, levetiracetam) need dose adjustment in renal impairment.",
+   "note_ar": "عدة مضادات صرع (الغابابنتين والبريغابالين والليفيتيراسيتام) تحتاج تعديل جرعة عند القصور الكلوي."
+  },
+  {
+   "class": "Antiepileptic",
+   "condition": "porphyria",
+   "severity": "moderate",
+   "note_en": "Several antiepileptics are porphyrinogenic and can precipitate acute porphyria.",
+   "note_ar": "عدة مضادات صرع من محرضات البورفيريا وقد تثير بورفيريا حادة."
+  },
+  {
+   "class": "Benzodiazepine",
+   "condition": "asthma_copd",
+   "severity": "severe",
+   "note_en": "Benzodiazepines depress respiration; avoid or use with great caution in severe respiratory disease/COPD.",
+   "note_ar": "البنزوديازيبينات تثبط التنفس؛ تجنبها أو استخدمها بحذر شديد عند مرض تنفسي شديد أو انسداد رئوي."
+  },
+  {
+   "class": "Benzodiazepine",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Benzodiazepines accumulate in liver disease and can precipitate encephalopathy; use lower doses.",
+   "note_ar": "تتراكم البنزوديازيبينات في أمراض الكبد وقد تثير اعتلالاً دماغياً؛ استخدم جرعات أخفض."
+  },
+  {
+   "class": "Benzodiazepine",
+   "condition": "myasthenia_gravis",
+   "severity": "moderate",
+   "note_en": "Benzodiazepines can worsen muscle weakness in myasthenia gravis; use with caution.",
+   "note_ar": "البنزوديازيبينات قد تفاقم ضعف العضلات في الوهن العضلي الوبيل؛ استخدمها بحذر."
+  },
+  {
+   "class": "Benzodiazepine",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Benzodiazepines in pregnancy, especially near term, can cause neonatal sedation/withdrawal; avoid regular use.",
+   "note_ar": "البنزوديازيبينات أثناء الحمل خاصة قرب الولادة قد تسبب نعاساً أو سحباً لدى الوليد؛ تجنب الاستخدام المنتظم."
+  },
+  {
+   "class": "Benzodiazepine",
+   "condition": "breastfeeding",
+   "severity": "moderate",
+   "note_en": "Benzodiazepines pass into breast milk and can sedate the infant; avoid regular use.",
+   "note_ar": "تمر البنزوديازيبينات إلى حليب الأم وقد تسبب نعاساً للرضيع؛ تجنب الاستخدام المنتظم."
+  },
+  {
+   "class": "Sedative",
+   "condition": "asthma_copd",
+   "severity": "moderate",
+   "note_en": "Zolpidem can depress respiration; use with caution in respiratory impairment/COPD.",
+   "note_ar": "الزولبيديم قد يثبط التنفس؛ استخدمه بحذر عند القصور التنفسي أو الانسداد الرئوي."
+  },
+  {
+   "class": "Sedative",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Zolpidem: reduce dose in liver impairment and avoid in severe hepatic failure.",
+   "note_ar": "الزولبيديم: خفض الجرعة عند القصور الكبدي وتجنبه عند الفشل الكبدي الشديد."
+  },
+  {
+   "class": "Sedative",
+   "condition": "myasthenia_gravis",
+   "severity": "moderate",
+   "note_en": "Sedative-hypnotics can worsen weakness in myasthenia gravis; use with caution.",
+   "note_ar": "المنومات المهدئة قد تفاقم الضعف في الوهن العضلي الوبيل؛ استخدمها بحذر."
+  },
+  {
+   "class": "Sedative",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Zolpidem in pregnancy: use only if clearly needed.",
+   "note_ar": "الزولبيديم أثناء الحمل: استخدمه فقط عند الحاجة الواضحة."
+  },
+  {
+   "class": "MuscleRelaxant",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Muscle relaxants are largely hepatically metabolised; use with caution in liver disease.",
+   "note_ar": "تستقلب مرخيات العضلات غالباً في الكبد؛ استخدمها بحذر في أمراض الكبد."
+  },
+  {
+   "class": "MuscleRelaxant",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Muscle relaxants or their metabolites can accumulate in renal impairment; use lower doses.",
+   "note_ar": "قد تتراكم مرخيات العضلات أو مستقلباتها عند القصور الكلوي؛ استخدم جرعات أخفض."
+  },
+  {
+   "class": "MuscleRelaxant",
+   "condition": "myasthenia_gravis",
+   "severity": "moderate",
+   "note_en": "Muscle relaxants can worsen weakness in myasthenia gravis; use with caution.",
+   "note_ar": "مرخيات العضلات قد تفاقم الضعف في الوهن العضلي الوبيل؛ استخدمها بحذر."
+  },
+  {
+   "class": "MuscleRelaxant",
+   "condition": "epilepsy",
+   "severity": "moderate",
+   "note_en": "Abrupt withdrawal of baclofen/tizanidine can provoke seizures; taper doses and use caution in epilepsy.",
+   "note_ar": "الإيقاف المفاجئ للباكلوفين أو التيزانيدين قد يثير نوبات؛ خفض الجرعة تدريجياً واستخدم بحذر عند الصرع."
+  },
+  {
+   "class": "SSRI",
+   "condition": "bleeding_disorder",
+   "severity": "moderate",
+   "note_en": "SSRIs impair platelet serotonin uptake and increase bleeding risk, especially with NSAIDs/anticoagulants.",
+   "note_ar": "مثبطات استرداد السيروتونين الانتقائية تضعف قبط الصفيحات للسيروتونين وتزيد خطر النزف خاصة مع مضادات الالتهاب ومضادات التخثر."
+  },
+  {
+   "class": "SSRI",
+   "condition": "epilepsy",
+   "severity": "moderate",
+   "note_en": "SSRIs can lower the seizure threshold; use with caution in epilepsy.",
+   "note_ar": "مثبطات استرداد السيروتونين قد تخفض عتبة النوبات؛ استخدمها بحذر عند وجود صرع."
+  },
+  {
+   "class": "SSRI",
+   "condition": "glaucoma",
+   "severity": "moderate",
+   "note_en": "SSRIs can precipitate angle-closure glaucoma in predisposed eyes.",
+   "note_ar": "مثبطات استرداد السيروتونين قد تثير غلوكوما انسداد الزاوية في العيون المؤهبة."
+  },
+  {
+   "class": "SSRI",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "SSRIs in pregnancy: weigh risks/benefits with a specialist (neonatal adaptation, possible PPHN).",
+   "note_ar": "مثبطات استرداد السيروتونين أثناء الحمل: وازن المخاطر والفوائد مع اختصاصي (تكيف الوليد واحتمال ارتفاع ضغط الشريان الرئوي)."
+  },
+  {
+   "class": "SSRI",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "SSRIs are hepatically metabolised; use lower doses in liver disease.",
+   "note_ar": "تستقلب مثبطات استرداد السيروتونين في الكبد؛ استخدم جرعات أخفض في أمراض الكبد."
+  },
+  {
+   "class": "SSRI",
+   "condition": "diabetes",
+   "severity": "moderate",
+   "note_en": "SSRIs can alter blood glucose control; monitor glucose when starting or stopping.",
+   "note_ar": "مثبطات استرداد السيروتونين قد تغير ضبط سكر الدم؛ راقب السكر عند البدء أو الإيقاف."
+  },
+  {
+   "class": "SNRI",
+   "condition": "bleeding_disorder",
+   "severity": "moderate",
+   "note_en": "SNRIs impair platelet function and increase bleeding risk, especially with NSAIDs/anticoagulants.",
+   "note_ar": "مثبطات استرداد السيروتونين والنورأدرينالين تضعف وظيفة الصفيحات وتزيد خطر النزف خاصة مع مضادات الالتهاب ومضادات التخثر."
+  },
+  {
+   "class": "SNRI",
+   "condition": "hypertension",
+   "severity": "moderate",
+   "note_en": "Venlafaxine and duloxetine can raise blood pressure dose-dependently; monitor BP.",
+   "note_ar": "الفينلافاكسين والدولوكسيتين قد يرفعان ضغط الدم بشكل مرتبط بالجرعة؛ راقب الضغط."
+  },
+  {
+   "class": "SNRI",
+   "condition": "glaucoma",
+   "severity": "moderate",
+   "note_en": "SNRIs can precipitate angle-closure glaucoma in predisposed eyes.",
+   "note_ar": "مثبطات استرداد السيروتونين والنورأدرينالين قد تثير غلوكوما انسداد الزاوية في العيون المؤهبة."
+  },
+  {
+   "class": "SNRI",
+   "condition": "epilepsy",
+   "severity": "moderate",
+   "note_en": "SNRIs can lower the seizure threshold; use with caution in epilepsy.",
+   "note_ar": "مثبطات استرداد السيروتونين والنورأدرينالين قد تخفض عتبة النوبات؛ استخدمها بحذر عند وجود صرع."
+  },
+  {
+   "class": "SNRI",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "SNRIs are hepatically metabolised; duloxetine should be avoided in liver disease (see drug rule).",
+   "note_ar": "تستقلب مثبطات استرداد السيروتونين والنورأدرينالين في الكبد؛ يجب تجنب الدولوكسيتين في أمراض الكبد (انظر قاعدة الدواء)."
+  },
+  {
+   "class": "SNRI",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "SNRIs need dose caution in renal impairment; duloxetine should be avoided if severe.",
+   "note_ar": "تحتاج مثبطات استرداد السيروتونين والنورأدرينالين إلى حذر بالجرعة عند القصور الكلوي؛ تجنب الدولوكسيتين إذا كان شديداً."
+  },
+  {
+   "class": "TCA",
+   "condition": "glaucoma",
+   "severity": "severe",
+   "note_en": "Tricyclics have strong anticholinergic effects and can precipitate angle-closure glaucoma; avoid in untreated narrow angles.",
+   "note_ar": "مضادات الاكتئاب ثلاثية الحلقة لها تأثيرات مضادة للكولين قوية وقد تثير غلوكوما انسداد الزاوية؛ تجنبها عند زاوية ضيقة غير معالجة."
+  },
+  {
+   "class": "TCA",
+   "condition": "arrhythmia",
+   "severity": "severe",
+   "note_en": "Tricyclics are cardiotoxic (conduction block, arrhythmia) and contraindicated soon after MI; avoid with arrhythmia/conduction disease.",
+   "note_ar": "مضادات الاكتئاب ثلاثية الحلقة سامة للقلب (حصار توصيل واضطراب نظم) وممنوعة بعد الاحتشاء مباشرة؛ تجنبها عند اضطراب النظم أو مرض التوصيل."
+  },
+  {
+   "class": "TCA",
+   "condition": "bph",
+   "severity": "moderate",
+   "note_en": "Tricyclics can cause urinary retention, especially with prostate enlargement.",
+   "note_ar": "مضادات الاكتئاب ثلاثية الحلقة قد تسبب احتباس البول خاصة عند تضخم البروستاتا."
+  },
+  {
+   "class": "TCA",
+   "condition": "epilepsy",
+   "severity": "moderate",
+   "note_en": "Tricyclics lower the seizure threshold; use with caution in epilepsy.",
+   "note_ar": "مضادات الاكتئاب ثلاثية الحلقة تخفض عتبة النوبات؛ استخدمها بحذر عند وجود صرع."
+  },
+  {
+   "class": "TCA",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Tricyclics are hepatically metabolised and can be hepatotoxic; use with caution in liver disease.",
+   "note_ar": "تستقلب مضادات الاكتئاب ثلاثية الحلقة في الكبد وقد تكون سامة له؛ استخدمها بحذر في أمراض الكبد."
+  },
+  {
+   "class": "TCA",
+   "condition": "ischemic_heart_disease",
+   "severity": "moderate",
+   "note_en": "Tricyclics increase heart rate and arrhythmia risk in ischaemic heart disease; use with caution.",
+   "note_ar": "مضادات الاكتئاب ثلاثية الحلقة تزيد سرعة القلب وخطر اضطراب النظم عند نقص تروية القلب؛ استخدمها بحذر."
+  },
+  {
+   "class": "Antidepressant",
+   "condition": "epilepsy",
+   "severity": "moderate",
+   "note_en": "Bupropion and mirtazapine can lower the seizure threshold; use with caution in epilepsy (bupropion: see drug rule).",
+   "note_ar": "البوبروبيون والميرتازابين قد يخفضان عتبة النوبات؛ استخدم بحذر عند الصرع (البوبروبيون: انظر قاعدة الدواء)."
+  },
+  {
+   "class": "Antidepressant",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Bupropion/mirtazapine are hepatically metabolised; use lower doses in liver disease.",
+   "note_ar": "يستقلب البوبروبيون والميرتازابين في الكبد؛ استخدم جرعات أخفض في أمراض الكبد."
+  },
+  {
+   "class": "Antidepressant",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Bupropion/mirtazapine metabolites can accumulate in renal impairment; use lower doses.",
+   "note_ar": "قد تتراكم مستقلبات البوبروبيون والميرتازابين عند القصور الكلوي؛ استخدم جرعات أخفض."
+  },
+  {
+   "class": "Antidepressant",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Bupropion/mirtazapine in pregnancy: use only on specialist advice.",
+   "note_ar": "البوبروبيون والميرتازابين أثناء الحمل: استخدم فقط بمشورة اختصاصي."
+  },
+  {
+   "class": "Antipsychotic",
+   "condition": "parkinsons",
+   "severity": "severe",
+   "note_en": "Dopamine-blocking antipsychotics worsen Parkinson's disease and are generally contraindicated; seek specialist advice.",
+   "note_ar": "مضادات الذهان الحاصرة للدوبامين تفاقم مرض باركنسون وممنوعة عموماً؛ اطلب مشورة اختصاصي."
+  },
+  {
+   "class": "Antipsychotic",
+   "condition": "diabetes",
+   "severity": "moderate",
+   "note_en": "Antipsychotics (especially atypicals) worsen glucose control and weight; monitor in diabetes.",
+   "note_ar": "مضادات الذهان (خاصة اللانمطية) تسيء ضبط السكر وتزيد الوزن؛ راقب عند وجود داء السكري."
+  },
+  {
+   "class": "Antipsychotic",
+   "condition": "arrhythmia",
+   "severity": "moderate",
+   "note_en": "Many antipsychotics prolong the QT interval; caution with arrhythmia or QT prolongation.",
+   "note_ar": "كثير من مضادات الذهان تطيل فترة QT؛ الحذر عند اضطراب النظم أو تطاول QT."
+  },
+  {
+   "class": "Antipsychotic",
+   "condition": "epilepsy",
+   "severity": "moderate",
+   "note_en": "Antipsychotics lower the seizure threshold (notably clozapine/chlorpromazine); use with caution in epilepsy.",
+   "note_ar": "مضادات الذهان تخفض عتبة النوبات (خاصة الكلوزابين والكلوربرومازين)؛ استخدمها بحذر عند وجود صرع."
+  },
+  {
+   "class": "Antipsychotic",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Antipsychotics in pregnancy: use only on specialist advice.",
+   "note_ar": "مضادات الذهان أثناء الحمل: استخدمها فقط بمشورة اختصاصي."
+  },
+  {
+   "class": "Antipsychotic",
+   "condition": "breastfeeding",
+   "severity": "moderate",
+   "note_en": "Antipsychotics pass into breast milk; seek specialist advice while breastfeeding.",
+   "note_ar": "تمر مضادات الذهان إلى حليب الأم؛ اطلب مشورة اختصاصي أثناء الإرضاع."
+  },
+  {
+   "class": "Antipsychotic",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Antipsychotics are hepatically metabolised and some are hepatotoxic; use with caution in liver disease.",
+   "note_ar": "تستقلب مضادات الذهان في الكبد وبعضها سام له؛ استخدمها بحذر في أمراض الكبد."
+  },
+  {
+   "class": "Antipsychotic",
+   "condition": "osteoporosis",
+   "severity": "moderate",
+   "note_en": "Prolactin-raising antipsychotics can reduce bone density with long-term use.",
+   "note_ar": "مضادات الذهان الرافعة للبرولاكتين قد تخفض كثافة العظام مع الاستخدام الطويل."
+  },
+  {
+   "class": "MAOI",
+   "condition": "hypertension",
+   "severity": "moderate",
+   "note_en": "MAO inhibitors can themselves raise blood pressure and interact dangerously with sympathomimetics; monitor BP.",
+   "note_ar": "مثبطات الخميرة المؤكسدة للأمينات الأحادية قد ترفع ضغط الدم بحد ذاتها وتتداخل بشكل خطير مع المحاكيات الودية؛ راقب الضغط."
+  },
+  {
+   "class": "MAOI",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "MAO inhibitors can be hepatotoxic; use with caution in liver disease.",
+   "note_ar": "مثبطات الخميرة المؤكسدة للأمينات الأحادية قد تكون سامة للكبد؛ استخدمها بحذر في أمراض الكبد."
+  },
+  {
+   "class": "MAOI",
+   "condition": "diabetes",
+   "severity": "moderate",
+   "note_en": "MAO inhibitors can potentiate hypoglycaemia; monitor blood glucose in diabetes.",
+   "note_ar": "مثبطات الخميرة المؤكسدة للأمينات الأحادية قد تعزز هبوط سكر الدم؛ راقب السكر عند وجود داء السكري."
+  },
+  {
+   "class": "MoodStabiliser",
+   "condition": "renal_impairment",
+   "severity": "severe",
+   "note_en": "Lithium is renally cleared with a narrow therapeutic index; toxicity risk is high in renal impairment — monitor levels closely.",
+   "note_ar": "الليثيوم يطرح كلوياً وله هامش علاجي ضيق؛ خطر السمية مرتفع عند القصور الكلوي — راقب المستويات بدقة."
+  },
+  {
+   "class": "MoodStabiliser",
+   "condition": "thyroid_disorder",
+   "severity": "moderate",
+   "note_en": "Lithium commonly causes hypothyroidism and goitre; monitor thyroid function.",
+   "note_ar": "الليثيوم يسبب غالباً قصور الدرقية وتضخمها؛ راقب وظيفة الغدة الدرقية."
+  },
+  {
+   "class": "MoodStabiliser",
+   "condition": "pregnancy",
+   "severity": "severe",
+   "note_en": "Lithium is teratogenic (cardiac malformations, e.g. Ebstein anomaly); avoid in pregnancy, especially the first trimester.",
+   "note_ar": "الليثيوم مشوه للأجنة (تشوهات قلبية مثل شذوذ إبشتاين)؛ تجنبه أثناء الحمل خاصة في الثلث الأول."
+  },
+  {
+   "class": "MoodStabiliser",
+   "condition": "breastfeeding",
+   "severity": "severe",
+   "note_en": "Lithium passes into breast milk at significant levels and can harm the infant; avoid breastfeeding.",
+   "note_ar": "يمر الليثيوم إلى حليب الأم بمستويات مهمة وقد يضر الرضيع؛ تجنب الإرضاع."
+  },
+  {
+   "class": "MoodStabiliser",
+   "condition": "heart_disease",
+   "severity": "moderate",
+   "note_en": "Lithium: use with caution in cardiovascular disease (conduction effects); monitor ECG and levels.",
+   "note_ar": "الليثيوم: استخدمه بحذر عند وجود مرض قلبي وعائي (تأثيرات على التوصيل)؛ راقب التخطيط والمستويات."
+  },
+  {
+   "class": "Anticholinergic",
+   "condition": "glaucoma",
+   "severity": "severe",
+   "note_en": "Anticholinergics can precipitate acute angle-closure glaucoma; avoid in untreated narrow-angle glaucoma.",
+   "note_ar": "مضادات الكولين قد تثير غلوكوما انسداد الزاوية الحادة؛ تجنبها عند غلوكوما الزاوية الضيقة غير المعالجة."
+  },
+  {
+   "class": "Anticholinergic",
+   "condition": "bph",
+   "severity": "moderate",
+   "note_en": "Anticholinergics can cause urinary retention, especially with prostate enlargement.",
+   "note_ar": "مضادات الكولين قد تسبب احتباس البول خاصة عند تضخم البروستاتا."
+  },
+  {
+   "class": "Anticholinergic",
+   "condition": "myasthenia_gravis",
+   "severity": "moderate",
+   "note_en": "Anticholinergics can worsen myasthenia gravis by opposing cholinergic therapy.",
+   "note_ar": "مضادات الكولين قد تفاقم الوهن العضلي الوبيل عبر معاكسة العلاج الكوليني."
+  },
+  {
+   "class": "Cholinesterase",
+   "condition": "asthma_copd",
+   "severity": "moderate",
+   "note_en": "Cholinesterase inhibitors increase bronchial secretions and can cause bronchospasm; caution in asthma/COPD.",
+   "note_ar": "مثبطات الكولين إستراز تزيد الإفرازات القصبية وقد تسبب تشنجاً قصبياً؛ الحذر عند الربو أو الانسداد الرئوي."
+  },
+  {
+   "class": "Cholinesterase",
+   "condition": "peptic_ulcer_gi",
+   "severity": "moderate",
+   "note_en": "Cholinesterase inhibitors increase gastric acid secretion and ulcer risk.",
+   "note_ar": "مثبطات الكولين إستراز تزيد إفراز حمض المعدة وخطر القرحة."
+  },
+  {
+   "class": "Cholinesterase",
+   "condition": "arrhythmia",
+   "severity": "moderate",
+   "note_en": "Cholinesterase inhibitors can cause bradycardia and heart block; caution with conduction disease.",
+   "note_ar": "مثبطات الكولين إستراز قد تسبب بطء القلب وحصار القلب؛ الحذر عند مرض التوصيل."
+  },
+  {
+   "class": "Cholinesterase",
+   "condition": "epilepsy",
+   "severity": "moderate",
+   "note_en": "Cholinesterase inhibitors: use with caution in epilepsy (possible seizure risk).",
+   "note_ar": "مثبطات الكولين إستراز: استخدمها بحذر عند وجود صرع (احتمال خطر نوبات)."
+  },
+  {
+   "class": "NMDA",
+   "condition": "epilepsy",
+   "severity": "moderate",
+   "note_en": "Memantine: use with caution in epilepsy (limited data, possible seizure risk).",
+   "note_ar": "الميمانتين: استخدمه بحذر عند وجود صرع (بيانات محدودة واحتمال خطر نوبات)."
+  },
+  {
+   "class": "NMDA",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Memantine doses should be reduced in severe renal impairment.",
+   "note_ar": "يجب خفض جرعات الميمانتين عند وجود قصور كلوي شديد."
+  },
+  {
+   "class": "NMDA",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Memantine should be avoided in severe liver impairment.",
+   "note_ar": "يجب تجنب الميمانتين عند وجود قصور كبدي شديد."
+  },
+  {
+   "class": "NRI",
+   "condition": "hypertension",
+   "severity": "moderate",
+   "note_en": "Atomoxetine can raise blood pressure and heart rate; monitor BP.",
+   "note_ar": "الأتوموكسيتين قد يرفع ضغط الدم وسرعة القلب؛ راقب الضغط."
+  },
+  {
+   "class": "NRI",
+   "condition": "arrhythmia",
+   "severity": "moderate",
+   "note_en": "Atomoxetine can prolong QT and increase heart rate; caution with arrhythmia/cardiac disease.",
+   "note_ar": "الأتوموكسيتين قد يطيل QT ويزيد سرعة القلب؛ الحذر عند اضطراب النظم أو مرض القلب."
+  },
+  {
+   "class": "NRI",
+   "condition": "glaucoma",
+   "severity": "moderate",
+   "note_en": "Atomoxetine can precipitate angle-closure glaucoma in predisposed eyes.",
+   "note_ar": "الأتوموكسيتين قد يثير غلوكوما انسداد الزاوية في العيون المؤهبة."
+  },
+  {
+   "class": "NRI",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Atomoxetine doses should be reduced in moderate-to-severe liver impairment.",
+   "note_ar": "يجب خفض جرعات الأتوموكسيتين عند القصور الكبدي المتوسط إلى الشديد."
+  },
+  {
+   "class": "NRI",
+   "condition": "psychiatric",
+   "severity": "moderate",
+   "note_en": "Atomoxetine carries a warning for suicidal thinking and mood change; monitor psychiatric patients closely.",
+   "note_ar": "يحمل الأتوموكسيتين تحذيراً من التفكير الانتحاري وتغير المزاج؛ راقب المرضى النفسيين بدقة."
+  },
+  {
+   "class": "NRI",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Atomoxetine in pregnancy: use only on specialist advice.",
+   "note_ar": "الأتوموكسيتين أثناء الحمل: استخدمه فقط بمشورة اختصاصي."
+  },
+  {
+   "class": "Stimulant",
+   "condition": "hypertension",
+   "severity": "moderate",
+   "note_en": "Stimulants raise blood pressure and heart rate; monitor and use with caution in hypertension.",
+   "note_ar": "المنبهات ترفع ضغط الدم وسرعة القلب؛ راقب واستخدم بحذر عند ارتفاع ضغط الدم."
+  },
+  {
+   "class": "Stimulant",
+   "condition": "arrhythmia",
+   "severity": "moderate",
+   "note_en": "Stimulants can provoke arrhythmia; caution with cardiac disease or arrhythmia.",
+   "note_ar": "المنبهات قد تثير اضطراب نظم؛ الحذر عند مرض القلب أو اضطراب النظم."
+  },
+  {
+   "class": "Stimulant",
+   "condition": "psychiatric",
+   "severity": "moderate",
+   "note_en": "Stimulants can exacerbate psychosis, mania, anxiety and tics; use with caution in psychiatric illness.",
+   "note_ar": "المنبهات قد تفاقم الذهان والهوس والقلق واللزمات؛ استخدمها بحذر عند المرض النفسي."
+  },
+  {
+   "class": "Stimulant",
+   "condition": "epilepsy",
+   "severity": "moderate",
+   "note_en": "Stimulants may lower the seizure threshold; use with caution in epilepsy.",
+   "note_ar": "المنبهات قد تخفض عتبة النوبات؛ استخدمها بحذر عند وجود صرع."
+  },
+  {
+   "class": "Stimulant",
+   "condition": "glaucoma",
+   "severity": "moderate",
+   "note_en": "Methylphenidate: use with caution in glaucoma.",
+   "note_ar": "الميثيل فينيدات: استخدمه بحذر عند وجود غلوكوما."
+  },
+  {
+   "class": "Stimulant",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Stimulants in pregnancy: use only on specialist advice.",
+   "note_ar": "المنبهات أثناء الحمل: استخدمها فقط بمشورة اختصاصي."
+  },
+  {
+   "class": "Antiparkinson",
+   "condition": "psychiatric",
+   "severity": "moderate",
+   "note_en": "Levodopa can cause hallucinations, psychosis and impulse-control disorders; monitor psychiatric patients.",
+   "note_ar": "الليفودوبا قد يسبب هلوسات وذهاناً واضطرابات تحكم بالاندفاع؛ راقب المرضى النفسيين."
+  },
+  {
+   "class": "Antiparkinson",
+   "condition": "glaucoma",
+   "severity": "moderate",
+   "note_en": "Levodopa: use with caution in angle-closure glaucoma.",
+   "note_ar": "الليفودوبا: استخدمه بحذر عند غلوكوما انسداد الزاوية."
+  },
+  {
+   "class": "Antiparkinson",
+   "condition": "arrhythmia",
+   "severity": "moderate",
+   "note_en": "Levodopa can cause arrhythmias and orthostatic hypotension; use with caution in cardiac disease.",
+   "note_ar": "الليفودوبا قد يسبب اضطراب نظم وهبوط ضغط انتصابياً؛ استخدمه بحذر عند مرض القلب."
+  },
+  {
+   "class": "Bronchodilator",
+   "condition": "arrhythmia",
+   "severity": "moderate",
+   "note_en": "Beta-2 agonists can cause tachycardia and arrhythmia; use with caution in cardiac disease.",
+   "note_ar": "مناهضات بيتا-2 قد تسبب تسارع القلب واضطراب النظم؛ استخدمها بحذر عند مرض القلب."
+  },
+  {
+   "class": "Bronchodilator",
+   "condition": "hypertension",
+   "severity": "moderate",
+   "note_en": "Beta-2 agonists can raise blood pressure, especially systemic forms; monitor.",
+   "note_ar": "مناهضات بيتا-2 قد ترفع ضغط الدم خاصة بالأشكال الجهازية؛ راقب الضغط."
+  },
+  {
+   "class": "Bronchodilator",
+   "condition": "diabetes",
+   "severity": "moderate",
+   "note_en": "Beta-2 agonists can raise blood glucose; monitor in diabetes.",
+   "note_ar": "مناهضات بيتا-2 قد ترفع سكر الدم؛ راقب عند وجود داء السكري."
+  },
+  {
+   "class": "Bronchodilator",
+   "condition": "thyroid_disorder",
+   "severity": "moderate",
+   "note_en": "Beta-2 agonists: use with caution in hyperthyroidism (cardiovascular stimulation).",
+   "note_ar": "مناهضات بيتا-2: استخدمها بحذر عند فرط نشاط الغدة الدرقية (تنبيه قلبي وعائي)."
+  },
+  {
+   "class": "Bronchodilator",
+   "condition": "ischemic_heart_disease",
+   "severity": "moderate",
+   "note_en": "Beta-2 agonists increase myocardial oxygen demand; use with caution in ischaemic heart disease.",
+   "note_ar": "مناهضات بيتا-2 تزيد حاجة عضلة القلب للأكسجين؛ استخدمها بحذر عند نقص تروية القلب."
+  },
+  {
+   "class": "Methylxanthine",
+   "condition": "arrhythmia",
+   "severity": "moderate",
+   "note_en": "Theophylline can provoke arrhythmias and has a narrow therapeutic index; monitor levels.",
+   "note_ar": "الثيوفيلين قد يثير اضطراب نظم وله هامش علاجي ضيق؛ راقب المستويات."
+  },
+  {
+   "class": "Methylxanthine",
+   "condition": "epilepsy",
+   "severity": "moderate",
+   "note_en": "Theophylline can lower the seizure threshold and cause seizures in toxicity.",
+   "note_ar": "الثيوفيلين قد يخفض عتبة النوبات ويسبب نوبات عند السمية."
+  },
+  {
+   "class": "Methylxanthine",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Theophylline clearance falls in liver disease; reduce dose and monitor levels.",
+   "note_ar": "تنخفض تصفية الثيوفيلين في أمراض الكبد؛ خفض الجرعة وراقب المستويات."
+  },
+  {
+   "class": "Methylxanthine",
+   "condition": "peptic_ulcer_gi",
+   "severity": "moderate",
+   "note_en": "Theophylline increases gastric secretion and can aggravate peptic ulcer.",
+   "note_ar": "الثيوفيلين يزيد إفراز المعدة وقد يفاقم القرحة الهضمية."
+  },
+  {
+   "class": "Methylxanthine",
+   "condition": "heart_failure",
+   "severity": "moderate",
+   "note_en": "Theophylline clearance falls in heart failure; reduce dose and monitor levels.",
+   "note_ar": "تنخفض تصفية الثيوفيلين عند قصور القلب؛ خفض الجرعة وراقب المستويات."
+  },
+  {
+   "class": "Leukotriene",
+   "condition": "psychiatric",
+   "severity": "moderate",
+   "note_en": "Montelukast carries a boxed warning for neuropsychiatric events (agitation, depression, suicidality); counsel and monitor.",
+   "note_ar": "يحمل المونتيلوكاست تحذيراً مؤطراً من أعراض عصبية نفسية (هياج واكتئاب وأفكار انتحارية)؛ نبه المريض وراقبه."
+  },
+  {
+   "class": "Leukotriene",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Montelukast is hepatically metabolised; use with caution in liver impairment.",
+   "note_ar": "يستقلب المونتيلوكاست في الكبد؛ استخدمه بحذر عند القصور الكبدي."
+  },
+  {
+   "class": "Antitussive",
+   "condition": "asthma_copd",
+   "severity": "moderate",
+   "note_en": "Cough suppressants should be used with caution in asthma/chronic bronchitis (retained secretions).",
+   "note_ar": "تستخدم مثبطات السعال بحذر عند الربو أو التهاب القصبات المزمن (احتباس الإفرازات)."
+  },
+  {
+   "class": "Antitussive",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Dextromethorphan is hepatically metabolised; use with caution in liver disease.",
+   "note_ar": "يستقلب الديكستروميثورفان في الكبد؛ استخدمه بحذر في أمراض الكبد."
+  },
+  {
+   "class": "Antihistamine",
+   "condition": "glaucoma",
+   "severity": "moderate",
+   "note_en": "Sedating antihistamines have anticholinergic effects and can worsen angle-closure glaucoma.",
+   "note_ar": "مضادات الهيستامين المهدئة لها تأثيرات مضادة للكولين وقد تفاقم غلوكوما انسداد الزاوية."
+  },
+  {
+   "class": "Antihistamine",
+   "condition": "bph",
+   "severity": "moderate",
+   "note_en": "Sedating antihistamines can cause urinary retention, especially with prostate enlargement.",
+   "note_ar": "مضادات الهيستامين المهدئة قد تسبب احتباس البول خاصة عند تضخم البروستاتا."
+  },
+  {
+   "class": "Antihistamine",
+   "condition": "asthma_copd",
+   "severity": "moderate",
+   "note_en": "Sedating antihistamines can thicken bronchial secretions; use with caution in asthma.",
+   "note_ar": "مضادات الهيستامين المهدئة قد تثخن الإفرازات القصبية؛ استخدمها بحذر عند الربو."
+  },
+  {
+   "class": "Antihistamine",
+   "condition": "epilepsy",
+   "severity": "moderate",
+   "note_en": "Sedating antihistamines: use with caution in epilepsy (possible lowering of seizure threshold).",
+   "note_ar": "مضادات الهيستامين المهدئة: استخدمها بحذر عند وجود صرع (احتمال خفض عتبة النوبات)."
+  },
+  {
+   "class": "Decongestant",
+   "condition": "hypertension",
+   "severity": "severe",
+   "note_en": "Pseudoephedrine can markedly raise blood pressure; avoid in severe or uncontrolled hypertension.",
+   "note_ar": "السودوإفدرين قد يرفع ضغط الدم بشكل واضح؛ تجنبه عند ارتفاع الضغط الشديد أو غير المضبوط."
+  },
+  {
+   "class": "Decongestant",
+   "condition": "ischemic_heart_disease",
+   "severity": "moderate",
+   "note_en": "Pseudoephedrine can provoke angina/arrhythmia in ischaemic heart disease.",
+   "note_ar": "السودوإفدرين قد يثير ذبحة أو اضطراب نظم عند نقص تروية القلب."
+  },
+  {
+   "class": "Decongestant",
+   "condition": "thyroid_disorder",
+   "severity": "moderate",
+   "note_en": "Pseudoephedrine: use with caution in hyperthyroidism.",
+   "note_ar": "السودوإفدرين: استخدمه بحذر عند فرط نشاط الغدة الدرقية."
+  },
+  {
+   "class": "Decongestant",
+   "condition": "glaucoma",
+   "severity": "moderate",
+   "note_en": "Pseudoephedrine can precipitate angle-closure glaucoma in predisposed eyes.",
+   "note_ar": "السودوإفدرين قد يثير غلوكوما انسداد الزاوية في العيون المؤهبة."
+  },
+  {
+   "class": "Decongestant",
+   "condition": "bph",
+   "severity": "moderate",
+   "note_en": "Pseudoephedrine can cause urinary retention with prostate enlargement.",
+   "note_ar": "السودوإفدرين قد يسبب احتباس البول عند تضخم البروستاتا."
+  },
+  {
+   "class": "Decongestant",
+   "condition": "diabetes",
+   "severity": "moderate",
+   "note_en": "Pseudoephedrine can raise blood glucose; monitor in diabetes.",
+   "note_ar": "السودوإفدرين قد يرفع سكر الدم؛ راقب عند وجود داء السكري."
+  },
+  {
+   "class": "Beta3Agonist",
+   "condition": "hypertension",
+   "severity": "moderate",
+   "note_en": "Mirabegron can raise blood pressure and is contraindicated in severe uncontrolled hypertension; monitor BP.",
+   "note_ar": "الميرابيغرون قد يرفع ضغط الدم وممنوع عند ارتفاع الضغط الشديد غير المضبوط؛ راقب الضغط."
+  },
+  {
+   "class": "Beta3Agonist",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Mirabegron doses should be reduced in renal impairment.",
+   "note_ar": "يجب خفض جرعات الميرابيغرون عند وجود قصور كلوي."
+  },
+  {
+   "class": "Beta3Agonist",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Mirabegron doses should be reduced in liver impairment.",
+   "note_ar": "يجب خفض جرعات الميرابيغرون عند وجود قصور كبدي."
+  },
+  {
+   "class": "CarbonicAnhydrase",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Dorzolamide (a sulfonamide carbonic-anhydrase inhibitor): use with caution in severe renal impairment.",
+   "note_ar": "الدورزولاميد (مثبط أنهيدراز كربوني سلفوناميدي): استخدمه بحذر عند القصور الكلوي الشديد."
+  },
+  {
+   "class": "CarbonicAnhydrase",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Dorzolamide: use with caution in liver impairment (not studied).",
+   "note_ar": "الدورزولاميد: استخدمه بحذر عند القصور الكبدي (غير مدروس)."
+  },
+  {
+   "class": "Miotic",
+   "condition": "asthma_copd",
+   "severity": "moderate",
+   "note_en": "Pilocarpine is cholinomimetic and can cause bronchospasm; use with caution in asthma.",
+   "note_ar": "البيلوكاربين محاكٍ للكولين وقد يسبب تشنجاً قصبياً؛ استخدمه بحذر عند الربو."
+  },
+  {
+   "class": "Vasopressin",
+   "condition": "heart_failure",
+   "severity": "moderate",
+   "note_en": "Desmopressin causes water retention and can worsen heart failure/hyponatraemia; monitor fluids and sodium.",
+   "note_ar": "الديسموبريسين يسبب احتباس الماء وقد يفاقم قصور القلب ونقص الصوديوم؛ راقب السوائل والصوديوم."
+  },
+  {
+   "class": "Vasopressin",
+   "condition": "hypertension",
+   "severity": "moderate",
+   "note_en": "Desmopressin: use with caution in hypertension (fluid retention).",
+   "note_ar": "الديسموبريسين: استخدمه بحذر عند ارتفاع ضغط الدم (احتباس السوائل)."
+  },
+  {
+   "class": "Vasopressin",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Desmopressin: use with caution in renal impairment.",
+   "note_ar": "الديسموبريسين: استخدمه بحذر عند وجود قصور كلوي."
+  },
+  {
+   "class": "Vasopressin",
+   "condition": "ischemic_heart_disease",
+   "severity": "moderate",
+   "note_en": "Desmopressin: use with caution in coronary artery disease.",
+   "note_ar": "الديسموبريسين: استخدمه بحذر عند مرض الشريان التاجي."
+  },
+  {
+   "class": "Antimalarial",
+   "condition": "epilepsy",
+   "severity": "moderate",
+   "note_en": "Hydroxychloroquine can lower the seizure threshold; use with caution in epilepsy.",
+   "note_ar": "الهيدروكسي كلوروكين قد يخفض عتبة النوبات؛ استخدمه بحذر عند وجود صرع."
+  },
+  {
+   "class": "Antimalarial",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Hydroxychloroquine: use with caution in liver disease.",
+   "note_ar": "الهيدروكسي كلوروكين: استخدمه بحذر في أمراض الكبد."
+  },
+  {
+   "class": "Antimalarial",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Hydroxychloroquine: use with caution and consider dose review in renal impairment.",
+   "note_ar": "الهيدروكسي كلوروكين: استخدمه بحذر وفكر في مراجعة الجرعة عند القصور الكلوي."
+  },
+  {
+   "class": "Antimalarial",
+   "condition": "myasthenia_gravis",
+   "severity": "moderate",
+   "note_en": "Hydroxychloroquine can worsen myasthenia gravis.",
+   "note_ar": "الهيدروكسي كلوروكين قد يفاقم الوهن العضلي الوبيل."
+  }
+ ],
+ "drug_rules": [
+  {
+   "drug": "Aspirin",
+   "condition": "asthma_copd",
+   "severity": "moderate",
+   "note_en": "Aspirin can trigger severe bronchospasm in aspirin-exacerbated respiratory disease; check for prior aspirin/NSAID sensitivity.",
+   "note_ar": "الأسبرين قد يثير تشنجاً قصبياً شديداً في المرض التنفسي المتفاقم بالأسبرين؛ تحقق من حساسية سابقة للأسبرين أو مضادات الالتهاب."
+  },
+  {
+   "drug": "Aspirin",
+   "condition": "peptic_ulcer_gi",
+   "severity": "severe",
+   "note_en": "Aspirin directly injures the gastric mucosa and impairs platelets; avoid with active peptic ulcer or recent GI bleeding.",
+   "note_ar": "الأسبرين يؤذي مخاطية المعدة مباشرة ويضعف الصفيحات؛ تجنبه عند قرحة هضمية نشطة أو نزف هضمي حديث."
+  },
+  {
+   "drug": "Aspirin",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Avoid analgesic doses of aspirin in pregnancy, especially the third trimester; low-dose obstetric use is specialist-directed.",
+   "note_ar": "تجنب الجرعات المسكنة من الأسبرين أثناء الحمل خاصة في الثلث الأخير؛ الاستخدام التوليدي بجرعة منخفضة يوجهه اختصاصي."
+  },
+  {
+   "drug": "Codeine",
+   "condition": "breastfeeding",
+   "severity": "severe",
+   "note_en": "Codeine is contraindicated while breastfeeding: ultra-rapid metabolisers produce high morphine levels that can fatally depress the infant.",
+   "note_ar": "الكودايين ممنوع أثناء الإرضاع: المستقلبون فائقو السرعة ينتجون مستويات مورفين عالية قد تثبط رضيعاً بشكل مميت."
+  },
+  {
+   "drug": "Tramadol",
+   "condition": "epilepsy",
+   "severity": "severe",
+   "note_en": "Tramadol lowers the seizure threshold and is contraindicated in uncontrolled epilepsy.",
+   "note_ar": "الترامادول يخفض عتبة النوبات وممنوع عند الصرع غير المضبوط."
+  },
+  {
+   "drug": "Valproic Acid",
+   "condition": "pregnancy",
+   "severity": "severe",
+   "note_en": "Valproate is highly teratogenic (neural-tube and neurodevelopmental defects); contraindicated in pregnancy unless no alternative exists, under a pregnancy-prevention programme.",
+   "note_ar": "الفالبروات مشوه بدرجة عالية (عيوب الأنبوب العصبي والنمو العصبي)؛ ممنوع أثناء الحمل ما لم لا يوجد بديل، ضمن برنامج منع حمل."
+  },
+  {
+   "drug": "Valproic Acid",
+   "condition": "liver_impairment",
+   "severity": "severe",
+   "note_en": "Valproate can cause fatal hepatotoxicity and is contraindicated in significant liver disease.",
+   "note_ar": "الفالبروات قد يسبب سمية كبدية مميتة وممنوع عند وجود مرض كبدي مهم."
+  },
+  {
+   "drug": "Valproic Acid",
+   "condition": "anaemia",
+   "severity": "moderate",
+   "note_en": "Valproate can cause thrombocytopenia and marrow effects; monitor blood counts.",
+   "note_ar": "الفالبروات قد يسبب نقص صفيحات وتأثيرات نقوية؛ راقب تعداد الدم."
+  },
+  {
+   "drug": "Carbamazepine",
+   "condition": "anaemia",
+   "severity": "severe",
+   "note_en": "Carbamazepine can cause aplastic anaemia and agranulocytosis; avoid with bone-marrow depression and monitor blood counts.",
+   "note_ar": "الكاربامازيبين قد يسبب فقر دم لا تنسجياً وندرة محببات؛ تجنبه عند تثبيط النقي وراقب تعداد الدم."
+  },
+  {
+   "drug": "Carbamazepine",
+   "condition": "porphyria",
+   "severity": "severe",
+   "note_en": "Carbamazepine is porphyrinogenic and contraindicated in porphyria.",
+   "note_ar": "الكاربامازيبين من محرضات البورفيريا وممنوع عند وجود البورفيريا."
+  },
+  {
+   "drug": "Phenytoin",
+   "condition": "anaemia",
+   "severity": "moderate",
+   "note_en": "Phenytoin can cause folate-deficiency megaloblastic anaemia; monitor folate and blood counts.",
+   "note_ar": "الفينيتوين قد يسبب فقر دم ضخم الأرومات بنقص الفولات؛ راقب الفولات وتعداد الدم."
+  },
+  {
+   "drug": "Methotrexate",
+   "condition": "pregnancy",
+   "severity": "severe",
+   "note_en": "Methotrexate is abortifacient and highly teratogenic; contraindicated in pregnancy.",
+   "note_ar": "الميثوتريكسات مجهض ومشوه بدرجة عالية؛ ممنوع أثناء الحمل."
+  },
+  {
+   "drug": "Methotrexate",
+   "condition": "breastfeeding",
+   "severity": "severe",
+   "note_en": "Methotrexate passes into breast milk and can harm the infant; contraindicated while breastfeeding.",
+   "note_ar": "يمر الميثوتريكسات إلى حليب الأم وقد يضر الرضيع؛ ممنوع أثناء الإرضاع."
+  },
+  {
+   "drug": "Methotrexate",
+   "condition": "liver_impairment",
+   "severity": "severe",
+   "note_en": "Methotrexate is hepatotoxic (fibrosis risk) and contraindicated in significant liver disease.",
+   "note_ar": "الميثوتريكسات سام للكبد (خطر تليف) وممنوع عند وجود مرض كبدي مهم."
+  },
+  {
+   "drug": "Methotrexate",
+   "condition": "renal_impairment",
+   "severity": "severe",
+   "note_en": "Methotrexate is renally cleared; accumulation in renal impairment causes severe toxicity — avoid or reduce dose with monitoring.",
+   "note_ar": "يطرح الميثوتريكسات كلوياً؛ تراكمه عند القصور الكلوي يسبب سمية شديدة — تجنبه أو خفض الجرعة مع المراقبة."
+  },
+  {
+   "drug": "Methotrexate",
+   "condition": "anaemia",
+   "severity": "severe",
+   "note_en": "Methotrexate suppresses the bone marrow and is contraindicated with significant anaemia/blood dyscrasias.",
+   "note_ar": "الميثوتريكسات يثبط نقي العظم وممنوع عند وجود فقر دم مهم أو اضطرابات دموية."
+  },
+  {
+   "drug": "Methotrexate",
+   "condition": "peptic_ulcer_gi",
+   "severity": "moderate",
+   "note_en": "Methotrexate: use with caution in peptic ulcer disease.",
+   "note_ar": "الميثوتريكسات: استخدمه بحذر عند وجود قرحة هضمية."
+  },
+  {
+   "drug": "Isotretinoin",
+   "condition": "pregnancy",
+   "severity": "severe",
+   "note_en": "Isotretinoin is one of the most teratogenic medicines in use; absolutely contraindicated in pregnancy — strict pregnancy-prevention programme required.",
+   "note_ar": "الإيزوتريتينوين من أكثر الأدوية تشويهاً للأجنة؛ ممنوع قطعاً أثناء الحمل — يلزم برنامج صارم لمنع الحمل."
+  },
+  {
+   "drug": "Fluconazole",
+   "condition": "pregnancy",
+   "severity": "severe",
+   "note_en": "Chronic or high-dose fluconazole in pregnancy is associated with fetal malformations; avoid in pregnancy except for life-threatening infection on specialist advice.",
+   "note_ar": "الفلوكونازول المزمن أو عالي الجرعة أثناء الحمل يرتبط بتشوهات جنينية؛ تجنبه أثناء الحمل إلا لعدوى مهددة للحياة وبمشورة اختصاصي."
+  },
+  {
+   "drug": "Warfarin",
+   "condition": "pregnancy",
+   "severity": "severe",
+   "note_en": "Warfarin is teratogenic (fetal warfarin syndrome) and causes fetal haemorrhage; contraindicated in pregnancy (except rare specialist indications).",
+   "note_ar": "الوارفارين مشوه للأجنة (متلازمة الوارفارين الجنينية) ويسبب نزفاً جنينياً؛ ممنوع أثناء الحمل (إلا لاستطبابات اختصاصية نادرة)."
+  },
+  {
+   "drug": "Amiodarone",
+   "condition": "breastfeeding",
+   "severity": "severe",
+   "note_en": "Amiodarone passes into breast milk in significant amounts and can affect the infant's thyroid; avoid breastfeeding.",
+   "note_ar": "يمر الأميودارون إلى حليب الأم بكميات مهمة وقد يؤثر على درقية الرضيع؛ تجنب الإرضاع."
+  },
+  {
+   "drug": "Amiodarone",
+   "condition": "pregnancy",
+   "severity": "moderate",
+   "note_en": "Amiodarone in pregnancy can cause fetal thyroid dysfunction; use only on specialist advice.",
+   "note_ar": "الأميودارون أثناء الحمل قد يسبب اضطراب درقية الجنين؛ استخدمه فقط بمشورة اختصاصي."
+  },
+  {
+   "drug": "Prilocaine",
+   "condition": "anaemia",
+   "severity": "moderate",
+   "note_en": "Prilocaine can cause methaemoglobinaemia; use with caution in anaemia or G6PD deficiency and avoid high doses.",
+   "note_ar": "البريلوكايين قد يسبب ميتهيموغلوبين الدم؛ استخدمه بحذر عند فقر الدم أو نقص G6PD وتجنب الجرعات العالية."
+  },
+  {
+   "drug": "Benzocaine",
+   "condition": "anaemia",
+   "severity": "moderate",
+   "note_en": "Topical benzocaine can cause methaemoglobinaemia; use with caution in anaemia and avoid repeated high-dose use.",
+   "note_ar": "البنزوكايين الموضعي قد يسبب ميتهيموغلوبين الدم؛ استخدمه بحذر عند فقر الدم وتجنب الاستخدام المتكرر عالي الجرعة."
+  },
+  {
+   "drug": "Itraconazole",
+   "condition": "heart_failure",
+   "severity": "severe",
+   "note_en": "Itraconazole has negative inotropic effects and is contraindicated in heart failure/ventricular dysfunction (except life-threatening infection).",
+   "note_ar": "الإيتراكونازول له تأثير مقلص سلبي وممنوع عند قصور القلب أو خلل وظيفة البطين (إلا لعدوى مهددة للحياة)."
+  },
+  {
+   "drug": "Flecainide",
+   "condition": "heart_failure",
+   "severity": "severe",
+   "note_en": "Flecainide is contraindicated in heart failure and structural heart disease (proarrhythmia).",
+   "note_ar": "الفليكاينيد ممنوع عند قصور القلب ومرض القلب البنيوي (خطر اضطراب نظم)."
+  },
+  {
+   "drug": "Flecainide",
+   "condition": "ischemic_heart_disease",
+   "severity": "severe",
+   "note_en": "Flecainide is contraindicated after myocardial infarction / in ischaemic structural heart disease (CAST trial excess mortality).",
+   "note_ar": "الفليكاينيد ممنوع بعد احتشاء عضلة القلب أو عند مرض قلبي بنيوي إقفاري (زيادة وفيات في دراسة CAST)."
+  },
+  {
+   "drug": "Sotalol",
+   "condition": "asthma_copd",
+   "severity": "severe",
+   "note_en": "Sotalol is a non-selective beta-blocker and can cause severe bronchospasm; avoid in asthma/COPD.",
+   "note_ar": "السوتالول حاصر بيتا غير انتقائي وقد يسبب تشنجاً قصبياً شديداً؛ تجنبه عند الربو أو الانسداد الرئوي."
+  },
+  {
+   "drug": "Sotalol",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Sotalol is renally cleared; dose adjustment is essential in renal impairment (QT/torsades risk).",
+   "note_ar": "يطرح السوتالول كلوياً؛ تعديل الجرعة ضروري عند القصور الكلوي (خطر تطاول QT وتورساد)."
+  },
+  {
+   "drug": "Clozapine",
+   "condition": "anaemia",
+   "severity": "severe",
+   "note_en": "Clozapine can cause agranulocytosis; avoid with low white-cell counts/bone-marrow disorders and follow mandatory blood monitoring.",
+   "note_ar": "الكلوزابين قد يسبب ندرة المحببات؛ تجنبه عند نقص الكريات البيض أو اضطرابات النقي والتزم بمراقبة الدم الإلزامية."
+  },
+  {
+   "drug": "Bupropion",
+   "condition": "epilepsy",
+   "severity": "severe",
+   "note_en": "Bupropion is contraindicated in seizure disorders (dose-related seizure risk).",
+   "note_ar": "البوبروبيون ممنوع عند وجود اضطرابات نوبات (خطر نوبات مرتبط بالجرعة)."
+  },
+  {
+   "drug": "Ethinyl Estradiol",
+   "condition": "liver_impairment",
+   "severity": "severe",
+   "note_en": "Oestrogen-containing contraceptives are contraindicated in severe liver disease or liver tumours.",
+   "note_ar": "موانع الحمل الحاوية على الإستروجين ممنوعة عند مرض الكبد الشديد أو أورام الكبد."
+  },
+  {
+   "drug": "Misoprostol",
+   "condition": "pregnancy",
+   "severity": "severe",
+   "note_en": "Misoprostol is uterotonic and abortifacient; contraindicated in pregnancy when used for ulcer protection.",
+   "note_ar": "الميزوبروستول مقبض للرحم ومجهض؛ ممنوع أثناء الحمل عند استخدامه لحماية المعدة."
+  },
+  {
+   "drug": "Tenofovir",
+   "condition": "osteoporosis",
+   "severity": "moderate",
+   "note_en": "Tenofovir can reduce bone mineral density; use with caution in osteoporosis.",
+   "note_ar": "التينوفوفير قد يخفض كثافة العظم المعدنية؛ استخدمه بحذر عند هشاشة العظام."
+  },
+  {
+   "drug": "Spironolactone",
+   "condition": "renal_impairment",
+   "severity": "severe",
+   "note_en": "Spironolactone is contraindicated in severe renal impairment/anuria (hyperkalaemia risk).",
+   "note_ar": "السبيرونولاكتون ممنوع عند القصور الكلوي الشديد أو انقطاع البول (خطر فرط البوتاسيوم)."
+  },
+  {
+   "drug": "Ticlopidine",
+   "condition": "anaemia",
+   "severity": "severe",
+   "note_en": "Ticlopidine can cause neutropenia, aplastic anaemia and TTP; contraindicated with blood dyscrasias — monitor blood counts.",
+   "note_ar": "التيكلوبيدين قد يسبب نقص العدلات وفقر دم لا تنسجياً وفرفرية نقص الصفيحات الخثارية؛ ممنوع عند اضطرابات الدم — راقب تعداد الدم."
+  },
+  {
+   "drug": "Ticlopidine",
+   "condition": "liver_impairment",
+   "severity": "severe",
+   "note_en": "Ticlopidine is contraindicated in severe liver impairment.",
+   "note_ar": "التيكلوبيدين ممنوع عند وجود قصور كبدي شديد."
+  },
+  {
+   "drug": "Metoclopramide",
+   "condition": "parkinsons",
+   "severity": "severe",
+   "note_en": "Metoclopramide blocks dopamine and worsens Parkinson's disease; avoid — use domperidone/ondansetron alternatives on specialist advice.",
+   "note_ar": "الميتوكلوبراميد يحصر الدوبامين ويفاقم مرض باركنسون؛ تجنبه — استخدم بدائل مثل الدومبيريدون أو الأوندانسيترون بمشورة اختصاصي."
+  },
+  {
+   "drug": "Domperidone",
+   "condition": "arrhythmia",
+   "severity": "severe",
+   "note_en": "Domperidone prolongs QT and is contraindicated with QT prolongation, significant electrolyte disturbance or cardiac disease (sudden death risk).",
+   "note_ar": "الدومبيريدون يطيل QT وممنوع عند تطاول QT أو اضطراب شوارد مهم أو مرض قلبي (خطر موت مفاجئ)."
+  },
+  {
+   "drug": "Domperidone",
+   "condition": "liver_impairment",
+   "severity": "severe",
+   "note_en": "Domperidone is contraindicated in moderate-to-severe liver impairment.",
+   "note_ar": "الدومبيريدون ممنوع عند القصور الكبدي المتوسط إلى الشديد."
+  },
+  {
+   "drug": "Ondansetron",
+   "condition": "arrhythmia",
+   "severity": "moderate",
+   "note_en": "Ondansetron prolongs QT dose-dependently; use with caution in arrhythmia or QT prolongation.",
+   "note_ar": "الأوندانسيترون يطيل QT بشكل مرتبط بالجرعة؛ استخدمه بحذر عند اضطراب النظم أو تطاول QT."
+  },
+  {
+   "drug": "Duloxetine",
+   "condition": "liver_impairment",
+   "severity": "severe",
+   "note_en": "Duloxetine should be avoided in liver disease (hepatotoxicity risk).",
+   "note_ar": "يجب تجنب الدولوكسيتين في أمراض الكبد (خطر سمية كبدية)."
+  },
+  {
+   "drug": "Duloxetine",
+   "condition": "renal_impairment",
+   "severity": "severe",
+   "note_en": "Duloxetine should be avoided in severe renal impairment (creatinine clearance below 30).",
+   "note_ar": "يجب تجنب الدولوكسيتين عند القصور الكلوي الشديد (تصفية الكرياتينين أقل من 30)."
+  },
+  {
+   "drug": "Topiramate",
+   "condition": "glaucoma",
+   "severity": "moderate",
+   "note_en": "Topiramate can cause acute secondary angle-closure glaucoma; stop and seek urgent eye care if eye pain/vision change occurs.",
+   "note_ar": "التوبيراميت قد يسبب غلوكوما انسداد زاوية ثانوية حادة؛ أوقفه واطلب رعاية عينية عاجلة عند ألم العين أو تغير الرؤية."
+  },
+  {
+   "drug": "Cyclosporine",
+   "condition": "hypertension",
+   "severity": "moderate",
+   "note_en": "Cyclosporine commonly raises blood pressure; monitor BP.",
+   "note_ar": "السيكلوسبورين يرفع ضغط الدم غالباً؛ راقب الضغط."
+  },
+  {
+   "drug": "Tacrolimus",
+   "condition": "diabetes",
+   "severity": "moderate",
+   "note_en": "Tacrolimus is diabetogenic and can cause new-onset diabetes; monitor blood glucose.",
+   "note_ar": "التاكروليموس مسبب للسكري وقد يحدث داء سكرياً جديداً؛ راقب سكر الدم."
+  },
+  {
+   "drug": "Amphotericin B",
+   "condition": "renal_impairment",
+   "severity": "moderate",
+   "note_en": "Amphotericin B is nephrotoxic; use with caution and close monitoring in renal impairment.",
+   "note_ar": "الأمفوتريسين B سام للكلى؛ استخدمه بحذر ومراقبة دقيقة عند وجود قصور كلوي."
+  },
+  {
+   "drug": "Amphotericin B",
+   "condition": "liver_impairment",
+   "severity": "moderate",
+   "note_en": "Amphotericin B: use with caution in liver disease.",
+   "note_ar": "الأمفوتريسين B: استخدمه بحذر في أمراض الكبد."
+  }
+ ],
+ "classes_reviewed": [
+  "5AlphaReductase",
+  "ACE-I",
+  "ARB",
+  "Adrenergic",
+  "Allylamine",
+  "AlphaAgonist",
+  "AlphaBlocker",
+  "AlphaGlucosidase",
+  "Aminoglycoside",
+  "Aminosalicylate",
+  "Amphenicol",
+  "Analgesic",
+  "Androgen",
+  "Antacid",
+  "Anthelmintic",
+  "Antiarrhythmic",
+  "Antibacterial",
+  "Anticholinergic",
+  "Anticoagulant",
+  "Antidepressant",
+  "Antidiarrheal",
+  "Antiemetic",
+  "Antiepileptic",
+  "Antifibrinolytic",
+  "Antifolate",
+  "Antigout",
+  "Antihistamine",
+  "Antimalarial",
+  "Antiparkinson",
+  "Antiplatelet",
+  "Antipsychotic",
+  "Antiseptic",
+  "Antitubercular",
+  "Antitussive",
+  "Antiviral",
+  "Azole",
+  "Benzodiazepine",
+  "Beta3Agonist",
+  "BetaBlocker",
+  "Biguanide",
+  "Biologic",
+  "Bronchodilator",
+  "CCB",
+  "Carbapenem",
+  "CarbonicAnhydrase",
+  "CardiacGlycoside",
+  "Cephalosporin",
+  "Cholesterol",
+  "Cholinesterase",
+  "Contraceptive",
+  "Corticosteroid",
+  "DPP4",
+  "Decongestant",
+  "Diuretic",
+  "Expectorant",
+  "Fibrate",
+  "Fluoroquinolone",
+  "GLP1",
+  "Glycopeptide",
+  "H2Blocker",
+  "Immunosuppressant",
+  "Insulin",
+  "Laxative",
+  "Leukotriene",
+  "Lincosamide",
+  "LocalAnaesthetic",
+  "MAOI",
+  "Macrolide",
+  "Meglitinide",
+  "Methylxanthine",
+  "Mineral",
+  "Miotic",
+  "MoodStabiliser",
+  "MuscleRelaxant",
+  "NMDA",
+  "NRI",
+  "NRTI",
+  "NSAID",
+  "Neuraminidase",
+  "Nitrate",
+  "Nitrofuran",
+  "Nitroimidazole",
+  "Opioid",
+  "OpioidAntagonist",
+  "Oxazolidinone",
+  "Oxytocic",
+  "PDE5",
+  "PPI",
+  "Penicillin",
+  "Phosphonic",
+  "Polyene",
+  "Prostaglandin",
+  "ProteaseInhibitor",
+  "Retinoid",
+  "Rifamycin",
+  "SGLT2",
+  "SNRI",
+  "SSRI",
+  "Sedative",
+  "Statin",
+  "Stimulant",
+  "Sulfonamide",
+  "Sulfone",
+  "Sulfonylurea",
+  "Supplement",
+  "TCA",
+  "Tetracycline",
+  "Thiazolidinedione",
+  "Thyroid",
+  "Vasodilator",
+  "Vasopressin",
+  "Vitamin",
+  "XanthineOxidase"
+ ],
+ "categories_reviewed": [
+  "Analgesic",
+  "Antibiotic",
+  "Anticoagulant",
+  "Antidote",
+  "Antiepileptic",
+  "Antifungal",
+  "Antihistamine",
+  "Antiparasitic",
+  "Antiplatelet",
+  "Antiseptic",
+  "Antiviral",
+  "CNS",
+  "Cardiovascular",
+  "Corticosteroid",
+  "Dermatology",
+  "Diabetes",
+  "Diuretic",
+  "Emergency",
+  "Endocrine",
+  "GI",
+  "Gout",
+  "Haemostatic",
+  "Immunosuppressant",
+  "Local anaesthetic",
+  "Muscle relaxant",
+  "NSAID",
+  "Obstetric",
+  "Ophthalmology",
+  "PPI",
+  "Respiratory",
+  "Statin",
+  "Supplement",
+  "Thyroid",
+  "Urology",
+  "Vitamin"
+ ],
+ "no_rule_classes": [
+  "Adrenergic",
+  "Antibacterial",
+  "Antiseptic",
+  "Expectorant",
+  "Laxative",
+  "Mineral",
+  "OpioidAntagonist",
+  "Oxytocic",
+  "Polyene",
+  "Supplement",
+  "Vitamin"
+ ]
+}

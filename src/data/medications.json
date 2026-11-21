@@ -1,0 +1,3152 @@
+[
+ {
+  "generic_en": "Amoxicillin",
+  "generic_ar": "أموكسيسيلين",
+  "brand_en": "Amoxil",
+  "brand_ar": "أموكسيل",
+  "category": "Antibiotic",
+  "form": "Capsule",
+  "strength": "500 mg",
+  "class": "Penicillin"
+ },
+ {
+  "generic_en": "Amoxicillin-Clavulanate",
+  "generic_ar": "أموكسيسيلين-كلافولانات",
+  "brand_en": "Augmentin",
+  "brand_ar": "أوغمنتين",
+  "category": "Antibiotic",
+  "form": "Tablet",
+  "strength": "625 mg",
+  "class": "Penicillin"
+ },
+ {
+  "generic_en": "Ampicillin",
+  "generic_ar": "أمبيسيلين",
+  "brand_en": "Ampicillin",
+  "brand_ar": "أمبيسيلين",
+  "category": "Antibiotic",
+  "form": "Capsule",
+  "strength": "500 mg",
+  "class": "Penicillin"
+ },
+ {
+  "generic_en": "Penicillin V",
+  "generic_ar": "بنسلين في",
+  "brand_en": "Penicillin V",
+  "brand_ar": "بنسلين في",
+  "category": "Antibiotic",
+  "form": "Tablet",
+  "strength": "250 mg",
+  "class": "Penicillin"
+ },
+ {
+  "generic_en": "Cephalexin",
+  "generic_ar": "سيفاليكسين",
+  "brand_en": "Keflex",
+  "brand_ar": "كيفليكس",
+  "category": "Antibiotic",
+  "form": "Capsule",
+  "strength": "500 mg",
+  "class": "Cephalosporin"
+ },
+ {
+  "generic_en": "Cefuroxime",
+  "generic_ar": "سيفوروكسيم",
+  "brand_en": "Zinnat",
+  "brand_ar": "زينات",
+  "category": "Antibiotic",
+  "form": "Tablet",
+  "strength": "500 mg",
+  "class": "Cephalosporin"
+ },
+ {
+  "generic_en": "Azithromycin",
+  "generic_ar": "أزيثرومايسين",
+  "brand_en": "Zithromax",
+  "brand_ar": "زيثروماكس",
+  "category": "Antibiotic",
+  "form": "Tablet",
+  "strength": "500 mg",
+  "class": "Macrolide"
+ },
+ {
+  "generic_en": "Clarithromycin",
+  "generic_ar": "كلاريثرومايسين",
+  "brand_en": "Klacid",
+  "brand_ar": "كلاسيد",
+  "category": "Antibiotic",
+  "form": "Tablet",
+  "strength": "500 mg",
+  "class": "Macrolide"
+ },
+ {
+  "generic_en": "Erythromycin",
+  "generic_ar": "إريثرومايسين",
+  "brand_en": "Erythrocin",
+  "brand_ar": "إريثروسين",
+  "category": "Antibiotic",
+  "form": "Tablet",
+  "strength": "500 mg",
+  "class": "Macrolide"
+ },
+ {
+  "generic_en": "Clindamycin",
+  "generic_ar": "كليندامايسين",
+  "brand_en": "Dalacin C",
+  "brand_ar": "دالاسين سي",
+  "category": "Antibiotic",
+  "form": "Capsule",
+  "strength": "300 mg",
+  "class": "Lincosamide"
+ },
+ {
+  "generic_en": "Metronidazole",
+  "generic_ar": "ميترونيدازول",
+  "brand_en": "Flagyl",
+  "brand_ar": "فلاجيل",
+  "category": "Antibiotic",
+  "form": "Tablet",
+  "strength": "500 mg",
+  "class": "Nitroimidazole"
+ },
+ {
+  "generic_en": "Doxycycline",
+  "generic_ar": "دوكسيسيكلين",
+  "brand_en": "Vibramycin",
+  "brand_ar": "فيبرامايسين",
+  "category": "Antibiotic",
+  "form": "Capsule",
+  "strength": "100 mg",
+  "class": "Tetracycline"
+ },
+ {
+  "generic_en": "Tetracycline",
+  "generic_ar": "تتراسيكلين",
+  "brand_en": "Tetracycline",
+  "brand_ar": "تتراسيكلين",
+  "category": "Antibiotic",
+  "form": "Capsule",
+  "strength": "250 mg",
+  "class": "Tetracycline"
+ },
+ {
+  "generic_en": "Ciprofloxacin",
+  "generic_ar": "سيبروفلوكساسين",
+  "brand_en": "Cipro",
+  "brand_ar": "سيبرو",
+  "category": "Antibiotic",
+  "form": "Tablet",
+  "strength": "500 mg",
+  "class": "Fluoroquinolone"
+ },
+ {
+  "generic_en": "Levofloxacin",
+  "generic_ar": "ليفوفلوكساسين",
+  "brand_en": "Tavanic",
+  "brand_ar": "تافانيك",
+  "category": "Antibiotic",
+  "form": "Tablet",
+  "strength": "500 mg",
+  "class": "Fluoroquinolone"
+ },
+ {
+  "generic_en": "Sulfamethoxazole-Trimethoprim",
+  "generic_ar": "سلفاميثوكسازول-تريميثوبريم",
+  "brand_en": "Bactrim",
+  "brand_ar": "باكتريم",
+  "category": "Antibiotic",
+  "form": "Tablet",
+  "strength": "800/160 mg",
+  "class": "Sulfonamide"
+ },
+ {
+  "generic_en": "Ibuprofen",
+  "generic_ar": "إيبوبروفين",
+  "brand_en": "Brufen",
+  "brand_ar": "بروفين",
+  "category": "NSAID",
+  "form": "Tablet",
+  "strength": "400 mg",
+  "class": "NSAID"
+ },
+ {
+  "generic_en": "Diclofenac",
+  "generic_ar": "ديكلوفيناك",
+  "brand_en": "Voltaren",
+  "brand_ar": "فولتارين",
+  "category": "NSAID",
+  "form": "Tablet",
+  "strength": "50 mg",
+  "class": "NSAID"
+ },
+ {
+  "generic_en": "Diclofenac Potassium",
+  "generic_ar": "ديكلوفيناك بوتاسيوم",
+  "brand_en": "Cataflam",
+  "brand_ar": "كاتافلام",
+  "category": "NSAID",
+  "form": "Tablet",
+  "strength": "50 mg",
+  "class": "NSAID"
+ },
+ {
+  "generic_en": "Diclofenac Sodium",
+  "generic_ar": "ديكلوفيناك صوديوم",
+  "brand_en": "Voltaren",
+  "brand_ar": "فولتارين",
+  "category": "NSAID",
+  "form": "Tablet",
+  "strength": "50 mg",
+  "class": "NSAID"
+ },
+ {
+  "generic_en": "Naproxen",
+  "generic_ar": "نابروكسين",
+  "brand_en": "Naprosyn",
+  "brand_ar": "نابروسين",
+  "category": "NSAID",
+  "form": "Tablet",
+  "strength": "500 mg",
+  "class": "NSAID"
+ },
+ {
+  "generic_en": "Mefenamic Acid",
+  "generic_ar": "حمض الميفيناميك",
+  "brand_en": "Ponstan",
+  "brand_ar": "بونستان",
+  "category": "NSAID",
+  "form": "Tablet",
+  "strength": "500 mg",
+  "class": "NSAID"
+ },
+ {
+  "generic_en": "Ketorolac",
+  "generic_ar": "كيتورولاك",
+  "brand_en": "Toradol",
+  "brand_ar": "تورادول",
+  "category": "NSAID",
+  "form": "Tablet",
+  "strength": "10 mg",
+  "class": "NSAID"
+ },
+ {
+  "generic_en": "Celecoxib",
+  "generic_ar": "سيليكوكسيب",
+  "brand_en": "Celebrex",
+  "brand_ar": "سيليبريكس",
+  "category": "NSAID",
+  "form": "Capsule",
+  "strength": "200 mg",
+  "class": "NSAID"
+ },
+ {
+  "generic_en": "Paracetamol",
+  "generic_ar": "باراسيتامول",
+  "brand_en": "Panadol",
+  "brand_ar": "بانادول",
+  "category": "Analgesic",
+  "form": "Tablet",
+  "strength": "500 mg",
+  "class": "Analgesic"
+ },
+ {
+  "generic_en": "Acetaminophen",
+  "generic_ar": "أسيتامينوفين",
+  "brand_en": "Tylenol",
+  "brand_ar": "تايلينول",
+  "category": "Analgesic",
+  "form": "Tablet",
+  "strength": "500 mg",
+  "class": "Analgesic"
+ },
+ {
+  "generic_en": "Aspirin",
+  "generic_ar": "أسبرين",
+  "brand_en": "Aspirin",
+  "brand_ar": "أسبرين",
+  "category": "Antiplatelet",
+  "form": "Tablet",
+  "strength": "100 mg",
+  "class": "Antiplatelet"
+ },
+ {
+  "generic_en": "Tramadol",
+  "generic_ar": "ترامادول",
+  "brand_en": "Tramal",
+  "brand_ar": "ترامال",
+  "category": "Analgesic",
+  "form": "Capsule",
+  "strength": "50 mg",
+  "class": "Opioid"
+ },
+ {
+  "generic_en": "Codeine",
+  "generic_ar": "كودايين",
+  "brand_en": "Codeine",
+  "brand_ar": "كودايين",
+  "category": "Analgesic",
+  "form": "Tablet",
+  "strength": "30 mg",
+  "class": "Opioid"
+ },
+ {
+  "generic_en": "Prednisolone",
+  "generic_ar": "بريدنيزولون",
+  "brand_en": "Prednisolone",
+  "brand_ar": "بريدنيزولون",
+  "category": "Corticosteroid",
+  "form": "Tablet",
+  "strength": "5 mg",
+  "class": "Corticosteroid"
+ },
+ {
+  "generic_en": "Prednisone",
+  "generic_ar": "بريدنيزون",
+  "brand_en": "Deltasone",
+  "brand_ar": "دلتاسون",
+  "category": "Corticosteroid",
+  "form": "Tablet",
+  "strength": "5 mg",
+  "class": "Corticosteroid"
+ },
+ {
+  "generic_en": "Dexamethasone",
+  "generic_ar": "ديكساميثازون",
+  "brand_en": "Decadron",
+  "brand_ar": "ديكادرون",
+  "category": "Corticosteroid",
+  "form": "Tablet",
+  "strength": "0.5 mg",
+  "class": "Corticosteroid"
+ },
+ {
+  "generic_en": "Hydrocortisone",
+  "generic_ar": "هيدروكورتيزون",
+  "brand_en": "Hydrocortisone",
+  "brand_ar": "هيدروكورتيزون",
+  "category": "Corticosteroid",
+  "form": "Cream",
+  "strength": "1%",
+  "class": "Corticosteroid"
+ },
+ {
+  "generic_en": "Lidocaine",
+  "generic_ar": "ليدوكايين",
+  "brand_en": "Xylocaine",
+  "brand_ar": "زيلوكايين",
+  "category": "Local anaesthetic",
+  "form": "Injection",
+  "strength": "2%",
+  "class": "LocalAnaesthetic"
+ },
+ {
+  "generic_en": "Articaine",
+  "generic_ar": "أرتيكايين",
+  "brand_en": "Septocaine",
+  "brand_ar": "سيبتوكايين",
+  "category": "Local anaesthetic",
+  "form": "Injection",
+  "strength": "4%",
+  "class": "LocalAnaesthetic"
+ },
+ {
+  "generic_en": "Mepivacaine",
+  "generic_ar": "ميبيفاكايين",
+  "brand_en": "Scandonest",
+  "brand_ar": "سكاندونيست",
+  "category": "Local anaesthetic",
+  "form": "Injection",
+  "strength": "3%",
+  "class": "LocalAnaesthetic"
+ },
+ {
+  "generic_en": "Bupivacaine",
+  "generic_ar": "بوبيفاكايين",
+  "brand_en": "Marcaine",
+  "brand_ar": "ماركايين",
+  "category": "Local anaesthetic",
+  "form": "Injection",
+  "strength": "0.5%",
+  "class": "LocalAnaesthetic"
+ },
+ {
+  "generic_en": "Prilocaine",
+  "generic_ar": "بريلوكايين",
+  "brand_en": "Citanest",
+  "brand_ar": "سيتانيست",
+  "category": "Local anaesthetic",
+  "form": "Injection",
+  "strength": "4%",
+  "class": "LocalAnaesthetic"
+ },
+ {
+  "generic_en": "Benzocaine",
+  "generic_ar": "بنزوكايين",
+  "brand_en": "Orajel",
+  "brand_ar": "أوراجيل",
+  "category": "Local anaesthetic",
+  "form": "Gel",
+  "strength": "20%",
+  "class": "LocalAnaesthetic"
+ },
+ {
+  "generic_en": "Chlorhexidine",
+  "generic_ar": "كلورهيكسيدين",
+  "brand_en": "Corsodyl",
+  "brand_ar": "كورسوديل",
+  "category": "Antiseptic",
+  "form": "Mouthwash",
+  "strength": "0.2%",
+  "class": "Antiseptic"
+ },
+ {
+  "generic_en": "Povidone-Iodine",
+  "generic_ar": "بوفيدون-يود",
+  "brand_en": "Betadine",
+  "brand_ar": "بيتادين",
+  "category": "Antiseptic",
+  "form": "Solution",
+  "strength": "10%",
+  "class": "Antiseptic"
+ },
+ {
+  "generic_en": "Nystatin",
+  "generic_ar": "نيستاتين",
+  "brand_en": "Mycostatin",
+  "brand_ar": "مايكوستاتين",
+  "category": "Antifungal",
+  "form": "Oral suspension",
+  "strength": "100,000 IU/ml",
+  "class": "Polyene"
+ },
+ {
+  "generic_en": "Fluconazole",
+  "generic_ar": "فلوكونازول",
+  "brand_en": "Diflucan",
+  "brand_ar": "ديفلوكان",
+  "category": "Antifungal",
+  "form": "Capsule",
+  "strength": "150 mg",
+  "class": "Azole"
+ },
+ {
+  "generic_en": "Miconazole",
+  "generic_ar": "ميكونازول",
+  "brand_en": "Daktarin",
+  "brand_ar": "داكتارين",
+  "category": "Antifungal",
+  "form": "Oral gel",
+  "strength": "2%",
+  "class": "Azole"
+ },
+ {
+  "generic_en": "Acyclovir",
+  "generic_ar": "أسيكلوفير",
+  "brand_en": "Zovirax",
+  "brand_ar": "زوفيراكس",
+  "category": "Antiviral",
+  "form": "Tablet",
+  "strength": "400 mg",
+  "class": "Antiviral"
+ },
+ {
+  "generic_en": "Valaciclovir",
+  "generic_ar": "فالاسيكلوفير",
+  "brand_en": "Valtrex",
+  "brand_ar": "فالتريكس",
+  "category": "Antiviral",
+  "form": "Tablet",
+  "strength": "500 mg",
+  "class": "Antiviral"
+ },
+ {
+  "generic_en": "Warfarin",
+  "generic_ar": "وارفارين",
+  "brand_en": "Coumadin",
+  "brand_ar": "كومادين",
+  "category": "Anticoagulant",
+  "form": "Tablet",
+  "strength": "5 mg",
+  "class": "Anticoagulant"
+ },
+ {
+  "generic_en": "Rivaroxaban",
+  "generic_ar": "ريفاروكسابان",
+  "brand_en": "Xarelto",
+  "brand_ar": "زاريلتو",
+  "category": "Anticoagulant",
+  "form": "Tablet",
+  "strength": "20 mg",
+  "class": "Anticoagulant"
+ },
+ {
+  "generic_en": "Apixaban",
+  "generic_ar": "أبيكسابان",
+  "brand_en": "Eliquis",
+  "brand_ar": "إليكويس",
+  "category": "Anticoagulant",
+  "form": "Tablet",
+  "strength": "5 mg",
+  "class": "Anticoagulant"
+ },
+ {
+  "generic_en": "Heparin",
+  "generic_ar": "هيبارين",
+  "brand_en": "Heparin",
+  "brand_ar": "هيبارين",
+  "category": "Anticoagulant",
+  "form": "Injection",
+  "strength": "5000 IU/ml",
+  "class": "Anticoagulant"
+ },
+ {
+  "generic_en": "Clopidogrel",
+  "generic_ar": "كلوبيدوغريل",
+  "brand_en": "Plavix",
+  "brand_ar": "بلافيكس",
+  "category": "Antiplatelet",
+  "form": "Tablet",
+  "strength": "75 mg",
+  "class": "Antiplatelet"
+ },
+ {
+  "generic_en": "Metformin",
+  "generic_ar": "ميتفورمين",
+  "brand_en": "Glucophage",
+  "brand_ar": "غلوكوفاج",
+  "category": "Diabetes",
+  "form": "Tablet",
+  "strength": "850 mg",
+  "class": "Biguanide"
+ },
+ {
+  "generic_en": "Glibenclamide",
+  "generic_ar": "غليبينكلاميد",
+  "brand_en": "Daonil",
+  "brand_ar": "داونيل",
+  "category": "Diabetes",
+  "form": "Tablet",
+  "strength": "5 mg",
+  "class": "Sulfonylurea"
+ },
+ {
+  "generic_en": "Gliclazide",
+  "generic_ar": "غليكلازيد",
+  "brand_en": "Diamicron",
+  "brand_ar": "دياميكرون",
+  "category": "Diabetes",
+  "form": "Tablet",
+  "strength": "80 mg",
+  "class": "Sulfonylurea"
+ },
+ {
+  "generic_en": "Insulin Glargine",
+  "generic_ar": "أنسولين غلارجين",
+  "brand_en": "Lantus",
+  "brand_ar": "لانتوس",
+  "category": "Diabetes",
+  "form": "Injection",
+  "strength": "100 IU/ml",
+  "class": "Insulin"
+ },
+ {
+  "generic_en": "Sitagliptin",
+  "generic_ar": "سيتاغليبتين",
+  "brand_en": "Januvia",
+  "brand_ar": "جانوفيا",
+  "category": "Diabetes",
+  "form": "Tablet",
+  "strength": "100 mg",
+  "class": "DPP4"
+ },
+ {
+  "generic_en": "Amlodipine",
+  "generic_ar": "أملوديبين",
+  "brand_en": "Norvasc",
+  "brand_ar": "نورفاسك",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "5 mg",
+  "class": "CCB"
+ },
+ {
+  "generic_en": "Atenolol",
+  "generic_ar": "أتينولول",
+  "brand_en": "Tenormin",
+  "brand_ar": "تينورمين",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "50 mg",
+  "class": "BetaBlocker"
+ },
+ {
+  "generic_en": "Lisinopril",
+  "generic_ar": "ليزينوبريل",
+  "brand_en": "Zestril",
+  "brand_ar": "زيستريل",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "10 mg",
+  "class": "ACE-I"
+ },
+ {
+  "generic_en": "Losartan",
+  "generic_ar": "لوسارتان",
+  "brand_en": "Cozaar",
+  "brand_ar": "كوزار",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "50 mg",
+  "class": "ARB"
+ },
+ {
+  "generic_en": "Valsartan",
+  "generic_ar": "فالسارتان",
+  "brand_en": "Diovan",
+  "brand_ar": "ديوفان",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "80 mg",
+  "class": "ARB"
+ },
+ {
+  "generic_en": "Hydrochlorothiazide",
+  "generic_ar": "هيدروكلوروثيازيد",
+  "brand_en": "Hydrodiuril",
+  "brand_ar": "هيدروديوريل",
+  "category": "Diuretic",
+  "form": "Tablet",
+  "strength": "25 mg",
+  "class": "Diuretic"
+ },
+ {
+  "generic_en": "Furosemide",
+  "generic_ar": "فوروسيميد",
+  "brand_en": "Lasix",
+  "brand_ar": "لازيكس",
+  "category": "Diuretic",
+  "form": "Tablet",
+  "strength": "40 mg",
+  "class": "Diuretic"
+ },
+ {
+  "generic_en": "Atorvastatin",
+  "generic_ar": "أتورفاستاتين",
+  "brand_en": "Lipitor",
+  "brand_ar": "ليبيتور",
+  "category": "Statin",
+  "form": "Tablet",
+  "strength": "20 mg",
+  "class": "Statin"
+ },
+ {
+  "generic_en": "Simvastatin",
+  "generic_ar": "سيمفاستاتين",
+  "brand_en": "Zocor",
+  "brand_ar": "زوكور",
+  "category": "Statin",
+  "form": "Tablet",
+  "strength": "20 mg",
+  "class": "Statin"
+ },
+ {
+  "generic_en": "Omeprazole",
+  "generic_ar": "أوميبرازول",
+  "brand_en": "Losec",
+  "brand_ar": "لوسيك",
+  "category": "PPI",
+  "form": "Capsule",
+  "strength": "20 mg",
+  "class": "PPI"
+ },
+ {
+  "generic_en": "Pantoprazole",
+  "generic_ar": "بانتوبرازول",
+  "brand_en": "Pantoloc",
+  "brand_ar": "بانتولوك",
+  "category": "PPI",
+  "form": "Tablet",
+  "strength": "40 mg",
+  "class": "PPI"
+ },
+ {
+  "generic_en": "Levothyroxine",
+  "generic_ar": "ليفوثيروكسين",
+  "brand_en": "Eltroxin",
+  "brand_ar": "إلتروكسين",
+  "category": "Thyroid",
+  "form": "Tablet",
+  "strength": "100 mcg",
+  "class": "Thyroid"
+ },
+ {
+  "generic_en": "Methotrexate",
+  "generic_ar": "ميثوتريكسات",
+  "brand_en": "Methotrexate",
+  "brand_ar": "ميثوتريكسات",
+  "category": "Immunosuppressant",
+  "form": "Tablet",
+  "strength": "2.5 mg",
+  "class": "Immunosuppressant"
+ },
+ {
+  "generic_en": "Phenytoin",
+  "generic_ar": "فينيتوين",
+  "brand_en": "Epanutin",
+  "brand_ar": "إبانوتين",
+  "category": "Antiepileptic",
+  "form": "Capsule",
+  "strength": "100 mg",
+  "class": "Antiepileptic"
+ },
+ {
+  "generic_en": "Carbamazepine",
+  "generic_ar": "كاربامازيبين",
+  "brand_en": "Tegretol",
+  "brand_ar": "تيغريتول",
+  "category": "Antiepileptic",
+  "form": "Tablet",
+  "strength": "200 mg",
+  "class": "Antiepileptic"
+ },
+ {
+  "generic_en": "Valproic Acid",
+  "generic_ar": "حمض الفالبرويك",
+  "brand_en": "Depakine",
+  "brand_ar": "ديباكين",
+  "category": "Antiepileptic",
+  "form": "Tablet",
+  "strength": "500 mg",
+  "class": "Antiepileptic"
+ },
+ {
+  "generic_en": "Allopurinol",
+  "generic_ar": "ألوبيورينول",
+  "brand_en": "Zyloric",
+  "brand_ar": "زيلوريك",
+  "category": "Gout",
+  "form": "Tablet",
+  "strength": "300 mg",
+  "class": "XanthineOxidase"
+ },
+ {
+  "generic_en": "Colchicine",
+  "generic_ar": "كولشيسين",
+  "brand_en": "Colchicine",
+  "brand_ar": "كولشيسين",
+  "category": "Gout",
+  "form": "Tablet",
+  "strength": "0.5 mg",
+  "class": "Antigout"
+ },
+ {
+  "generic_en": "Cetirizine",
+  "generic_ar": "سيتيريزين",
+  "brand_en": "Zyrtec",
+  "brand_ar": "زيرتك",
+  "category": "Antihistamine",
+  "form": "Tablet",
+  "strength": "10 mg",
+  "class": "Antihistamine"
+ },
+ {
+  "generic_en": "Loratadine",
+  "generic_ar": "لوراتادين",
+  "brand_en": "Clarityne",
+  "brand_ar": "كلاريتين",
+  "category": "Antihistamine",
+  "form": "Tablet",
+  "strength": "10 mg",
+  "class": "Antihistamine"
+ },
+ {
+  "generic_en": "Chlorpheniramine",
+  "generic_ar": "كلورفينيرامين",
+  "brand_en": "Piriton",
+  "brand_ar": "بيريتون",
+  "category": "Antihistamine",
+  "form": "Tablet",
+  "strength": "4 mg",
+  "class": "Antihistamine"
+ },
+ {
+  "generic_en": "Diazepam",
+  "generic_ar": "ديازيبام",
+  "brand_en": "Valium",
+  "brand_ar": "فاليوم",
+  "category": "CNS",
+  "form": "Tablet",
+  "strength": "5 mg",
+  "class": "Benzodiazepine"
+ },
+ {
+  "generic_en": "Midazolam",
+  "generic_ar": "ميدازولام",
+  "brand_en": "Dormicum",
+  "brand_ar": "دورميكوم",
+  "category": "CNS",
+  "form": "Tablet",
+  "strength": "7.5 mg",
+  "class": "Benzodiazepine"
+ },
+ {
+  "generic_en": "Cyclobenzaprine",
+  "generic_ar": "سيكلوبنزابرين",
+  "brand_en": "Flexeril",
+  "brand_ar": "فليكسيريل",
+  "category": "Muscle relaxant",
+  "form": "Tablet",
+  "strength": "10 mg",
+  "class": "MuscleRelaxant"
+ },
+ {
+  "generic_en": "Vitamin D3",
+  "generic_ar": "فيتامين د3",
+  "brand_en": "Vidrop",
+  "brand_ar": "فيدروب",
+  "category": "Vitamin",
+  "form": "Drops",
+  "strength": "2800 IU/ml",
+  "class": "Vitamin"
+ },
+ {
+  "generic_en": "Calcium Carbonate",
+  "generic_ar": "كربونات الكالسيوم",
+  "brand_en": "Caltrate",
+  "brand_ar": "كالتريت",
+  "category": "Supplement",
+  "form": "Tablet",
+  "strength": "600 mg",
+  "class": "Supplement"
+ },
+ {
+  "generic_en": "Iron Sulfate",
+  "generic_ar": "كبريتات الحديد",
+  "brand_en": "Ferrous Sulfate",
+  "brand_ar": "كبريتات الحديد",
+  "category": "Supplement",
+  "form": "Tablet",
+  "strength": "200 mg",
+  "class": "Supplement"
+ },
+ {
+  "generic_en": "Folic Acid",
+  "generic_ar": "حمض الفوليك",
+  "brand_en": "Folic Acid",
+  "brand_ar": "حمض الفوليك",
+  "category": "Vitamin",
+  "form": "Tablet",
+  "strength": "5 mg",
+  "class": "Vitamin"
+ },
+ {
+  "generic_en": "Cefixime",
+  "generic_ar": "سيفيكسيم",
+  "brand_en": "Suprax",
+  "brand_ar": "Suprax",
+  "category": "Antibiotic",
+  "class": "Cephalosporin",
+  "form": "Tablet",
+  "strength": "400 mg"
+ },
+ {
+  "generic_en": "Cefpodoxime",
+  "generic_ar": "سيفبودوكسيم",
+  "brand_en": "Vantin",
+  "brand_ar": "Vantin",
+  "category": "Antibiotic",
+  "class": "Cephalosporin",
+  "form": "Tablet",
+  "strength": "200 mg"
+ },
+ {
+  "generic_en": "Ceftriaxone",
+  "generic_ar": "سيفترياكسون",
+  "brand_en": "Rocephin",
+  "brand_ar": "Rocephin",
+  "category": "Antibiotic",
+  "class": "Cephalosporin",
+  "form": "Injection",
+  "strength": "1 g"
+ },
+ {
+  "generic_en": "Cefazolin",
+  "generic_ar": "سيفازولين",
+  "brand_en": "Ancef",
+  "brand_ar": "Ancef",
+  "category": "Antibiotic",
+  "class": "Cephalosporin",
+  "form": "Injection",
+  "strength": "1 g"
+ },
+ {
+  "generic_en": "Cefdinir",
+  "generic_ar": "سيفدينير",
+  "brand_en": "Omnicef",
+  "brand_ar": "Omnicef",
+  "category": "Antibiotic",
+  "class": "Cephalosporin",
+  "form": "Capsule",
+  "strength": "300 mg"
+ },
+ {
+  "generic_en": "Meropenem",
+  "generic_ar": "ميروبينيم",
+  "brand_en": "Merrem",
+  "brand_ar": "Merrem",
+  "category": "Antibiotic",
+  "class": "Carbapenem",
+  "form": "Injection",
+  "strength": "1 g"
+ },
+ {
+  "generic_en": "Imipenem",
+  "generic_ar": "إيميبينيم",
+  "brand_en": "Primaxin",
+  "brand_ar": "Primaxin",
+  "category": "Antibiotic",
+  "class": "Carbapenem",
+  "form": "Injection",
+  "strength": "500 mg"
+ },
+ {
+  "generic_en": "Ertapenem",
+  "generic_ar": "إرتابينيم",
+  "brand_en": "Invanz",
+  "brand_ar": "Invanz",
+  "category": "Antibiotic",
+  "class": "Carbapenem",
+  "form": "Injection",
+  "strength": "1 g"
+ },
+ {
+  "generic_en": "Vancomycin",
+  "generic_ar": "فانكومايسين",
+  "brand_en": "Vancocin",
+  "brand_ar": "Vancocin",
+  "category": "Antibiotic",
+  "class": "Glycopeptide",
+  "form": "Capsule",
+  "strength": "125 mg"
+ },
+ {
+  "generic_en": "Gentamicin",
+  "generic_ar": "جنتاميسين",
+  "brand_en": "Garamycin",
+  "brand_ar": "Garamycin",
+  "category": "Antibiotic",
+  "class": "Aminoglycoside",
+  "form": "Injection",
+  "strength": "40 mg/ml"
+ },
+ {
+  "generic_en": "Tobramycin",
+  "generic_ar": "توبراميسين",
+  "brand_en": "Tobrex",
+  "brand_ar": "Tobrex",
+  "category": "Antibiotic",
+  "class": "Aminoglycoside",
+  "form": "Eye drops",
+  "strength": "0.3%"
+ },
+ {
+  "generic_en": "Amikacin",
+  "generic_ar": "أميكاسين",
+  "brand_en": "Amikin",
+  "brand_ar": "Amikin",
+  "category": "Antibiotic",
+  "class": "Aminoglycoside",
+  "form": "Injection",
+  "strength": "250 mg/ml"
+ },
+ {
+  "generic_en": "Neomycin",
+  "generic_ar": "نيومايسين",
+  "brand_en": "Neosporin",
+  "brand_ar": "Neosporin",
+  "category": "Antibiotic",
+  "class": "Aminoglycoside",
+  "form": "Tablet",
+  "strength": "500 mg"
+ },
+ {
+  "generic_en": "Nitrofurantoin",
+  "generic_ar": "نيتروفورانتوين",
+  "brand_en": "Macrobid",
+  "brand_ar": "Macrobid",
+  "category": "Antibiotic",
+  "class": "Nitrofuran",
+  "form": "Capsule",
+  "strength": "100 mg"
+ },
+ {
+  "generic_en": "Fosfomycin",
+  "generic_ar": "فوسفومايسين",
+  "brand_en": "Monurol",
+  "brand_ar": "Monurol",
+  "category": "Antibiotic",
+  "class": "Phosphonic",
+  "form": "Granules",
+  "strength": "3 g"
+ },
+ {
+  "generic_en": "Linezolid",
+  "generic_ar": "لينزوليد",
+  "brand_en": "Zyvox",
+  "brand_ar": "Zyvox",
+  "category": "Antibiotic",
+  "class": "Oxazolidinone",
+  "form": "Tablet",
+  "strength": "600 mg"
+ },
+ {
+  "generic_en": "Rifampicin",
+  "generic_ar": "ريفامبيسين",
+  "brand_en": "Rifadin",
+  "brand_ar": "Rifadin",
+  "category": "Antibiotic",
+  "class": "Rifamycin",
+  "form": "Capsule",
+  "strength": "300 mg"
+ },
+ {
+  "generic_en": "Isoniazid",
+  "generic_ar": "إيزونيازيد",
+  "brand_en": "Nydrazid",
+  "brand_ar": "Nydrazid",
+  "category": "Antibiotic",
+  "class": "Antitubercular",
+  "form": "Tablet",
+  "strength": "300 mg"
+ },
+ {
+  "generic_en": "Pyrazinamide",
+  "generic_ar": "بيرازيناميد",
+  "brand_en": "Zinamide",
+  "brand_ar": "Zinamide",
+  "category": "Antibiotic",
+  "class": "Antitubercular",
+  "form": "Tablet",
+  "strength": "500 mg"
+ },
+ {
+  "generic_en": "Ethambutol",
+  "generic_ar": "إيثامبوتول",
+  "brand_en": "Myambutol",
+  "brand_ar": "Myambutol",
+  "category": "Antibiotic",
+  "class": "Antitubercular",
+  "form": "Tablet",
+  "strength": "400 mg"
+ },
+ {
+  "generic_en": "Dapsone",
+  "generic_ar": "دابسون",
+  "brand_en": "Aczone",
+  "brand_ar": "Aczone",
+  "category": "Antibiotic",
+  "class": "Sulfone",
+  "form": "Tablet",
+  "strength": "100 mg"
+ },
+ {
+  "generic_en": "Chloramphenicol",
+  "generic_ar": "كلورامفينيكول",
+  "brand_en": "Chloromycetin",
+  "brand_ar": "Chloromycetin",
+  "category": "Antibiotic",
+  "class": "Amphenicol",
+  "form": "Capsule",
+  "strength": "250 mg"
+ },
+ {
+  "generic_en": "Trimethoprim",
+  "generic_ar": "تريميثوبريم",
+  "brand_en": "Proloprim",
+  "brand_ar": "Proloprim",
+  "category": "Antibiotic",
+  "class": "Antifolate",
+  "form": "Tablet",
+  "strength": "200 mg"
+ },
+ {
+  "generic_en": "Minocycline",
+  "generic_ar": "مينوسيكلين",
+  "brand_en": "Minocin",
+  "brand_ar": "Minocin",
+  "category": "Antibiotic",
+  "class": "Tetracycline",
+  "form": "Tablet",
+  "strength": "100 mg"
+ },
+ {
+  "generic_en": "Moxifloxacin",
+  "generic_ar": "موكسيفلوكساسين",
+  "brand_en": "Avelox",
+  "brand_ar": "Avelox",
+  "category": "Antibiotic",
+  "class": "Fluoroquinolone",
+  "form": "Tablet",
+  "strength": "400 mg"
+ },
+ {
+  "generic_en": "Ofloxacin",
+  "generic_ar": "أوفلوكساسين",
+  "brand_en": "Floxin",
+  "brand_ar": "Floxin",
+  "category": "Antibiotic",
+  "class": "Fluoroquinolone",
+  "form": "Tablet",
+  "strength": "400 mg"
+ },
+ {
+  "generic_en": "Tinidazole",
+  "generic_ar": "تينيدازول",
+  "brand_en": "Tindamax",
+  "brand_ar": "Tindamax",
+  "category": "Antibiotic",
+  "class": "Nitroimidazole",
+  "form": "Tablet",
+  "strength": "500 mg"
+ },
+ {
+  "generic_en": "Itraconazole",
+  "generic_ar": "إيتراكونازول",
+  "brand_en": "Sporanox",
+  "brand_ar": "Sporanox",
+  "category": "Antifungal",
+  "class": "Azole",
+  "form": "Capsule",
+  "strength": "100 mg"
+ },
+ {
+  "generic_en": "Voriconazole",
+  "generic_ar": "فوريكونازول",
+  "brand_en": "Vfend",
+  "brand_ar": "Vfend",
+  "category": "Antifungal",
+  "class": "Azole",
+  "form": "Tablet",
+  "strength": "200 mg"
+ },
+ {
+  "generic_en": "Ketoconazole",
+  "generic_ar": "كيتوكونازول",
+  "brand_en": "Nizoral",
+  "brand_ar": "Nizoral",
+  "category": "Antifungal",
+  "class": "Azole",
+  "form": "Cream",
+  "strength": "2%"
+ },
+ {
+  "generic_en": "Terbinafine",
+  "generic_ar": "تيربينافين",
+  "brand_en": "Lamisil",
+  "brand_ar": "Lamisil",
+  "category": "Antifungal",
+  "class": "Allylamine",
+  "form": "Tablet",
+  "strength": "250 mg"
+ },
+ {
+  "generic_en": "Clotrimazole",
+  "generic_ar": "كلوتريمازول",
+  "brand_en": "Canesten",
+  "brand_ar": "Canesten",
+  "category": "Antifungal",
+  "class": "Azole",
+  "form": "Cream",
+  "strength": "1%"
+ },
+ {
+  "generic_en": "Ketoprofen",
+  "generic_ar": "كيتوبروفين",
+  "brand_en": "Orudis",
+  "brand_ar": "Orudis",
+  "category": "NSAID",
+  "class": "NSAID",
+  "form": "Capsule",
+  "strength": "100 mg"
+ },
+ {
+  "generic_en": "Meloxicam",
+  "generic_ar": "ميلوكسيكام",
+  "brand_en": "Mobic",
+  "brand_ar": "Mobic",
+  "category": "NSAID",
+  "class": "NSAID",
+  "form": "Tablet",
+  "strength": "15 mg"
+ },
+ {
+  "generic_en": "Piroxicam",
+  "generic_ar": "بيروكسيكام",
+  "brand_en": "Feldene",
+  "brand_ar": "Feldene",
+  "category": "NSAID",
+  "class": "NSAID",
+  "form": "Capsule",
+  "strength": "20 mg"
+ },
+ {
+  "generic_en": "Indomethacin",
+  "generic_ar": "إندوميثاسين",
+  "brand_en": "Indocin",
+  "brand_ar": "Indocin",
+  "category": "NSAID",
+  "class": "NSAID",
+  "form": "Capsule",
+  "strength": "25 mg"
+ },
+ {
+  "generic_en": "Etoricoxib",
+  "generic_ar": "إتوريكوكسيب",
+  "brand_en": "Arcoxia",
+  "brand_ar": "Arcoxia",
+  "category": "NSAID",
+  "class": "NSAID",
+  "form": "Tablet",
+  "strength": "90 mg"
+ },
+ {
+  "generic_en": "Morphine",
+  "generic_ar": "مورفين",
+  "brand_en": "MS Contin",
+  "brand_ar": "MS Contin",
+  "category": "Analgesic",
+  "class": "Opioid",
+  "form": "Tablet",
+  "strength": "30 mg"
+ },
+ {
+  "generic_en": "Oxycodone",
+  "generic_ar": "أوكسيكودون",
+  "brand_en": "OxyContin",
+  "brand_ar": "OxyContin",
+  "category": "Analgesic",
+  "class": "Opioid",
+  "form": "Tablet",
+  "strength": "10 mg"
+ },
+ {
+  "generic_en": "Fentanyl",
+  "generic_ar": "فنتانيل",
+  "brand_en": "Duragesic",
+  "brand_ar": "Duragesic",
+  "category": "Analgesic",
+  "class": "Opioid",
+  "form": "Patch",
+  "strength": "25 mcg/h"
+ },
+ {
+  "generic_en": "Buprenorphine",
+  "generic_ar": "بوبرينورفين",
+  "brand_en": "Subutex",
+  "brand_ar": "Subutex",
+  "category": "Analgesic",
+  "class": "Opioid",
+  "form": "Sublingual tablet",
+  "strength": "2 mg"
+ },
+ {
+  "generic_en": "Methadone",
+  "generic_ar": "ميثادون",
+  "brand_en": "Methadose",
+  "brand_ar": "Methadose",
+  "category": "Analgesic",
+  "class": "Opioid",
+  "form": "Tablet",
+  "strength": "10 mg"
+ },
+ {
+  "generic_en": "Gabapentin",
+  "generic_ar": "غابابنتين",
+  "brand_en": "Neurontin",
+  "brand_ar": "Neurontin",
+  "category": "Antiepileptic",
+  "class": "Antiepileptic",
+  "form": "Capsule",
+  "strength": "300 mg"
+ },
+ {
+  "generic_en": "Pregabalin",
+  "generic_ar": "بريغابالين",
+  "brand_en": "Lyrica",
+  "brand_ar": "Lyrica",
+  "category": "Antiepileptic",
+  "class": "Antiepileptic",
+  "form": "Capsule",
+  "strength": "75 mg"
+ },
+ {
+  "generic_en": "Duloxetine",
+  "generic_ar": "دولوكسيتين",
+  "brand_en": "Cymbalta",
+  "brand_ar": "Cymbalta",
+  "category": "CNS",
+  "class": "SNRI",
+  "form": "Capsule",
+  "strength": "60 mg"
+ },
+ {
+  "generic_en": "Baclofen",
+  "generic_ar": "باكلوفين",
+  "brand_en": "Lioresal",
+  "brand_ar": "Lioresal",
+  "category": "Muscle relaxant",
+  "class": "MuscleRelaxant",
+  "form": "Tablet",
+  "strength": "10 mg"
+ },
+ {
+  "generic_en": "Tizanidine",
+  "generic_ar": "تيزانيدين",
+  "brand_en": "Zanaflex",
+  "brand_ar": "Zanaflex",
+  "category": "Muscle relaxant",
+  "class": "MuscleRelaxant",
+  "form": "Tablet",
+  "strength": "4 mg"
+ },
+ {
+  "generic_en": "Orphenadrine",
+  "generic_ar": "أورفينادرين",
+  "brand_en": "Norflex",
+  "brand_ar": "Norflex",
+  "category": "Muscle relaxant",
+  "class": "MuscleRelaxant",
+  "form": "Tablet",
+  "strength": "100 mg"
+ },
+ {
+  "generic_en": "Ramipril",
+  "generic_ar": "راميبريل",
+  "brand_en": "Altace",
+  "brand_ar": "Altace",
+  "category": "Cardiovascular",
+  "class": "ACE-I",
+  "form": "Capsule",
+  "strength": "5 mg"
+ },
+ {
+  "generic_en": "Enalapril",
+  "generic_ar": "إنالابريل",
+  "brand_en": "Vasotec",
+  "brand_ar": "Vasotec",
+  "category": "Cardiovascular",
+  "class": "ACE-I",
+  "form": "Tablet",
+  "strength": "10 mg"
+ },
+ {
+  "generic_en": "Perindopril",
+  "generic_ar": "بيريندوبريل",
+  "brand_en": "Coversyl",
+  "brand_ar": "Coversyl",
+  "category": "Cardiovascular",
+  "class": "ACE-I",
+  "form": "Tablet",
+  "strength": "4 mg"
+ },
+ {
+  "generic_en": "Captopril",
+  "generic_ar": "كابتوبريل",
+  "brand_en": "Capoten",
+  "brand_ar": "Capoten",
+  "category": "Cardiovascular",
+  "class": "ACE-I",
+  "form": "Tablet",
+  "strength": "25 mg"
+ },
+ {
+  "generic_en": "Candesartan",
+  "generic_ar": "كانديسارتان",
+  "brand_en": "Atacand",
+  "brand_ar": "Atacand",
+  "category": "Cardiovascular",
+  "class": "ARB",
+  "form": "Tablet",
+  "strength": "8 mg"
+ },
+ {
+  "generic_en": "Irbesartan",
+  "generic_ar": "إربيسارتان",
+  "brand_en": "Avapro",
+  "brand_ar": "Avapro",
+  "category": "Cardiovascular",
+  "class": "ARB",
+  "form": "Tablet",
+  "strength": "150 mg"
+ },
+ {
+  "generic_en": "Olmesartan",
+  "generic_ar": "أولميسارتان",
+  "brand_en": "Benicar",
+  "brand_ar": "Benicar",
+  "category": "Cardiovascular",
+  "class": "ARB",
+  "form": "Tablet",
+  "strength": "20 mg"
+ },
+ {
+  "generic_en": "Metoprolol",
+  "generic_ar": "ميتوبرولول",
+  "brand_en": "Lopressor",
+  "brand_ar": "Lopressor",
+  "category": "Cardiovascular",
+  "class": "BetaBlocker",
+  "form": "Tablet",
+  "strength": "50 mg"
+ },
+ {
+  "generic_en": "Bisoprolol",
+  "generic_ar": "بيسوبرولول",
+  "brand_en": "Concor",
+  "brand_ar": "Concor",
+  "category": "Cardiovascular",
+  "class": "BetaBlocker",
+  "form": "Tablet",
+  "strength": "5 mg"
+ },
+ {
+  "generic_en": "Carvedilol",
+  "generic_ar": "كارفيديلول",
+  "brand_en": "Coreg",
+  "brand_ar": "Coreg",
+  "category": "Cardiovascular",
+  "class": "BetaBlocker",
+  "form": "Tablet",
+  "strength": "25 mg"
+ },
+ {
+  "generic_en": "Propranolol",
+  "generic_ar": "بروبرانولول",
+  "brand_en": "Inderal",
+  "brand_ar": "Inderal",
+  "category": "Cardiovascular",
+  "class": "BetaBlocker",
+  "form": "Tablet",
+  "strength": "40 mg"
+ },
+ {
+  "generic_en": "Nebivolol",
+  "generic_ar": "نيبيفولول",
+  "brand_en": "Nebilet",
+  "brand_ar": "Nebilet",
+  "category": "Cardiovascular",
+  "class": "BetaBlocker",
+  "form": "Tablet",
+  "strength": "5 mg"
+ },
+ {
+  "generic_en": "Verapamil",
+  "generic_ar": "فيراباميل",
+  "brand_en": "Isoptin",
+  "brand_ar": "Isoptin",
+  "category": "Cardiovascular",
+  "class": "CCB",
+  "form": "Tablet",
+  "strength": "80 mg"
+ },
+ {
+  "generic_en": "Diltiazem",
+  "generic_ar": "ديلتيازيم",
+  "brand_en": "Cardizem",
+  "brand_ar": "Cardizem",
+  "category": "Cardiovascular",
+  "class": "CCB",
+  "form": "Tablet",
+  "strength": "60 mg"
+ },
+ {
+  "generic_en": "Nifedipine",
+  "generic_ar": "نيفيديبين",
+  "brand_en": "Adalat",
+  "brand_ar": "Adalat",
+  "category": "Cardiovascular",
+  "class": "CCB",
+  "form": "Tablet",
+  "strength": "30 mg"
+ },
+ {
+  "generic_en": "Felodipine",
+  "generic_ar": "فيلوديبين",
+  "brand_en": "Plendil",
+  "brand_ar": "Plendil",
+  "category": "Cardiovascular",
+  "class": "CCB",
+  "form": "Tablet",
+  "strength": "5 mg"
+ },
+ {
+  "generic_en": "Chlorthalidone",
+  "generic_ar": "كلورثاليدون",
+  "brand_en": "Hygroton",
+  "brand_ar": "Hygroton",
+  "category": "Diuretic",
+  "class": "Diuretic",
+  "form": "Tablet",
+  "strength": "25 mg"
+ },
+ {
+  "generic_en": "Indapamide",
+  "generic_ar": "إنداباميد",
+  "brand_en": "Natrilix",
+  "brand_ar": "Natrilix",
+  "category": "Diuretic",
+  "class": "Diuretic",
+  "form": "Tablet",
+  "strength": "1.5 mg"
+ },
+ {
+  "generic_en": "Spironolactone",
+  "generic_ar": "سبيرونولاكتون",
+  "brand_en": "Aldactone",
+  "brand_ar": "Aldactone",
+  "category": "Diuretic",
+  "class": "Diuretic",
+  "form": "Tablet",
+  "strength": "25 mg"
+ },
+ {
+  "generic_en": "Eplerenone",
+  "generic_ar": "إبليرينون",
+  "brand_en": "Inspra",
+  "brand_ar": "Inspra",
+  "category": "Diuretic",
+  "class": "Diuretic",
+  "form": "Tablet",
+  "strength": "25 mg"
+ },
+ {
+  "generic_en": "Rosuvastatin",
+  "generic_ar": "روزوفاستاتين",
+  "brand_en": "Crestor",
+  "brand_ar": "Crestor",
+  "category": "Statin",
+  "class": "Statin",
+  "form": "Tablet",
+  "strength": "10 mg"
+ },
+ {
+  "generic_en": "Pravastatin",
+  "generic_ar": "برافاستاتين",
+  "brand_en": "Pravachol",
+  "brand_ar": "Pravachol",
+  "category": "Statin",
+  "class": "Statin",
+  "form": "Tablet",
+  "strength": "40 mg"
+ },
+ {
+  "generic_en": "Fenofibrate",
+  "generic_ar": "فينوفايبرات",
+  "brand_en": "Lipanthyl",
+  "brand_ar": "Lipanthyl",
+  "category": "Cardiovascular",
+  "class": "Fibrate",
+  "form": "Capsule",
+  "strength": "200 mg"
+ },
+ {
+  "generic_en": "Gemfibrozil",
+  "generic_ar": "جيمفيبروزيل",
+  "brand_en": "Lopid",
+  "brand_ar": "Lopid",
+  "category": "Cardiovascular",
+  "class": "Fibrate",
+  "form": "Tablet",
+  "strength": "600 mg"
+ },
+ {
+  "generic_en": "Ezetimibe",
+  "generic_ar": "إيزيتيميب",
+  "brand_en": "Ezetrol",
+  "brand_ar": "Ezetrol",
+  "category": "Cardiovascular",
+  "class": "Cholesterol",
+  "form": "Tablet",
+  "strength": "10 mg"
+ },
+ {
+  "generic_en": "Dabigatran",
+  "generic_ar": "دابيغاتران",
+  "brand_en": "Pradaxa",
+  "brand_ar": "Pradaxa",
+  "category": "Anticoagulant",
+  "class": "Anticoagulant",
+  "form": "Capsule",
+  "strength": "150 mg"
+ },
+ {
+  "generic_en": "Edoxaban",
+  "generic_ar": "إدوكسابان",
+  "brand_en": "Lixiana",
+  "brand_ar": "Lixiana",
+  "category": "Anticoagulant",
+  "class": "Anticoagulant",
+  "form": "Tablet",
+  "strength": "60 mg"
+ },
+ {
+  "generic_en": "Ticagrelor",
+  "generic_ar": "تيكاغريلور",
+  "brand_en": "Brilique",
+  "brand_ar": "Brilique",
+  "category": "Antiplatelet",
+  "class": "Antiplatelet",
+  "form": "Tablet",
+  "strength": "90 mg"
+ },
+ {
+  "generic_en": "Prasugrel",
+  "generic_ar": "براسوغريل",
+  "brand_en": "Effient",
+  "brand_ar": "Effient",
+  "category": "Antiplatelet",
+  "class": "Antiplatelet",
+  "form": "Tablet",
+  "strength": "10 mg"
+ },
+ {
+  "generic_en": "Ticlopidine",
+  "generic_ar": "تيكلوبيدين",
+  "brand_en": "Ticlid",
+  "brand_ar": "Ticlid",
+  "category": "Antiplatelet",
+  "class": "Antiplatelet",
+  "form": "Tablet",
+  "strength": "250 mg"
+ },
+ {
+  "generic_en": "Dipyridamole",
+  "generic_ar": "ديبيريدامول",
+  "brand_en": "Persantin",
+  "brand_ar": "Persantin",
+  "category": "Antiplatelet",
+  "class": "Antiplatelet",
+  "form": "Tablet",
+  "strength": "100 mg"
+ },
+ {
+  "generic_en": "Nitroglycerin",
+  "generic_ar": "نيتروغليسيرين",
+  "brand_en": "Nitrostat",
+  "brand_ar": "Nitrostat",
+  "category": "Cardiovascular",
+  "class": "Nitrate",
+  "form": "Sublingual tablet",
+  "strength": "0.4 mg"
+ },
+ {
+  "generic_en": "Isosorbide Dinitrate",
+  "generic_ar": "إيزوسوربيد",
+  "brand_en": "Isordil",
+  "brand_ar": "Isordil",
+  "category": "Cardiovascular",
+  "class": "Nitrate",
+  "form": "Tablet",
+  "strength": "20 mg"
+ },
+ {
+  "generic_en": "Digoxin",
+  "generic_ar": "ديجوكسين",
+  "brand_en": "Lanoxin",
+  "brand_ar": "Lanoxin",
+  "category": "Cardiovascular",
+  "class": "CardiacGlycoside",
+  "form": "Tablet",
+  "strength": "125 mcg"
+ },
+ {
+  "generic_en": "Amiodarone",
+  "generic_ar": "أميودارون",
+  "brand_en": "Cordarone",
+  "brand_ar": "Cordarone",
+  "category": "Cardiovascular",
+  "class": "Antiarrhythmic",
+  "form": "Tablet",
+  "strength": "200 mg"
+ },
+ {
+  "generic_en": "Flecainide",
+  "generic_ar": "فليكاينيد",
+  "brand_en": "Tambocor",
+  "brand_ar": "Tambocor",
+  "category": "Cardiovascular",
+  "class": "Antiarrhythmic",
+  "form": "Tablet",
+  "strength": "100 mg"
+ },
+ {
+  "generic_en": "Sotalol",
+  "generic_ar": "سوتالول",
+  "brand_en": "Betapace",
+  "brand_ar": "Betapace",
+  "category": "Cardiovascular",
+  "class": "Antiarrhythmic",
+  "form": "Tablet",
+  "strength": "80 mg"
+ },
+ {
+  "generic_en": "Hydralazine",
+  "generic_ar": "هيدرالازين",
+  "brand_en": "Apresoline",
+  "brand_ar": "Apresoline",
+  "category": "Cardiovascular",
+  "class": "Vasodilator",
+  "form": "Tablet",
+  "strength": "25 mg"
+ },
+ {
+  "generic_en": "Glipizide",
+  "generic_ar": "غليبيزيد",
+  "brand_en": "Glucotrol",
+  "brand_ar": "Glucotrol",
+  "category": "Diabetes",
+  "class": "Sulfonylurea",
+  "form": "Tablet",
+  "strength": "5 mg"
+ },
+ {
+  "generic_en": "Glyburide",
+  "generic_ar": "غليبوريد",
+  "brand_en": "Micronase",
+  "brand_ar": "Micronase",
+  "category": "Diabetes",
+  "class": "Sulfonylurea",
+  "form": "Tablet",
+  "strength": "5 mg"
+ },
+ {
+  "generic_en": "Linagliptin",
+  "generic_ar": "ليناغليبتين",
+  "brand_en": "Trajenta",
+  "brand_ar": "Trajenta",
+  "category": "Diabetes",
+  "class": "DPP4",
+  "form": "Tablet",
+  "strength": "5 mg"
+ },
+ {
+  "generic_en": "Saxagliptin",
+  "generic_ar": "ساكساغليبتين",
+  "brand_en": "Onglyza",
+  "brand_ar": "Onglyza",
+  "category": "Diabetes",
+  "class": "DPP4",
+  "form": "Tablet",
+  "strength": "5 mg"
+ },
+ {
+  "generic_en": "Empagliflozin",
+  "generic_ar": "إمباغليفلوزين",
+  "brand_en": "Jardiance",
+  "brand_ar": "Jardiance",
+  "category": "Diabetes",
+  "class": "SGLT2",
+  "form": "Tablet",
+  "strength": "10 mg"
+ },
+ {
+  "generic_en": "Dapagliflozin",
+  "generic_ar": "داباغليفلوزين",
+  "brand_en": "Forxiga",
+  "brand_ar": "Forxiga",
+  "category": "Diabetes",
+  "class": "SGLT2",
+  "form": "Tablet",
+  "strength": "10 mg"
+ },
+ {
+  "generic_en": "Canagliflozin",
+  "generic_ar": "كاناغليفلوزين",
+  "brand_en": "Invokana",
+  "brand_ar": "Invokana",
+  "category": "Diabetes",
+  "class": "SGLT2",
+  "form": "Tablet",
+  "strength": "100 mg"
+ },
+ {
+  "generic_en": "Liraglutide",
+  "generic_ar": "ليراغلوتيد",
+  "brand_en": "Victoza",
+  "brand_ar": "Victoza",
+  "category": "Diabetes",
+  "class": "GLP1",
+  "form": "Injection",
+  "strength": "6 mg/ml"
+ },
+ {
+  "generic_en": "Semaglutide",
+  "generic_ar": "سيماغلوتيد",
+  "brand_en": "Ozempic",
+  "brand_ar": "Ozempic",
+  "category": "Diabetes",
+  "class": "GLP1",
+  "form": "Injection",
+  "strength": "1 mg"
+ },
+ {
+  "generic_en": "Dulaglutide",
+  "generic_ar": "دولاغلوتيد",
+  "brand_en": "Trulicity",
+  "brand_ar": "Trulicity",
+  "category": "Diabetes",
+  "class": "GLP1",
+  "form": "Injection",
+  "strength": "1.5 mg/0.5 ml"
+ },
+ {
+  "generic_en": "Insulin Aspart",
+  "generic_ar": "أنسولين أسبارت",
+  "brand_en": "NovoRapid",
+  "brand_ar": "NovoRapid",
+  "category": "Diabetes",
+  "class": "Insulin",
+  "form": "Injection",
+  "strength": "100 IU/ml"
+ },
+ {
+  "generic_en": "Insulin Lispro",
+  "generic_ar": "أنسولين ليسبرو",
+  "brand_en": "Humalog",
+  "brand_ar": "Humalog",
+  "category": "Diabetes",
+  "class": "Insulin",
+  "form": "Injection",
+  "strength": "100 IU/ml"
+ },
+ {
+  "generic_en": "Insulin Regular",
+  "generic_ar": "أنسولين عادي",
+  "brand_en": "Actrapid",
+  "brand_ar": "Actrapid",
+  "category": "Diabetes",
+  "class": "Insulin",
+  "form": "Injection",
+  "strength": "100 IU/ml"
+ },
+ {
+  "generic_en": "Insulin NPH",
+  "generic_ar": "أنسولين NPH",
+  "brand_en": "Humulin N",
+  "brand_ar": "Humulin N",
+  "category": "Diabetes",
+  "class": "Insulin",
+  "form": "Injection",
+  "strength": "100 IU/ml"
+ },
+ {
+  "generic_en": "Insulin Detemir",
+  "generic_ar": "أنسولين ديتيمير",
+  "brand_en": "Levemir",
+  "brand_ar": "Levemir",
+  "category": "Diabetes",
+  "class": "Insulin",
+  "form": "Injection",
+  "strength": "100 IU/ml"
+ },
+ {
+  "generic_en": "Insulin Degludec",
+  "generic_ar": "أنسولين ديغلوديك",
+  "brand_en": "Tresiba",
+  "brand_ar": "Tresiba",
+  "category": "Diabetes",
+  "class": "Insulin",
+  "form": "Injection",
+  "strength": "100 IU/ml"
+ },
+ {
+  "generic_en": "Pioglitazone",
+  "generic_ar": "بيوغليتازون",
+  "brand_en": "Actos",
+  "brand_ar": "Actos",
+  "category": "Diabetes",
+  "class": "Thiazolidinedione",
+  "form": "Tablet",
+  "strength": "30 mg"
+ },
+ {
+  "generic_en": "Repaglinide",
+  "generic_ar": "ريباغلينيد",
+  "brand_en": "Prandin",
+  "brand_ar": "Prandin",
+  "category": "Diabetes",
+  "class": "Meglitinide",
+  "form": "Tablet",
+  "strength": "1 mg"
+ },
+ {
+  "generic_en": "Acarbose",
+  "generic_ar": "أكاربوز",
+  "brand_en": "Glucobay",
+  "brand_ar": "Glucobay",
+  "category": "Diabetes",
+  "class": "AlphaGlucosidase",
+  "form": "Tablet",
+  "strength": "50 mg"
+ },
+ {
+  "generic_en": "Salbutamol",
+  "generic_ar": "سالبوتامول",
+  "brand_en": "Ventolin",
+  "brand_ar": "Ventolin",
+  "category": "Respiratory",
+  "class": "Bronchodilator",
+  "form": "Inhaler",
+  "strength": "100 mcg/dose"
+ },
+ {
+  "generic_en": "Terbutaline",
+  "generic_ar": "تيربوتالين",
+  "brand_en": "Bricanyl",
+  "brand_ar": "Bricanyl",
+  "category": "Respiratory",
+  "class": "Bronchodilator",
+  "form": "Tablet",
+  "strength": "5 mg"
+ },
+ {
+  "generic_en": "Salmeterol",
+  "generic_ar": "سالمترول",
+  "brand_en": "Serevent",
+  "brand_ar": "Serevent",
+  "category": "Respiratory",
+  "class": "Bronchodilator",
+  "form": "Inhaler",
+  "strength": "25 mcg/dose"
+ },
+ {
+  "generic_en": "Formoterol",
+  "generic_ar": "فورموتيرول",
+  "brand_en": "Foradil",
+  "brand_ar": "Foradil",
+  "category": "Respiratory",
+  "class": "Bronchodilator",
+  "form": "Inhaler",
+  "strength": "12 mcg/dose"
+ },
+ {
+  "generic_en": "Budesonide",
+  "generic_ar": "بوديسونيد",
+  "brand_en": "Pulmicort",
+  "brand_ar": "Pulmicort",
+  "category": "Respiratory",
+  "class": "Corticosteroid",
+  "form": "Inhaler",
+  "strength": "200 mcg/dose"
+ },
+ {
+  "generic_en": "Fluticasone",
+  "generic_ar": "فلوتيكازون",
+  "brand_en": "Flixotide",
+  "brand_ar": "Flixotide",
+  "category": "Respiratory",
+  "class": "Corticosteroid",
+  "form": "Inhaler",
+  "strength": "250 mcg/dose"
+ },
+ {
+  "generic_en": "Beclomethasone",
+  "generic_ar": "بيكلوميثازون",
+  "brand_en": "Becloforte",
+  "brand_ar": "Becloforte",
+  "category": "Respiratory",
+  "class": "Corticosteroid",
+  "form": "Inhaler",
+  "strength": "250 mcg/dose"
+ },
+ {
+  "generic_en": "Tiotropium",
+  "generic_ar": "تيوتروبيوم",
+  "brand_en": "Spiriva",
+  "brand_ar": "Spiriva",
+  "category": "Respiratory",
+  "class": "Anticholinergic",
+  "form": "Inhaler",
+  "strength": "18 mcg"
+ },
+ {
+  "generic_en": "Ipratropium",
+  "generic_ar": "إبراتروبيوم",
+  "brand_en": "Atrovent",
+  "brand_ar": "Atrovent",
+  "category": "Respiratory",
+  "class": "Anticholinergic",
+  "form": "Inhaler",
+  "strength": "20 mcg/dose"
+ },
+ {
+  "generic_en": "Montelukast",
+  "generic_ar": "مونتيلوكاست",
+  "brand_en": "Singulair",
+  "brand_ar": "Singulair",
+  "category": "Respiratory",
+  "class": "Leukotriene",
+  "form": "Tablet",
+  "strength": "10 mg"
+ },
+ {
+  "generic_en": "Theophylline",
+  "generic_ar": "ثيوفيلين",
+  "brand_en": "Theo-Dur",
+  "brand_ar": "Theo-Dur",
+  "category": "Respiratory",
+  "class": "Methylxanthine",
+  "form": "Tablet",
+  "strength": "300 mg"
+ },
+ {
+  "generic_en": "Fexofenadine",
+  "generic_ar": "فيكسوفينادين",
+  "brand_en": "Telfast",
+  "brand_ar": "Telfast",
+  "category": "Antihistamine",
+  "class": "Antihistamine",
+  "form": "Tablet",
+  "strength": "120 mg"
+ },
+ {
+  "generic_en": "Desloratadine",
+  "generic_ar": "ديسلوراتادين",
+  "brand_en": "Aerius",
+  "brand_ar": "Aerius",
+  "category": "Antihistamine",
+  "class": "Antihistamine",
+  "form": "Tablet",
+  "strength": "5 mg"
+ },
+ {
+  "generic_en": "Diphenhydramine",
+  "generic_ar": "ديفينهيدرامين",
+  "brand_en": "Benadryl",
+  "brand_ar": "Benadryl",
+  "category": "Antihistamine",
+  "class": "Antihistamine",
+  "form": "Tablet",
+  "strength": "25 mg"
+ },
+ {
+  "generic_en": "Pseudoephedrine",
+  "generic_ar": "سودوإفدرين",
+  "brand_en": "Sudafed",
+  "brand_ar": "Sudafed",
+  "category": "Respiratory",
+  "class": "Decongestant",
+  "form": "Tablet",
+  "strength": "60 mg"
+ },
+ {
+  "generic_en": "Dextromethorphan",
+  "generic_ar": "ديكستروميثورفان",
+  "brand_en": "Robitussin",
+  "brand_ar": "Robitussin",
+  "category": "Respiratory",
+  "class": "Antitussive",
+  "form": "Syrup",
+  "strength": "15 mg/5 ml"
+ },
+ {
+  "generic_en": "Guaifenesin",
+  "generic_ar": "غوايفينيسين",
+  "brand_en": "Mucinex",
+  "brand_ar": "Mucinex",
+  "category": "Respiratory",
+  "class": "Expectorant",
+  "form": "Tablet",
+  "strength": "600 mg"
+ },
+ {
+  "generic_en": "Ranitidine",
+  "generic_ar": "رانيتيدين",
+  "brand_en": "Zantac",
+  "brand_ar": "Zantac",
+  "category": "GI",
+  "class": "H2Blocker",
+  "form": "Tablet",
+  "strength": "150 mg"
+ },
+ {
+  "generic_en": "Famotidine",
+  "generic_ar": "فاموتيدين",
+  "brand_en": "Pepcid",
+  "brand_ar": "Pepcid",
+  "category": "GI",
+  "class": "H2Blocker",
+  "form": "Tablet",
+  "strength": "20 mg"
+ },
+ {
+  "generic_en": "Lansoprazole",
+  "generic_ar": "لانزوبرازول",
+  "brand_en": "Prevacid",
+  "brand_ar": "Prevacid",
+  "category": "PPI",
+  "class": "PPI",
+  "form": "Capsule",
+  "strength": "30 mg"
+ },
+ {
+  "generic_en": "Esomeprazole",
+  "generic_ar": "إيزوميبرازول",
+  "brand_en": "Nexium",
+  "brand_ar": "Nexium",
+  "category": "PPI",
+  "class": "PPI",
+  "form": "Tablet",
+  "strength": "20 mg"
+ },
+ {
+  "generic_en": "Rabeprazole",
+  "generic_ar": "رابيبرازول",
+  "brand_en": "Pariet",
+  "brand_ar": "Pariet",
+  "category": "PPI",
+  "class": "PPI",
+  "form": "Tablet",
+  "strength": "20 mg"
+ },
+ {
+  "generic_en": "Metoclopramide",
+  "generic_ar": "ميتوكلوبراميد",
+  "brand_en": "Primperan",
+  "brand_ar": "Primperan",
+  "category": "GI",
+  "class": "Antiemetic",
+  "form": "Tablet",
+  "strength": "10 mg"
+ },
+ {
+  "generic_en": "Ondansetron",
+  "generic_ar": "أوندانسيترون",
+  "brand_en": "Zofran",
+  "brand_ar": "Zofran",
+  "category": "GI",
+  "class": "Antiemetic",
+  "form": "Tablet",
+  "strength": "8 mg"
+ },
+ {
+  "generic_en": "Domperidone",
+  "generic_ar": "دومبيريدون",
+  "brand_en": "Motilium",
+  "brand_ar": "Motilium",
+  "category": "GI",
+  "class": "Antiemetic",
+  "form": "Tablet",
+  "strength": "10 mg"
+ },
+ {
+  "generic_en": "Loperamide",
+  "generic_ar": "لوبيراميد",
+  "brand_en": "Imodium",
+  "brand_ar": "Imodium",
+  "category": "GI",
+  "class": "Antidiarrheal",
+  "form": "Capsule",
+  "strength": "2 mg"
+ },
+ {
+  "generic_en": "Bisacodyl",
+  "generic_ar": "بيساكوديل",
+  "brand_en": "Dulcolax",
+  "brand_ar": "Dulcolax",
+  "category": "GI",
+  "class": "Laxative",
+  "form": "Tablet",
+  "strength": "5 mg"
+ },
+ {
+  "generic_en": "Lactulose",
+  "generic_ar": "لاكتولوز",
+  "brand_en": "Duphalac",
+  "brand_ar": "Duphalac",
+  "category": "GI",
+  "class": "Laxative",
+  "form": "Syrup",
+  "strength": "3.35 g/5 ml"
+ },
+ {
+  "generic_en": "Senna",
+  "generic_ar": "سنا",
+  "brand_en": "Senokot",
+  "brand_ar": "Senokot",
+  "category": "GI",
+  "class": "Laxative",
+  "form": "Tablet",
+  "strength": "7.5 mg"
+ },
+ {
+  "generic_en": "Mesalazine",
+  "generic_ar": "ميسالازين",
+  "brand_en": "Pentasa",
+  "brand_ar": "Pentasa",
+  "category": "GI",
+  "class": "Aminosalicylate",
+  "form": "Tablet",
+  "strength": "500 mg"
+ },
+ {
+  "generic_en": "Sulfasalazine",
+  "generic_ar": "سلفاسالازين",
+  "brand_en": "Azulfidine",
+  "brand_ar": "Azulfidine",
+  "category": "GI",
+  "class": "Aminosalicylate",
+  "form": "Tablet",
+  "strength": "500 mg"
+ },
+ {
+  "generic_en": "Aluminium Hydroxide",
+  "generic_ar": "هيدروكسيد الألمنيوم",
+  "brand_en": "Maalox",
+  "brand_ar": "Maalox",
+  "category": "GI",
+  "class": "Antacid",
+  "form": "Tablet",
+  "strength": "500 mg"
+ },
+ {
+  "generic_en": "Fluoxetine",
+  "generic_ar": "فلوكسيتين",
+  "brand_en": "Prozac",
+  "brand_ar": "Prozac",
+  "category": "CNS",
+  "class": "SSRI",
+  "form": "Capsule",
+  "strength": "20 mg"
+ },
+ {
+  "generic_en": "Sertraline",
+  "generic_ar": "سيرترالين",
+  "brand_en": "Zoloft",
+  "brand_ar": "Zoloft",
+  "category": "CNS",
+  "class": "SSRI",
+  "form": "Tablet",
+  "strength": "50 mg"
+ },
+ {
+  "generic_en": "Paroxetine",
+  "generic_ar": "باروكسيتين",
+  "brand_en": "Seroxat",
+  "brand_ar": "Seroxat",
+  "category": "CNS",
+  "class": "SSRI",
+  "form": "Tablet",
+  "strength": "20 mg"
+ },
+ {
+  "generic_en": "Citalopram",
+  "generic_ar": "سيتالوبرام",
+  "brand_en": "Cipramil",
+  "brand_ar": "Cipramil",
+  "category": "CNS",
+  "class": "SSRI",
+  "form": "Tablet",
+  "strength": "20 mg"
+ },
+ {
+  "generic_en": "Escitalopram",
+  "generic_ar": "إسيتالوبرام",
+  "brand_en": "Cipralex",
+  "brand_ar": "Cipralex",
+  "category": "CNS",
+  "class": "SSRI",
+  "form": "Tablet",
+  "strength": "10 mg"
+ },
+ {
+  "generic_en": "Venlafaxine",
+  "generic_ar": "فينلافاكسين",
+  "brand_en": "Effexor",
+  "brand_ar": "Effexor",
+  "category": "CNS",
+  "class": "SNRI",
+  "form": "Capsule",
+  "strength": "75 mg"
+ },
+ {
+  "generic_en": "Mirtazapine",
+  "generic_ar": "ميرتازابين",
+  "brand_en": "Remeron",
+  "brand_ar": "Remeron",
+  "category": "CNS",
+  "class": "Antidepressant",
+  "form": "Tablet",
+  "strength": "30 mg"
+ },
+ {
+  "generic_en": "Bupropion",
+  "generic_ar": "بوبروبيون",
+  "brand_en": "Wellbutrin",
+  "brand_ar": "Wellbutrin",
+  "category": "CNS",
+  "class": "Antidepressant",
+  "form": "Tablet",
+  "strength": "150 mg"
+ },
+ {
+  "generic_en": "Amitriptyline",
+  "generic_ar": "أميتريبتيلين",
+  "brand_en": "Elavil",
+  "brand_ar": "Elavil",
+  "category": "CNS",
+  "class": "TCA",
+  "form": "Tablet",
+  "strength": "25 mg"
+ },
+ {
+  "generic_en": "Nortriptyline",
+  "generic_ar": "نورتريبتيلين",
+  "brand_en": "Pamelor",
+  "brand_ar": "Pamelor",
+  "category": "CNS",
+  "class": "TCA",
+  "form": "Capsule",
+  "strength": "25 mg"
+ },
+ {
+  "generic_en": "Imipramine",
+  "generic_ar": "إيميبرامين",
+  "brand_en": "Tofranil",
+  "brand_ar": "Tofranil",
+  "category": "CNS",
+  "class": "TCA",
+  "form": "Tablet",
+  "strength": "25 mg"
+ },
+ {
+  "generic_en": "Phenelzine",
+  "generic_ar": "فينيلزين",
+  "brand_en": "Nardil",
+  "brand_ar": "Nardil",
+  "category": "CNS",
+  "class": "MAOI",
+  "form": "Tablet",
+  "strength": "15 mg"
+ },
+ {
+  "generic_en": "Tranylcypromine",
+  "generic_ar": "ترانيلسيبرومين",
+  "brand_en": "Parnate",
+  "brand_ar": "Parnate",
+  "category": "CNS",
+  "class": "MAOI",
+  "form": "Tablet",
+  "strength": "10 mg"
+ },
+ {
+  "generic_en": "Haloperidol",
+  "generic_ar": "هالوبيريدول",
+  "brand_en": "Haldol",
+  "brand_ar": "Haldol",
+  "category": "CNS",
+  "class": "Antipsychotic",
+  "form": "Tablet",
+  "strength": "5 mg"
+ },
+ {
+  "generic_en": "Risperidone",
+  "generic_ar": "ريسبيريدون",
+  "brand_en": "Risperdal",
+  "brand_ar": "Risperdal",
+  "category": "CNS",
+  "class": "Antipsychotic",
+  "form": "Tablet",
+  "strength": "2 mg"
+ },
+ {
+  "generic_en": "Olanzapine",
+  "generic_ar": "أولانزابين",
+  "brand_en": "Zyprexa",
+  "brand_ar": "Zyprexa",
+  "category": "CNS",
+  "class": "Antipsychotic",
+  "form": "Tablet",
+  "strength": "10 mg"
+ },
+ {
+  "generic_en": "Quetiapine",
+  "generic_ar": "كيتيابين",
+  "brand_en": "Seroquel",
+  "brand_ar": "Seroquel",
+  "category": "CNS",
+  "class": "Antipsychotic",
+  "form": "Tablet",
+  "strength": "100 mg"
+ },
+ {
+  "generic_en": "Aripiprazole",
+  "generic_ar": "أريبيبرازول",
+  "brand_en": "Abilify",
+  "brand_ar": "Abilify",
+  "category": "CNS",
+  "class": "Antipsychotic",
+  "form": "Tablet",
+  "strength": "10 mg"
+ },
+ {
+  "generic_en": "Chlorpromazine",
+  "generic_ar": "كلوربرومازين",
+  "brand_en": "Largactil",
+  "brand_ar": "Largactil",
+  "category": "CNS",
+  "class": "Antipsychotic",
+  "form": "Tablet",
+  "strength": "25 mg"
+ },
+ {
+  "generic_en": "Clozapine",
+  "generic_ar": "كلوزابين",
+  "brand_en": "Clozaril",
+  "brand_ar": "Clozaril",
+  "category": "CNS",
+  "class": "Antipsychotic",
+  "form": "Tablet",
+  "strength": "100 mg"
+ },
+ {
+  "generic_en": "Lithium",
+  "generic_ar": "ليثيوم",
+  "brand_en": "Priadel",
+  "brand_ar": "Priadel",
+  "category": "CNS",
+  "class": "MoodStabiliser",
+  "form": "Tablet",
+  "strength": "400 mg"
+ },
+ {
+  "generic_en": "Lamotrigine",
+  "generic_ar": "لاموتريجين",
+  "brand_en": "Lamictal",
+  "brand_ar": "Lamictal",
+  "category": "Antiepileptic",
+  "class": "Antiepileptic",
+  "form": "Tablet",
+  "strength": "100 mg"
+ },
+ {
+  "generic_en": "Levetiracetam",
+  "generic_ar": "ليفيتيراسيتام",
+  "brand_en": "Keppra",
+  "brand_ar": "Keppra",
+  "category": "Antiepileptic",
+  "class": "Antiepileptic",
+  "form": "Tablet",
+  "strength": "500 mg"
+ },
+ {
+  "generic_en": "Topiramate",
+  "generic_ar": "توبيرامات",
+  "brand_en": "Topamax",
+  "brand_ar": "Topamax",
+  "category": "Antiepileptic",
+  "class": "Antiepileptic",
+  "form": "Tablet",
+  "strength": "50 mg"
+ },
+ {
+  "generic_en": "Lorazepam",
+  "generic_ar": "لورازيبام",
+  "brand_en": "Ativan",
+  "brand_ar": "Ativan",
+  "category": "CNS",
+  "class": "Benzodiazepine",
+  "form": "Tablet",
+  "strength": "1 mg"
+ },
+ {
+  "generic_en": "Alprazolam",
+  "generic_ar": "ألبرازولام",
+  "brand_en": "Xanax",
+  "brand_ar": "Xanax",
+  "category": "CNS",
+  "class": "Benzodiazepine",
+  "form": "Tablet",
+  "strength": "0.5 mg"
+ },
+ {
+  "generic_en": "Clonazepam",
+  "generic_ar": "كلونازيبام",
+  "brand_en": "Rivotril",
+  "brand_ar": "Rivotril",
+  "category": "CNS",
+  "class": "Benzodiazepine",
+  "form": "Tablet",
+  "strength": "0.5 mg"
+ },
+ {
+  "generic_en": "Zolpidem",
+  "generic_ar": "زولبيديم",
+  "brand_en": "Ambien",
+  "brand_ar": "Ambien",
+  "category": "CNS",
+  "class": "Sedative",
+  "form": "Tablet",
+  "strength": "10 mg"
+ },
+ {
+  "generic_en": "Donepezil",
+  "generic_ar": "دونيبيزيل",
+  "brand_en": "Aricept",
+  "brand_ar": "Aricept",
+  "category": "CNS",
+  "class": "Cholinesterase",
+  "form": "Tablet",
+  "strength": "10 mg"
+ },
+ {
+  "generic_en": "Memantine",
+  "generic_ar": "ميمانتين",
+  "brand_en": "Ebixa",
+  "brand_ar": "Ebixa",
+  "category": "CNS",
+  "class": "NMDA",
+  "form": "Tablet",
+  "strength": "10 mg"
+ },
+ {
+  "generic_en": "Levodopa",
+  "generic_ar": "ليفودوبا",
+  "brand_en": "Sinemet",
+  "brand_ar": "Sinemet",
+  "category": "CNS",
+  "class": "Antiparkinson",
+  "form": "Tablet",
+  "strength": "25/100 mg"
+ },
+ {
+  "generic_en": "Selegiline",
+  "generic_ar": "سيليجيلين",
+  "brand_en": "Eldepryl",
+  "brand_ar": "Eldepryl",
+  "category": "CNS",
+  "class": "MAOI",
+  "form": "Tablet",
+  "strength": "10 mg"
+ },
+ {
+  "generic_en": "Methylprednisolone",
+  "generic_ar": "ميثيل بريدنيزولون",
+  "brand_en": "Medrol",
+  "brand_ar": "Medrol",
+  "category": "Corticosteroid",
+  "class": "Corticosteroid",
+  "form": "Tablet",
+  "strength": "4 mg"
+ },
+ {
+  "generic_en": "Betamethasone",
+  "generic_ar": "بيتاميثازون",
+  "brand_en": "Betnovate",
+  "brand_ar": "Betnovate",
+  "category": "Corticosteroid",
+  "class": "Corticosteroid",
+  "form": "Tablet",
+  "strength": "0.5 mg"
+ },
+ {
+  "generic_en": "Triamcinolone",
+  "generic_ar": "تريامسينولون",
+  "brand_en": "Kenalog",
+  "brand_ar": "Kenalog",
+  "category": "Corticosteroid",
+  "class": "Corticosteroid",
+  "form": "Injection",
+  "strength": "40 mg/ml"
+ },
+ {
+  "generic_en": "Ethinyl Estradiol",
+  "generic_ar": "إثينيل إستراديول",
+  "brand_en": "Yasmin",
+  "brand_ar": "Yasmin",
+  "category": "Endocrine",
+  "class": "Contraceptive",
+  "form": "Tablet",
+  "strength": "30 mcg"
+ },
+ {
+  "generic_en": "Levonorgestrel",
+  "generic_ar": "ليفونورجيستريل",
+  "brand_en": "Norplant",
+  "brand_ar": "Norplant",
+  "category": "Endocrine",
+  "class": "Contraceptive",
+  "form": "Tablet",
+  "strength": "1.5 mg"
+ },
+ {
+  "generic_en": "Medroxyprogesterone",
+  "generic_ar": "ميدروكسي بروجسترون",
+  "brand_en": "Depo-Provera",
+  "brand_ar": "Depo-Provera",
+  "category": "Endocrine",
+  "class": "Contraceptive",
+  "form": "Injection",
+  "strength": "150 mg/ml"
+ },
+ {
+  "generic_en": "Testosterone",
+  "generic_ar": "تستوستيرون",
+  "brand_en": "Androgel",
+  "brand_ar": "Androgel",
+  "category": "Endocrine",
+  "class": "Androgen",
+  "form": "Gel",
+  "strength": "1%"
+ },
+ {
+  "generic_en": "Desmopressin",
+  "generic_ar": "ديسموبريسين",
+  "brand_en": "Minirin",
+  "brand_ar": "Minirin",
+  "category": "Endocrine",
+  "class": "Vasopressin",
+  "form": "Tablet",
+  "strength": "0.2 mg"
+ },
+ {
+  "generic_en": "Azathioprine",
+  "generic_ar": "أزاثيوبرين",
+  "brand_en": "Imuran",
+  "brand_ar": "Imuran",
+  "category": "Immunosuppressant",
+  "class": "Immunosuppressant",
+  "form": "Tablet",
+  "strength": "50 mg"
+ },
+ {
+  "generic_en": "Cyclosporine",
+  "generic_ar": "سيكلوسبورين",
+  "brand_en": "Neoral",
+  "brand_ar": "Neoral",
+  "category": "Immunosuppressant",
+  "class": "Immunosuppressant",
+  "form": "Capsule",
+  "strength": "100 mg"
+ },
+ {
+  "generic_en": "Tacrolimus",
+  "generic_ar": "تاكروليموس",
+  "brand_en": "Prograf",
+  "brand_ar": "Prograf",
+  "category": "Immunosuppressant",
+  "class": "Immunosuppressant",
+  "form": "Capsule",
+  "strength": "1 mg"
+ },
+ {
+  "generic_en": "Mycophenolate",
+  "generic_ar": "مايكوفينولات",
+  "brand_en": "CellCept",
+  "brand_ar": "CellCept",
+  "category": "Immunosuppressant",
+  "class": "Immunosuppressant",
+  "form": "Capsule",
+  "strength": "250 mg"
+ },
+ {
+  "generic_en": "Adalimumab",
+  "generic_ar": "أداليموماب",
+  "brand_en": "Humira",
+  "brand_ar": "Humira",
+  "category": "Immunosuppressant",
+  "class": "Biologic",
+  "form": "Injection",
+  "strength": "40 mg"
+ },
+ {
+  "generic_en": "Etanercept",
+  "generic_ar": "إتانيرسيبت",
+  "brand_en": "Enbrel",
+  "brand_ar": "Enbrel",
+  "category": "Immunosuppressant",
+  "class": "Biologic",
+  "form": "Injection",
+  "strength": "50 mg"
+ },
+ {
+  "generic_en": "Infliximab",
+  "generic_ar": "إنفليكسيماب",
+  "brand_en": "Remicade",
+  "brand_ar": "Remicade",
+  "category": "Immunosuppressant",
+  "class": "Biologic",
+  "form": "Injection",
+  "strength": "100 mg"
+ },
+ {
+  "generic_en": "Hydroxychloroquine",
+  "generic_ar": "هيدروكسي كلوروكين",
+  "brand_en": "Plaquenil",
+  "brand_ar": "Plaquenil",
+  "category": "Immunosuppressant",
+  "class": "Antimalarial",
+  "form": "Tablet",
+  "strength": "200 mg"
+ },
+ {
+  "generic_en": "Mometasone",
+  "generic_ar": "موميتازون",
+  "brand_en": "Elocon",
+  "brand_ar": "Elocon",
+  "category": "Dermatology",
+  "class": "Corticosteroid",
+  "form": "Cream",
+  "strength": "0.1%"
+ },
+ {
+  "generic_en": "Timolol",
+  "generic_ar": "تيمولول",
+  "brand_en": "Timoptic",
+  "brand_ar": "Timoptic",
+  "category": "Ophthalmology",
+  "class": "BetaBlocker",
+  "form": "Eye drops",
+  "strength": "0.5%"
+ },
+ {
+  "generic_en": "Latanoprost",
+  "generic_ar": "لاتانوبروست",
+  "brand_en": "Xalatan",
+  "brand_ar": "Xalatan",
+  "category": "Ophthalmology",
+  "class": "Prostaglandin",
+  "form": "Eye drops",
+  "strength": "0.005%"
+ },
+ {
+  "generic_en": "Dorzolamide",
+  "generic_ar": "دورزولاميد",
+  "brand_en": "Trusopt",
+  "brand_ar": "Trusopt",
+  "category": "Ophthalmology",
+  "class": "CarbonicAnhydrase",
+  "form": "Eye drops",
+  "strength": "2%"
+ },
+ {
+  "generic_en": "Vitamin B12",
+  "generic_ar": "فيتامين ب12",
+  "brand_en": "Neurobion",
+  "brand_ar": "Neurobion",
+  "category": "Vitamin",
+  "class": "Vitamin",
+  "form": "Tablet",
+  "strength": "1000 mcg"
+ },
+ {
+  "generic_en": "Vitamin C",
+  "generic_ar": "فيتامين سي",
+  "brand_en": "Redoxon",
+  "brand_ar": "Redoxon",
+  "category": "Vitamin",
+  "class": "Vitamin",
+  "form": "Tablet",
+  "strength": "500 mg"
+ },
+ {
+  "generic_en": "Zinc",
+  "generic_ar": "زنك",
+  "brand_en": "Zinc",
+  "brand_ar": "Zinc",
+  "category": "Supplement",
+  "class": "Mineral",
+  "form": "Tablet",
+  "strength": "50 mg"
+ },
+ {
+  "generic_en": "Magnesium",
+  "generic_ar": "مغنيسيوم",
+  "brand_en": "Magnesium",
+  "brand_ar": "Magnesium",
+  "category": "Supplement",
+  "class": "Mineral",
+  "form": "Tablet",
+  "strength": "250 mg"
+ },
+ {
+  "generic_en": "Omega-3",
+  "generic_ar": "أوميغا 3",
+  "brand_en": "Omacor",
+  "brand_ar": "Omacor",
+  "category": "Supplement",
+  "class": "Supplement",
+  "form": "Capsule",
+  "strength": "1000 mg"
+ },
+ {
+  "generic_en": "Cholecalciferol",
+  "generic_ar": "كوليكالسيفيرول",
+  "brand_en": "Devarol",
+  "brand_ar": "Devarol",
+  "category": "Vitamin",
+  "class": "Vitamin",
+  "form": "Injection",
+  "strength": "200,000 IU"
+ },
+ {
+  "generic_en": "Sildenafil",
+  "generic_ar": "سيلدينافيل",
+  "brand_en": "Viagra",
+  "brand_ar": "Viagra",
+  "category": "Urology",
+  "class": "PDE5",
+  "form": "Tablet",
+  "strength": "50 mg"
+ },
+ {
+  "generic_en": "Tadalafil",
+  "generic_ar": "تادالافيل",
+  "brand_en": "Cialis",
+  "brand_ar": "Cialis",
+  "category": "Urology",
+  "class": "PDE5",
+  "form": "Tablet",
+  "strength": "10 mg"
+ },
+ {
+  "generic_en": "Finasteride",
+  "generic_ar": "فيناستيريد",
+  "brand_en": "Proscar",
+  "brand_ar": "Proscar",
+  "category": "Urology",
+  "class": "5AlphaReductase",
+  "form": "Tablet",
+  "strength": "5 mg"
+ },
+ {
+  "generic_en": "Tamsulosin",
+  "generic_ar": "تامسولوسين",
+  "brand_en": "Flomax",
+  "brand_ar": "Flomax",
+  "category": "Urology",
+  "class": "AlphaBlocker",
+  "form": "Capsule",
+  "strength": "0.4 mg"
+ },
+ {
+  "generic_en": "Oxybutynin",
+  "generic_ar": "أوكسي بوتينين",
+  "brand_en": "Ditropan",
+  "brand_ar": "Ditropan",
+  "category": "Urology",
+  "class": "Anticholinergic",
+  "form": "Tablet",
+  "strength": "5 mg"
+ },
+ {
+  "generic_en": "Tolterodine",
+  "generic_ar": "تولتيرودين",
+  "brand_en": "Detrol",
+  "brand_ar": "Detrol",
+  "category": "Urology",
+  "class": "Anticholinergic",
+  "form": "Tablet",
+  "strength": "2 mg"
+ },
+ {
+  "generic_en": "Mirabegron",
+  "generic_ar": "ميرابيغرون",
+  "brand_en": "Myrbetriq",
+  "brand_ar": "Myrbetriq",
+  "category": "Urology",
+  "class": "Beta3Agonist",
+  "form": "Tablet",
+  "strength": "50 mg"
+ },
+ {
+  "generic_en": "Rivastigmine",
+  "generic_ar": "ريفاستيغمين",
+  "brand_en": "Exelon",
+  "brand_ar": "Exelon",
+  "category": "CNS",
+  "class": "Cholinesterase",
+  "form": "Capsule",
+  "strength": "3 mg"
+ },
+ {
+  "generic_en": "Modafinil",
+  "generic_ar": "مودافينيل",
+  "brand_en": "Provigil",
+  "brand_ar": "Provigil",
+  "category": "CNS",
+  "class": "Stimulant",
+  "form": "Tablet",
+  "strength": "200 mg"
+ },
+ {
+  "generic_en": "Methylphenidate",
+  "generic_ar": "ميثيل فينيدات",
+  "brand_en": "Ritalin",
+  "brand_ar": "Ritalin",
+  "category": "CNS",
+  "class": "Stimulant",
+  "form": "Tablet",
+  "strength": "10 mg"
+ },
+ {
+  "generic_en": "Atomoxetine",
+  "generic_ar": "أتوموكسيتين",
+  "brand_en": "Strattera",
+  "brand_ar": "Strattera",
+  "category": "CNS",
+  "class": "NRI",
+  "form": "Capsule",
+  "strength": "40 mg"
+ },
+ {
+  "generic_en": "Clonidine",
+  "generic_ar": "كلونيدين",
+  "brand_en": "Catapres",
+  "brand_ar": "Catapres",
+  "category": "Cardiovascular",
+  "class": "AlphaAgonist",
+  "form": "Tablet",
+  "strength": "100 mcg"
+ },
+ {
+  "generic_en": "Methyldopa",
+  "generic_ar": "ميثيل دوبا",
+  "brand_en": "Aldomet",
+  "brand_ar": "Aldomet",
+  "category": "Cardiovascular",
+  "class": "AlphaAgonist",
+  "form": "Tablet",
+  "strength": "250 mg"
+ },
+ {
+  "generic_en": "Prazosin",
+  "generic_ar": "برازوسين",
+  "brand_en": "Minipress",
+  "brand_ar": "Minipress",
+  "category": "Cardiovascular",
+  "class": "AlphaBlocker",
+  "form": "Tablet",
+  "strength": "1 mg"
+ },
+ {
+  "generic_en": "Doxazosin",
+  "generic_ar": "دوكسازوسين",
+  "brand_en": "Cardura",
+  "brand_ar": "Cardura",
+  "category": "Cardiovascular",
+  "class": "AlphaBlocker",
+  "form": "Tablet",
+  "strength": "4 mg"
+ },
+ {
+  "generic_en": "Amphotericin B",
+  "generic_ar": "أمفوتيريسين ب",
+  "brand_en": "Fungizone",
+  "brand_ar": "Fungizone",
+  "category": "Antifungal",
+  "class": "Polyene",
+  "form": "Injection",
+  "strength": "50 mg"
+ },
+ {
+  "generic_en": "Oseltamivir",
+  "generic_ar": "أوسيلتاميفير",
+  "brand_en": "Tamiflu",
+  "brand_ar": "Tamiflu",
+  "category": "Antiviral",
+  "class": "Neuraminidase",
+  "form": "Capsule",
+  "strength": "75 mg"
+ },
+ {
+  "generic_en": "Ritonavir",
+  "generic_ar": "ريتونافير",
+  "brand_en": "Norvir",
+  "brand_ar": "Norvir",
+  "category": "Antiviral",
+  "class": "ProteaseInhibitor",
+  "form": "Tablet",
+  "strength": "100 mg"
+ },
+ {
+  "generic_en": "Tenofovir",
+  "generic_ar": "تينوفوفير",
+  "brand_en": "Viread",
+  "brand_ar": "Viread",
+  "category": "Antiviral",
+  "class": "NRTI",
+  "form": "Tablet",
+  "strength": "300 mg"
+ },
+ {
+  "generic_en": "Entecavir",
+  "generic_ar": "إنتيكافير",
+  "brand_en": "Baraclude",
+  "brand_ar": "Baraclude",
+  "category": "Antiviral",
+  "class": "NRTI",
+  "form": "Tablet",
+  "strength": "0.5 mg"
+ },
+ {
+  "generic_en": "Albendazole",
+  "generic_ar": "ألبيندازول",
+  "brand_en": "Albenza",
+  "brand_ar": "Albenza",
+  "category": "Antiparasitic",
+  "class": "Anthelmintic",
+  "form": "Tablet",
+  "strength": "200 mg"
+ },
+ {
+  "generic_en": "Mebendazole",
+  "generic_ar": "ميبيندازول",
+  "brand_en": "Vermox",
+  "brand_ar": "Vermox",
+  "category": "Antiparasitic",
+  "class": "Anthelmintic",
+  "form": "Tablet",
+  "strength": "100 mg"
+ },
+ {
+  "generic_en": "Ivermectin",
+  "generic_ar": "إيفرمكتين",
+  "brand_en": "Stromectol",
+  "brand_ar": "Stromectol",
+  "category": "Antiparasitic",
+  "class": "Anthelmintic",
+  "form": "Tablet",
+  "strength": "3 mg"
+ },
+ {
+  "generic_en": "Praziquantel",
+  "generic_ar": "برازيكوانتيل",
+  "brand_en": "Biltricide",
+  "brand_ar": "Biltricide",
+  "category": "Antiparasitic",
+  "class": "Anthelmintic",
+  "form": "Tablet",
+  "strength": "600 mg"
+ },
+ {
+  "generic_en": "Misoprostol",
+  "generic_ar": "ميزوبروستول",
+  "brand_en": "Cytotec",
+  "brand_ar": "Cytotec",
+  "category": "GI",
+  "class": "Prostaglandin",
+  "form": "Tablet",
+  "strength": "200 mcg"
+ },
+ {
+  "generic_en": "Oxytocin",
+  "generic_ar": "أوكسيتوسين",
+  "brand_en": "Pitocin",
+  "brand_ar": "Pitocin",
+  "category": "Obstetric",
+  "class": "Oxytocic",
+  "form": "Injection",
+  "strength": "10 IU/ml"
+ },
+ {
+  "generic_en": "Tranexamic Acid",
+  "generic_ar": "حمض الترانيكساميك",
+  "brand_en": "Cyklokapron",
+  "brand_ar": "Cyklokapron",
+  "category": "Haemostatic",
+  "class": "Antifibrinolytic",
+  "form": "Tablet",
+  "strength": "500 mg"
+ },
+ {
+  "generic_en": "Vitamin K",
+  "generic_ar": "فيتامين ك",
+  "brand_en": "Konakion",
+  "brand_ar": "Konakion",
+  "category": "Vitamin",
+  "class": "Vitamin",
+  "form": "Injection",
+  "strength": "10 mg/ml"
+ },
+ {
+  "generic_en": "Naloxone",
+  "generic_ar": "نالوكسون",
+  "brand_en": "Narcan",
+  "brand_ar": "Narcan",
+  "category": "Antidote",
+  "class": "OpioidAntagonist",
+  "form": "Injection",
+  "strength": "0.4 mg/ml"
+ },
+ {
+  "generic_en": "Epinephrine",
+  "generic_ar": "إبينفرين",
+  "brand_en": "EpiPen",
+  "brand_ar": "EpiPen",
+  "category": "Emergency",
+  "class": "Adrenergic",
+  "form": "Injection",
+  "strength": "1 mg/ml"
+ },
+ {
+  "generic_en": "Atropine",
+  "generic_ar": "أتروبين",
+  "brand_en": "Atropine",
+  "brand_ar": "Atropine",
+  "category": "Emergency",
+  "class": "Anticholinergic",
+  "form": "Injection",
+  "strength": "1 mg/ml"
+ },
+ {
+  "generic_en": "Isotretinoin",
+  "generic_ar": "إيزوتريتينوين",
+  "brand_en": "Roaccutane",
+  "brand_ar": "Roaccutane",
+  "category": "Dermatology",
+  "class": "Retinoid",
+  "form": "Capsule",
+  "strength": "20 mg"
+ },
+ {
+  "generic_en": "Adapalene",
+  "generic_ar": "أدابالين",
+  "brand_en": "Differin",
+  "brand_ar": "Differin",
+  "category": "Dermatology",
+  "class": "Retinoid",
+  "form": "Gel",
+  "strength": "0.1%"
+ },
+ {
+  "generic_en": "Benzoyl Peroxide",
+  "generic_ar": "بنزويل بيروكسيد",
+  "brand_en": "Benzac",
+  "brand_ar": "Benzac",
+  "category": "Dermatology",
+  "class": "Antibacterial",
+  "form": "Gel",
+  "strength": "5%"
+ },
+ {
+  "generic_en": "Brimonidine",
+  "generic_ar": "بريمونيدين",
+  "brand_en": "Alphagan",
+  "brand_ar": "Alphagan",
+  "category": "Ophthalmology",
+  "class": "AlphaAgonist",
+  "form": "Eye drops",
+  "strength": "0.2%"
+ },
+ {
+  "generic_en": "Pilocarpine",
+  "generic_ar": "بيلوكاربين",
+  "brand_en": "Isopto Carpine",
+  "brand_ar": "Isopto Carpine",
+  "category": "Ophthalmology",
+  "class": "Miotic",
+  "form": "Eye drops",
+  "strength": "2%"
+ }
+]
