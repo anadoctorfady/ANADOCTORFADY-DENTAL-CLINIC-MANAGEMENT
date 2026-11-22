@@ -195,6 +195,9 @@ def test_about_tab_whatsapp_button_rounded():
         tab = AboutTab(root, stub)
         tab.pack(fill="both", expand=True); root.update()
         btns = [w for w in _walk(tab) if isinstance(w, RoundedButton)]
-        assert btns and "963944234456" in btns[0].cget("text")
+        # Round 42 re-pin: the About tab gained a License
+        # RoundedButton ahead of the WhatsApp one, so search all
+        # rounded buttons for the WhatsApp number instead of [0].
+        assert btns and any("963944234456" in b.cget("text") for b in btns)
     finally:
         root.destroy()

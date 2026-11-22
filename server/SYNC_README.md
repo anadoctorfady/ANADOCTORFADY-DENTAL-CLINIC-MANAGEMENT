@@ -91,3 +91,40 @@ The server never holds the only copy: each device keeps its local SQLite
 (`clinic.db`) as the source of truth while offline, then pushes its changes
 and pulls others' changes when a connection is available. If the server is
 unreachable, the app must keep working normally and retry later.
+
+## Delta pull (round 39) / السحب التجزيئي
+
+Since round 39 a pull no longer transfers the whole dataset. Every
+sync table carries a `seq` column assigned **by the server** from a
+per-table counter at write time (arrival order). The client stores
+the highest seq it was served per (server, center, table) — its
+watermark — and asks only for `seq > watermark`.
+
+- Why not a timestamp watermark: `updated_at` is stamped by the
+  *originating device's* clock. A PC whose clock runs behind would
+  stamp new rows below other clients' watermarks and those rows
+  would never be delivered. Server seq has no clock input at all;
+  a late row with an old `updated_at` still gets a fresh seq and
+  arrives on the next pull (last-write-wins then decides, as
+  before). No overlap window is needed.
+- The response carries the server's `server_id` (a uuid created
+  with the server DB). A client whose stored id differs — fresh
+  install, replaced or restored server DB — is served a FULL pull,
+  so stale watermarks can never starve it. Counters are also
+  re-raised to the table max on every ensure, so rows loaded by
+  any other path (bulk load, pre-R39 restore) cannot strand the
+  counter below them.
+- Compatibility: requests without `server_id`/`seq_*` (pre-R39
+  clients) get the legacy timestamp-filtered pull, unchanged.
+  Pre-R39 servers ignore the new params and return a full pull;
+  the new client stores nothing from such a response and simply
+  keeps full-pulling. Mixed versions never corrupt data — worst
+  case is a full transfer.
+- Role filtering is unchanged; a table's watermark in the response
+  is the max seq **served** to that user (a doctor's financials
+  watermark never advances over other doctors' rows).
+- Pulls use a 300s client timeout (all other calls stay at 5s):
+  at 200k patients the one-time full pull is a ~441 MB response
+  the server needs ~21–37s to generate on the test VM; steady-state
+  delta pulls measured 2.7 KB / ~3 ms for 10 changed rows
+  (loopback; a WAN will differ).

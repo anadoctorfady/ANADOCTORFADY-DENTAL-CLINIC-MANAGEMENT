@@ -6,6 +6,10 @@ payments and standalone payments (row_kind='payment', incl. advance
 payments) alike — with date, amount (in its own currency),
 currency, treating doctor, recorded-by, the running patient
 balance after that payment (base currency), and the payment type.
+Round 41 (item 7): the Currency column moved to LAST (owner: it
+should be first or last in the table) — all other columns and
+content unchanged. Round 41 (item 4): text cells pass through
+clinical_history.flat_cell, like the session table's.
 A summary line above the list shows the CURRENT balance, in the
 credit wording + credit colour when the patient is in credit.
 Charges (session totals with no payment) are not rows here — they
@@ -18,8 +22,9 @@ from src.config.strings_r38 import r38_t
 from src.config.theme import credit_color, current, is_dark
 from src.models.finance import patient_totals
 from src.models.payments import patient_payments
+from src.ui.clinical_history import flat_cell
 
-FIN_COLS = ("date", "amount", "currency", "doctor", "by", "balance", "kind")
+FIN_COLS = ("date", "amount", "doctor", "by", "balance", "kind", "currency")
 FIN_WIDTHS = {"date": 90, "amount": 110, "currency": 70, "doctor": 120,
               "by": 110, "balance": 130, "kind": 90}
 
@@ -74,11 +79,12 @@ def fill_review(tab, fid):
     for d in patient_payments(fid):
         vals = (d.get("visit_date") or "",
                 f"{float(d.get('paid_amount') or 0):g}",
-                (d.get("currency") or "").strip() or "—",
                 d.get("doctor") or "", d.get("entered_by") or "",
                 f"{d['balance_after']:,.2f}",
                 r38_t("pay.kind_payment" if d["row_kind"] == "payment"
-                      else "pay.kind_session", lang))
-        iid = tr.insert("", "end", iid=str(d["id"]), values=vals)
+                      else "pay.kind_session", lang),
+                (d.get("currency") or "").strip() or "—")
+        iid = tr.insert("", "end", iid=str(d["id"]),
+                        values=tuple(flat_cell(v) for v in vals))
         tab._hist_rows["tree_fin"][iid] = d
     refresh_summary(tab, fid)

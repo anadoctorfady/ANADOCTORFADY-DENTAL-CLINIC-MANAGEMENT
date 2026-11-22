@@ -1,6 +1,6 @@
-"""Payments end to end (Round 12, Item A): the REAL ClinicalTab payment
-form (not just the model) + the real FinanceTab role views, on the
-isolated DB copy. Fresh users (doc_x/doc_y/nurse1) give exact baselines."""
+"""Payments end to end (Round 12, Item A): the REAL ClinicalTab
+form + the real FinanceTab role views, on the isolated DB copy.
+Fresh users (doc_x/doc_y/nurse1) give exact baselines."""
 from datetime import date
 import tkinter as tk, tkinter.messagebox as _mb
 from src.models.database import init_db, get_connection, save_financial
@@ -74,8 +74,9 @@ def _build_clinical(user, role, fid=None, lang="en"):
     return root, tab
 
 def _set(tab, paid, doctor=None):
-    """R38: payment entry = ONE standalone payment (amount + doctor)."""
-    tab.e_paid.delete(0, tk.END); tab.e_paid.insert(0, str(paid))
+    """R40: set the ONE entry's session Paid (+ treating doctor)."""
+    from src.ui import clinical_session_entry as _entry
+    _entry.set_money(tab, 0, paid)
     if doctor:
         tab.doctor_var.set(doctor)
 
@@ -89,18 +90,15 @@ def _build_finance(user):
     app.finance_gate = FinanceGate(verify_fn=lambda u, p: True)
     tab = FinanceTab(tk.Frame(root), app)
     root.update_idletasks()
-    tab.e_gate_user.delete(0, tk.END); tab.e_gate_user.insert(0, user)
-    tab.e_gate_pass.delete(0, tk.END); tab.e_gate_pass.insert(0, "x")
+    tab.e_gate_user.delete(0, tk.END); tab.e_gate_user.insert(0, user); tab.e_gate_pass.delete(0, tk.END); tab.e_gate_pass.insert(0, "x")
     tab._try_unlock(); root.update_idletasks()
     return root, tab
 
 def test_e2e_session_payment_via_unified_entry():
     """ROUND-24 SUPERSESSION of test_e2e_cumulative_via_real_form:
-    the cumulative entry is gone (boxes start 0/0 -- asserted). A
-    NEW session through the REAL unified entry (Total 100,000,
-    Paid 50,000) reaches the same endpoints the delta flow did:
-    totals 600,000/350,000 (NOT doubled), doctor +50,000, center
-    +50,000, one new row."""
+    a NEW session via the REAL unified entry (100,000/50,000)
+    reaches the delta flow's endpoints: totals 600,000/350,000
+    (NOT doubled), doctor +50,000, center +50,000, one new row."""
     _seed_users()
     fid = _seed_patient("E2E")
     try:
@@ -113,9 +111,9 @@ def test_e2e_session_payment_via_unified_entry():
         if tab is None:
             print("SKIP test_e2e_session_payment_via_unified_entry (no display)"); return
         try:
-            assert tab.e_paid.get() == "0"  # R24: no cumulative prefill; R38: the payment entry's amount starts at 0
-            assert tab.doctor_var.get() == "doc_x"  # defaults to visit doctor
             from src.ui import clinical_session_entry as _entry
+            assert _entry.get_money(tab) == (0.0, 0.0)  # R24/R40: no cumulative prefill; the ONE entry starts 0/0
+            assert tab.doctor_var.get() == "doc_x"  # defaults to visit doctor
             for w, txt in ((tab.txt_complaint, "Pain"), (tab.txt_sym, "Sharp"),
                            (tab.txt_diagnosis, "Caries"), (tab.txt_procedure, "Filling")):
                 w.delete("1.0", tk.END); w.insert("1.0", txt)
@@ -134,10 +132,9 @@ def test_e2e_session_payment_via_unified_entry():
         _cleanup(fid)
 
 def test_nurse_payment_credited_to_doctor_via_form():
-    """Nurse enters via the real form for doc_y: income goes to doc_y
-    (+150,000), not the nurse, not doc_x; selector lists doctors/admins
-    only. (R24: the clinical finance entry was rewired onto
-    session_money -- one payment per entry, same crediting rule.)"""
+    """Nurse enters via the real form for doc_y: income goes to
+    doc_y (+150,000), not the nurse, not doc_x; the selector lists
+    doctors/admins only."""
     _seed_users()
     fid = _seed_patient("NursePay")
     try:
@@ -149,12 +146,16 @@ def test_nurse_payment_credited_to_doctor_via_form():
         try:
             docs = list(tab.cb_doctor["values"])
             assert "nurse1" not in docs and "doc_x" in docs and "doc_y" in docs
-            assert "fady" in docs and tab.doctor_var.get() in docs
-            assert tab.doctor_var.get() != "nurse1"
-            # R38: the payment entry records the PAYMENT only
-            # (150,000 for doc_y); totals stay 500,000 total.
+            assert "fady" in docs and tab.doctor_var.get() in docs and tab.doctor_var.get() != "nurse1"
+            # R40: ONE payment place — the nurse records the 150,000
+            # with the session save (0 / 150,000 toward the balance,
+            # credited to doc_y); totals stay 500,000 total.
+            for w, txt in ((tab.txt_complaint, "Pain"), (tab.txt_sym, "Sharp"),
+                           (tab.txt_diagnosis, "Caries"), (tab.txt_procedure, "Filling")):
+                w.delete("1.0", tk.END); w.insert("1.0", txt)
+            tab.e_sess_tooth.delete(0, tk.END); tab.e_sess_tooth.insert(0, "11")
             _set(tab, 150000, "doc_y")
-            tab.add_fin(); root.update_idletasks()
+            tab.btn_save_visit.invoke(); root.update_idletasks()
             assert patient_totals(fid) == {"total": 500000.0, "paid": 450000.0,
                                            "remaining": 50000.0}
             assert doctor_income("doc_y")["paid"] == 150000.0
@@ -166,8 +167,8 @@ def test_nurse_payment_credited_to_doctor_via_form():
         _cleanup(fid)
 
 def test_doctor_my_income_view_and_nurse_no_finance():
-    """Real FinanceTab: doc_x unlock -> own-income view shows ONLY
-    doc_x (100,000, not doc_y's 50,000); nurse unlock -> no finance view."""
+    """Real FinanceTab: doc_x unlock -> own-income view (only
+    doc_x's 100,000); nurse unlock -> no finance view."""
     _seed_users()
     fid = _seed_patient("RoleView")
     try:

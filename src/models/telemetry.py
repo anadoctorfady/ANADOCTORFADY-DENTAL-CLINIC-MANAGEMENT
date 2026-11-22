@@ -3,8 +3,9 @@
 SILENT automatic mode — owner's explicit decision (2026-11-05): no
 consent dialog, no ask-once flow, NO off switch. The app sends ONLY
 {install_id, app_version, platform, country} when online, at most
-once every 4 hours. Offline the app works fully; sending fails
-silently. Round 38 (owner-directed): `country` added — before, the
+once every hour (owner decision 2026-11-21, round 40 — was every
+4 hours). Offline the app works fully; sending fails silently.
+Round 38 (owner-directed): `country` added — before, the
 payload was exactly 3 fields and the country NEVER reached
 Firebase (only the optional /stats server derived one, from the
 request IP). The country is now derived on this machine by
@@ -22,10 +23,10 @@ from src.models.database import get_setting, set_setting
 
 APP_VERSION = "2.1.0"
 ALLOWED_KEYS = {"install_id", "app_version", "platform", "country"}
-TELEMETRY_INTERVAL_HOURS = 4
+TELEMETRY_INTERVAL_HOURS = 1  # R40: owner decision 2026-11-21 (was 4)
 TELEMETRY_INTERVAL_SECONDS = TELEMETRY_INTERVAL_HOURS * 3600
 INFO_TEXT = ("إحصاء مجهول تلقائي (عدد المستخدمين + البلد فقط) عند الاتصال "
-    "بالإنترنت، كل 4 ساعات كحد أقصى. لا يُرسل أي شيء آخر، ولا بيانات "
+    "بالإنترنت، كل ساعة كحد أقصى. لا يُرسل أي شيء آخر، ولا بيانات "
     "مرضى أبداً. لا يوجد زر إيقاف — الإحصاء لا يؤثر على المستخدم أو "
     "خصوصيته، فهو عدد ودول فقط.")
 CONSENT_TEXT = INFO_TEXT  # backwards-compat alias; no consent is asked
@@ -74,8 +75,9 @@ def get_firebase_url():
 
     EMPTY by default: a fresh build sends nothing to Firebase. The owner
     sets it on his own machine only (see TELEMETRY.md). It is NEVER
-    hardcoded here — this project is MIT open source, and a hardcoded
-    URL would route every open-source user's stats to the owner's DB.
+    hardcoded here — the source is published under the ANADOCTORFADY
+    Free Use License, and a hardcoded URL would route every user's
+    stats to the owner's DB.
     No API key / service account / auth token is used or stored."""
     return (get_setting("firebase_url", "") or "").strip()
 
@@ -100,7 +102,8 @@ def _last_sent_ts(key="telemetry_last_sent"):
 
 
 def is_due(now=None, key="telemetry_last_sent"):
-    """True when 4+ hours passed since the last successful send."""
+    """True when the interval (1h since round 40) passed since the
+    last successful send."""
     now = time.time() if now is None else now
     return (now - _last_sent_ts(key)) >= TELEMETRY_INTERVAL_SECONDS
 
@@ -120,7 +123,7 @@ def _post(url, payload):
 
 def _send_firebase():
     """PUT the same 4-field payload to <firebase_url>/installs/<id>.json
-    (REST API, one node per install, refreshed every 4h). Returns a
+    (REST API, one node per install, refreshed hourly). Returns a
     status string so callers/tests can tell a denied write apart from
     a network failure: "ok" | "denied" (HTTP 401/403, Locked-mode rules)
     | "failed" (offline / any network error / other HTTP status) |
@@ -128,7 +131,10 @@ def _send_firebase():
     url = get_firebase_url()
     if not url:
         return "skipped"
-    payload = build_payload()
+    try:  # R40 hardening: the payload build sits INSIDE the guard —
+        payload = build_payload()  # a build error must read "failed",
+    except Exception:              # never escape into the daemon thread
+        return "failed"
     target = (url.rstrip("/") + "/installs/" +
               payload["install_id"] + ".json")
     req = urllib.request.Request(target, data=json.dumps(payload).encode(),
@@ -147,7 +153,7 @@ def _send_firebase():
 
 
 def maybe_send_firebase():
-    """Firebase leg of the 4-hour ping. False (silently) if no URL,
+    """Firebase leg of the hourly ping. False (silently) if no URL,
     not due yet, offline, denied, or any error. Never raises."""
     if not get_firebase_url() or not is_due_firebase():
         return False
@@ -155,7 +161,7 @@ def maybe_send_firebase():
 
 
 def maybe_send():
-    """Send at most once per 4 hours, to each destination that is set.
+    """Send at most once per hour, to each destination that is set.
     False (silently) if no URL, not due yet, offline, or any error.
     Never raises. Each destination has its own last-sent clock, so a
     failure of one never blocks the other (the failed one retries

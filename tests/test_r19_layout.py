@@ -185,7 +185,7 @@ def test_panels_header_rx_content_and_everything_reachable():
             # the unified tree_history replaces them.
             # R27: tree_xray is REMOVED; xray_grid (thumbnail grid)
             # replaces it in the same notebook slot.
-            for attr in ("tree_history", "tree_fin", "xray_grid", "tree_ref", "rx_section", "fin_frame", "scans_frame", "ref_section", "history_section", "history_nb"):
+            for attr in ("tree_history", "tree_fin", "xray_grid", "tree_ref", "rx_section", "money_strip", "scans_frame", "ref_section", "history_section", "history_nb"):  # R40: fin_frame -> money_strip (one payment place)
                 assert getattr(tab, attr, None) is not None, attr
             for attr in ("tree_diag", "tree_proc", "history_top_nb"):
                 assert not hasattr(tab, attr), attr

@@ -71,7 +71,7 @@ def test_zebra_tree_tagging():
 
 def test_dark_finance_section_matches_cost_box():
     from src.models.database import set_setting
-    from src.ui import clinical_finance as cf
+    from src.ui.clinical_currency import _box  # R40: BOXES moved here
     from tests.test_clinical_save_gate import _stub_app
     from src.ui.clinical import ClinicalTab
     with isolated_db():
@@ -80,9 +80,11 @@ def test_dark_finance_section_matches_cost_box():
         try:
             tab = ClinicalTab(root, _stub_app())
             root.update_idletasks()
-            box_bg, box_fg = cf._box("total")
+            box_bg, box_fg = _box("total")
             assert box_bg == "#92400E"
-            assert tab.fin_frame.cget("bg") == box_bg
+            # R40: no finance section anymore — the balance band
+            # inside the money strip carries the treatment.
+            assert tab._cur_break_frame.cget("bg") == box_bg
             # R38: the Remaining label is gone; the balance line
             # (lbl_pat_totals, zero state) carries the section
             # bg + light fg in its place.
@@ -104,7 +106,8 @@ def test_light_finance_section_unchanged():
         root = _root()
         try:
             tab = ClinicalTab(root, _stub_app())
-            assert tab.fin_frame.cget("bg") == TABLE["finance"]
+            # R40: the balance band (was: the finance section frame).
+            assert tab._cur_break_frame.cget("bg") == TABLE["finance"]
         finally:
             root.destroy()
 
@@ -171,11 +174,12 @@ def test_zebra_applied_in_app():
             app.select_patient(1); app.update()
             ct = app.clinical
             # R24: tree_diag is gone; the unified tree carries it.
+            # R40: the two money lists wear VIVID rotation, not zebra.
             for tree in (ct.tree_fin, ct.tree_history):
                 rows = tree.get_children("")
                 assert rows, "clinical rows expected"
                 for i, k in enumerate(rows):
-                    assert tree.item(k, "tags")[0] == f"zebra{i % 2}"
+                    assert tree.item(k, "tags")[0] == f"vivid{i % 5}"
             app.notebook.select(app.appt); app.update()
             rows = app.appt.tree.get_children("")
             assert rows, "appointment rows expected"

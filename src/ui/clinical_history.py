@@ -35,7 +35,7 @@ from src.config.theme import current, RADIUS_TABLE
 from src.models.history_money import session_rows
 from src.ui.clinical_table_style import r15_t
 from src.ui.rounded_frame import RoundedFrame
-from src.ui.zebra import zebra_tree
+from src.ui.vivid_rows import ensure_vivid_style, vivid_tree  # R40
 
 CLINICAL_COLS = ("complaint", "symptom", "diagnosis", "procedure")
 COL_KEYS = {"date": "clinical.col_date", "tooth": "clinical.col_tooth",
@@ -70,6 +70,22 @@ def _fmt(value):
     return "" if value is None else float(value)
 
 
+def flat_cell(value):
+    """Display form of a text cell (R41 item 4): line breaks in the
+    stored clinical text become ' | ' (the separator session_rows
+    already joins with). A Treeview row is ONE fixed-height line,
+    so a raw newline left only the first line readable — the rest
+    clipped (X11) or spilling over the rows below with the row
+    colour/selection painting only the first line (owner's Windows
+    report). Stored data is NOT changed: Edit reloads the full
+    multi-line text, and reports print it as written."""
+    if not isinstance(value, str) or ("\n" not in value and "\r" not in value):
+        return value
+    parts = [p.strip() for p in value.replace("\r\n", "\n")
+             .replace("\r", "\n").split("\n")]
+    return " | ".join(p for p in parts if p)
+
+
 def money_values(mmap, row):
     """(total, paid, remaining) cell values for one diagnoses /
     procedures row dict, from a history_money.money_map: the
@@ -92,7 +108,9 @@ def build_history_tree(tab, parent):
     tab.history_columns = cols
     wrap = RoundedFrame(parent, bg=th["panel"], border=th["border"], radius=RADIUS_TABLE)
     wrap.pack(fill="x", padx=4, pady=2)
-    tree = ttk.Treeview(wrap.inner, columns=cols, show="headings", height=5)
+    # R40 item 2: the session table wears the vivid rotating rows.
+    tree = ttk.Treeview(wrap.inner, columns=cols, show="headings", height=5,
+                        style=ensure_vivid_style())
     for c in cols:
         tree.heading(c, text=t(COL_KEYS[c], lang))
         tree.column(c, width=WIDTHS.get(c, 120), minwidth=50,
@@ -137,8 +155,9 @@ def refresh_history(tab, fid):
                 values.append(_fmt(s[_VALUE_KEY.get(c, c)]))
             else:
                 values.append(s[_VALUE_KEY.get(c, c)])
-        tree.insert("", "end", iid=f"hist{idx}", values=tuple(values))
-    zebra_tree(tree)  # R21 item 6: zebra striping stays on History
+        tree.insert("", "end", iid=f"hist{idx}",
+                    values=tuple(flat_cell(v) for v in values))
+    vivid_tree(tree)  # R40 item 2: vivid rotation (was R21 zebra)
 
 
 def selected_session(tab):

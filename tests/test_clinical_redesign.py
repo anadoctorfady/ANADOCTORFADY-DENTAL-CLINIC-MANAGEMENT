@@ -47,8 +47,8 @@ def test_no_specialty_picker_ui_remains():
     assert "specialty_picker" not in clinical_src
     assert "get_specialty" not in clinical_src
     assert "Specialty" not in clinical_src
-    for name in ("clinical_tables.py", "clinical_finance.py", "clinical_lists.py",
-                 "phrase_picker.py", "prescriptions.py", "shell.py"):
+    for name in ("clinical_tables.py", "clinical_money_strip.py", "clinical_lists.py",
+                 "phrase_picker.py", "prescriptions.py", "shell.py"):  # R40: clinical_finance.py deleted
         src = (ROOT / "src" / "ui" / name).read_text(encoding="utf-8")
         assert "Copy row" not in src, name
         assert "نسخ الصف" not in src, name
@@ -127,7 +127,7 @@ def test_clinical_layout_chart_top_procedures_rx_below():
         # Clipboard multi-paste still bound, silently (Ctrl+Shift+V).
         from src.ui.clipboard_picker import CLIPBOARD_BINDING, paste_items_into
         for name in ("complaint", "symptom", "diagnosis", "procedure",
-                     "sess_total", "cost_paid", "notes"):  # R38: see test_clipboard_multi
+                     "sess_total", "sess_paid", "notes"):  # R40: cost_paid -> sess_paid (one entry)
             assert name in tab.clipboard_fields, name
             assert tab.clipboard_fields[name].bind(CLIPBOARD_BINDING), name
         tab.txt_complaint.delete("1.0", tk.END)

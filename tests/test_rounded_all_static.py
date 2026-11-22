@@ -70,7 +70,7 @@ def test_rounded_used_by_tabs_and_dialogs_static():
             ("prescriptions.py", "rounded_tree"),
             ("attendance_view.py", "rounded_tree"),
             ("clinical_tables.py", "RoundedText"),
-            ("clinical_finance.py", "RoundedEntry"),
+            ("clinical_money_strip.py", "RoundedEntry"),  # R40: was clinical_finance.py (deleted)
             ("appointments.py", "RoundedListbox"),
             ("template_manager.py", "RoundedListbox"),
             ("phrase_picker.py", "RoundedListbox")):  # R21 item 5: notes_tab.py deleted (was the RoundedText pair)

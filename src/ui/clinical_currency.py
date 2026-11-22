@@ -16,10 +16,22 @@ from src.models.finance_currency import patient_totals_by_currency
 
 # Round 21 (item 3): in dark mode the finance SECTION takes the
 # cost boxes' treatment -- its background becomes the Total box's
-# deep brown (#92400E, clinical_finance BOXES) and its label
+# deep brown (#92400E, BOXES below) and its label
 # colours switch to the boxes' light foregrounds. Light mode is
 # byte-identical to before (TABLE tint + dark text).
 FIN_BG_DARK = "#92400E"
+
+# Distinct box colours: name -> ((light bg, fg), (dark bg, fg)).
+# Round 40: moved here from clinical_finance (deleted with the
+# round-38 Payment entry zone) — the unified entry's Date / Paid
+# boxes and the rate-date box wear them now.
+BOXES = {"total": (("#FDE68A", "#2C241D"), ("#92400E", "#FFFFFF")),
+         "date": (("#EDE9FE", "#2C241D"), ("#6D28D9", "#FFFFFF"))}
+
+
+def _box(name):
+    """The active (bg, fg) of a coloured box for the mode."""
+    return BOXES[name][1] if is_dark() else BOXES[name][0]
 
 
 def fin_bg():

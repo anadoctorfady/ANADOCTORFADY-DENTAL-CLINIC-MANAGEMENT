@@ -3,15 +3,10 @@ and ROUND 24 (items 2+6). Notes row + Save live in the input block
 under the one-row input tables (no tab.sticky_bar). R22: the chart
 is FIRST in the scroll flow with a PINNED patient header above the
 canvas, so visibility checks scroll to the input block first.
-ROUND 24: the input block gains the session money row (date/
-tooth/Total/Paid/Remaining) between the notes row and the Save
-row ("Save session"); right_inner order: chart -> input block ->
-unified history -> finance -> Add-image -> notebook -> referrals;
+ROUND 24: the input block gains the session money row between the
+notes row and Save; R40 adds the money strip under the money row.
 panels section + diagnosis/procedures sub-tabs REMOVED. R21: no
-notes_holder / notes_section. The notes field keeps its Templates
-button and the four legacy note aliases (= txt_visit_note). A
-visit still saves via the Save button; history loads with or
-without a patient. GUI tests skip with no display."""
+notes_holder / notes_section. GUI tests skip with no display."""
 import tkinter as tk
 from unittest import mock
 
@@ -58,9 +53,10 @@ def _check_input_block_visible(root, tab, lang):
     canvas.yview_moveto(frac)
     root.update()
     slaves = tab.input_block.pack_slaves()
-    # R24: the session money row sits between notes and Save.
+    # R24+R40: notes -> money row -> money strip -> Save.
     assert slaves == [tab.sections_grid, tab.visit_note_row,
-                      tab.sess_money_row, tab.save_row], slaves
+                      tab.sess_money_row, tab.money_strip,
+                      tab.save_row], slaves
     assert tab.visit_note_row.master is tab.input_block
     assert tab.save_row.master is tab.input_block
     for w in (tab.btn_save_visit, tab.txt_visit_note):
@@ -104,11 +100,10 @@ def test_history_pack_order_and_tabs():
     try:
         inner = tab.right_inner
         slaves = inner.pack_slaves()
-        # ROUND-24 SUPERSESSION: no panels section; the unified
-        # history section is followed by finance, the notebook and
-        # the standalone Rx section at the END.
+        # R24: no panels section. R40: no fin_section either.
         assert not hasattr(tab, "panels_section")
-        seq = (tab.history_section, tab.fin_section,
+        assert not hasattr(tab, "fin_section")
+        seq = (tab.history_section,
                tab.history_nb, tab.rx_section)
         order = [slaves.index(w) for w in seq]
         assert order == sorted(order) and len(set(order)) == len(order), order

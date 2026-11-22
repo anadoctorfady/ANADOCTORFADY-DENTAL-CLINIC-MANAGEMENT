@@ -103,7 +103,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). Fork, branch, keep files under
 
 ## License
 
-MIT — see [LICENSE](LICENSE). Free for everyone, forever.
+ANADOCTORFADY Free Use License — see [LICENSE](LICENSE). Free for everyone, forever; the software itself may never be sold or rented.
 
 ---
 
@@ -194,4 +194,4 @@ python run_tests.py
 
 ## الترخيص
 
-MIT — انظر [LICENSE](LICENSE). مجاني للجميع، للأبد.
+ترخيص ANADOCTORFADY للاستخدام المجاني — انظر [LICENSE](LICENSE). مجاني للجميع، للأبد؛ ويُمنع بيع البرنامج نفسه أو تأجيره.

@@ -82,20 +82,24 @@ def test_finance_contrast_fixed():
         tab = ClinicalTab(root, FakeApp())
         tab.pack()
         root.update_idletasks()
+        # R40 RE-PIN (owner correction 2026-11-21): the "Add
+        # Payment" button is GONE with its zone — the money action
+        # button in the ONE entry place is Print invoice; its
+        # fill/text pair keeps the >= 4.5:1 bar.
         btns = [w for w in _walk(tab) if isinstance(w, tk.Button)
                 and str(w.cget("text")) == "Add Payment"]
-        assert len(btns) == 1
+        assert len(btns) == 0
+        inv = tab.btn_invoice
         # RoundedButton's visible fill is _bg; the bg option is only
         # the transparent-corner backdrop (parent bg), not what is drawn.
-        _fill = getattr(btns[0], "_bg", btns[0].cget("bg"))
-        assert _ratio(str(btns[0].cget("fg")), str(_fill)) >= 4.5
+        _fill = getattr(inv, "_bg", inv.cget("bg"))
+        assert _ratio(str(inv.cget("fg")), str(_fill)) >= 4.5
         # R38: the Remaining label is gone; the balance line
-        # (lbl_pat_totals) is the finance section's state text.
+        # (lbl_pat_totals) is the money area's state text.
         assert _ratio(str(tab.lbl_pat_totals.cget("fg")), str(tab.lbl_pat_totals.cget("bg"))) >= 4.5
-        # The cost title now lives on the RoundedFrame (outer); fin_frame
-        # is its inner frame, so read the title label off the master.
-        _titles = [c for c in tab.fin_frame.master.winfo_children()
-                   if isinstance(c, tk.Label)]
-        assert _titles and str(_titles[0].cget("fg")) == "#7A3F16"
+        # R40: the titled finance section (and its #7A3F16 title
+        # label) is removed by the one-place correction — nothing
+        # replaces the title; the strip has no section heading.
+        assert not hasattr(tab, "fin_frame")
     finally:
         root.destroy()

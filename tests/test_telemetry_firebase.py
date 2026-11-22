@@ -1,6 +1,6 @@
 """Firebase telemetry: same 4 fields (country added round 38,
 owner-directed — it never reached Firebase before), PUT to
-/installs/<id>.json every 4h,
+/installs/<id>.json every hour (round 40; was every 4h),
 silent on offline/denied, server POST untouched, no hardcoded URL.
 All network calls are mocked — the real Firebase is never touched.
 The rules snippet in TELEMETRY.md is parsed + checked here, so the
@@ -159,6 +159,20 @@ def test_firebase_failure_does_not_block_server():
     with patch("urllib.request.urlopen", fake):
         assert T.maybe_send() is True  # server saved it
     assert T._last_sent_ts() > 0
+    assert T._last_sent_ts("telemetry_last_sent_firebase") == 0.0
+    _reset()
+def test_payload_build_failure_never_raises():
+    """R40 hardening: build_payload() used to be called OUTSIDE the
+    try in _send_firebase, so a build error escaped into the daemon
+    thread and silently killed the Firebase leg on every launch.
+    Stubbed to raise: the leg must read "failed" / False instead."""
+    _reset(); T.set_firebase_url(FAKE_FB)
+    def boom():
+        raise RuntimeError("payload build exploded")
+    with patch.object(T, "build_payload", boom):
+        assert T._send_firebase() == "failed"
+        assert T.maybe_send_firebase() is False
+        assert T.maybe_send() is False  # still silent, no raise
     assert T._last_sent_ts("telemetry_last_sent_firebase") == 0.0
     _reset()
 def test_no_hardcoded_firebase_url_in_source():

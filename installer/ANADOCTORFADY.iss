@@ -46,6 +46,12 @@ Compression=lzma2
 SolidCompression=yes
 WizardStyle=modern
 DisableProgramGroupPage=yes
+; License agreement page (round 42): the wizard shows
+; license_agreement.txt (bilingual EN/AR, UTF-8 with BOM) and the
+; user must accept the ANADOCTORFADY Free Use License to install.
+; The destination-location page stays enabled on purpose: there is
+; deliberately NO DisableDirPage anywhere in this script.
+LicenseFile=license_agreement.txt
 UninstallDisplayName={#MyAppName}
 ; Never delete patient data on uninstall: there is deliberately NO
 ; UninstallDelete section in this script. %APPDATA%\ANADOCTORFADY

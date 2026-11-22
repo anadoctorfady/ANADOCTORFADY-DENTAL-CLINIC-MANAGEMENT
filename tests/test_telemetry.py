@@ -1,4 +1,5 @@
-"""Telemetry: silent automatic, always ON (no off switch), every 4h,
+"""Telemetry: silent automatic, always ON (no off switch), every
+hour (round 40, owner decision 2026-11-21 — was every 4h),
 only 4 fields, offline silent. ROUND-38 RE-PIN (owner-directed):
 the payload was exactly 3 fields until the owner confirmed Firebase
 receives installs but never the country — `country` is now the 4th
@@ -26,16 +27,19 @@ def test_payload_exactly_four_keys():
     assert p["platform"] == "windows" and "ip" not in p and "name" not in p and "patient" not in str(p)
     assert p["country"] == "unknown" or (len(p["country"]) == 2 and p["country"].isalpha())
 def test_always_on_no_off_switch():
-    assert T.TELEMETRY_INTERVAL_HOURS == 4
+    # R40 re-pin: interval is 1h by owner decision 2026-11-21 (was 4).
+    assert T.TELEMETRY_INTERVAL_HOURS == 1
     assert T.is_enabled() is True
     assert not hasattr(T, "set_enabled")
-def test_interval_four_hours():
+def test_interval_one_hour():
+    # R40 re-pin (was test_interval_four_hours): the due threshold
+    # is 1h by owner decision 2026-11-21 (was 4h).
     now = time.time()
     set_setting("telemetry_last_sent", str(now))
     assert T.is_due(now) is False
-    set_setting("telemetry_last_sent", str(now - 3600))  # 1h ago: not due
+    set_setting("telemetry_last_sent", str(now - 1800))  # 30 min ago: not due
     assert T.is_due(now) is False
-    set_setting("telemetry_last_sent", str(now - 4 * 3600 - 1))  # 4h+: due
+    set_setting("telemetry_last_sent", str(now - 3600 - 1))  # 1h+: due
     assert T.is_due(now) is True
     set_setting("telemetry_last_sent", "2000-01-01")  # legacy date: due
     assert T.is_due(now) is True

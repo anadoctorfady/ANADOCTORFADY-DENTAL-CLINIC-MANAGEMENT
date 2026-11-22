@@ -33,6 +33,7 @@ from src.ui import clinical_session_entry as _entry
 from src.ui.clinical_table_style import stack_color
 from src.ui.clipboard_picker import bind_clipboard_picker
 from src.ui.rounded import rounded_button
+from src.ui.clinical_currency import _box
 from src.ui.rounded_widgets import RoundedEntry
 
 
@@ -82,7 +83,10 @@ def _build_money_row(tab, parent):
         tk.Label(row, text=text, bg=bg, fg=th["text"], font=f9).pack(side="left", padx=(6, 2))
 
     _lab(t("clinical.col_date", lang))
-    tab.e_sess_date = RoundedEntry(row, width=10, font=f9b, justify="center")
+    # R40 item 1: Date / Paid wear the distinct box colours (the
+    # round-17 intent) now that the old payment zone is gone.
+    tab.e_sess_date = RoundedEntry(row, width=10, font=f9b, justify="center",
+                                   bg=_box("date")[0], fg=_box("date")[1])
     tab.e_sess_date.insert(0, datetime.now().strftime("%Y-%m-%d"))
     tab.e_sess_date.pack(side="left", padx=2)
     _lab(t("clinical.col_tooth", lang))
@@ -92,7 +96,8 @@ def _build_money_row(tab, parent):
     tab.e_sess_total = RoundedEntry(row, width=8, font=f9b, justify="center")
     tab.e_sess_total.insert(0, "0"); tab.e_sess_total.pack(side="left", padx=2)
     _lab(t("clinical.paid", lang))
-    tab.e_sess_paid = RoundedEntry(row, width=8, font=f9b, justify="center")
+    tab.e_sess_paid = RoundedEntry(row, width=8, font=f9b, justify="center",
+                                   bg=_box("total")[0], fg=_box("total")[1])
     tab.e_sess_paid.insert(0, "0"); tab.e_sess_paid.pack(side="left", padx=2)
     _lab(t("clinical.remaining", lang))
     tab.lbl_sess_remain = tk.Label(row, text="0.00", bg=bg, fg=th["text"], font=("Segoe UI", 10, "bold"), width=9)
@@ -104,6 +109,10 @@ def _build_money_row(tab, parent):
     for name, w in (("sess_date", tab.e_sess_date), ("sess_tooth", tab.e_sess_tooth),
                     ("sess_total", tab.e_sess_total), ("sess_paid", tab.e_sess_paid)):
         bind_clipboard_picker(w); tab.clipboard_fields[name] = w
+    # R40 item 1: the money strip (currency/rate/doctor/note/
+    # invoice/balance) lives in this ONE place, under the money row.
+    from src.ui.clinical_money_strip import build_money_strip
+    build_money_strip(tab, parent)
     return row
 
 

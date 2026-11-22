@@ -18,7 +18,7 @@ from pathlib import Path
 
 from src.config.strings import t
 from src.config.strings_r16_clinical import r16_t
-from src.config.theme import current, is_dark, RADIUS_ICON; from src.ui.rounded_frame import RoundedFrame
+from src.config.theme import current, is_dark, RADIUS_ICON; from src.ui.rounded_frame import RoundedFrame; from src.ui import chart_jaw as _jaw  # R41
 from src.ui import chart_status as _status
 from src.ui.chart_tooltip import ToothTooltip, format_history
 from src.ui.tooth_image import load_tooth_images
@@ -55,6 +55,7 @@ class DentalChartFrame(tk.Frame):
                        bg=th["bg"], fg=th["text"], command=self.refresh).pack(side="left", padx=10)
         tk.Radiobutton(hdr, text=t("chart.deciduous", self.lang), variable=self.tooth_type, value="لبني",
                        bg=th["bg"], fg=th["text"], command=self.refresh).pack(side="left")
+        _jaw.build_buttons(self, hdr)  # R41 item 3: all / upper / lower shortcuts
         # Scrollable area: canvas stretches the inner frame to its width.
         self._canvas = tk.Canvas(self, bg=th["bg"], highlightthickness=0)
         self._hsb = tk.Scrollbar(self, orient="horizontal", command=self._canvas.xview)

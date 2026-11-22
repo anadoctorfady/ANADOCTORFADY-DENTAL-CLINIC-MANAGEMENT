@@ -20,9 +20,9 @@ for _name in ("strings_r16_clinical", "strings_r16_patients",
               "strings_r16_settings"):
     _mod = importlib.import_module(f"src.config.{_name}")
     EN.update(_mod.EN); AR.update(_mod.AR)
-OWN_FILES = ["patient_form.py", "clinical.py", "clinical_finance.py",
+OWN_FILES = ["patient_form.py", "clinical.py", "clinical_money_strip.py",
              "clinical_tables.py", "clinical_lists.py", "prescriptions.py",
-             "dental_chart.py", "scans_tab.py"]  # R21 item 5: notes_tab.py deleted with the (Optional) notes section
+             "dental_chart.py", "scans_tab.py"]  # R21 item 5: notes_tab.py deleted with the (Optional) notes section; R40: clinical_finance.py -> clinical_money_strip.py
 KEY_RE = re.compile(r'"((?:patient|clinical|rx|notes|chart|scans)\.[a-z_]+)"')
 
 def _used_keys():
@@ -165,8 +165,10 @@ def test_clinical_arabic_labels_in_app():
                        "الفك السفلي", "دائم"):
             assert needle in blob, f"missing AR in Patients: {needle}"
         # Clinical tab: sections, cost, prescriptions, notes.
+        # R40: "إضافة دفعة" (Add Payment) is GONE with its zone —
+        # one payment place; the money labels below remain.
         for needle in ("الشكوى", "الأعراض", "التشخيص", "الإجراء",
-                       "المجموع", "المدفوع", "المتبقي", "إضافة دفعة",
+                       "المجموع", "المدفوع", "المتبقي",
                        "العملة", "الطبيب المعالج", "الوصفة الطبية",
                        "إضافة دواء", "إضافة دواء جديد", "حفظ الوصفة",
                        "سجل الوصفات", "ملاحظات", "المريض",
@@ -185,7 +187,7 @@ def test_clinical_arabic_labels_in_app():
         # Round 20: "File #: 1" went with the removed header (above).
         for needle in ("First Name", "Birth (DD/MM/YYYY)", "Save",
                        "Dental Chart", "Complaint", "Diagnosis",
-                       "Total", "Paid", "Remaining", "Add Payment",
+                       "Total", "Paid", "Remaining",  # R40: "Add Payment" gone with its zone
                        "Prescription", "Add Drug", "Save Prescription",
                        "Notes"):
             assert needle in blob, f"missing EN after toggle back: {needle}"

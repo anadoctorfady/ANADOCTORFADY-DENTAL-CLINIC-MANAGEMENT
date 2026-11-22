@@ -5,8 +5,7 @@ server-side (admin all centers / doctor own income / nurse none)."""
 import json, threading, urllib.request, urllib.error
 from datetime import datetime
 from urllib.parse import urlencode
-VT = {"complaints": "complaints", "diagnoses": "diagnoses",
-      "procedures": "procedures", "notes": "patient_notes"}
+from src.models.sync_apply import VT, _apply_visit, _upsert  # noqa: F401
 from src.models.finance_sync import (apply_financial_pull,
                                      ensure_finance_columns, split_financial_queue)
 def _now(): return datetime.now().isoformat(timespec="seconds")
@@ -36,17 +35,21 @@ def mark_synced(conn, ids):
     c = conn.cursor(); c.executemany("UPDATE sync_queue SET synced=1 WHERE id=?", [(i,) for i in ids])
     conn.commit(); return c.rowcount
 class SyncClient:
-    """Thin urllib client for server/sync_server.py. 5s timeout."""
+    """Thin urllib client for server/sync_server.py. 5s timeout,
+    except pulls (300s): a first full sync is one huge response —
+    the R39 load test measured the server needing ~a minute just
+    to generate the 200k-patient payload, so the old 5s cap made
+    an initial sync at that scale impossible, delta or not."""
     def __init__(self, server_url, token=None):
         self.server_url = (server_url or "").rstrip("/"); self.token = token
-    def _req(self, method, path, body=None):
+    def _req(self, method, path, body=None, timeout=5):
         if not self.server_url: return None, "network: no server URL"
         data = json.dumps(body).encode() if body is not None else None
         h = {"Content-Type": "application/json"}
         if self.token: h["Authorization"] = f"Bearer {self.token}"
         req = urllib.request.Request(self.server_url + path, data=data, method=method, headers=h)
         try:
-            with urllib.request.urlopen(req, timeout=5) as r:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
                 return r.status, json.loads(r.read().decode("utf-8") or "{}")
         except urllib.error.HTTPError as e:
             try: return e.code, json.loads(e.read().decode("utf-8") or "{}")
@@ -125,9 +128,24 @@ class SyncClient:
             else: break  # first failure stops; rest stays unsynced
         _ms(conn, sent); return True, applied
     def pull(self, conn, center_id, since=""):
-        """GET /sync/pull, apply into real local tables. -> (ok, counts|error)."""
+        """GET /sync/pull, apply into real local tables. -> (ok, counts|error).
+
+        R39: the default (since="") is a DELTA pull — the stored
+        per-table seq watermarks (models/sync_state) go out with the
+        request and an R39 server answers only rows changed since.
+        A fresh client (no watermarks / unknown server_id) is served
+        a full pull, exactly as before. An explicit non-empty since
+        keeps the legacy timestamp-filtered pull. A pre-R39 server
+        ignores the extra params, answers a full pull and returns no
+        watermarks, so nothing is stored and pulls stay full."""
         if not self.token: return False, "not logged in"
-        st, res = self._req("GET", "/sync/pull?" + urlencode({"since": since or "", "center_id": center_id}))
+        params = {"since": since or "", "center_id": center_id}
+        delta = not since
+        if delta:
+            from src.models.sync_state import request_params
+            params.update(request_params(conn, self.server_url, center_id))
+        st, res = self._req("GET", "/sync/pull?" + urlencode(params),
+                            timeout=300)
         if st != 200 or not isinstance(res, dict):
             return False, (res.get("error") if isinstance(res, dict) else str(res)) or f"http {st}"
         from src.models.referrals import apply_referral_pull as _apply_ref
@@ -139,39 +157,11 @@ class SyncClient:
             try: counts["visits"] += _apply_visit(conn, item)
             except Exception: continue
         counts.update(apply_financial_pull(conn, res)); counts["referrals"] = _apply_ref(conn, res)
-        conn.commit(); return True, counts
-def _upsert(conn, table, key_col, key, item, incoming_ts):
-    """Insert/update one row, last-write-wins on updated_at. Returns 1/0."""
-    cols = {r[1] for r in conn.execute(f"PRAGMA table_info({table})")}
-    if not cols: return 0
-    data = {k: v for k, v in item.items() if k in cols and k != key_col}; data[key_col] = key
-    if table == "patients":  # R32: never trust synced norm values
-        from src.models.patient_norms import NORM_COLUMNS
-        data = {k: v for k, v in data.items() if k not in NORM_COLUMNS}
-    cur = conn.cursor(); has_ts = "updated_at" in cols
-    sel = "updated_at" if has_ts else key_col
-    row = cur.execute(f"SELECT {sel} FROM {table} WHERE {key_col}=?", (key,)).fetchone()
-    if row and has_ts and (row[0] or "") >= (incoming_ts or ""): return 0
-    ks = [k for k in data if k != key_col] if row else list(data)
-    if row: cur.execute(f"UPDATE {table} SET {','.join(k + '=?' for k in ks)} WHERE {key_col}=?", [data[k] for k in ks] + [key])
-    else: cur.execute(f"INSERT INTO {table}({','.join(ks)}) VALUES({','.join('?' * len(ks))})", [data[k] for k in ks])
-    if table == "patients":  # R32: recompute norms locally after write
-        from src.models.patient_norms import refresh_norms
-        try: refresh_norms(conn, key)
-        except Exception: pass
-    return 1
-def _apply_visit(conn, item):
-    table = VT.get(item.get("kind") or ""); rid = str(item.get("record_id") or "")
-    if not table or not rid.split(":")[-1].isdigit(): return 0
-    cols = {r[1] for r in conn.execute(f"PRAGMA table_info({table})")}
-    data = {k: v for k, v in item.items() if k in cols and k not in ("record_id", "kind", "center_id")}
-    if "patient_file" in cols: data["patient_file"] = item.get("patient_file")
-    elif "patient_id" in cols:
-        try: data["patient_id"] = int(item.get("patient_file") or 0)
-        except Exception: data["patient_id"] = 0
-    if "author" in cols and item.get("updated_by"): data.setdefault("author", item["updated_by"])  # author preserved
-    if "updated_at" in cols: data["updated_at"] = item.get("updated_at") or _now()
-    return _upsert(conn, table, "id", int(rid.split(":")[-1]), data, item.get("updated_at"))
+        conn.commit()
+        if delta:
+            from src.models.sync_state import absorb_response
+            absorb_response(conn, self.server_url, center_id, res)
+        return True, counts
 def sync_now(conn, server_url, username, password, center_id, since=""):
     """Login + push + pull. -> dict summary; offline-safe, never raises."""
     if not (server_url or "").strip():

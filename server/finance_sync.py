@@ -11,7 +11,7 @@ cannot credit a payment to herself, and payments with an empty or unknown
 doctor are refused (403). Expenses / lab / salary / employee records are
 admin-only (403 otherwise). Last-write-wins on updated_at, as elsewhere."""
 import json
-from sync_helpers import merge, now_iso
+from sync_helpers import merge, next_seq, now_iso
 
 ADMIN_ONLY_KINDS = {"expense", "lab", "salary"}
 
@@ -71,8 +71,9 @@ def _upsert_table(conn, table, item, user, extra_cols=(), extra_vals=()):
     row = conn.execute(f"SELECT updated_at FROM {table} WHERE record_id=?", (key,)).fetchone()
     if row and updated <= (row[0] or ""):
         return 0
-    cols = ["record_id", "center_id"] + list(extra_cols) + ["data_json", "updated_at", "updated_by"]
-    vals = [key, center] + list(extra_vals) + [data_json, updated, user["username"]]
+    seq = next_seq(conn, table)  # R39: server arrival order (delta pull)
+    cols = ["record_id", "center_id"] + list(extra_cols) + ["data_json", "updated_at", "updated_by", "seq"]
+    vals = [key, center] + list(extra_vals) + [data_json, updated, user["username"], seq]
     conn.execute(f"INSERT OR REPLACE INTO {table}({','.join(cols)}) VALUES({','.join('?' * len(cols))})", vals)
     return 1
 

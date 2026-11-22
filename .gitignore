@@ -21,6 +21,7 @@ telemetry.db
 # Build outputs (the PyInstaller spec in installer/ is a build INPUT — keep it)
 dist/
 build/
+installer/output/
 
 # Secrets / local config
 .env
@@ -31,4 +32,3 @@ build/
 *.log
 .DS_Store
 Thumbs.db
-installer/output/

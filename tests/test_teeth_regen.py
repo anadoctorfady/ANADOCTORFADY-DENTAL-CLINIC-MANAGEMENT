@@ -3,9 +3,9 @@
 Replaces the round-14 shared-asset test: the owner ruled EVERY tooth
 must have its own anatomy, so the 8 shared type renders are gone.
 One render was generated per RIGHT-side tooth (26 accepted sources
-in ~/workspace/app_screens/teeth_ai/r33/ + r35/ + r36/, rejected generations
+in ~/workspace/app_screens/teeth_ai/r33/ + r35/ + r36/ + r41/, rejected generations
 unused), converted with the dark-rim flood-fill converter
-(app_screens/teeth_ai/convert_r36_teeth.py) into tooth_<FDI>.png at
+(app_screens/teeth_ai/convert_r41_teeth.py) into tooth_<FDI>.png at
 an anatomy-based fit box; each LEFT-side tooth is the horizontal
 mirror - the true anatomical relationship (mesial toward the
 midline) - so a mirror pair is related but never pixel-identical,
@@ -41,7 +41,7 @@ AI_SOURCES = {  # right-side FDI -> accepted generation (rejects unused)
     45: "../r36/media-generation-src-45-r36-2.webp", 46: "media-generation-src-46-0-ddd7a5bb-1860-4ece-9daa-59b59ed01cfe.webp",
     47: "media-generation-src-47-0-a4ae8f7e-0bbf-4a48-90dc-6b270d04298f.webp", 48: "media-generation-src-48-0-6c77d559-bae6-47d8-a0ae-7edac1983104.webp",
     51: "media-generation-src-51c-0-3f1d0f83-23ff-4982-a8fc-58af26f90f94.webp", 52: "media-generation-src-52d-0-003f483f-65fc-42bb-9404-824701b0a617.webp",
-    53: "media-generation-src-53c-0-128a6729-e5a5-4ace-b3d2-0090cda380b5.webp", 54: "media-generation-src-54-r34-0-9887e427-225f-4df4-a801-27b9c26e8198.webp",
+    53: "media-generation-src-53c-0-128a6729-e5a5-4ace-b3d2-0090cda380b5.webp", 54: "../r41/media-generation-src-54-r41-3.webp",
     55: "media-generation-src-55b-0-9ff41079-f29d-4be5-9539-f351147aa4a4.webp", 81: "media-generation-src-81-r34-0-1803410f-2318-4829-8452-4bd7932408df.webp",
     82: "media-generation-src-82b-0-ee3ccb83-e168-426f-867e-6c53dea0798c.webp", 83: "media-generation-src-83d-0-18fe2c42-507f-4286-96e5-3151596b2755.webp",
     84: "media-generation-src-84c-0-3cad3cd9-c7e5-4f7e-bbf3-d40d33649d22.webp", 85: "media-generation-src-85b-0-3ad98d66-b56f-44b3-821b-b4b6c0f4785b.webp",
@@ -58,8 +58,8 @@ def _im(name):
 
 def test_ai_source_files_exist():
     """The 26 accepted renders (round 33; 11/14/16/41 replaced in
-    round 35; 45 + 18 replaced in round 36 - viewpoint defects: 45
-    showed the occlusal table, 18 was shot from a raised angle)."""
+    round 35, 45 + 18 in round 36, 54 in round 41 — viewpoint and
+    root-origin defects; see convert_r41_teeth.py for details)."""
     assert len(AI_SOURCES) == 26
     assert all((AI_DIR / f).is_file() for f in AI_SOURCES.values())
 

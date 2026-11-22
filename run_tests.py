@@ -17,7 +17,10 @@ TESTS = ["test_theme", "test_theme_mode", "test_hijri", "test_database", "test_p
  "test_r32_search_equiv", "test_r32_norms_writepaths",
  "test_r37_micro_text_8pt",
  "test_r38_country", "test_r38_templates", "test_r38_credit",
- "test_r38_payment_layout", "test_r38_image_viewer"]
+ "test_r38_payment_layout", "test_r38_image_viewer",
+ "test_r39_delta_sync", "test_r39_delta_sync2",
+ "test_r40_single_payment_place", "test_r40_single_payment_flows",
+ "test_r40_vivid_rows", "test_r41_owner_feedback", "test_r41_teeth", "test_r42_license"]
 def main():
     failed = 0
     for name in TESTS:

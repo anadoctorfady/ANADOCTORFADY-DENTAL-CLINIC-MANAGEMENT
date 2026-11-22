@@ -24,7 +24,8 @@ _R16_MODULES = ("strings_r16_clinical", "strings_r16_patients",
 # Latin tokens that are data, not wording.
 _ALLOWED = re.compile(
     r"^(pdf|cbct|stl|ply|obj|sqlite|whatsapp|fady|post|get|api|ui|id|"
-    r"in|out|rx|sql|bak|db|am|pm|2d|3d|en|ar|http|https|www|com)$", re.I)
+    r"in|out|rx|sql|bak|db|am|pm|2d|3d|en|ar|http|https|www|com|"
+    r"anadoctorfady)$", re.I)  # + the app brand name (round 42)
 
 
 def _all_strings():

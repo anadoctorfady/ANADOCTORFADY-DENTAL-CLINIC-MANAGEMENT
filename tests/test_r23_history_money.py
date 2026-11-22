@@ -136,9 +136,9 @@ def test_history_gui_money_and_panels():
             assert MAIN_PANELS == ()
             assert not hasattr(tab, "panel_frames")
             assert not hasattr(tab, "panel_texts")
-            # Zebra striping kept on History.
+            # Vivid rotation kept on History (R40; was zebra).
             iid = tab.tree_history.get_children()[0]
-            assert "zebra0" in tab.tree_history.item(iid, "tags")
+            assert "vivid0" in tab.tree_history.item(iid, "tags")
             # Migrated behaviour: payment detail for the money row.
             tab.tree_history.selection_set(iid)
             with mock.patch.object(_hist.messagebox, "showinfo") as info:

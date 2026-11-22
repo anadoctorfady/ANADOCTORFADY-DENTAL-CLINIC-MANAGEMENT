@@ -10,7 +10,10 @@ Currency combobox initial value is single-language (no Arabic in
 EN, no Latin name in AR). GUI tests skip gracefully with no display.
 ROUND-38 SUPERSESSION: the section is now the PAYMENT entry —
 boxes are Payment date / Amount / Rate / Rate-date; the balance
-lives on lbl_pat_totals (CREDIT colour when in credit)."""
+lives on lbl_pat_totals (CREDIT colour when in credit).
+ROUND-40 RE-PIN: the payment-entry section is REMOVED — ONE
+payment place. The boxes are the unified entry's Date / Paid +
+the strip's Rate / Rate-date; no "Add Payment" button anymore."""
 import re
 import time
 import tkinter as tk
@@ -24,7 +27,7 @@ from src.ui.clinical_table_style import contrast_ratio
 from tests.test_payments_e2e import _build_clinical, _seed_patient, _cleanup
 
 AR_CHARS = re.compile(r"[\u0600-\u06FF]")
-BOX_ATTRS = ("e_pay_date", "e_paid", "e_rate", "e_rate_date")  # R38 payment entry
+BOX_ATTRS = ("e_sess_date", "e_sess_paid", "e_rate", "e_rate_date")  # R40 unified entry + money strip
 
 def _walk(w):
     yield w
@@ -67,26 +70,24 @@ def _set_lang(app, lang):
 
 def _check_fit(app, lang):
     tab = app.clinical
-    fin_outer = tab.fin_frame.master
+    fin_outer = tab.money_strip  # R40: the money strip is the fit surface
     assert app.winfo_width() == 1380, app.winfo_width()
-    assert tab.fin_frame.winfo_reqwidth() <= tab.fin_frame.winfo_width(), (
-        lang, tab.fin_frame.winfo_reqwidth(), tab.fin_frame.winfo_width())
+    assert tab.money_strip.winfo_reqwidth() <= tab.money_strip.winfo_width(), (
+        lang, tab.money_strip.winfo_reqwidth(), tab.money_strip.winfo_width())
     for attr in BOX_ATTRS:
         w = getattr(tab, attr)
         assert w.winfo_manager() == "pack", (lang, attr, "not packed/visible")
         assert w.winfo_width() >= 30, (lang, attr, w.winfo_width())
         assert w.winfo_width() >= w.winfo_reqwidth(), (
             lang, attr, w.winfo_width(), w.winfo_reqwidth())
-        assert _right(w, app) <= _right(fin_outer, app) + 2, (
-            lang, attr, _right(w, app), _right(fin_outer, app))
         assert _right(w, app) <= 1380, (lang, attr, _right(w, app))
+    # R40: no "Add Payment" button; the Save button must fit.
     btns = [w for w in _walk(tab) if isinstance(w, tk.Button)
             and str(w.cget("text")) == t("clinical.add_payment", lang)]
-    assert len(btns) == 1, (lang, len(btns))
-    btn = btns[0]
+    assert len(btns) == 0, (lang, len(btns))
+    btn = tab.btn_save_visit
     assert btn.winfo_width() >= btn.winfo_reqwidth(), (
-        lang, "add_payment squeezed", btn.winfo_width(), btn.winfo_reqwidth())
-    assert _right(btn, app) <= _right(fin_outer, app) + 2, (lang, "add_payment")
+        lang, "save squeezed", btn.winfo_width(), btn.winfo_reqwidth())
     for w in _walk(fin_outer):
         if isinstance(w, tk.Label) and str(w.cget("text")):
             assert w.winfo_width() >= w.winfo_reqwidth(), (
@@ -121,7 +122,7 @@ def test_box_colors_distinct_and_contrast():
         print("SKIP test_box_colors_distinct_and_contrast (no display)")
         return
     try:
-        boxes = {"date": tab.e_pay_date, "total": tab.e_paid,
+        boxes = {"date": tab.e_sess_date, "total": tab.e_sess_paid,
                  "rate_date": tab.e_rate_date}
         bgs = {}
         for name, w in boxes.items():
@@ -131,7 +132,7 @@ def test_box_colors_distinct_and_contrast():
             assert bg.lower() != TABLE["finance"].lower(), (name, bg)
             ratio = contrast_ratio(fg, bg)
             assert ratio >= 4.5, (name, fg, bg, ratio)
-        # R38: the two DATE boxes share the date colour by design;
+        # R40: both DATE boxes share the date colour by design;
         # date vs amount ("total") colours stay distinct.
         assert bgs["date"] == bgs["rate_date"], bgs
         assert bgs["date"] != bgs["total"], bgs
@@ -156,7 +157,7 @@ def test_patient_balance_line_states():
             assert str(tab.lbl_pat_totals.cget("fg")) != credit_color(is_dark())
             # Pay in full in the model, reload -> balance 0.
             save_financial(fid, "11", 0, 200, "2026-11-12")
-            from src.ui import clinical_finance as _fin
+            from src.ui import clinical_finance_actions as _fin
             _fin.load_costs(tab, fid)
             root.update_idletasks()
             assert "0.00" in tab.lbl_pat_totals.cget("text")

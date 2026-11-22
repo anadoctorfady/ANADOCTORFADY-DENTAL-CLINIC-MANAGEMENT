@@ -8,8 +8,10 @@ The scroll flow below it, in order: dental chart, the UNIFIED
 clinical table (round 24, clinical_session.build_unified: entry
 area + session record rows with Edit / Delete -- replacing the
 separate input tables, History + Diagnosis/Procedures trees and
-the Therapeutic Procedures panel), the finance section, the
-Add-image row, and the finance-history / xray / scans notebook + referrals. The
+the Therapeutic Procedures panel), the Add-image row, and the
+finance-history / xray / scans notebook + referrals. (Round 40:
+the old separate finance section is gone — its money strip lives
+inside the unified entry; ONE payment place.) The
 Prescriptions section is built into the SHELL's far-left column
 (app.rx_host: compose + history + Print under the patient list);
 standalone construction without a shell host keeps it at the end
@@ -24,7 +26,6 @@ from src.config.strings import t
 from src.config.theme import current
 from src.ui import clinical_tables as _tables; from src.ui import clinical_panels as _panels
 from src.ui import clinical_session as _session
-from src.ui import clinical_finance as _fin
 from src.ui import clinical_finance_actions as _fina
 from src.ui import clinical_lists as _lists; from src.ui import clinical_left as _left
 from src.ui import clinical_image as _image
@@ -72,7 +73,9 @@ class ClinicalTab(tk.Frame):
         # Round 24: ONE unified clinical table after the chart
         # (entry area + session records; sets self.input_block).
         _session.build_unified(self, inner)
-        _fin.build_finance(self, inner)
+        # Round 40: no separate finance section — the money strip
+        # (currency/doctor/note/invoice/balance) lives INSIDE the
+        # unified entry (clinical_money_strip); one payment place.
         _left.build_add_image(self, inner)
         _lists.build_notebook(self, inner)
         # Prescriptions: into the shell's left column when the shell
@@ -124,8 +127,6 @@ class ClinicalTab(tk.Frame):
 
     def add(self, kind): _tables.add(self, kind)
 
-    def add_fin(self): _fina.add_fin(self)
-
     def add_xray(self): _lists.add_xray(self)
 
     def calc(self, _e=None): _fina.calc(self)
@@ -162,9 +163,8 @@ class ClinicalTab(tk.Frame):
         _lists.load(self, None)  # history trees + scans + notes; patient_id=None
         try: self.rx_section.load(None)
         except Exception: pass
-        self.e_paid.delete(0, tk.END); self.e_paid.insert(0, "0")
-        for e in (getattr(self, "e_pay_note", None), getattr(self, "e_pay_date", None)):
-            if e is not None: e.delete(0, tk.END)
+        _note = getattr(self, "e_pay_note", None)
+        if _note is not None: _note.delete(0, tk.END)
         try:  # R24: unified entry money + date reset too
             from src.ui.clinical_session_entry import clear_entry as _ce; _ce(self)
         except Exception:

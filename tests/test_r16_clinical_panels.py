@@ -129,14 +129,12 @@ def test_r22_header_and_main_flow_panels():
             assert "Penicillin" in _health(tab, "allergies")
             # ROUND-24 SUPERSESSION: the panels section is REMOVED;
             # the main flow is chart -> input block -> unified
-            # history section -> finance section.
+            # history section. ROUND-40: no fin_section either (the
+            # money strip lives inside the input block).
             assert not hasattr(tab, "panels_section")
+            assert not hasattr(tab, "fin_section")
             slaves = tab.right_inner.pack_slaves()
-            # R28 SUPERSESSION: the finance section's pack slave is
-            # now tab.fin_section (the width-cap holder), not
-            # tab.fin_frame.master (the RoundedFrame inside it).
-            seq = [tab.chart, tab.input_block, tab.history_section,
-                   tab.fin_section]
+            seq = [tab.chart, tab.input_block, tab.history_section]
             idx = [slaves.index(w) for w in seq]
             assert idx == sorted(idx), idx
         finally:

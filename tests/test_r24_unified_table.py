@@ -3,13 +3,11 @@ the REAL ClinicalTab entry widgets + Save session button.
 Item-3 acceptance (owner scenario): day 1 work 300 paid 50; day 2
 NEW work 400, patient pays 500 (settling earlier debt) -- must
 SAVE; patient totals end exactly 700 / 550 / 150. Exercised for a
-different-tooth and a same-tooth day 2, plus the genuine-
-overpayment refusal (EN + AR, cap stated, nothing saved).
-Also: the all-four save gate on the entry date, the money-only
-save (clinical already saved for the date) and live Remaining.
-The Edit/Delete permission matrix lives in
-tests/test_r24_session_edit.py. GUI skips with no display;
-DB is the isolated gate copy."""
+different-tooth and a same-tooth day 2. (R40: the genuine-
+overpayment case now SPLITS to an advance row, EN + AR.)
+Also: the all-four save gate, the money-only save and live
+Remaining. Edit/Delete matrix: test_r24_session_edit. GUI skips
+with no display; DB is the isolated gate copy."""
 import tkinter as tk
 import tkinter.messagebox as _mb
 
@@ -102,8 +100,7 @@ def _set_entry(tab, date, tooth, total, paid):
 
 
 def _save_session(tab, date, tooth, total, paid, **kw):
-    _fill(tab, **kw)
-    _set_entry(tab, date, tooth, total, paid)
+    _fill(tab, **kw); _set_entry(tab, date, tooth, total, paid)
     tab.btn_save_visit.invoke()
 
 
@@ -138,7 +135,7 @@ def test_item3_day2_settles_debt_same_tooth():
         print("SKIP item3 same-tooth (no display)"); restore(); _cleanup(fid); return
     try:
         _save_session(tab, D1, "16", 300, 50)
-        _save_session(tab, D2, "16", 400, 500)  # same tooth, +400 work, pays 500
+        _save_session(tab, D2, "16", 400, 500)  # +400 work, pays 500
         assert not caps["error"], caps["error"]
         assert patient_totals(fid) == {"total": 700.0, "paid": 550.0, "remaining": 150.0}, patient_totals(fid)
         assert len(session_rows(fid)) == 2  # two sessions, one per date
@@ -146,8 +143,11 @@ def test_item3_day2_settles_debt_same_tooth():
         root.destroy(); restore(); _cleanup(fid)
 
 
-def test_item3_genuine_overpayment_refused_bilingual():
-    for lang, needle in (("en", "maximum"), ("ar", "الحد الأقصى")):
+def test_item3_genuine_overpayment_splits_bilingual():
+    """ROUND-40 RE-PIN (was ..._overpayment_refused_bilingual):
+    Total 400 / Paid 401 (cap 400) SPLITS — session 400, excess 1
+    = standalone advance; totals 400 / 401 / -1."""
+    for lang in ("en", "ar"):
         fid = _patient("R24Over" + lang)
         caps, restore = _patch_msgs()
         root, tab = _build(fid=fid, lang=lang)
@@ -157,12 +157,12 @@ def test_item3_genuine_overpayment_refused_bilingual():
             _fill(tab)
             _set_entry(tab, D1, "16", 400, 401)  # cap is exactly 400
             tab.btn_save_visit.invoke()
-            assert caps["error"], f"no refusal in {lang}"
-            msg = caps["error"][-1][1]
-            assert needle in msg and "400" in msg, (lang, msg)
-            # Nothing saved: no clinical rows, no money, no totals.
-            assert _count("complaints", fid) == _count("financials", fid) == 0
-            assert patient_totals(fid)["total"] == 0.0
+            assert not caps["error"], (lang, caps)
+            assert caps["info"], f"no split info in {lang}"
+            assert _count("complaints", fid) == 1
+            assert _count("financials", fid) == 2  # session + standalone excess
+            assert patient_totals(fid) == {"total": 400.0, "paid": 401.0,
+                                           "remaining": -1.0}
         finally:
             root.destroy(); restore(); _cleanup(fid)
 

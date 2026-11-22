@@ -38,12 +38,14 @@ def test_shell_column_and_main_flow_placement():
         # B: ROUND-24 SUPERSESSION: NO summary panels exist in the
         # main flow (procedures panel removed with the unified
         # table); the flow is chart -> input block -> unified
-        # history section -> finance section -> notebook.
+        # history section -> notebook. ROUND-40: no fin_section
+        # (the money strip lives inside the input block).
         assert not hasattr(tab, "panel_frames")
         assert not hasattr(tab, "panels_section")
+        assert not hasattr(tab, "fin_section")
         order = tab.right_inner.pack_slaves()
         seq = [tab.chart, tab.input_block, tab.history_section,
-               tab.fin_section, tab.history_nb]  # R28: fin_section = pack slave
+               tab.history_nb]
         idx = [order.index(w) for w in seq]
         assert idx == sorted(idx), idx
         assert tab.rx_section not in order  # it lives in the shell

@@ -4,29 +4,25 @@ app must actually render alternating rows in BOTH themes.
 Audit result on the pre-R24 code (zebra_tree / zebra_listbox from
 src/ui/zebra.py; the zebra tag must be FIRST so meaning tags keep
 precedence):
-  HAD IT:  patient list (shell load_patients + debtors fill),
-           unified History/session tree, clinical tree_fin,
-           finance tree_exp / tree_lab / tree_debt /
-           tree_centers / tree_sal, appointments tree, users list,
-           attendance view, referrals tree, Rx items
-           tree + Rx history tree, template picker list, template
-           manager list, category picker list.
-  R27:     tree_xray + the scans tree became THUMBNAIL GRIDS;
-           their tiles alternate the same zebra pair (asserted
-           below via _assert_grid_zebra).
-  FIXED in R24: phrase_picker clipboard-history panel (refresh
-           never striped), shell.select_patient's manual insert
-           path (row inserted without re-striping the list),
-           appointments weekday + time-slot selector listboxes.
-  N/A:     clipboard multi-select picker (Checkbutton rows, not
-           a listbox), users permission tree (checkbox-mark tree,
-           not a record table), finance has no income tree (cards).
+  HAD IT:  patient list, History/session tree, tree_fin,
+           finance exp/lab/debt/centers/sal trees, appointments
+           tree, users list, attendance view, referrals tree,
+           Rx items + history trees, template picker/manager
+           lists, category picker list.
+  R27:     tree_xray + scans tree became THUMBNAIL GRIDS whose
+           tiles alternate the same zebra pair (_assert_grid_zebra).
+  FIXED in R24: phrase_picker clipboard-history panel,
+           shell.select_patient's manual insert path, appointments
+           weekday + time-slot selector listboxes.
+  N/A:     clipboard multi-select picker (Checkbutton rows),
+           users permission tree, finance income (cards).
 
-This test builds the real tabs in BOTH themes on the isolated DB
-and asserts, per audited tree: rows exist, row i's FIRST tag is
-zebra{i%2}, and the zebra tag backgrounds equal the theme's
-zebra_colors for the active mode. Listboxes: per-row item
-backgrounds alternate the same colours. Skips with no display."""
+Builds the real tabs in BOTH themes on the isolated DB and
+asserts, per audited tree: rows exist, row i's FIRST tag is
+zebra{i%2} with the theme's zebra_colors backgrounds. Listboxes:
+per-row backgrounds alternate the same colours. Skips w/o display.
+ROUND-40 SUPERSESSION: the session tree + tree_fin wear the
+VIVID rotation instead; every other surface keeps zebra."""
 import tkinter as tk
 from tkinter import ttk
 
@@ -67,6 +63,18 @@ def _assert_tree_zebra(tree, dark, label):
         assert tags and tags[0] == f"zebra{i % 2}", (label, i, tags)
 
 
+def _assert_tree_vivid(tree, label):
+    """R40: the two money lists wear the vivid rotation, not zebra."""
+    from src.ui.vivid_rows import PALETTE
+    kids = tree.get_children("")
+    assert kids, f"{label}: no rows to colour"
+    for i, k in enumerate(kids):
+        tags = tree.item(k, "tags")
+        assert tags and tags[0] == f"vivid{i % len(PALETTE)}", (label, i, tags)
+        got = str(tree.tag_configure(tags[0], "background")).lower()
+        assert got == PALETTE[i % len(PALETTE)].lower(), (label, i, got)
+
+
 def _assert_listbox_zebra(lb, dark, label):
     inner = getattr(lb, "listbox", lb)
     assert inner.size() >= 2, f"{label}: needs >= 2 rows"
@@ -76,8 +84,7 @@ def _assert_listbox_zebra(lb, dark, label):
     assert bgs == want, (label, bgs, want)
 
 
-def _assert_grid_zebra(grid, dark, label):
-    """R27: thumbnail-grid tiles alternate the same zebra pair."""
+def _assert_grid_zebra(grid, dark, label):  # R27 thumbnail grids
     assert grid.tiles, f"{label}: no tiles to stripe"
     even, odd = zebra_colors(dark)
     for i, tile in enumerate(grid.tiles):
@@ -115,10 +122,9 @@ def _run_theme(dark):
         app = _App(fid)
         tab = ClinicalTab(root, app); tab.pack(); root.update_idletasks()
         tab.load(fid); root.update_idletasks()
-        _assert_tree_zebra(tab.tree_history, dark, "unified/session tree")
-        _assert_tree_zebra(tab.tree_fin, dark, "clinical financial tree")
-        # R27 SUPERSESSION: the X-Ray tree is now a thumbnail grid;
-        # its tiles alternate the same zebra pair (seeded: 1 xray).
+        _assert_tree_vivid(tab.tree_history, "unified/session tree")
+        _assert_tree_vivid(tab.tree_fin, "clinical financial tree")
+        # R27: the X-Ray tree is now a thumbnail grid (1 xray).
         _assert_grid_zebra(tab.xray_grid, dark, "xray grid")
         _assert_tree_zebra(tab.tree_ref, dark, "referrals tree")
         # Rx trees: history via load(); items via a real add_item.
@@ -126,11 +132,9 @@ def _run_theme(dark):
         _assert_tree_zebra(rx.tree_hist, dark, "rx history tree")
         from src.utils.medications import list_medications, display
         med = list_medications()[0]
-        rx.drug_var.set(display(med, "en"))
-        rx.add_item(); root.update_idletasks()
+        rx.drug_var.set(display(med, "en")); rx.add_item(); root.update_idletasks()
         _assert_tree_zebra(rx.tree, dark, "rx items tree")
-        # Scans grid (R27: tiles inside the scans section frame).
-        assert tab.scans_frame.thumb_grid is not None, "scans grid not found"
+        assert tab.scans_frame.thumb_grid is not None, "scans grid not found"  # R27 tiles
         from src.models.database import get_connection as _gc
         from src.models.scans import ensure_tables, register_scan
         conn = _gc(); ensure_tables(conn)
@@ -141,8 +145,7 @@ def _run_theme(dark):
         # Appointments: tree + weekday/slot selector listboxes.
         appt = AppointmentsTab(root, app); appt.load(); root.update_idletasks()
         _assert_tree_zebra(appt.tree, dark, "appointments tree")
-        _assert_listbox_zebra(appt.lb_days, dark, "weekday listbox")
-        _assert_listbox_zebra(appt.lb_slots, dark, "slot listbox")
+        _assert_listbox_zebra(appt.lb_days, dark, "weekday listbox"); _assert_listbox_zebra(appt.lb_slots, dark, "slot listbox")
         # Users list (in a Notebook, as in the real shell).
         nb = ttk.Notebook(root); nb.pack()
         users = UsersTab(nb, app); nb.add(users, text="Users")
@@ -156,15 +159,11 @@ def _run_theme(dark):
         add_lab_cost("2026-11-02", "Lab", fid, "Crown", 700)
         app2 = _App(fid); app2.finance_gate = FinanceGate(verify_fn=lambda u, p: True)
         fin = FinanceTab(tk.Frame(root), app2); root.update_idletasks()
-        fin.e_gate_user.delete(0, tk.END); fin.e_gate_user.insert(0, "fady")
-        fin.e_gate_pass.delete(0, tk.END); fin.e_gate_pass.insert(0, "x")
+        fin.e_gate_user.delete(0, tk.END); fin.e_gate_user.insert(0, "fady"); fin.e_gate_pass.delete(0, tk.END); fin.e_gate_pass.insert(0, "x")
         fin._try_unlock(); fin.load(); root.update_idletasks()
-        _assert_tree_zebra(fin.tree_exp, dark, "finance expenses tree")
-        _assert_tree_zebra(fin.tree_lab, dark, "finance lab tree")
-        _assert_tree_zebra(fin.tree_debt, dark, "finance debts tree")
-        _assert_tree_zebra(fin.tree_centers, dark, "finance centers tree")
-        # Attendance view (admin-only Toplevel).
-        from src.models.attendance import record_for_user
+        _assert_tree_zebra(fin.tree_exp, dark, "finance expenses tree"); _assert_tree_zebra(fin.tree_lab, dark, "finance lab tree")
+        _assert_tree_zebra(fin.tree_debt, dark, "finance debts tree"); _assert_tree_zebra(fin.tree_centers, dark, "finance centers tree")
+        from src.models.attendance import record_for_user  # attendance view
         from src.ui.attendance_view import open_attendance_view
         record_for_user("fady", "in")
         win = open_attendance_view(root, "admin")

@@ -4,16 +4,16 @@
 dialog, no ask-once flow, nothing to click, and NO off switch — the
 stats (count + countries only) do not affect the user or their privacy.
 When the app is online it quietly sends an anonymous ping, at most once
-every 4 hours. Offline, the app works fully — sending simply fails
+every hour (owner decision 2026-11-21, round 40 — was every 4 hours). Offline, the app works fully — sending simply fails
 silently and is retried later.
 
 > قرار صاحب التطبيق: إحصاء مجهول تلقائي صامت، بدون أي نافذة موافقة
-> وبدون زر إيقاف. عند الاتصال بالإنترنت يُرسل ping مجهول كل 4 ساعات
+> وبدون زر إيقاف. عند الاتصال بالإنترنت يُرسل ping مجهول كل ساعة
 > كحد أقصى، وبدون إنترنت يعمل التطبيق كاملاً دون أي مشكلة.
 
 ## What IS sent / ما الذي يُرسل
 
-Exactly 4 fields, once every 4 hours at most, only when online
+Exactly 4 fields, once every hour at most, only when online
 (round 38: `country` added — before, it was exactly 3 fields and
 the country never reached Firebase at all):
 
@@ -52,7 +52,7 @@ its country or location.
 ## No off switch / لا يوجد زر إيقاف
 
 By the owner's decision there is no toggle to turn the stats off: they
-send only a count + countries, every 4 hours when online, and do not
+send only a count + countries, every hour when online, and do not
 affect the user or their privacy in any way. The only way sending stops
 is if no server URL is set (the `telemetry_url` setting left empty) —
 then nothing is ever sent. Nothing else about the app changes.
@@ -84,9 +84,9 @@ UI and never leaves the device except as the destination of the ping.
 As well as the self-hosted server above, the app can send the **same
 4 fields only** (`install_id`, `app_version`, `platform`, `country` —
 nothing else) to the owner's Firebase Realtime Database, on the same schedule:
-at most once every 4 hours, only when online, silently, with no UI
+at most once every hour, only when online, silently, with no UI
 presence anywhere. Each install gets one node that is refreshed every
-4 hours, so the count of nodes is the count of installs:
+hour, so the count of nodes is the count of installs:
 
 ```
 installs/

@@ -41,7 +41,7 @@ def test_picker_available_in_fields():
     assert CLIPBOARD_BINDING == "<Control-Shift-V>"
     assert callable(open_clipboard_picker) and callable(bind_clipboard_picker)
     assert callable(paste_items_into)
-    for name in ("show_clipboard_picker", "load", "add", "add_fin"):
+    for name in ("show_clipboard_picker", "load", "add"):  # R40: add_fin removed with its zone
         assert callable(getattr(ClinicalTab, name)), name
     # Headless GUI check: skips gracefully when no display is available.
     try:
@@ -59,7 +59,7 @@ def test_picker_available_in_fields():
         tab.pack()
         root.update_idletasks()
         for name in ("complaint", "symptom", "diagnosis", "procedure",
-                     "sess_total", "cost_paid", "notes"):  # R38: the payment entry has no Total box; the session entry's total is "sess_total"
+                     "sess_total", "sess_paid", "notes", "pay_note"):  # R40: ONE entry — session Paid is "sess_paid"; the strip's note is "pay_note"
             assert name in tab.clipboard_fields, f"no clipboard field: {name}"
             w = tab.clipboard_fields[name]
             assert w.bind(CLIPBOARD_BINDING), f"no Ctrl+Shift+V on {name}"

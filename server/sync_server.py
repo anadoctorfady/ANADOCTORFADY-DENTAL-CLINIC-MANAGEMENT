@@ -12,7 +12,8 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 from auth import (create_default_admin, hash_password, verify_password,
                   change_user_password, delete_user, rename_user)
-from sync_helpers import merge, now_iso, rows_dict, upsert_sync
+from sync_helpers import ensure_seq, merge, now_iso, rows_dict, upsert_sync
+from delta_pull import delta_pull
 from finance_sync import (init_tables as init_fin_tables, pull_financials,
                           pull_employees, push_financials, push_employees,
                           init_referral_tables, pull_referrals, push_referrals)
@@ -33,9 +34,12 @@ def init_db(p):
       data_json TEXT, updated_at TEXT, updated_by TEXT);
     CREATE TABLE IF NOT EXISTS attendance(id INTEGER PRIMARY KEY,
       username TEXT, center_id TEXT, action TEXT, ts TEXT, device_id TEXT);""")
-    init_fin_tables(c); init_referral_tables(c)
+    init_fin_tables(c); init_referral_tables(c); ensure_seq(c)
     created = create_default_admin(c); c.close(); return created
-def db(): return sqlite3.connect(str(DB_PATH))
+def db():
+    conn = sqlite3.connect(str(DB_PATH))
+    conn.execute("PRAGMA busy_timeout=5000")  # R39: seq counters serialize writers
+    return conn
 def issue_token(u):
     t = secrets.token_hex(32)
     TOKENS[t] = {"username": u["username"], "role": u["role"],
@@ -75,6 +79,9 @@ class Handler(BaseHTTPRequestHandler):
         if not user: return
         conn = db()
         if path == "/sync/pull":
+            if "server_id" in q or any(k.startswith("seq_") for k in q):
+                res = delta_pull(conn, user, q)  # R39 delta mode
+                conn.close(); return self._json(200, res)
             since = q.get("since", [""])[0]; center = q.get("center_id", [user["center_id"]])[0]
             p = [merge(r, 2, {"patient_file": 0, "center_id": 1, "updated_at": 3, "updated_by": 4})
                  for r in conn.execute("SELECT patient_file, center_id, data_json, updated_at,"

@@ -14,7 +14,8 @@ from src.config.strings_r18_clinical import r18_t
 from src.config.theme import current, RADIUS_TABLE
 from src.config.settings import XRAYS
 from src.models.database import get_connection; from src.models.history_money import money_map
-from src.ui.scans_tab import build_scans_section; from src.ui.rounded import rounded_button; from src.ui.rounded_frame import RoundedFrame; from src.ui import clinical_referrals as _ref; from src.ui.zebra import zebra_tree
+from src.ui.scans_tab import build_scans_section; from src.ui.rounded import rounded_button; from src.ui.rounded_frame import RoundedFrame; from src.ui import clinical_referrals as _ref
+from src.ui.vivid_rows import ensure_vivid_style, vivid_tree  # R40 item 2
 from src.config.theme import is_dark; from src.ui.clinical_table_style import stack_color
 from src.ui import clinical_edit as _edit; from src.ui import clinical_history as _hist; from src.ui import clinical_xray as _xray
 from src.ui import clinical_payments_review as _review  # R38 zone 3
@@ -23,7 +24,7 @@ TREES = [("tree_diag", "clinical.hist_diagnosis", ("date", "tooth", "diag", "tot
           ("visit_date", "tooth_number", "diagnosis")),
          ("tree_proc", "clinical.hist_procedures", ("date", "tooth", "proc", "total", "paid", "remain"), "procedures",
           ("visit_date", "tooth_number", "procedure_done")),
-         ("tree_fin", "clinical.hist_financial", ("date", "amount", "currency", "doctor", "by", "balance", "kind"), "financials",
+         ("tree_fin", "clinical.hist_financial", ("date", "amount", "doctor", "by", "balance", "kind", "currency"), "financials",
           ("visit_date", "paid_amount", "currency", "doctor", "entered_by"))]  # R38: tree_fin = the PAYMENTS REVIEW (clinical_payments_review)
 COL_KEYS = {"date": "clinical.col_date", "tooth": "clinical.col_tooth",
             "diag": "clinical.col_diag", "proc": "clinical.col_proc",
@@ -53,7 +54,8 @@ def _make_tree(tab, nb, spec):
     if attr == "tree_fin":  # R38: current-balance summary atop the review
         tab.lbl_pay_summary = tk.Label(f, text="", bg=th["panel"], fg=th["text"], font=("Segoe UI", 9, "bold"), anchor="w")
         tab.lbl_pay_summary.pack(fill="x", padx=6, pady=(4, 0), before=wrap)
-    tr = ttk.Treeview(wrap.inner, columns=cols, show="headings")
+    tr = ttk.Treeview(wrap.inner, columns=cols, show="headings",
+                      style=ensure_vivid_style() if attr == "tree_fin" else "Treeview")
     for c in cols:
         if attr == "tree_fin":
             tr.heading(c, text=_review.fin_heading(c, lang))
@@ -180,13 +182,14 @@ def add_xray(tab):
 
 def load(tab, fid):
     """Reload the per-patient lists (R24: Financial + X-Ray trees,
-    scans, referrals + the unified History; zebra-striped)."""
+    scans, referrals + the unified History; R40: the two money
+    lists wear vivid rotating rows, the rest keep zebra)."""
     tab.patient_id = fid
     _ensure_hist_state(tab)
     _review.fill_review(tab, fid)  # R38: payments review (was: raw financials rows)
     _xray.refresh_xray_grid(tab, fid)  # R27: thumbnail grid, no tree
     rebuild_scans(tab, fid); _ref.refresh_referrals(tab, fid); _hist.refresh_history(tab, fid)
-    [zebra_tree(getattr(tab, a)) for a in ("tree_fin",) if getattr(tab, a, None) is not None]  # R21 zebra
+    [vivid_tree(getattr(tab, a)) for a in ("tree_fin",) if getattr(tab, a, None) is not None]  # R40: vivid rotation (was R21 zebra)
     try:  # selection is gone after a reload: session buttons off
         from src.ui.clinical_session_edit import sync_edit_buttons
         sync_edit_buttons(tab)

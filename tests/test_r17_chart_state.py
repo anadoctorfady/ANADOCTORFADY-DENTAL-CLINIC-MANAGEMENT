@@ -99,8 +99,8 @@ def test_switch_patients_markers_and_data_are_exactly_new_patients():
         assert tab.chart.get_treated() == ["16"]
         # R24: the finance boxes no longer prefill the cumulative;
         # A's money (1000) shows on the patient-balance line.
-        # R38: the payment entry's Amount box starts at 0.
-        assert float(tab.e_paid.get()) == 0
+        # R40: the ONE entry's Paid box starts at 0.
+        assert float(tab.e_sess_paid.get()) == 0
         assert "1,000" in tab.lbl_pat_totals.cget("text")
         assert len(tab.tree_history.get_children()) == 1  # R24: unified tree
         tab.txt_complaint.insert("1.0", "A draft complaint")
@@ -110,7 +110,7 @@ def test_switch_patients_markers_and_data_are_exactly_new_patients():
         assert tab.chart.get_selection()[0] == []
         assert tab.txt_complaint.get("1.0", tk.END).strip() == ""
         assert tab.txt_procedure.get("1.0", tk.END).strip() == ""
-        assert float(tab.e_paid.get()) == 0  # R38 (was e_total+e_paid)
+        assert float(tab.e_sess_paid.get()) == 0  # R40 (was e_total+e_paid)
         assert tab.tree_history.get_children() == ()  # R24: unified tree
         # Round 20: the name header is gone (owner: it duplicated
         # the shell's far-left info panel). R24: the panels are
@@ -146,8 +146,12 @@ def test_clear_resets_every_surface():
         for attr in ("txt_complaint", "txt_sym", "txt_diagnosis",
                      "txt_procedure", "txt_sym_note"):
             assert getattr(tab, attr).get("1.0", tk.END).strip() == "", attr
-        assert float(tab.e_paid.get()) == 0  # R38: payment entry amount resets (no Total box anymore)
-        assert tab.e_pay_note.get() == "" and tab.e_pay_date.get() == ""
+        assert float(tab.e_sess_paid.get()) == 0  # R40: the ONE entry's Paid resets
+        assert tab.e_pay_note.get() == ""
+        # R40: no separate payment date box; the session date resets
+        # to today (clear_entry).
+        from datetime import datetime as _dt
+        assert tab.e_sess_date.get() == _dt.now().strftime("%Y-%m-%d")
         # Round 20: no name header to reset. R24: no panels;
         # the unified table must hold NO sessions after clear().
         assert tab._history_sessions == []

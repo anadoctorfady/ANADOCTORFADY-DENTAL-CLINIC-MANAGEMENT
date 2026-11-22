@@ -94,18 +94,18 @@ def _insert_money(conn, fid, visit_date, tooth_key, total, paid,
 
 def save_session_money(fid, visit_date, tooth_key, total, paid,
                        currency="SYP", rate=None, rate_date=None,
-                       base=None, doctor=None, entered_by=None):
+                       base=None, doctor=None, entered_by=None, note=""):
     """Save ONE session's money as its own financial row (tooth_key
-    = normalised bucket string, "" = general); return the new row
-    id. None (nothing saved) when total == 0 and paid == 0. The
-    caller validate()s first; this stores what it is given."""
+    = normalised bucket string, "" = general); the new row id, or
+    None when total == 0 and paid == 0. Caller validate()s first.
+    Round 40: `note` (the entry's payment note) rides along."""
     if float(total) == 0 and float(paid) == 0:
         return None
     init_db()
     conn = get_connection()
     try:
         rid = _insert_money(conn, fid, visit_date, tooth_key, total, paid,
-                            currency, rate, rate_date, base, doctor, entered_by)
+                            currency, rate, rate_date, base, doctor, entered_by, note=(note or "").strip())
         conn.commit(); return rid
     finally:
         conn.close()

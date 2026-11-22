@@ -190,7 +190,9 @@ def test_no_bare_labels_in_source():
         # No hardcoded dark-green status colour left (now the "ok" token).
         assert 'fg="#2E7D32"' not in p.read_text(encoding="utf-8"), p.name
     # Hardcoded #6B5E53 survives only on light TABLE tints (>= 4.6:1).
-    for name in ("clinical_finance.py", "phrase_picker.py"):
+    # R40: clinical_finance.py is deleted (one payment place) —
+    # the money strip is its successor in this check.
+    for name in ("clinical_money_strip.py", "phrase_picker.py"):
         src = (ROOT / "src" / "ui" / name).read_text(encoding="utf-8")
         for m in re.finditer(r'fg="#6B5E53"', src):
             ctx = src[max(0, m.start() - 200):m.start()]

@@ -3,12 +3,16 @@ capped (FIN_CAP_W) instead of stretching the full content width,
 in EN and AR (RTL), and the payments list (tree_fin) is BOUNDED
 (6 visible rows) with a working vertical scrollbar so a long
 payment history scrolls inside the section. GUI tests skip
-without a display."""
+without a display.
+ROUND-40 RE-PIN (owner correction 2026-11-21): the capped finance
+section is REMOVED (ONE payment place) — the width-cap tests
+become presence tests: no fin_section, and the money widgets live
+inside the unified entry (the money strip in the input block).
+The payments-list bound/scroll test is unchanged."""
 import tkinter as tk
 from src.models.database import (get_connection, init_db,
                                  save_financial)
 from src.ui.clinical import ClinicalTab
-from src.ui.clinical_finance import FIN_CAP_W
 
 def _mk():
     init_db(); conn = get_connection(); cur = conn.cursor()
@@ -47,36 +51,29 @@ def _tab(fid, lang="en"):
     tab.app.refresh_clinical = lambda: tab.load(fid)
     tab.load(fid); root.update_idletasks(); return root, tab
 
-def test_finance_width_capped_en():
+def test_money_strip_in_unified_entry_en():
     fid = _mk(); root, tab = _tab(fid, "en")
     if tab is None: _cleanup(fid); print("SKIP r28 fin width"); return
     try:
         root.update_idletasks()
-        w = tab.fin_frame.winfo_width()
-        cw = tab.main_canvas.winfo_width()
-        assert 0 < w <= FIN_CAP_W + 2, (w, FIN_CAP_W)
-        assert w < 0.6 * cw, (w, cw)  # clearly narrower than content
-        # controls still fully present and usable at the cap
-        for attr in ("e_pay_date", "e_paid", "e_pay_note", "cb_cur",
-                     "cb_doctor", "btn_invoice"):  # R38 payment entry (was: e_total/e_fin_tooth)
+        # R40: the capped section is gone; the money strip is a
+        # direct child of the unified input block.
+        assert not hasattr(tab, "fin_section")
+        assert tab.money_strip.master is tab.input_block
+        for attr in ("e_sess_date", "e_sess_paid", "e_pay_note", "cb_cur",
+                     "cb_doctor", "btn_invoice"):
             assert getattr(tab, attr, None) is not None, attr
     finally:
         root.destroy(); _cleanup(fid)
 
-def test_finance_width_capped_ar_rtl():
+def test_money_strip_in_unified_entry_ar():
     fid = _mk(); root, tab = _tab(fid, "ar")
     if tab is None: _cleanup(fid); print("SKIP r28 fin width ar"); return
     try:
         root.update_idletasks()
-        w = tab.fin_frame.winfo_width()
-        cw = tab.main_canvas.winfo_width()
-        assert 0 < w <= FIN_CAP_W + 2, (w, FIN_CAP_W)
-        assert w < 0.6 * cw, (w, cw)
-        # RTL: the capped section anchors to the RIGHT edge, i.e. it
-        # is NOT flush with the canvas's left edge.
-        dx = tab.fin_frame.winfo_rootx() - tab.main_canvas.winfo_rootx()
-        assert dx > 100, dx
-        assert getattr(tab, "e_paid", None) is not None  # R38 payment entry built
+        assert not hasattr(tab, "fin_section")
+        assert tab.money_strip.master is tab.input_block
+        assert getattr(tab, "e_sess_paid", None) is not None  # R40 unified entry built
     finally:
         root.destroy(); _cleanup(fid)
 

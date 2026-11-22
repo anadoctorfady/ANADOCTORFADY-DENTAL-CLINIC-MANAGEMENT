@@ -74,6 +74,8 @@ EN = {
     'users.deleted_both': "Deleted '{name}' on this device AND on the sync server.",
     'users.deleted_server_failed': "Deleted '{name}' on this device. Server delete failed: {err}", 'about.subtitle': 'Dental Clinic Management',
     'about.contact': 'Contact via WhatsApp only', 'about.whatsapp_btn': '💬 WhatsApp {number}', 'sync.guide_title': 'Linking guide', 'sync.guide_close': 'Close',
+    'about.license_title': 'License', 'about.license_name': 'ANADOCTORFADY — Free Use License', 'about.license_view': 'Read the full license', 'about.license_close': 'Close',
+    'about.license_summary': 'Free forever: free to use in your clinic and free to share — but selling or renting the software itself is prohibited.',
     'fin.sal_tab': ' Salaries ', 'settings.restore_prev': 'Previous DB backed up to:\n{path}', 'settings.ft_backup': 'Backup (.bak)', 'settings.ft_db': 'SQLite DB',
     'settings.ft_dump': 'SQL dump', 'settings.ft_all': 'All files', 'settings.ft_backup_short': 'Backup',
 }
@@ -143,6 +145,8 @@ AR = {
     'users.deleted_local_server': 'تم الحذف محلياً فقط. ({why})', 'users.deleted_both': "تم حذف '{name}' على الجهاز وعلى خادم المزامنة.",
     'users.deleted_server_failed': 'تم الحذف محلياً فقط؛ فشل الحذف على الخادم: {err}', 'about.subtitle': 'إدارة عيادة الأسنان', 'about.contact': 'للتواصل واتساب فقط',
     'about.whatsapp_btn': '💬 WhatsApp {number}', 'sync.guide_title': 'دليل الربط خطوة بخطوة', 'sync.guide_close': 'إغلاق', 'fin.sal_tab': ' الرواتب ',
+    'about.license_title': 'الترخيص', 'about.license_name': 'ANADOCTORFADY — ترخيص الاستخدام المجاني', 'about.license_view': 'قراءة الترخيص الكامل', 'about.license_close': 'إغلاق',
+    'about.license_summary': 'مجاني للأبد: مجاني للاستخدام في عيادتك ومجاني للمشاركة — لكن يُمنع بيع البرنامج نفسه أو تأجيره.',
     'settings.restore_prev': 'تم نسخ قاعدة البيانات السابقة احتياطياً إلى:\n{path}', 'settings.ft_backup': 'نسخة احتياطية (.bak)',
     'settings.ft_db': 'قاعدة بيانات SQLite', 'settings.ft_dump': 'ملف SQL', 'settings.ft_all': 'كل الملفات', 'settings.ft_backup_short': 'نسخة احتياطية',
 }
