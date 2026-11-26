@@ -23,6 +23,7 @@ from PIL import Image
 
 from src.config.strings import t
 from src.config.theme import current, is_dark, zebra_colors
+from src.ui.vivid_rows import PALETTE, TEXT_ON_VIVID
 from src.models.scans import IMAGE_EXTS, MESH_EXTS
 from src.ui.image_cache import cached_photo
 
@@ -120,8 +121,7 @@ class ThumbGrid(tk.Frame):
 
     def _build_tile(self, idx, item):
         th = current()
-        even, odd = zebra_colors(is_dark())
-        bg = even if idx % 2 == 0 else odd
+        bg = PALETTE[idx % len(PALETTE)]  # R43: vivid rotation (was zebra pair)
         tile = tk.Frame(self, width=TILE_W, height=TILE_H, bg=bg,
                         highlightthickness=2,
                         highlightbackground=th["border"],
@@ -137,15 +137,15 @@ class ThumbGrid(tk.Frame):
             self._photos.append(photo)
             pic.config(image=photo)
         else:
-            pic.config(text=self._glyph(item), fg=th["muted"],
+            pic.config(text=self._glyph(item), fg=TEXT_ON_VIVID,
                        font=("Segoe UI", 15, "bold"))
         pic.pack(expand=True)
-        name = tk.Label(tile, text=item["name"], bg=bg, fg=th["text"],
+        name = tk.Label(tile, text=item["name"], bg=bg, fg=TEXT_ON_VIVID,
                         font=("Segoe UI", 9), wraplength=TILE_W - 12,
                         justify="center", height=2)
         name.pack(fill="x", padx=4)
         sub = tk.Label(tile, text=item.get("sub", ""), bg=bg,
-                       fg=th["muted"], font=("Segoe UI", 8), height=1)
+                       fg=TEXT_ON_VIVID, font=("Segoe UI", 8), height=1)
         sub.pack(fill="x", padx=4)
         item["_tile"] = tile
         item["_name_lbl"] = name

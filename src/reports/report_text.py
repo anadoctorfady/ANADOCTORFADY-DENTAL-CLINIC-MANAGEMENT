@@ -27,6 +27,10 @@ def patient_preview_lines(patient, complaints=None, diagnoses=None,
     # Round 21 mirror of report_header(): clinic name alone, else
     # the report's own title; the app name is the LAST line only.
     lines.append(clinic if clinic else REPORT_TITLE["ar" if language == "ar" else "en"])
+    # R52 mirror of the PDF header: centre contact lines under the
+    # name (only the fields the centre set; none when all empty).
+    from src.reports.centre_contact import centre_contact_lines
+    lines += [v for v in centre_contact_lines() if v]
     lines.append("")
     try:
         from src.utils.hijri_age import format_birth_date, format_hijri_date

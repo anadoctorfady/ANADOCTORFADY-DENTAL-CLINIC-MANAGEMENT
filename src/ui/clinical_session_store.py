@@ -154,6 +154,20 @@ def update_clinical(tab, fid, session, txts, note):
     now = datetime.now().isoformat()
     author = getattr(tab, "current_user", None) or getattr(tab.app, "current_user", None) or "fady"
     date = session.get("date") or ""; tooth = session.get("tooth_raw") or ""
+    # R49 F: an edited DATE in the entry box goes through the
+    # admin-only guard BEFORE anything else is written; a refused
+    # (non-admin) or invalid date aborts the whole edit save.
+    want = None; w = getattr(tab, "e_sess_date", None)
+    if w is not None:
+        try:
+            want = w.get().strip()
+        except Exception:
+            want = None
+    if want and want != date:
+        from src.ui import clinical_session_edit as _edit
+        _edit.change_session_date(fid, session, want,
+                                  getattr(tab, "current_role", None))
+        date = session.get("date") or ""
     conn = get_connection(); cur = conn.cursor()
     cid = session.get("complaints_id")
     if cid:

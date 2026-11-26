@@ -128,15 +128,15 @@ def build_rx_pdf(patient, rx, items, lang="en", clinic_name=None,
                             rightMargin=12 *mm, title=f"ANADOCTORFADY Prescription - {name}")
     L = lambda k: rx16_t(k, lang)  # noqa: E731
     story = logo_header_flowables()  # R30: centred logo above the clinic name; [] when unset
-    # Round 21: clinic name ALONE on top (18pt, black); no clinic
-    # name: the heading IS the header (18pt). App name: footer only.
+    # Round 21: clinic name ALONE on top (18pt, black); no clinic name: the heading IS the header (18pt). App name: footer only. R52: centre contact lines (address/mobile/landline) sit under the name, above the rule -- only the fields the centre set.
+    from src.reports.centre_contact import centre_contact_lines
+    _contact = [_para(v, lang, size=10, align=TA_CENTER) for v in centre_contact_lines() if v]
     if clinic_name:
-        story.append(_para(clinic_name, lang, size=18, bold=True, align=TA_CENTER))
-        story.append(HRFlowable(width="100%", thickness=1.2, color=BLACK, spaceAfter=4))
-        story.append(_para(L("rx.pdf_heading"), lang, size=13, bold=True, align=TA_CENTER))
+        story.append(_para(clinic_name, lang, size=18, bold=True, align=TA_CENTER)); story += _contact
     else:
-        story.append(_para(L("rx.pdf_heading"), lang, size=18, bold=True, align=TA_CENTER))
-        story.append(HRFlowable(width="100%", thickness=1.2, color=BLACK, spaceAfter=4))
+        story.append(_para(L("rx.pdf_heading"), lang, size=18, bold=True, align=TA_CENTER)); story += _contact
+    story.append(HRFlowable(width="100%", thickness=1.2, color=BLACK, spaceAfter=4))
+    if clinic_name: story.append(_para(L("rx.pdf_heading"), lang, size=13, bold=True, align=TA_CENTER))
     story.append(Spacer(1, 4 * mm))
     age = str(p.get("age_years", "")) or "—"
     info = [[_para(L("rx.pdf_patient"), lang, bold=True), _para(name_value(name), lang),

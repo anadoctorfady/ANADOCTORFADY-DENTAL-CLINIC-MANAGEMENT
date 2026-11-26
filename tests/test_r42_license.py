@@ -55,8 +55,16 @@ def test_iss_wires_license_agreement():
     assert (ROOT / "installer" / "license_agreement.txt").exists()
     active = [ln for ln in iss.splitlines()
               if not ln.lstrip().startswith(";")]
-    assert not any("DisableDirPage" in ln for ln in active), \
-        "destination page must stay enabled"
+    # R49 Section C correction: ABSENCE of the directive is Inno's
+    # default `auto`, which HIDES the page whenever a previous
+    # installation exists (official Inno 6 docs) -- the pre-R49
+    # pin ("no DisableDirPage line at all") therefore certified
+    # the broken state. The page is enabled on EVERY install
+    # only with an explicit DisableDirPage=no; pin exactly that.
+    vals = [ln.split("=", 1)[1].strip().lower() for ln in active
+            if ln.strip().lower().startswith("disabledirpage")]
+    assert vals == ["no"], \
+        "destination page must be forced on (DisableDirPage=no)"
 
 
 def _widget_texts(widget):

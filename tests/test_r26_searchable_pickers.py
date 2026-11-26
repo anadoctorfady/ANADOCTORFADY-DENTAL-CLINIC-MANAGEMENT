@@ -141,7 +141,7 @@ def test_gui_drug_picker_en_dose_and_allergy_alert():
         patient = {"file_number": 0, "allergies": "Penicillin", "current_medications": ""}
         rx = _rx(root, "en", patient)
         picker = rx.cb_drug
-        assert len(picker["values"]) == len(list_medications()) == 315
+        assert len(picker["values"]) == len(list_medications()) == 463  # R49 count pin (was 315)
         vis = _type(picker, "amox", root)
         assert AMOX_EN in vis and len(vis) <= 6, vis
         rx.e_dose.delete(0, tk.END); rx.e_dose.insert(0, "111 mg")

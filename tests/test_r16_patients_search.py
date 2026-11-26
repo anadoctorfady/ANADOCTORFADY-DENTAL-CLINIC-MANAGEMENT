@@ -34,7 +34,7 @@ def test_list_empty_on_startup_until_search():
     patient shows NOTHING; with an open patient it shows only them;
     a quick-search query shows matches."""
     init_db()
-    fid = _seed("R16List", "R16Dad", "R16Fam", m1="0911111111")
+    fid = _seed("R16List", "R16Dad", "R16Fam", m1="0791111111")
     try:
         root = tk.Tk(); root.withdraw()
     except tk.TclError:
@@ -60,19 +60,19 @@ def test_advanced_search_each_field():
     """Advanced search finds one patient by first / father / family /
     mobile1 / mobile2 / emergency phone, and ANDs criteria."""
     init_db()
-    fid = _seed("R16Adv", "R16AdvDad", "R16AdvFam", m1="0911000111",
-                m2="0922000222", em="0933000333")
+    fid = _seed("R16Adv", "R16AdvDad", "R16AdvFam", m1="0791100011",
+                m2="0792200022", em="0793300033")
     try:
         for kw in ({"first": "R16Adv"}, {"father": "R16AdvDad"},
-                   {"family": "R16AdvFam"}, {"phone": "0911000111"},
-                   {"phone": "0922000222"}, {"phone": "0933000333"},
-                   {"first": "r16adv"}, {"phone": "22000222"}):
+                   {"family": "R16AdvFam"}, {"phone": "0791100011"},
+                   {"phone": "0792200022"}, {"phone": "0793300033"},
+                   {"first": "r16adv"}, {"phone": "92200022"}):
             got = [r["file_number"] for r in search_patients(**kw)]
             assert fid in got, (kw, got)
         assert fid not in [r["file_number"] for r in
                            search_patients(first="R16Adv", family="NoSuch")]
         assert fid not in [r["file_number"] for r in
-                           search_patients(phone="0999999999")]
+                           search_patients(phone="0799999999")]
     finally:
         _cleanup(fid)
 
@@ -81,7 +81,7 @@ def test_advanced_search_panel_wires_into_list():
     """Typing into the real AdvancedSearchPanel and running the real
     App.load_patients() populates the tree; Clear empties it again."""
     init_db()
-    fid = _seed("R16Pan", "R16Dad", "R16Fam", m2="0922000444")
+    fid = _seed("R16Pan", "R16Dad", "R16Fam", m2="0792200044")
     try:
         root = tk.Tk(); root.withdraw()
     except tk.TclError:
@@ -94,7 +94,7 @@ def test_advanced_search_panel_wires_into_list():
         panel.pack(); stub.adv_search = panel; root.update_idletasks()
         App.load_patients(stub)
         assert _tree_rows(stub) == []
-        _set(panel.e_phone, "0922000444")
+        _set(panel.e_phone, "0792200044")
         App.load_patients(stub)
         assert any(str(r[0]) == str(fid) for r in _tree_rows(stub)), _tree_rows(stub)
         panel.clear(); root.update_idletasks()

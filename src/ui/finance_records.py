@@ -22,12 +22,13 @@ def _who(tab):
 
 # --- Flexible totals toggles (Job 9a) -------------------------------------
 
-def build_totals_toggles(tab, th):
+def build_totals_toggles(tab, th, parent=None):
     """Row of Lab / Salaries / Expenses checkboxes above the cards.
     Each toggle re-computes the totals (tab.calc) and resets the
     auto-lock timer. The doctor overlay covers this row for doctors,
-    so only the admin (full scope) ever reaches the toggles."""
-    fr = RoundedFrame(tab, bg=th["panel"], border=th["border"])
+    so only the admin (full scope) ever reaches the toggles.
+    R54 (Section G): parent is the Finance scroll host (None = the tab)."""
+    fr = RoundedFrame(parent or tab, bg=th["panel"], border=th["border"])
     fr.pack(fill="x", padx=10, pady=4); fr = fr.inner
     tab.tot_lab_var = tk.BooleanVar(value=True)
     tab.tot_sal_var = tk.BooleanVar(value=True)

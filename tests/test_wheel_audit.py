@@ -19,7 +19,7 @@ from src.ui.clipboard_picker import open_clipboard_picker
 from src.ui.clinical import ClinicalTab
 from src.ui.dental_chart import DentalChartFrame
 from src.ui.settings_ui import SettingsTab
-from src.ui.wheel_scroll import bind_canvas_wheel
+from src.ui.wheel_scroll import bind_canvas_wheel, install_page_wheel
 
 
 class _Stub:
@@ -135,6 +135,7 @@ def test_settings_does_not_hijack():
         print("SKIP test_settings_does_not_hijack (no display)")
         return
     try:
+        install_page_wheel(root)  # R56: the App installs this once
         tab = SettingsTab(root, _Stub())
         tab.pack(fill="both", expand=True)
         tree = ttk.Treeview(root, columns=("a",), show="headings", height=6)
@@ -146,6 +147,8 @@ def test_settings_does_not_hijack():
         s0, t0 = tab._canvas.yview(), tree.yview()
         tree.event_generate("<MouseWheel>", delta=-120)
         root.update()
+        # R56: the tree lives in NO scroll page, so the delegate
+        # falls back to scrolling the tree itself.
         assert tree.yview()[0] > t0[0], "wheel did not scroll the tree"
         assert tab._canvas.yview() == s0, "settings canvas hijacked the tree wheel"
         _down_up(root, tab.body, tab._canvas.yview)

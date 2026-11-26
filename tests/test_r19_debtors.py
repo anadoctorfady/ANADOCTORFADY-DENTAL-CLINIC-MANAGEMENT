@@ -29,7 +29,7 @@ def _seed(first, father, last):
         "birth_date_greg": "1990-05-15", "birth_date_hijri": "",
         "age_years": 0, "age_months": 0, "age_days": 0, "age_total_days": 0,
         "age_hijri_years": 0, "age_hijri_months": 0, "age_hijri_days": 0,
-        "mobile1": "0911000000", "mobile2": "", "emergency_phone": "",
+        "mobile1": "0791100000", "mobile2": "", "emergency_phone": "",
         "address": "", "nationality": "Syrian", "current_medications": "",
         "allergies": "", "diseases": ""})
 

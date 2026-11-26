@@ -109,7 +109,7 @@ def bind_inner_wheel(widget):
 
 def build_field_row(tab, frm, kind, widget_attr, label, height=2):
     """One compact labelled field on a coloured table: the main Text
-    (height 2 -- about half the old 3-line fields) on the left with
+    (height 2 -- about half the old 3-line fields; width=1, R53: the 80-char default requested ~888px, pushing its scrollbar off the panel and the four-panel grid to 3736px wide -- pack expand still gives it the full leftover width) on the left with
     its own thin scrollbar, a SMALL notes Text beside it on the
     right, and the template picker button in the header row. The
     Text backgrounds ARE the table colour (not white), so the table
@@ -124,7 +124,7 @@ def build_field_row(tab, frm, kind, widget_attr, label, height=2):
              font=("Segoe UI", 9, "bold")).pack(side="left")
     row = tk.Frame(frm, bg=bg)
     row.pack(fill="x", padx=4, pady=1)
-    txt = RoundedText(row, height=height, font=("Segoe UI", 10), wrap="word",
+    txt = RoundedText(row, height=height, width=1, font=("Segoe UI", 10), wrap="word",
                       bg=bg, fg=cols["body_fg"])
     txt.pack(side="left", fill="both", expand=True)
     sb = ttk.Scrollbar(row, orient="vertical", command=txt.yview)

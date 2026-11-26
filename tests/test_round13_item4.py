@@ -1,9 +1,6 @@
 """Round 13, item 4: the four cosmetic leftovers from round 12.
 (a) Quick-book row fits at 1380px and at the 1200px minimum, EN+AR.
-(b) Template-manager bottom row fits the 640px dialog (R21: the
-buttons row incl. "Restore built-in templates"). (c) "Manage
-templates" button fully visible in AR clinical. (d) Long patient
-name fully shown in the shell info panel (R20). GUI skips w/o display."""
+(b) Template-manager bottom row fits the 640px dialog (R21: the buttons row incl. "Restore built-in templates"). (c) "Manage templates" button fully visible in AR clinical. (d) Long patient name fully shown in the shell info panel (R20). GUI skips w/o display."""
 import time
 import tkinter as tk
 from tkinter import ttk
@@ -41,8 +38,7 @@ def _app():
     return app
 
 def _main_nb(app):
-    # Round 17: the main notebook has 6 tabs (Patients tab removed);
-    # identify it as the notebook holding the Clinical tab.
+    # Round 17: the main notebook has 6 tabs (Patients tab removed); identify it as the notebook holding the Clinical tab.
     for w in _walk(app):
         if isinstance(w, ttk.Notebook) and str(app.clinical) in w.tabs():
             return w
@@ -52,6 +48,11 @@ def _select(app, idx):
     _main_nb(app).select(idx)
     app.update_idletasks()
     app.update()
+    # R52: a lazy tab now builds inside this selection (no idle chain); give the new page its layout cycles before callers measure widget geometry, or buttons read as 1px wide.
+    for _ in range(5):
+        page = _main_nb(app).nametowidget(_main_nb(app).select())
+        if page.winfo_width() > 1: break
+        app.update_idletasks(); app.update()
 
 def _set_lang(app, lang):
     from src.models.database import set_setting
@@ -106,8 +107,7 @@ def test_quickbook_button_visible_1200_ar():
         app.destroy()
 
 def test_template_manager_bottom_row_visible():
-    # Round 21: no "Show hidden" checkbutton any more; the buttons
-    # row (widest: "Restore built-in templates") must fit 640x560.
+    # Round 21: no "Show hidden" checkbutton any more; the buttons row (widest: "Restore built-in templates") must fit 640x560.
     root = _tk()
     if root is None:
         print("SKIP test_template_manager_bottom_row_visible (no display)")
@@ -186,7 +186,7 @@ def test_very_long_name_no_clinical_header():
         from tests.test_clinical_redesign import _stub_app
         app = _stub_app()
         app.current_patient = {"full_name": VERY_LONG_NAME, "file_number": 1,
-                               "mobile1": "0944000111", "birth_date_greg": "1990-05-15"}
+                               "mobile1": "0794000111", "birth_date_greg": "1990-05-15"}
         tab = ClinicalTab(root, app)
         tab.pack()
         root.update_idletasks()

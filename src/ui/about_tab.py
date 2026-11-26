@@ -1,20 +1,26 @@
 """Dedicated About tab (Item 13, 2026-11-08). <200 lines.
 
-A real tab in the main notebook (not a section inside Settings):
-bilingual About text - free app, ongoing charity (sadaqah) for Doctor
-Fady Abdulkafy Dadoush, his parents, wife and children - plus the
-WhatsApp-only contact line and button. Text is reused from
-src/config/settings.py (ABOUT_EN / ABOUT_AR / WHATSAPP / WA_URL).
-Round 42: a License section (title + name + one-line summary in the
-app language) with a button opening the full bilingual license text
-in a scrollable dialog - the same text as the shipped LICENSE file
-and the installer agreement page."""
+A real tab in the main notebook (not a section inside Settings).
+Round 52, Section F: EVERY text on this tab follows the ACTIVE
+app language only -- never both languages together (owner's
+request). The dedication exists per language in
+src/config/settings.py (ABOUT_EN / ABOUT_AR) and only the active
+one is shown; the subtitle, license block and contact line all go
+through the i18n strings. ANADOCTORFADY itself is the app name,
+not a language string, and stays as-is. The Telegram contact
+button and number come from settings.py (TELEGRAM / TG_URL).
+Round 42: a License section (title + name + one-line summary in
+the app language) with a button opening the full license text in
+a scrollable dialog -- the same text as the shipped LICENSE file
+and the installer agreement page (that legal document is
+bilingual by design and pinned verbatim; the dialog's own title
+and Close button follow the app language)."""
 import tkinter as tk
 import webbrowser
 from tkinter import scrolledtext
 from src.config.theme import current, RADIUS_CARD
 from src.config.strings import t
-from src.config.settings import ABOUT_EN, ABOUT_AR, WHATSAPP, WA_URL, CLINIC
+from src.config.settings import ABOUT_EN, ABOUT_AR, TELEGRAM, TG_URL, CLINIC
 from src.config.license_text import LICENSE_TEXT
 from src.ui.rounded import rounded_button
 from src.ui.rounded_frame import RoundedFrame
@@ -56,10 +62,12 @@ class AboutTab(tk.Frame):
                  font=("Segoe UI", 16, "bold")).pack(pady=4)
         tk.Label(self, text=t("about.subtitle", self.lang),
                  bg=th["bg"], fg=th["text"], font=("Segoe UI", 11)).pack(pady=2)
-        tk.Label(self, text=ABOUT_EN, bg=th["bg"], fg=th["text"],
-                 font=("Segoe UI", 11), wraplength=700, justify="center").pack(pady=12, padx=20)
-        tk.Label(self, text=ABOUT_AR, bg=th["bg"], fg=th["text"],
-                 font=("Segoe UI", 12), wraplength=700, justify="center").pack(pady=4, padx=20)
+        # R52 Section F: ONE dedication label, in the active
+        # language only (was: ABOUT_EN and ABOUT_AR stacked).
+        _about = ABOUT_AR if self.lang == "ar" else ABOUT_EN
+        tk.Label(self, text=_about, bg=th["bg"], fg=th["text"],
+                 font=("Segoe UI", 12 if self.lang == "ar" else 11),
+                 wraplength=700, justify="center").pack(pady=12, padx=20)
         tk.Label(self, text=t("about.license_title", self.lang),
                  bg=th["bg"], fg=th["accent"], font=("Segoe UI", 12, "bold")).pack(pady=(16, 2))
         tk.Label(self, text=t("about.license_name", self.lang),
@@ -72,6 +80,6 @@ class AboutTab(tk.Frame):
                        command=lambda: show_license_text(self, self.lang)).pack(pady=4)
         tk.Label(self, text=t("about.contact", self.lang),
                  bg=th["bg"], fg=th["muted"], font=("Segoe UI", 10)).pack(pady=(16, 4))
-        rounded_button(self, text=t("about.whatsapp_btn", self.lang).format(number=WHATSAPP), bg="#25D366", fg="white",
+        rounded_button(self, text=t("about.telegram_btn", self.lang).format(number=TELEGRAM), bg="#229ED9", fg="white",
                   font=("Segoe UI", 11, "bold"),
-                  command=lambda: webbrowser.open(WA_URL)).pack(pady=6)
+                  command=lambda: webbrowser.open(TG_URL)).pack(pady=6)

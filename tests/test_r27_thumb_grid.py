@@ -226,9 +226,10 @@ def test_empty_state_both_languages_and_dark_tiles():
         root3, frame3 = _scans_section(fid)
         if frame3 is not None:
             try:
-                even, odd = zebra_colors(True)
+                # R43 re-pin: tiles rotate the vivid palette (was zebra pair).
+                from src.ui.vivid_rows import PALETTE
                 bgs = [str(tl.cget("bg")).lower() for tl in frame3.thumb_grid.tiles]
-                assert bgs == [even.lower(), odd.lower()], bgs
+                assert bgs == [PALETTE[0].lower(), PALETTE[1].lower()], bgs
             finally: root3.destroy()
     finally:
         set_setting("theme_mode", "light"); _cleanup(fid)

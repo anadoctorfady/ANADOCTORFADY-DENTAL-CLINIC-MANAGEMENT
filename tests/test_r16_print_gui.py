@@ -139,8 +139,8 @@ def test_open_patient_preview_end_to_end():
                 " age_months, age_days, nationality, mobile1, mobile2,"
                 " emergency_phone, address, created_at, diseases)"
                 " VALUES(77, 'Test Patient', '1990-05-15',"
-                " '20 Shawwal 1410', 36, 5, 21, 'Syrian', '0944234456',"
-                " '', '0999888777', 'Damascus', '2026-11-05',"
+                " '20 Shawwal 1410', 36, 5, 21, 'Syrian', '0791234567',"
+                " '', '0799888777', 'Damascus', '2026-11-05',"
                 " 'Diabetes, Hypertension')")
             conn.commit()
             conn.close()

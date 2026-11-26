@@ -1,197 +1,141 @@
-# ANADOCTORFADY — Free Dental Clinic System
+# ANADOCTORFADY — Dental Clinic Management
 
-> **This app is completely free.** We ask Allah to make it ongoing charity
-> (sadaqah jariyah) for Doctor **Fady Abdulkafy Dadoush** and his parents,
-> wife and children.
+I'm Fady Abdulkafy Dadoush, a dentist from Syria, and I built this program to run my own clinic. It handles
+everything a clinic needs day to day — patient files, the dental chart,
+prescriptions, appointments and the money — in Arabic and English, on an
+ordinary Windows computer, with no internet and no subscription. I'm
+sharing it free for any clinic that finds it useful.
 
-A complete, bilingual (English / Arabic) dental clinic management system for
-Windows 7 / 8 / 10 / 11. Written in Python + Tkinter with a local SQLite
-database — no internet required, no subscription, no activation. Light on
-laptops, modular code (no file over 200 lines), and easy to update piece by
-piece.
+**Safe and private — for the doctor and the patient alike.** Everything
+is stored on your own computer: patient files never leave it, no data
+is uploaded anywhere, and the app works fully offline. Accounts are
+password-protected, every doctor, nurse, manager and employee sees
+only what they are allowed to see, and the finance pages are
+protected by their own separate password.
 
-![Login screen](docs/login.png)
+> This app is completely free. I ask Allah to make it ongoing charity
+> (sadaqah jariyah) for me, my parents, my brothers, my wife and my
+> children. — Dr Fady Abdulkafy Dadoush
 
-## Features
+![Templates screen](r15_templates_ui.png)
 
-- **Patients** — four-part Arabic name, Gregorian + Hijri birth date and age
-  (live on entry), two mobiles + emergency phone, address, searchable
-  nationality (249 countries, default Syrian), automatic file number, search
-  by file no. / name / mobile / emergency phone.
-- **Dental chart** — realistic graphic teeth (permanent 32 + deciduous 20),
-  upper/lower jaws, per-tooth complaint, symptoms, diagnosis, procedures.
-- **Costs** — total / paid / remaining auto-calculated, in SYP (default) or
-  USD with a manual exchange-rate box and rate date. Default currency
-  changeable in Settings (178 currencies).
-- **Prescriptions** — 315 drugs by scientific (generic) name across all
-  classes, 129 drug-interaction pairs with colored alerts (severe red /
-  moderate amber), patient current meds + allergies, prescriptions always
-  saved to the patient file, bilingual PDF.
-- **Finance** — daily / period income, clinic expenses, lab costs, patient
-  debts, net income = paid − expenses − lab. Password-protected, Excel + PDF
-  export.
-- **Appointments, X-ray images, backup / restore**, printable bilingual
-  patient reports (`ANADOCTORFADY_<patient>.pdf`).
-- **Reusable phrases** — auto-learning memory for complaints, symptoms,
-  diagnoses, procedures (105 seed phrases) + clipboard history.
-- **Bilingual EN (default) / AR** with correct joined RTL Arabic rendering
-  (bundled Noto Naskh Arabic fonts), **light + dark mode**, Warm Sand design
-  system.
-- **Anonymous usage statistics (optional)** — when online, the app sends
-  only `{install_id, app_version, platform}` every 4 hours; the server
-  derives only the country from the IP and discards the IP. Count + countries
-  only, nothing else, visible only to the owner. Offline = full app.
-  The statistics server URL is empty by default, so nothing is sent until
-  the owner hosts it (see `TELEMETRY.md`).
+## What it does
 
-## Quick start (run from source)
+- **Patient files** — full four-part name, Gregorian and Hijri birth
+  dates with the age worked out as you type, two mobile numbers and an
+  emergency number, searchable nationality (Syrian by default), and an
+  automatic file number. Search by name, file number, or any phone number.
+- **Dental chart** — drawn teeth, not numbered buttons: 32 permanent and
+  20 deciduous, in real mouth order. Every tooth carries its own
+  complaint, symptoms, diagnosis and treatment.
+- **Ready-made phrases** — editable template tables for every specialty
+  (orthodontics, surgery, endodontics, paediatrics, periodontics,
+  implants…), so you rarely type the same sentence twice. Every place
+  that offers templates lets you pick Arabic or English for that place
+  alone, and the app learns the phrases you type yourself.
+- **Prescriptions** — 315 medicines by scientific name, with coloured
+  warnings for drug interactions and the patient's allergies and
+  diseases. Every prescription is saved to the patient file and prints
+  as a bilingual PDF.
+- **Money, kept simple** — each visit shows its own total, paid and
+  remaining. A patient can pay in advance and carry a credit balance.
+  Finance covers income, expenses, lab costs, salaries and debts, sits
+  behind its own password, and each doctor sees only his own income.
+- **Appointments and attendance** — a calendar with quick booking and
+  no double-booking, plus an attendance record for the team: signing
+  in and out shows exactly when each person started and ended their
+  shift.
+- **X-rays and scanner images** — stored inside the patient file as
+  thumbnails; double-click to view large, with zoom and rotate.
+- **More than one computer** — accounts for admins, doctors and nurses,
+  each with their own permissions, and optional syncing between devices
+  and between centres, so a patient's file shows the work of every
+  doctor who treated them.
+- **Printing** — bilingual patient reports, invoices, prescriptions and
+  referral letters as PDFs.
+- **Your centre's name and logo** — put your centre's or your own
+  name and logo in the app, and they appear at the top of every
+  printed report, prescription, invoice, and patient referral to
+  another doctor, centre or hospital.
+- **Backup and restore** built in. Your data stays on your own computer.
+- **Semi-automatic updates** — the app checks GitHub Releases and
+  offers a newer version when one is published; one click downloads
+  and installs it, and your data is never touched.
 
-Requires Python 3.8+ (for Windows 7 use Python 3.8.10).
+Works on Windows 7 / 8 / 10 / 11, in light and dark themes.
 
-```bat
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-python main.py
-```
+## Contact
 
-Default login: **fady / 1234** — change it in Settings after the first login.
-On Linux/macOS: `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt && python3 main.py`
-(the app targets Windows, but runs for testing on other systems).
-
-## Build a Windows EXE
-
-On Windows, run as Administrator (see `installer/README_BUILD.md`):
-
-```bat
-installer\build_exe_x86.bat   :: 32-bit — runs on x86 AND x64 (recommended)
-installer\build_exe_x64.bat   :: 64-bit — runs on x64 only
-```
-
-Output: `installer\dist\ANADOCTORFADY_x86.exe` / `ANADOCTORFADY_x64.exe` —
-a single double-click file, Python/SQLite/fonts bundled, works offline,
-`clinic.db` is created automatically on first run. No Office or internet
-needed. First run on Windows may show a SmartScreen "Unknown publisher"
-warning (no paid code-signing certificate yet) — click "More info → Run anyway".
-
-## Tests
-
-Every change must pass the test gate before it is delivered:
-
-```bat
-python run_tests.py
-```
-
-Expected: **44/44 test files passed**. Also: no Python file may exceed
-200 lines (`scripts/check_lines.py`).
-
-## About — حول التطبيق
-
-> This app is completely free and we ask Allah to make it ongoing charity
-> for Doctor Fady Abdulkafy Dadoush and his parents, wife and children.
-
-> هذا التطبيق مجاناً بالكامل و نسأل الله تعالى أن يكون صدقة جارية عن الدكتور
-> فادي عبد الكافي دعدوش و عن والديه و زوجته و أولاده
-
-Contact the developer on WhatsApp: **+963944234456** —
-https://wa.me/963944234456
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md). Fork, branch, keep files under
-200 lines, run the test gate before opening a pull request.
+Telegram: **+1 424 231 0526** — https://t.me/+14242310526
 
 ## License
 
-ANADOCTORFADY Free Use License — see [LICENSE](LICENSE). Free for everyone, forever; the software itself may never be sold or rented.
+ANADOCTORFADY Free Use License — see [LICENSE](LICENSE). Free for
+everyone, forever. The software itself may never be sold or rented,
+under any name.
 
 ---
 
-# ANADOCTORFADY — نظام عيادة أسنان مجاني
+# ANADOCTORFADY — إدارة عيادة الأسنان
 
-> **هذا التطبيق مجاناً بالكامل.** نسأل الله تعالى أن يكون صدقة جارية عن
-> الدكتور **فادي عبد الكافي دعدوش** و عن والديه و زوجته و أولاده.
+أنا فادي عبد الكافي دعدوش، طبيب أسنان من سوريا، وبنيتُ هذا البرنامج لأدير به عيادتي. يقوم بكل ما
+تحتاجه العيادة يومياً — ملفات المرضى ومخطط الأسنان والوصفات والمواعيد
+والحسابات — بالعربية والإنجليزية، على حاسوب ويندوز عادي، دون إنترنت
+ودون اشتراك. وأشاركه مجاناً لأي عيادة تجد فيه فائدة.
 
-نظام متكامل لإدارة عيادة الأسنان لنظام ويندوز 7 / 8 / 10 / 11، ثنائي اللغة
-(الإنجليزية / العربية)، مكتوب بلغة Python + Tkinter مع قاعدة بيانات SQLite
-محلية — بدون إنترنت، بدون اشتراك، وبدون تفعيل. خفيف على الأجهزة، وكوده
-معياري (لا يوجد ملف أكثر من 200 سطر) وسهل التحديث جزءاً جزءاً.
+**آمن ويحافظ على الخصوصية — للطبيب والمريض معاً.** كل شيء محفوظ على
+حاسوبك أنت: ملفات المرضى لا تغادره أبداً، ولا تُرفع أي بيانات إلى أي
+مكان، والتطبيق يعمل بالكامل دون إنترنت. الحسابات محمية بكلمات سر،
+وكل طبيب / ممرضة / مدير / موظف لا يرى إلا ما يحق له رؤيته، وصفحات
+المالية محمية بكلمة سر خاصة بها.
 
-## المزايا
+> هذا التطبيق مجاناً بالكامل، وأسأل الله أن يكون صدقة جارية عني وعن
+> والديّ وإخوتي وزوجتي وأولادي. — د. فادي عبد الكافي دعدوش
 
-- **المرضى** — اسم رباعي، تاريخ ميلاد ميلادي + هجري مع العمر مباشرة عند
-  الإدخال، جوالان + هاتف طوارئ، عنوان، جنسية قابلة للبحث (249 دولة،
-  الافتراضي سوري)، رقم ملف تلقائي، بحث برقم الملف / الاسم / الجوال / الطوارئ.
-- **مخطط الأسنان** — رسم واقعي للأسنان (32 دائم + 20 لبني)، الفكين العلوي
-  والسفلي، شكوى وأعراض وتشخيص وإجراءات لكل سن.
-- **التكاليف** — الإجمالي / المدفوع / المتبقي تُحسب تلقائياً، بالليرة السورية
-  (افتراضي) أو الدولار مع صندوق سعر صرف يدوي وتاريخ السعر. العملة
-  الافتراضية قابلة للتغيير من الإعدادات (178 عملة).
-- **الوصفات** — 315 دواءً بالاسم العلمي من كل الفئات، 129 تداخلاً دوائياً
-  مع تنبيهات ملونة (شديد بالأحمر / متوسط بالكهرماني)، أدوية المريض الحالية
-  + الحساسية، الوصفات تُحفظ دائماً في ملف المريض، وPDF ثنائي اللغة.
-- **المالية** — دخل يومي / لفترة، مصاريف العيادة، تكاليف المختبر، ديون
-  المرضى، صافي الدخل = المقبوض − المصاريف − المختبر. محمية بكلمة سر،
-  وتصدير Excel + PDF.
-- **مواعيد، صور أشعة، نسخ احتياطي / استعادة**، وتقارير مرضى ثنائية اللغة
-  قابلة للطباعة (`ANADOCTORFADY_<اسم المريض>.pdf`).
-- **عبارات جاهزة** — ذاكرة تتعلم تلقائياً للشكوى والأعراض والتشخيص
-  والإجراءات (105 عبارة أولية) + سجل الحافظة.
-- **ثنائي اللغة إنجليزي (افتراضي) / عربي** مع عرض عربي صحيح متصل من
-  اليمين لليسار (خطوط Noto Naskh Arabic مضمّنة)، **وضع فاتح + داكن**.
-- **إحصاءات مجهولة (اختياري)** — عند الاتصال بالإنترنت يرسل التطبيق فقط
-  `{install_id, app_version, platform}` كل 4 ساعات؛ الخادم يستنتج الدولة
-  من الـ IP ثم يحذفه. عدد + دول فقط، ولا شيء غير ذلك، ولا يراها إلا المالك.
-  وبدون إنترنت يعمل التطبيق كاملاً. رابط الخادم فارغ افتراضياً فلا يُرسل
-  شيء حتى يستضيف المالك الخادم (انظر `TELEMETRY.md`).
+## ماذا يفعل
 
-## التشغيل السريع (من المصدر)
+- **ملفات المرضى** — ملفات مرتبة لكل مريض: الاسم الرباعي كاملاً،
+  تاريخ الميلاد بالميلادي والهجري مع حساب العمر أثناء الكتابة، رقما
+  موبايل ورقم طوارئ، جنسية قابلة للبحث (الافتراضي سوري)، ورقم ملف
+  تلقائي. والبحث بالاسم أو رقم الملف أو أي رقم هاتف.
+- **مخطط الأسنان** — أسنان مرسومة لا أزرار مرقّمة: 32 سناً دائماً و20
+  لبنياً بترتيب الفم الحقيقي، ولكل سن شكواه وأعراضه وتشخيصه ومعالجته.
+- **عبارات جاهزة** — جداول نماذج قابلة للتعديل لكل الاختصاصات (تقويم،
+  جراحة، لبّية، أطفال، لثة، زرع…) فلا تكتب الجملة نفسها مرتين. وكل
+  موضع فيه نماذج يتيح لك اختيار العربية أو الإنجليزية له وحده،
+  والبرنامج يتعلّم العبارات التي تكتبها بنفسك.
+- **الوصفات** — 315 دواءً بالاسم العلمي، مع تنبيهات ملوّنة للتداخلات
+  الدوائية وحساسية المريض وأمراضه. كل وصفة تُحفظ في ملف المريض وتُطبع
+  PDF ثنائي اللغة.
+- **الحسابات ببساطة** — لكل جلسة إجماليها ومدفوعها ومتبقّيها. ويمكن
+  للمريض أن يدفع سلفاً ويبقى له رصيد دائن. والمالية تشمل الدخل
+  والمصاريف وتكاليف المختبر والرواتب والديون، محمية بكلمة سر خاصة،
+  وكل طبيب يرى دخله وحده فقط.
+- **المواعيد والحضور** — تقويم بحجز سريع ومنع للحجز المزدوج، وسجل
+  حضور للفريق: من خلال تسجيل الدخول والخروج نعرف متى داوم كل شخص
+  ومتى أنهى دوامه.
+- **الأشعة والسكانر** — تُحفظ داخل ملف المريض كمصغّرات؛ نقرة مزدوجة
+  تعرضها كبيرة مع تكبير وتدوير.
+- **أكثر من حاسوب** — حسابات للأدمن والأطباء والممرضين، لكلٍّ
+  صلاحياته، ومزامنة اختيارية بين الأجهزة وبين المراكز، فيُظهر ملف
+  المريض عمل كل طبيب عالجه.
+- **الطباعة** — تقارير مرضى وفواتير ووصفات ورسائل إحالة بصيغة PDF
+  ثنائية اللغة.
+- **اسم مركزك وشعاره** — ضع اسم مركزك أو اسمك مع شعار المركز أو
+  شعارك الخاص في التطبيق، فيظهر أعلى كل التقارير والوصفات
+  والفواتير وتحويل المريض إلى طبيب أو مركز أو مشفى آخر.
+- **نسخ احتياطي واستعادة** مدمجان. وبياناتك تبقى على حاسوبك.
+- **تحديثات شبه تلقائية** — يتحقق التطبيق من إصدارات GitHub ويعرض
+  عليك الإصدار الأحدث عند نشره؛ وبضغطة واحدة يُنزّله ويثبّته،
+  وبياناتك لا تُمسّ أبداً.
 
-يتطلب Python 3.8+ (لويندوز 7 استخدم Python 3.8.10):
-
-```bat
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-python main.py
-```
-
-الدخول الافتراضي: **fady / 1234** — غيّره من الإعدادات بعد أول دخول.
-
-## بناء ملف EXE لويندوز
-
-على ويندوز، شغّل كمسؤول (انظر `installer/README_BUILD.md`):
-
-```bat
-installer\build_exe_x86.bat   :: 32-بت — يعمل على x86 و x64 (الموصى به)
-installer\build_exe_x64.bat   :: 64-بت — يعمل على x64 فقط
-```
-
-الناتج: `installer\dist\ANADOCTORFADY_x86.exe` / `ANADOCTORFADY_x64.exe` —
-ملف واحد بنقرة مزدوجة، بايثون وقاعدة البيانات والخطوط مضمّنة، يعمل بدون
-إنترنت، و`clinic.db` تُنشأ تلقائياً عند أول تشغيل. قد تظهر رسالة SmartScreen
-"ناشر غير معروف" عند أول تشغيل (لا توجد شهادة توقيع مدفوعة بعد) —
-اضغط "More info ← Run anyway".
-
-## الاختبارات
-
-كل تعديل يجب أن يجتاز بوابة الاختبار قبل تسليمه:
-
-```bat
-python run_tests.py
-```
-
-المتوقع: **44/44 ملف اختبار ناجح**. ولا يجوز أن يتجاوز أي ملف بايثون
-200 سطر (`scripts/check_lines.py`).
+يعمل على ويندوز 7 / 8 / 10 / 11، بوضعين فاتح وداكن.
 
 ## التواصل
 
-واتساب المطور: **+963944234456** — https://wa.me/963944234456
-
-## المساهمة
-
-انظر [CONTRIBUTING.md](CONTRIBUTING.md).
+تيليغرام: **+1 424 231 0526** — https://t.me/+14242310526
 
 ## الترخيص
 
-ترخيص ANADOCTORFADY للاستخدام المجاني — انظر [LICENSE](LICENSE). مجاني للجميع، للأبد؛ ويُمنع بيع البرنامج نفسه أو تأجيره.
+ترخيص ANADOCTORFADY للاستخدام المجاني — انظر [LICENSE](LICENSE).
+مجاني للجميع وللأبد، ويُمنع بيع البرنامج نفسه أو تأجيره تحت أي اسم.

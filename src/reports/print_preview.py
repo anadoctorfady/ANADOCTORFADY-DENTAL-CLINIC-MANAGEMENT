@@ -34,13 +34,11 @@ class PrintPreview(tk.Toplevel):
         self.configure(bg=th["bg"]); self.geometry("640x560"); self.transient(parent)
         top = tk.Frame(self, bg=th["bg"])
         top.pack(fill="x", padx=12, pady=(10, 4))
-        tk.Label(top, text=pp_t("pp.language", self.lang_var.get()),
-                 bg=th["bg"], fg=th["text"],
+        tk.Label(top, text=pp_t("pp.language", self.lang_var.get()), bg=th["bg"], fg=th["text"],
                  font=("Segoe UI", 10, "bold")).pack(side="left")
         for code, label in (("en", "English"), ("ar", "العربية")):
-            tk.Radiobutton(top, text=label, variable=self.lang_var,
-                           value=code, bg=th["bg"], fg=th["text"],
-                           selectcolor=th["card"],
+            tk.Radiobutton(top, text=label, variable=self.lang_var, value=code,
+                           bg=th["bg"], fg=th["text"], selectcolor=th["card"],
                            command=self._on_lang).pack(side="left", padx=6)
         if header_extra is not None:
             header_extra(self)  # round 18: caller's extra control row
@@ -50,19 +48,17 @@ class PrintPreview(tk.Toplevel):
         btns = tk.Frame(self, bg=th["bg"])
         btns.pack(side="bottom", fill="x", padx=12, pady=(0, 12))
         th_btn = finance_current()["btn_text"]
-        rounded_button(btns, text=pp_t("pp.print", self.lang_var.get()),
-                       bg=th["accent"], fg=th_btn,
-                       command=self._on_print).pack(side="left", padx=(0, 6))
-        rounded_button(btns, text=pp_t("pp.save_pdf", self.lang_var.get()),
-                       bg=th["accent"], fg=th_btn,
-                       command=self._on_save).pack(side="left", padx=6)
-        rounded_button(btns, text=pp_t("pp.cancel", self.lang_var.get()),
-                       bg=th["muted"], fg=th_btn,
-                       command=self.destroy).pack(side="right")
-        wrap = tk.Frame(self, bg=th["bg"])
-        wrap.pack(fill="both", expand=True, padx=12, pady=6)
-        bar = tk.Scrollbar(wrap)
-        bar.pack(side="right", fill="y")
+        rounded_button(btns, text=pp_t("pp.print", self.lang_var.get()), bg=th["accent"],
+                       fg=th_btn, command=self._on_print).pack(side="left", padx=(0, 6))
+        rounded_button(btns, text=pp_t("pp.save_pdf", self.lang_var.get()), bg=th["accent"],
+                       fg=th_btn, command=self._on_save).pack(side="left", padx=6)
+        rounded_button(btns, text=pp_t("pp.cancel", self.lang_var.get()), bg=th["muted"],
+                       fg=th_btn, command=self.destroy).pack(side="right")
+        # R57 (Section B): centre logo above the text when set (None, nothing packed, when unset).
+        from src.reports.preview_logo import preview_logo_label
+        self.logo_label = preview_logo_label(self)
+        wrap = tk.Frame(self, bg=th["bg"]); wrap.pack(fill="both", expand=True, padx=12, pady=6)
+        bar = tk.Scrollbar(wrap); bar.pack(side="right", fill="y")
         self.text = tk.Text(wrap, bg=th["panel"], fg=th["text"],
                             font=("Segoe UI", 10), wrap="word",
                             yscrollcommand=bar.set, state="disabled")
@@ -78,9 +74,7 @@ class PrintPreview(tk.Toplevel):
                 out = self._preview_text(lang)
                 if isinstance(out, str):
                     return out.splitlines()
-                return [" — ".join(str(x) for x in item if x)
-                        if isinstance(item, (list, tuple)) else str(item)
-                        for item in out]
+                return [" — ".join(str(x) for x in item if x) if isinstance(item, (list, tuple)) else str(item) for item in out]
             except Exception:
                 pass
         if self.pdf_path and Path(self.pdf_path).exists():
@@ -97,7 +91,14 @@ class PrintPreview(tk.Toplevel):
             self.pdf_path = None; err = str(e)
         lines = [f"{pp_t('pp.build_failed', lang)} {err}"] if err else self._lines(lang)
         self.text.configure(state="normal"); self.text.delete("1.0", tk.END)
-        self.text.insert("1.0", "\n".join(lines)); self.text.configure(state="disabled")
+        self.text.insert("1.0", "\n".join(lines))
+        # R54 (Section E): the leading non-empty run is the header block
+        # (clinic name + centre contact) -- centre it, bold, like the PDF.
+        self.text.tag_configure("head", font=("Segoe UI", 11, "bold"), justify="center")
+        _n = 0
+        while _n < len(lines) and lines[_n].strip(): _n += 1
+        if _n: self.text.tag_add("head", "1.0", f"{_n + 1}.0")
+        self.text.configure(state="disabled")
         if self.pdf_path and Path(self.pdf_path).exists():
             kb = max(1, Path(self.pdf_path).stat().st_size // 1024)
             self.info.configure(text=pp_t("pp.info", lang).format(pages=pdf_page_count(self.pdf_path), kb=kb))

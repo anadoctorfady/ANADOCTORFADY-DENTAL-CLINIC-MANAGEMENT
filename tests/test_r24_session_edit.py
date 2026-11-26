@@ -53,7 +53,7 @@ def test_edit_admin_updates_text_money_keeps_created_at():
         assert _edit.start_edit(tab) is True
         assert tab.txt_diagnosis.get("1.0", tk.END).strip() == "Pulpitis"
         assert (tab.e_sess_total.get(), tab.e_sess_paid.get()) == ("300", "50")
-        assert str(tab.e_sess_date.cget("state")) == "disabled"  # identity fixed
+        assert str(tab.e_sess_date.cget("state")) == "normal"  # R49 F: admin may edit the date (pre-R49 it was "disabled" for everyone -- identity fixed)
         assert str(tab.e_sess_tooth.cget("state")) == "disabled"
         _entry.set_entry_text(tab, "txt_diagnosis", "Irreversible pulpitis")
         _entry.set_money(tab, 350, 100)

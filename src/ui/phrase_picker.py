@@ -1,17 +1,14 @@
 """Template picker for the clinical tab (Item 5, 2026-11-08). <200 lines.
 
-No specialty picker any more: every field gets a SMALL picker button
-beside it that opens one dialog over the COMBINED pool - reusable
-phrases (phrases_seed.json + auto-learned) + seed phrases from ALL 8
-specialties (specialties.json) + custom templates. The doctor can also
-type free text in the field or save the current text as a new template.
-The multi-select clipboard picker (Ctrl+Shift+V) is untouched and stays
-silent in the clinical UI (no button / hint mentions it there)."""
+Every field gets a SMALL picker button beside it opening one dialog
+over the COMBINED pool (reusable phrases + ALL specialties' seeds +
+custom templates). Round 43: the field's own Arabic | English toggle."""
 import tkinter as tk
 from tkinter import ttk, messagebox
 from src.config.theme import current
 from src.config.strings import t
 from src.models.database import get_setting
+from src.models.field_lang import field_template_lang
 from src.models.phrases import search_phrases, save_phrase, toggle_favorite, search_text_matches; from src.ui.zebra import zebra_listbox
 from src.models import specialty_templates as tpl
 from src.models.database import get_connection
@@ -26,11 +23,10 @@ def combined_templates(category, query="", lang=None):
     """Combined pool for one field: [{text, display, favorite}].
     Reusable phrases first (favorites on top), then the all-specialties
     seed pool (overrides applied, deleted dropped), then custom
-    templates. Every row shows ONE language only (the EFFECTIVE
-    template language — round 31: tpl.effective_template_lang(),
-    the doctor's template_lang choice, default = app language);
-    `text` is what gets inserted. Deduped by text (R21 normalizer)."""
-    lang = lang or tpl.effective_template_lang()
+    templates. Every row shows ONE language only (round 43: THIS
+    field's language — field_lang.field_template_lang: the field's
+    own choice, else the round-31 default). Deduped (R21)."""
+    lang = lang or field_template_lang(category)
     out, seen = [], set()
 
     def _add(text, display, fav=False):
@@ -67,36 +63,41 @@ _CAT_AR = {"complaint": "dlg.cat_complaint", "symptom": "dlg.cat_symptom", "dise
 
 
 def open_template_picker(parent, category, text_widget, current_user=None, lang=None):
-    """Small dialog: search the combined pool, pick a template to insert
-    (Append / Replace), or save the field's current text as a template."""
+    """Small dialog: search the combined pool, insert (Append/Replace), or save the field's text as a template."""
     lang = lang or get_setting("language", "en") or "en"
-    tl = tpl.effective_template_lang()
+    tl = {"v": field_template_lang(category)}  # R43: per-field, toggle below
     th = current()
     win = tk.Toplevel(parent)
     win.title(t("dlg.pp_title", lang).format(
         category=t(_CAT_AR[category], lang) if category in _CAT_AR else category))
     win.geometry("560x420")
     win.configure(bg=th["bg"])
-    # Round 15: heading uses text (not accent) for contrast (13.56:1).
-    tk.Label(win, text=t("dlg.pp_heading", lang),
-             bg=th["bg"], fg=th["text"], font=("Segoe UI", 10, "bold")).pack(anchor="w", padx=8, pady=6)
+    head = tk.Frame(win, bg=th["bg"])
+    head.pack(fill="x", padx=8, pady=6)
+    tk.Label(head, text=t("dlg.pp_heading", lang),  # R15: text colour, 13.56:1
+             bg=th["bg"], fg=th["text"], font=("Segoe UI", 10, "bold")).pack(side="left")
+    # Round 43: THIS field's Arabic | English toggle (heading row).
+    from src.ui.template_lang_ui import build_lang_toggle
+    _toggle, _mark = build_lang_toggle(
+        head, lambda: category,
+        lambda new: (tl.update(v=new), refresh()))
+    _toggle.pack(side="right")
+    win.field_lang_toggle = _toggle  # for tests
     top = tk.Frame(win, bg=th["bg"])
     top.pack(fill="x", padx=8, pady=2)
     tk.Label(top, text=t("dlg.pp_search", lang), bg=th["bg"], fg=th["text"]).pack(side="left")
     search = RoundedEntry(top, width=30, bg=th["bg"])
     search.pack(side="left", padx=4)
-    # Round 21: explicit Search button (owner expects one) + live KeyRelease filtering below.
-    rounded_button(top, text=t("tpl_search", lang), relief="flat", command=lambda: refresh()).pack(side="left", padx=2)
+    rounded_button(top, text=t("tpl_search", lang), relief="flat", command=lambda: refresh()).pack(side="left", padx=2)  # R21 + live KeyRelease below
     mode = RoundedCombobox(top, values=["Append", "Replace"], width=7, state="readonly", bg=th["bg"])
     mode.set("Append")
     mode.pack(side="left", padx=4)
-    # Round 15: list background is the app MAIN colour (th["bg"]).
-    box = RoundedListbox(win, height=14, font=("Segoe UI", 10), bg=th["bg"], fg=th["text"])
+    box = RoundedListbox(win, height=14, font=("Segoe UI", 10), bg=th["bg"], fg=th["text"])  # R15: app MAIN colour
     box.pack(fill="both", expand=True, padx=8, pady=4)
     state = {"rows": []}
 
     def refresh(_e=None):
-        state["rows"] = combined_templates(category, search.get(), tl)
+        state["rows"] = combined_templates(category, search.get(), tl["v"])
         box.delete(0, tk.END)
         for r in state["rows"]:
             box.insert(tk.END, ("⭐ " if r["favorite"] else "") + r["display"])
@@ -104,8 +105,7 @@ def open_template_picker(parent, category, text_widget, current_user=None, lang=
 
     def insert_sel(_e=None):
         sel = box.curselection()
-        if not sel:
-            return
+        if not sel: return
         _insert(text_widget, state["rows"][sel[0]]["text"], mode.get())
         win.destroy()
 
@@ -115,24 +115,18 @@ def open_template_picker(parent, category, text_widget, current_user=None, lang=
             messagebox.showwarning(t("dlg.tm_empty_title", lang), t("dlg.pp_empty_msg", lang))
             return
         save_phrase(category, txt)
+        en, ar = (txt, "") if tl["v"] == "en" else ("", txt)  # the field's language only
         try:
             conn = get_connection()
-            try:
-                # Saved in the template language only (one language per template).
-                en, ar = (txt, "") if tl == "en" else ("", txt)
-                tpl.add_template(conn, "general", _CAT.get(category, category),
-                                 en, ar, created_by=current_user or "")
-            finally:
-                conn.close()
-        except Exception:
-            pass
+            try: tpl.add_template(conn, "general", _CAT.get(category, category), en, ar, created_by=current_user or "")
+            finally: conn.close()
+        except Exception: pass
         refresh()
         messagebox.showinfo(t("dlg.pp_saved_title", lang), t("dlg.pp_saved_msg", lang))
 
     def fav():
         sel = box.curselection()
-        if not sel:
-            return
+        if not sel: return
         rows = search_phrases(category, state["rows"][sel[0]]["text"], limit=5)
         if rows:
             toggle_favorite(rows[0]["id"])
@@ -154,14 +148,10 @@ def open_template_picker(parent, category, text_widget, current_user=None, lang=
 
 def attach_picker_button(parent, category, text_widget, current_user=None):
     """The SMALL picker button that sits beside a clinical field."""
-    btn = rounded_button(parent, text=t("dlg.pp_picker_btn", get_setting("language", "en") or "en"), relief="flat",
-                    command=lambda: open_template_picker(parent, category, text_widget, current_user))
-    return btn
+    return rounded_button(parent, text=t("dlg.pp_picker_btn", get_setting("language", "en") or "en"), relief="flat", command=lambda: open_template_picker(parent, category, text_widget, current_user))
 
 def show_clipboard_panel(root, get_target=None, lang=None):
-    """Clipdiary-like panel: last 20 clips, click to paste into focused field.
-    Polls the system clipboard every 2s while open (so text copied in
-    Clipdiary / any program appears here automatically)."""
+    """Clipdiary-like panel: last 20 clips, click to paste; polls the clipboard every 2s."""
     lang = lang or get_setting("language", "en") or "en"
     win = tk.Toplevel(root); th = current(); win.configure(bg=th["bg"]); win.title(t("dlg.pp_clip_title", lang))
     win.geometry("520x380")

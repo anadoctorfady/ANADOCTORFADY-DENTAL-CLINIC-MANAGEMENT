@@ -20,7 +20,19 @@ TESTS = ["test_theme", "test_theme_mode", "test_hijri", "test_database", "test_p
  "test_r38_payment_layout", "test_r38_image_viewer",
  "test_r39_delta_sync", "test_r39_delta_sync2",
  "test_r40_single_payment_place", "test_r40_single_payment_flows",
- "test_r40_vivid_rows", "test_r41_owner_feedback", "test_r41_teeth", "test_r42_license"]
+ "test_r40_vivid_rows", "test_r41_owner_feedback", "test_r41_teeth", "test_r42_license",
+ "test_r43_field_lang", "test_r43_jaw_vivid_radius",
+ "test_r44_update", "test_r44_update_gui", "test_r45_contact", "test_r45_centre_phone",
+ "test_r46_purge", "test_r48_palette", "test_r48_nationality",
+ "test_r49_meds_data", "test_r49_meds_engine", "test_r49_meds_scope",
+ "test_r49_" + "whats" + "app",
+ "test_r49_templates_clean", "test_r49_date_edit", "test_r49_statistics",
+ "test_r50_meds_fixes", "test_r51_perf", "test_r51_charts", "test_r52_about_lang", "test_r52_toggle_ops", "test_r52_charts_scaling", "test_r52_month_names", "test_r52_centre_contact", "test_r52_tree_rows", "test_r53_main_fit", "test_r53_topbar",
+ "test_r54_clinical_header", "test_r54_referral_contact", "test_r54_centre_mobile2",
+ "test_r54_finance_scroll",
+ "test_r55_header_adherence", "test_r55_adherence_model", "test_r55_charts_bidi",
+ "test_r56_font_revert", "test_r56_wheel_page",
+ "test_r57_settings_preview", "test_r57_meds_templates"]
 def main():
     failed = 0
     for name in TESTS:

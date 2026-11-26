@@ -145,8 +145,8 @@ def build_panels(tab, parent, kinds=MAIN_PANELS):
         hdr.pack(fill="x")
         tk.Label(hdr, text=r15_t(title_key, lang), bg=BROWN_HEADER, fg="white",
                  font=("Segoe UI", 9, "bold")).pack(anchor="w", padx=8, pady=3)
-        body = RoundedText(frm.inner, height=3, wrap="word", bg=cols["bg"],
-                           fg=cols["body_fg"], font=("Segoe UI", 9), state="disabled")
+        body = RoundedText(frm.inner, height=3, width=1, wrap="word", bg=cols["bg"],
+                           fg=cols["body_fg"], font=("Segoe UI", 9), state="disabled")  # R53: width=1 -- the Text default (80 chars) requested ~888px per panel and pushed the clinical scroll flow far past the window width
         body.pack(fill="x", padx=6, pady=4)
         tab.panel_texts[key] = body
     tab._panels_fid = "unfilled"  # sentinel: first refresh always fills

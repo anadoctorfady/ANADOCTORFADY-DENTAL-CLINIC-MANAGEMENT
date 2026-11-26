@@ -3,9 +3,10 @@ owner-directed — it never reached Firebase before), PUT to
 /installs/<id>.json every hour (round 40; was every 4h),
 silent on offline/denied, server POST untouched, no hardcoded URL.
 All network calls are mocked — the real Firebase is never touched.
-The rules snippet in TELEMETRY.md is parsed + checked here, so the
-doc the owner pastes and the code stay in agreement."""
-import json, re, time, urllib.error
+The exact Locked-mode rules the owner pastes into the Firebase
+console are embedded below and checked here, so the pasted rules and
+the code stay in agreement."""
+import json, time, urllib.error
 from pathlib import Path
 from unittest.mock import patch
 from src.models import telemetry as T
@@ -31,13 +32,14 @@ def _reset():
 def _capture(calls):
     def fake(req, timeout=None): calls.append(req); return _Resp(200)
     return fake
-def _rules_from_docs():
-    """The exact rules JSON the owner pastes (TELEMETRY.md block)."""
-    text = (ROOT / "TELEMETRY.md").read_text(encoding="utf-8")
-    m = re.search(r"<!-- BEGIN FIREBASE RULES.*?```json\n(.*?)```"
-                  r".*?<!-- END FIREBASE RULES -->", text, re.S)
-    assert m, "Firebase rules block missing from TELEMETRY.md"
-    return json.loads(m.group(1))  # raises if the snippet is not valid JSON
+def _owner_rules():
+    """The exact Locked-mode rules JSON the owner pastes into the
+    Firebase console Rules tab (writes only under installs/<id>,
+    reads denied everywhere). Kept here so the check survives
+    without a public doc."""
+    return {"rules": {
+        "installs": {"$install_id": {".write": True, ".read": False}},
+        ".read": False, ".write": False}}
 def test_firebase_url_empty_by_default():
     _reset(); T.set_firebase_url("")
     assert T.get_firebase_url() == ""
@@ -119,7 +121,7 @@ def test_firebase_denied_silent_stays_due():
 def test_firebase_rules_snippet_in_docs():
     """The rules the owner pastes must match the implemented PUT:
     write allowed under installs/$install_id, denied everywhere else."""
-    rules = _rules_from_docs()["rules"]  # valid JSON, or the parse fails
+    rules = _owner_rules()["rules"]  # the pasted rules, checked below
     assert rules[".read"] is False and rules[".write"] is False
     assert set(rules) == {"installs", ".read", ".write"}
     node = rules["installs"]["$install_id"]

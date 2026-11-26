@@ -1,13 +1,10 @@
-"""Settings storage section (round 16): clinic name + reports/scans
-folders; round 30 adds the editable centre logo row. <200 lines.
-
-Setting keys (EXACT): clinic_name ("" = hidden on reports),
-reports_dir / scans_dir ("" = the app default folders REPORTS /
-SCANS), centre_logo (stored logo filename in DATA_DIR, R30).
-Pickers + logo buttons save IMMEDIATELY; existing files are NOT
-moved automatically. Strings: strings_r16_settings.py +
-strings_r30_logo.py; _s() falls back to t() first.
-"""
+"""Settings storage section: clinic name, centre mobile (R45,
+relabelled R52), centre landline + address (R52), centre logo
+(R30), default nationality (R48), Arabic month names (R52) +
+reports/scans folders. The centre-identity fields themselves live
+in settings_centre_fields.py. Keys: clinic_name, centre_phone,
+centre_landline, centre_address, centre_logo, default_nationality,
+ar_month_names, reports_dir, scans_dir. <200 lines."""
 import tkinter as tk
 from pathlib import Path
 from tkinter import filedialog, messagebox
@@ -143,8 +140,10 @@ def remove_logo(tab):
 
 
 def save_storage(tab):
-    """Persist the clinic name (folders are already saved by pickers)."""
-    set_setting("clinic_name", tab.clinic_name_var.get().strip())
+    """Persist the centre-identity fields + folder vars (the folder
+    pickers also save at once; this is the section's Save button)."""
+    from src.ui.settings_centre_fields import save_centre_fields
+    save_centre_fields(tab)
     set_setting("reports_dir", tab.reports_dir_var.get().strip())
     set_setting("scans_dir", tab.scans_dir_var.get().strip())
     _refresh_labels(tab)
@@ -161,27 +160,30 @@ def attach_storage_section(body, tab):
     frm.pack(fill="x", padx=10, pady=8)
     tab.storage_wrap = frm  # R21 item 10: SettingsTab hides this for non-settings-admins
     frm = frm.inner
-    tk.Label(frm, text=_s("settings.clinic_name", lang), bg=th["panel"], fg=th["text"]).grid(row=0, column=0, padx=6, pady=4, sticky="w")
-    tab.clinic_name_var = tk.StringVar(tab, value=get_setting("clinic_name", "") or "")
-    RoundedEntry(frm, textvariable=tab.clinic_name_var, width=40).grid(row=0, column=1, padx=4, pady=4, sticky="w")
-    tk.Label(frm, text=_s("settings.clinic_name_hint", lang), bg=th["panel"], fg=th["muted"]).grid(row=1, column=0, columnspan=4, padx=6, sticky="w")
-    tk.Label(frm, text=_s("settings.logo_label", lang), bg=th["panel"], fg=th["text"]).grid(row=2, column=0, padx=6, pady=4, sticky="w")
+    from src.ui.settings_centre_fields import attach_centre_fields
+    attach_centre_fields(frm, tab)  # rows 0..7: clinic identity (R52);
+    # R57: the centre-logo row is 8, NOT 7 -- attach_centre_fields
+    # already uses row 7 for the Arabic month-names picker, and the
+    # logo widgets gridded onto row 7 painted over it (the owner saw
+    # the month-name label mixed with the logo thumbnail, and the
+    # month combobox hidden behind the logo preview).
+    tk.Label(frm, text=_s("settings.logo_label", lang), bg=th["panel"], fg=th["text"]).grid(row=8, column=0, padx=6, pady=4, sticky="w")
     tab._logo_preview = tk.Label(frm, text="", bg=th["panel"], fg=th["muted"])
-    tab._logo_preview.grid(row=2, column=1, padx=4, pady=4, sticky="w")
+    tab._logo_preview.grid(row=8, column=1, padx=4, pady=4, sticky="w")
     tab._logo_btn = rounded_button(frm, text=_s("settings.logo_add", lang), bg=th["accent"],
                                    command=lambda: pick_logo(tab))
-    tab._logo_btn.grid(row=2, column=2, padx=4, pady=4)
+    tab._logo_btn.grid(row=8, column=2, padx=4, pady=4)
     rounded_button(frm, text=_s("settings.logo_remove", lang), bg=th["panel"], fg=th["text"],
-                   command=lambda: remove_logo(tab)).grid(row=2, column=3, padx=4, pady=4)
+                   command=lambda: remove_logo(tab)).grid(row=8, column=3, padx=4, pady=4)
     refresh_logo_preview(tab)
     tab.reports_dir_var = tk.StringVar(tab, value=get_setting("reports_dir", "") or "")
     tab.scans_dir_var = tk.StringVar(tab, value=get_setting("scans_dir", "") or "")
-    for row, key, pick, reset in ((3, "settings.reports_dir", pick_reports_dir, reset_reports_dir),
-                                  (4, "settings.scans_dir", pick_scans_dir, reset_scans_dir)):
+    for row, key, pick, reset in ((9, "settings.reports_dir", pick_reports_dir, reset_reports_dir),
+                                  (10, "settings.scans_dir", pick_scans_dir, reset_scans_dir)):
         tk.Label(frm, text=_s(key, lang), bg=th["panel"], fg=th["text"]).grid(row=row, column=0, padx=6, pady=4, sticky="w")
         _lbl = tk.Label(frm, text="", bg=th["panel"], fg=th["muted"], wraplength=420, justify="left")
         _lbl.grid(row=row, column=1, padx=4, pady=4, sticky="w")
-        if row == 3:
+        if row == 9:
             tab._storage_reports_lbl = _lbl
         else:
             tab._storage_scans_lbl = _lbl
@@ -191,6 +193,6 @@ def attach_storage_section(body, tab):
                        command=lambda r=reset: r(tab)).grid(row=row, column=3, padx=4, pady=4)
     _refresh_labels(tab)
     tk.Label(frm, text=_s("settings.storage_note", lang), bg=th["panel"], fg=th["muted"],
-             wraplength=760, justify="left").grid(row=5, column=0, columnspan=4, padx=6, pady=4, sticky="w")
+             wraplength=760, justify="left").grid(row=11, column=0, columnspan=4, padx=6, pady=4, sticky="w")
     rounded_button(frm, text=_s("settings.storage_save", lang), bg=th["accent"],
-                   command=lambda: save_storage(tab)).grid(row=6, column=0, padx=6, pady=(4, 6), sticky="w")
+                   command=lambda: save_storage(tab)).grid(row=12, column=0, padx=6, pady=(4, 6), sticky="w")

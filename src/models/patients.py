@@ -8,8 +8,9 @@ with EXACTLY the pre-round-32 match semantics:
 - Search-only list: NO criteria -> [] (or just the open patient);
   with criteria, name-part substrings or ANY phone + quick text.
 - Phones (round 18): digits normalized (Arabic-Indic -> 0-9),
-  leading 963 / 00963 or trunk 0 stripped, >=7 significant digits
-  match by suffix ("0944234456" found by "+963944234456").
+  a leading country-code prefix or trunk 0 stripped, >=7
+  significant digits match by suffix ("0791234567" found by
+  "+962791234567" -- fictional sample numbers only, round 46).
 - Soft delete: deleted=1, NEVER a DELETE FROM; deleted patients
   never appear in search / fetch_list_row() / find_duplicate().
 - save_patient_record() builds INSERT/UPDATE from the data dict,

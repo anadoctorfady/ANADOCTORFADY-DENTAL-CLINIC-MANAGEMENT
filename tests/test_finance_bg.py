@@ -1,12 +1,7 @@
 """Finance background (ITEM 8, 2026-11-08): darker, low-glare surfaces
 in both modes, with every finance text/background pair >= 4.5:1 WCAG.
 
-Light mode is no longer near-white: bg #D8CFC0 (lum 0.630) replaces
-Warm Sand #F6F1E9 (0.884) / panel #FFFFFF (1.000); panel #E3D9C8
-(0.701) replaces white. Dark mode keeps the comfortable Warm Charcoal
-bg with a slightly warmer panel. The old muted/accent/value colours
-would have failed on the darker light bg, so the finance tokens carry
-darkened text colours too (see src/config/theme.py FINANCE_*).
+Light mode is no longer near-white: bg #D8CFC0 (lum 0.630) replaces Warm Sand #F6F1E9 (0.884) / panel #FFFFFF (1.000); panel #E3D9C8 (0.701) replaces white. Dark mode keeps the comfortable Warm Charcoal bg with a slightly warmer panel. The old muted/accent/value colours would have failed on the darker light bg, so the finance tokens carry darkened text colours too (see src/config/theme.py FINANCE_*).
 GUI test builds the real FinanceTab under Xvfb and skips gracefully
 when no display is available (plain `run_tests.py` without Xvfb)."""
 import re
@@ -176,7 +171,8 @@ def _check_tab(mode):
         # Salaries) is painted with the finance panel - including
         # Salaries, which is built by salaries_view.py and recoloured.
         from tkinter import ttk
-        nb = next(w for w in tab.winfo_children() if isinstance(w, ttk.Notebook))
+        # R54 (G): the notebook rides the Finance scroll host now.
+        nb = next(w for w in _walk(tab) if isinstance(w, ttk.Notebook))
         for tab_id in nb.tabs():
             frame = nb.nametowidget(tab_id)
             assert str(frame.cget("bg")) == tokens["panel"], \
@@ -187,7 +183,11 @@ def _check_tab(mode):
         assert str(tab._nurse_view.cget("bg")) == tokens["bg"]
         _check_labels_buttons(tab, mode, tokens)
     finally:
-        tab.master.destroy()
+        # R56: destroy the ROOT, not the tab's Frame -- the old
+        # destroy left a withdrawn root alive, hijacking
+        # _default_root (Tk only assigns it when None) so later
+        # ttk.Style() calls bound to its interpreter.
+        tab.winfo_toplevel().destroy()
         set_theme_mode(prev)
 
 

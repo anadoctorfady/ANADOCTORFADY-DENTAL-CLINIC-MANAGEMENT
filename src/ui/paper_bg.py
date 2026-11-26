@@ -178,11 +178,11 @@ def apply_treeview_paper(style, th):
     (other tables inherit it), and adds a named "Paper.Treeview"
     style for the shell patient list: its field element is the 256
     tile, and ttk image elements TILE, so it repeats across any tree
-    size with no resize handling. The PhotoImage lives on the
-    style's master widget (one per Tk interpreter). Dark mode: plain
-    colours + default clam layout, no beige."""
+    size with no resize handling. The PhotoImage lives on the style's
+    master widget (one per Tk interpreter). Dark mode: plain colours + default clam layout, no beige."""
+    from src.ui.amiri import tree_font, tree_rowheight
     for name in ("Treeview", "Paper.Treeview"):
-        style.configure(name, rowheight=24, font=("Segoe UI", 9),
+        style.configure(name, rowheight=tree_rowheight(), font=tree_font(),
                         background=th["list_bg"], fieldbackground=th["list_bg"],
                         foreground=th["text"])
     if mode() == "dark":

@@ -18,6 +18,8 @@ patient — and later sessions consume it through the same sums
 Sync: the row is queued by _insert_money like any financial row;
 row_kind/note ride inside the payload's data_json (the server stores
 blobs; client pull keeps the columns the local table has)."""
+from datetime import datetime
+
 from src.models.database import get_connection, init_db
 from src.models.finance_totals import converted_amounts
 from src.models.session_money import _insert_money
@@ -45,6 +47,46 @@ def save_standalone_payment(fid, amount, visit_date, currency="SYP",
                             note=(note or "").strip())
         conn.commit()
         return rid
+    finally:
+        conn.close()
+
+
+def change_payment_date(fid, payment_id, new_date, role):
+    """Round 49 (Section F): move ONE standalone payment
+    (row_kind='payment') to `new_date`. ADMIN ONLY — layered on
+    top of every other rule (edit_rules.can_edit_date); the amount
+    is never touched, so patient totals cannot change, only the
+    chronological order (and thus the running balances that
+    patient_payments derives from it). Session-linked rows are
+    refused: their date follows the session edit flow.
+    ValueError: invalid date, or the row is session-linked.
+    PermissionError: caller is not admin. LookupError: no such
+    row for this patient. Returns True on a move, False when the
+    date is unchanged. updated_at is bumped + the row queued so
+    delta sync propagates the move."""
+    from src.models.edit_rules import can_edit_date, valid_date
+    if not valid_date(new_date):
+        raise ValueError("payment date must be a real YYYY-MM-DD date")
+    if not can_edit_date(role):
+        raise PermissionError("Only the admin may change a payment date")
+    init_db()
+    conn = get_connection()
+    try:
+        row = conn.execute("SELECT * FROM financials WHERE id=? AND patient_file=?",
+                           (payment_id, fid)).fetchone()
+        if row is None:
+            raise LookupError(f"financials row {payment_id} not found")
+        row = dict(row)
+        if (row.get("row_kind") or "session") != "payment":
+            raise ValueError("session-linked payment dates follow the session")
+        if row.get("visit_date") == new_date:
+            return False
+        conn.execute("UPDATE financials SET visit_date=?, updated_at=? WHERE id=? AND patient_file=?",
+                     (new_date, datetime.now().isoformat(), payment_id, fid))
+        from src.models.finance_sync import queue_synced_row
+        queue_synced_row(conn, "financials", payment_id)
+        conn.commit()
+        return True
     finally:
         conn.close()
 

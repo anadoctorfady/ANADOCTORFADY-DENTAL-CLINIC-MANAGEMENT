@@ -13,6 +13,7 @@ from src.reports.pdf_styles import styles, IOS, FONT_EN, FONT_AR
 from src.utils.arabic import ar, has_arabic
 from src.utils.helpers import unique_report
 from src.config.settings import REPORTS
+from src.reports.pdf_common import top_strip
 
 def _value(text, st):
     """Patient-supplied value in the font its OWN script needs
@@ -128,7 +129,7 @@ def create_prescription_pdf(patient, prescription, items, language="en",
         canvas.saveState(); canvas.setFillColor(IOS["primary"])
         canvas.roundRect(10*mm, 282*mm, 190*mm, 6*mm, 2*mm, fill=1, stroke=0)
         canvas.setFillColor(white); canvas.setFont(FONT_EN, 8)  # R37: banner 8pt (was 7pt); app footer stays the only 7pt
-        canvas.drawCentredString(105*mm, 284.5*mm, "ANADOCTORFADY • Dental Clinic • +963944234456")
+        canvas.drawCentredString(105*mm, 284.5*mm, top_strip())
         canvas.restoreState()
     doc.build(story, onFirstPage=footer, onLaterPages=footer)
     return str(out)

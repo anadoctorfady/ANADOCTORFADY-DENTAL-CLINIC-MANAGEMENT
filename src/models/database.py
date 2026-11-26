@@ -11,9 +11,7 @@ def get_connection():
     conn.execute("PRAGMA foreign_keys=ON;")
     conn.row_factory = sqlite3.Row
     return conn
-# init_db memo (R31): full body runs ONCE per DB file identity (resolved
-# path + settings-cache fingerprint: mtime_ns + size). Any write/replace/
-# delete changes it, so the next call re-runs; a missing file always runs.
+# init_db memo (R31): full body runs ONCE per DB file identity (resolved path + settings-cache fingerprint: mtime_ns + size). Any write/replace/delete changes it, so the next call re-runs; a missing file always runs.
 _INIT_KEY = None
 def _cur_key():
     fp = _settings_fp(); return None if fp is None else (os.path.realpath(str(DB)), fp)
@@ -44,17 +42,13 @@ def init_db():
         FOREIGN KEY(prescription_id) REFERENCES prescriptions(id) ON DELETE CASCADE)""")
     c.execute("CREATE TABLE IF NOT EXISTS reusable_phrases(id INTEGER PRIMARY KEY AUTOINCREMENT, category TEXT, text TEXT, usage_count INT DEFAULT 1, last_used TEXT, is_favorite INT DEFAULT 0, UNIQUE(category,text))")
     c.execute("CREATE INDEX IF NOT EXISTS idx_phr_cat ON reusable_phrases(category, usage_count DESC)")
-    try:
-        c.execute("ALTER TABLE reusable_phrases ADD COLUMN specialty TEXT DEFAULT 'general'")
-    except Exception:
-        pass  # already exists
+    try: c.execute("ALTER TABLE reusable_phrases ADD COLUMN specialty TEXT DEFAULT 'general'")
+    except Exception: pass  # already exists
     # Phase 1: patient notes + specialty templates (new modules, lazy import)
-    from src.models.notes import ensure_tables as _ensure_notes; from src.models.patient_norms import ensure_patient_norms as _ensure_pn
-    from src.models.specialty_templates import ensure_tables as _ensure_tpl
+    from src.models.notes import ensure_tables as _ensure_notes; from src.models.patient_norms import ensure_patient_norms as _ensure_pn; from src.models.specialty_templates import ensure_tables as _ensure_tpl
     _ensure_notes(conn); _ensure_tpl(conn); _ensure_pn(conn)
     # Phase 4: attendance + sync queue (own modules, lazy import)
-    from src.models.attendance import ensure_tables as _ea
-    from src.models.sync import ensure_tables as _es
+    from src.models.attendance import ensure_tables as _ea; from src.models.sync import ensure_tables as _es
     from src.models.salaries import ensure_tables as _ens; from src.models.referrals import ensure_tables as _enr
     _ea(conn); _es(conn); _ens(conn); _enr(conn)
     c.execute("CREATE TABLE IF NOT EXISTS clipboard_history(id INTEGER PRIMARY KEY AUTOINCREMENT, text TEXT, copied_at TEXT)")
@@ -113,18 +107,16 @@ def init_db():
     _es(conn)  # 2nd pass: sync/finance columns for tables created after phase 4 (old code: next init_db call)
     from src.models.round12_schema import ensure_round12_schema
     ensure_round12_schema(c); _ensure_pn(conn)  # R32 2nd pass: child tables exist now, so their patient_file indexes are created too
-    now = datetime.now().isoformat()
-    h = hashlib.sha256(b"1234").hexdigest()
+    now = datetime.now().isoformat(); h = hashlib.sha256(b"1234").hexdigest()
     try: c.execute("ALTER TABLE users ADD COLUMN role TEXT DEFAULT 'doctor'")
     except Exception: pass  # already exists
     c.execute("UPDATE users SET role='admin' WHERE username='fady' AND (role IS NULL OR role<>'admin')")
     c.execute("INSERT OR IGNORE INTO users(username,password_hash,role,created_at) VALUES(?,?,?,?)", ("fady", h, "admin", now))
-    for k, v in [("clinic_name", ""), ("language", "en"), ("theme_mode", "light"), ("default_currency", "SYP"), ("whatsapp", "+963944234456")]:
+    for k, v in [("clinic_name", ""), ("language", "en"), ("theme_mode", "light"), ("default_currency", "SYP"), ("telegram", "+1 424 231 0526"), ("centre_phone", ""), ("centre_mobile2", ""), ("centre_landline", ""), ("centre_address", ""), ("ar_month_names", "levant")]:
         c.execute("INSERT OR IGNORE INTO settings VALUES(?,?)", (k, v))
     conn.commit(); conn.close(); _INIT_KEY = _cur_key()
     return DB
-# Settings cache (toggle speed): read once into memory; reloaded only
-# when the DB file changes (mtime+size) or set_setting() writes a value.
+# Settings cache (toggle speed): read once into memory; reloaded only when the DB file changes (mtime+size) or set_setting() writes a value.
 _SETTINGS_CACHE = None; _SETTINGS_FP = None
 def _settings_fp():
     try: s = DB.stat(); return (s.st_mtime_ns, s.st_size)
@@ -140,12 +132,20 @@ def get_setting(k, default=None):
     if _SETTINGS_CACHE is None or _settings_fp() != _SETTINGS_FP: _load_settings()
     return _SETTINGS_CACHE.get(k, default)
 def set_setting(k, v):
-    global _SETTINGS_CACHE, _SETTINGS_FP
+    global _SETTINGS_CACHE, _SETTINGS_FP, _INIT_KEY
     if _SETTINGS_CACHE is None or _settings_fp() != _SETTINGS_FP: _load_settings()
     conn = get_connection(); cur = conn.cursor()
     cur.execute("INSERT OR REPLACE INTO settings VALUES(?,?)", (k, str(v)))
     conn.commit(); conn.close()
     _SETTINGS_CACHE[k] = str(v); _SETTINGS_FP = _settings_fp()
+    # R52: a settings write changes no schema, so the init_db memo
+    # must survive it -- otherwise every language/theme toggle (both
+    # persist via set_setting) re-ran the WHOLE init body (~90
+    # statements incl. a financials scan) inside the rebuild.
+    # Re-arming is safe: the preamble above reloads (running
+    # init_db) on any other fingerprint drift, and EXTERNAL writes
+    # still invalidate the memo (R31 guard test).
+    _INIT_KEY = _cur_key()
 def backup_db(custom=None):
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     dest = Path(custom) if custom else BACKUPS / f"backup_{ts}.db"

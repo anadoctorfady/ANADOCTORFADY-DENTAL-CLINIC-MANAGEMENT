@@ -18,12 +18,14 @@ def test_about_text():
     assert "د. فادي عبد الكافي دعدوش" in ABOUT_AR
 
 
-def test_about_whatsapp_only_line():
+def test_about_telegram_only_line():
     # Line moved into the strings module (i18n round, 2026-11-08); the
     # About tab shows it via t("about.contact") in both languages.
+    # R45: the public contact is Telegram now (changed from the
+    # old chat app).
     from src.config.strings import t
-    assert "Contact via WhatsApp only" in t("about.contact", "en")
-    assert "للتواصل واتساب فقط" in t("about.contact", "ar")
+    assert "Contact via Telegram only" in t("about.contact", "en")
+    assert "للتواصل تيليغرام فقط" in t("about.contact", "ar")
 
 
 def test_finance_gate_locked_by_default():

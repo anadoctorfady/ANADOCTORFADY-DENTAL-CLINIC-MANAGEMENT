@@ -94,7 +94,7 @@ def _check_board(tab, root, fid, days, lang):
             assert state in tags, (state, tags)
         name, att, tags = rows[days["future"].isoformat()]
         assert att == "" and name == LONG_NAME
-        assert all(x.startswith("zebra") for x in tags)  # no state tag
+        assert all(x.startswith("vivid") for x in tags)  # R43: vivid striping, no state tag
     fg = ATT_FG[is_dark()]  # configured tag foregrounds match ATT_FG
     for state in ("absent", "late", "attended"):
         got = tab.tree.tag_configure(state, "foreground")

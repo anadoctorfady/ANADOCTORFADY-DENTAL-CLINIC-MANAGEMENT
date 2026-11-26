@@ -43,7 +43,7 @@ EN = {
     'settings.restore': 'Restore DB (.bak/.db)', 'settings.print_pdf': 'Print PDF (current patient)', 'settings.bilingual_pdf': 'Bilingual PDF',
     'settings.rename_frame': ' Rename User ', 'settings.pw_frame': ' Change Password ', 'settings.pw_old': 'Old pass', 'settings.pw_new': 'New pass',
     'settings.pw_confirm': 'Confirm new', 'settings.pw_note': 'Changes YOUR password only. Also updates the sync server when a sync URL is set.',
-    'settings.pw_change': 'Change Password', 'settings.about_line': 'About — see the About tab • Contact via WhatsApp only',
+    'settings.pw_change': 'Change Password', 'settings.about_line': 'About — see the About tab • Contact via Telegram only',
     'settings.rename_note_all': 'Every user logs in with their own name, not the default fady.',
     'settings.rename_admin_only': 'Username can only be changed by the admin.', 'settings.rename_old': 'Old username', 'settings.rename_new': 'New username',
     'settings.rename_pw': 'Admin password', 'settings.rename_hint': '(admin only - password & role stay the same)', 'settings.rename_btn': 'Rename User',
@@ -73,7 +73,7 @@ EN = {
     'users.deleted_local_server': "Deleted '{name}' on this device. Server account NOT deleted ({why}).",
     'users.deleted_both': "Deleted '{name}' on this device AND on the sync server.",
     'users.deleted_server_failed': "Deleted '{name}' on this device. Server delete failed: {err}", 'about.subtitle': 'Dental Clinic Management',
-    'about.contact': 'Contact via WhatsApp only', 'about.whatsapp_btn': '💬 WhatsApp {number}', 'sync.guide_title': 'Linking guide', 'sync.guide_close': 'Close',
+    'about.contact': 'Contact via Telegram only', 'about.telegram_btn': '💬 Telegram {number}', 'sync.guide_title': 'Linking guide', 'sync.guide_close': 'Close',
     'about.license_title': 'License', 'about.license_name': 'ANADOCTORFADY — Free Use License', 'about.license_view': 'Read the full license', 'about.license_close': 'Close',
     'about.license_summary': 'Free forever: free to use in your clinic and free to share — but selling or renting the software itself is prohibited.',
     'fin.sal_tab': ' Salaries ', 'settings.restore_prev': 'Previous DB backed up to:\n{path}', 'settings.ft_backup': 'Backup (.bak)', 'settings.ft_db': 'SQLite DB',
@@ -88,8 +88,18 @@ AR = {
     'fin.usd_rate_label': 'سعر الدولار اليوم ({cur} مقابل 1$):', 'fin.save_rate': 'احفظ سعر اليوم', 'fin.last_saved': 'آخر سعر محفوظ: {rate:g} {cur}',
     'fin.rate_today': 'سعر الصرف اليوم:', 'fin.rate_per': '({cur} مقابل الوحدة)',
     'fin.no_rate': 'لم يتم حفظ سعر بعد', 'fin.base_currency': 'العملة الأساسية: {cur} (غيّرها من الإعدادات)',
-    'fin.usd_equiv': 'الأساس: {base}  •  ≈ ${inc:,.2f} دخل / ${net:,.2f} صافي بسعر {rate:g} {base}',
-    'fin.usd_set_rate': 'الأساس: {base} — حدّد سعر الدولار لعرض ما يعادله بالدولار', 'fin.gate_wrong': 'اسم المستخدم أو كلمة المرور غير صحيحة', 'fin.err_title': 'خطأ',
+    # R55 (Section D-b): every Latin run in the AR Base line is
+    # wrapped in LRM (U+200E, written as an escape so the mark
+    # stays visible in source) -- without it the rate "140" jumps
+    # before "دخل" in the rendered line. The round-54 LRI/PDI
+    # isolates (U+2066..U+2069) are GONE: on the owner's Windows
+    # machine they rendered as small visible marks around the
+    # Latin runs under Segoe UI; LRM is zero-width in every font
+    # Tk can use (measured 0 in Segoe UI / DejaVu here; Amiri
+    # was removed in round 56)
+    # and is the invisible-safe way to hold a Latin run's order.
+    'fin.usd_equiv': 'الأساس: \u200e{base}\u200e  •  ≈ \u200e${inc:,.2f}\u200e دخل / \u200e${net:,.2f}\u200e صافي بسعر \u200e{rate:g}\u200e \u200e{base}\u200e',
+    'fin.usd_set_rate': 'الأساس: \u200e{base}\u200e — حدّد سعر الدولار لعرض ما يعادله بالدولار', 'fin.gate_wrong': 'اسم المستخدم أو كلمة المرور غير صحيحة', 'fin.err_title': 'خطأ',
     'fin.err_rate': 'أدخل سعر دولار صحيحاً ({cur} مقابل 1$)', 'fin.saved_title': 'تم الحفظ', 'fin.rate_saved': 'تم حفظ سعر اليوم: {rate:g} {cur} مقابل 1$',
     'fin.not_allowed_title': 'غير مسموح', 'fin.not_allowed_payments': 'تعديل المدفوعات للمدير فقط.', 'fin.err_amount': 'مبلغ غير صحيح', 'fin.err_cost': 'تكلفة غير صحيحة',
     'fin.lock_title': '🔒 المالية مقفلة', 'fin.lock_sub': 'أعد إدخال بيانات الدخول لعرض المالية.', 'fin.username': 'اسم المستخدم', 'fin.password': 'كلمة السر',
@@ -117,7 +127,7 @@ AR = {
     'settings.bilingual_pdf': 'PDF ثنائي اللغة', 'settings.rename_frame': ' إعادة تسمية مستخدم ', 'settings.pw_frame': ' تغيير كلمة السر ',
     'settings.pw_old': 'كلمة السر القديمة', 'settings.pw_new': 'كلمة السر الجديدة', 'settings.pw_confirm': 'تأكيد الجديدة',
     'settings.pw_note': 'يغيّر كلمة سرك أنت فقط. ويحدّث خادم المزامنة أيضاً عند ضبط رابط مزامنة.', 'settings.pw_change': 'تغيير كلمة السر',
-    'settings.about_line': 'حول — انظر تبويب «حول» • للتواصل واتساب فقط', 'settings.rename_note_all': 'كل مستخدم يدخل باسمه الخاص، وليس بالاسم الافتراضي fady.',
+    'settings.about_line': 'حول — انظر تبويب «حول» • للتواصل تيليغرام فقط', 'settings.rename_note_all': 'كل مستخدم يدخل باسمه الخاص، وليس بالاسم الافتراضي fady.',
     'settings.rename_admin_only': 'اسم المستخدم لا يمكن تغييره إلا من قبل المدير.', 'settings.rename_old': 'اسم المستخدم القديم',
     'settings.rename_new': 'اسم المستخدم الجديد', 'settings.rename_pw': 'كلمة سر المدير', 'settings.rename_hint': '(للمدير فقط - كلمة السر والدور يبقيان كما هما)',
     'settings.rename_btn': 'إعادة تسمية مستخدم', 'settings.saved_title': 'تم الحفظ',
@@ -143,8 +153,8 @@ AR = {
     'users.created_local_login': 'تم الإنشاء محلياً فقط؛ فشل تسجيل الدخول إلى الخادم.', 'users.created_both': "تم إنشاء '{name}' ({role}) على الجهاز وعلى خادم المزامنة.",
     'users.created_server_failed': 'تم الإنشاء محلياً فقط؛ فشل الإنشاء على الخادم: {err}', 'users.deleted_local_nourl': 'تم الحذف على هذا الجهاز فقط.',
     'users.deleted_local_server': 'تم الحذف محلياً فقط. ({why})', 'users.deleted_both': "تم حذف '{name}' على الجهاز وعلى خادم المزامنة.",
-    'users.deleted_server_failed': 'تم الحذف محلياً فقط؛ فشل الحذف على الخادم: {err}', 'about.subtitle': 'إدارة عيادة الأسنان', 'about.contact': 'للتواصل واتساب فقط',
-    'about.whatsapp_btn': '💬 WhatsApp {number}', 'sync.guide_title': 'دليل الربط خطوة بخطوة', 'sync.guide_close': 'إغلاق', 'fin.sal_tab': ' الرواتب ',
+    'users.deleted_server_failed': 'تم الحذف محلياً فقط؛ فشل الحذف على الخادم: {err}', 'about.subtitle': 'إدارة عيادة الأسنان', 'about.contact': 'للتواصل تيليغرام فقط',
+    'about.telegram_btn': '💬 Telegram {number}', 'sync.guide_title': 'دليل الربط خطوة بخطوة', 'sync.guide_close': 'إغلاق', 'fin.sal_tab': ' الرواتب ',
     'about.license_title': 'الترخيص', 'about.license_name': 'ANADOCTORFADY — ترخيص الاستخدام المجاني', 'about.license_view': 'قراءة الترخيص الكامل', 'about.license_close': 'إغلاق',
     'about.license_summary': 'مجاني للأبد: مجاني للاستخدام في عيادتك ومجاني للمشاركة — لكن يُمنع بيع البرنامج نفسه أو تأجيره.',
     'settings.restore_prev': 'تم نسخ قاعدة البيانات السابقة احتياطياً إلى:\n{path}', 'settings.ft_backup': 'نسخة احتياطية (.bak)',

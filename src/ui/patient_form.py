@@ -16,12 +16,12 @@ from src.config.strings import t
 from src.config.strings_r16_patients import tr as _tr16
 from src.config.theme import current, is_dark, is_dark, RADIUS_FIELD
 from src.utils.nationalities import (list_nationalities, display,
-    display_for, nationality_en_for)
+    display_for, nationality_en_for, default_nationality_display)
 from src.ui.searchable_picker import SearchablePicker  # R26: popup picker (was SearchableCombobox, whose typed filter never opened)
 from src.utils.hijri_age import (get_all_ages, parse_birth_date,
     parse_birth_date_lenient, format_birth_date, format_hijri_date, invalid_birth_msg)
 from src.models.patients import save_patient_record, DuplicatePatientError
-from src.ui import patient_alerts as _alerts; from src.ui import patient_diseases as _dis; from src.ui import patient_allergies as _alg
+from src.ui import patient_alerts as _alerts; from src.ui import patient_diseases as _dis; from src.ui import patient_allergies as _alg; from src.ui import patient_medications as _med
 from src.ui.wheel_scroll import bind_canvas_wheel; from src.ui.rounded import rounded_button; from src.ui.rounded_frame import RoundedFrame
 from src.ui.rounded_widgets import RoundedEntry
 from src.ui.paper_bg import attach_paper_bg; from src.ui.panel_paper import attach_panel_paper, tinted_avg_hex
@@ -69,10 +69,10 @@ class PatientForm(tk.Frame):
         self.e_m2 = RoundedEntry(form, font=("Segoe UI", 10))
         self.e_em = RoundedEntry(form, font=("Segoe UI", 10))
         self.e_addr = RoundedEntry(form, font=("Tahoma", 10), justify="right")
-        self.e_meds = RoundedEntry(form, font=("Segoe UI", 10))
+        self.e_meds = RoundedEntry(form, font=("Segoe UI", 10)); self.btn_meds_templates = _med.make_medications_button(form, self.e_meds, self.lang)
         self.e_allergies = RoundedEntry(form, font=("Segoe UI", 10)); self.btn_allergy_templates = _alg.make_allergies_button(form, self.e_allergies, self.lang)
         self.e_diseases = RoundedEntry(form, font=("Segoe UI", 10)); self.btn_diseases_templates = _dis.make_diseases_button(form, self.e_diseases, self.lang)
-        self.nat = tk.StringVar(value=display_for("Syrian", self.lang))
+        self.nat = tk.StringVar(value=default_nationality_display(self.lang))
         _nat_wrap = RoundedFrame(form, bg=th["panel"], border=th["border"], radius=RADIUS_FIELD, pad=2); self.e_nat = SearchablePicker(_nat_wrap.inner, list_nationalities(), lambda it: display(it, self.lang), textvariable=self.nat, lang=self.lang); self.e_nat.pack(fill="both", expand=True)
         rows = [(0, t("patient.first_name", self.lang), self.e_first, t("patient.father", self.lang), self.e_father),
                 (1, t("patient.grandfather", self.lang), self.e_grand, t("patient.last_family", self.lang), self.e_last)]
@@ -92,7 +92,7 @@ class PatientForm(tk.Frame):
         _lab(t("patient.emergency", self.lang), 5, 0); self.e_em.grid(row=5, column=1, sticky="ew", padx=6, pady=5)
         _lab(t("patient.nationality", self.lang), 5, 2); _nat_wrap.grid(row=5, column=3, sticky="ew", padx=6, pady=5)
         _lab(t("patient.address", self.lang), 6, 0); self.e_addr.grid(row=6, column=1, sticky="ew", padx=6, pady=5, columnspan=3)
-        _lab(t("patient.meds", self.lang), 7, 0); self.e_meds.grid(row=7, column=1, sticky="ew", padx=6, pady=5, columnspan=3)
+        _lab(t("patient.meds", self.lang), 7, 0); self.e_meds.grid(row=7, column=1, sticky="ew", padx=6, pady=5, columnspan=2); self.btn_meds_templates.grid(row=7, column=3, sticky="ew", padx=6, pady=5)
         _lab(t("patient.allergies", self.lang), 8, 0); self.e_allergies.grid(row=8, column=1, sticky="ew", padx=6, pady=5, columnspan=2); self.btn_allergy_templates.grid(row=8, column=3, sticky="ew", padx=6, pady=5)
         _lab(_tr16("patient.diseases", self.lang), 9, 0); self.e_diseases.grid(row=9, column=1, sticky="ew", padx=6, pady=5, columnspan=2); self.btn_diseases_templates.grid(row=9, column=3, sticky="ew", padx=6, pady=5)
         # Round 17: NO dental chart here (a new patient has no file yet).
@@ -126,7 +126,7 @@ class PatientForm(tk.Frame):
                   self.e_birth, self.e_m1, self.e_m2, self.e_em, self.e_addr,
                   self.e_meds, self.e_allergies, self.e_diseases]:
             w.delete(0, tk.END)
-        self.nat.set(display_for("Syrian", self.lang)); self.lbl_hijri.config(text="—")
+        self.nat.set(default_nationality_display(self.lang)); self.lbl_hijri.config(text="—")
         self.lbl_age.config(text="—"); self.lbl_age_h.config(text="—")
         _alerts.refresh_alert_strip(self.alert_strip, None, self.lang)
     def fill(self, row):

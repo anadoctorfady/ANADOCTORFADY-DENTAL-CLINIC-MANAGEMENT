@@ -23,7 +23,7 @@ Seeded rows are cleaned up."""
 import os
 import tkinter as tk
 
-from src.config.theme import debt_red, mode
+from src.config.theme import debt_red
 from src.models.database import get_connection
 from src.models.finance import patient_totals
 from tests.test_r18_info_panel_visible import _display_available, _login
@@ -116,8 +116,13 @@ def test_pinned_header_stays_after_scroll_to_bottom():
         fid = _debtor_fid()
         assert fid is not None, "gate copy has no debtor patient"
         app.select_patient(fid); app.update()
-        # Worst case (both strips visible): still compact.
-        assert hdr.winfo_height() <= 170, hdr.winfo_height()
+        # Worst case (both strips visible): still compact. R55
+        # re-pin (195 -> 230): the 3-row strip's cells wrap at this
+        # 1380px width (narrower than the 1920 gallery size), and
+        # the alert banners below it are conditional; 216 measured
+        # on the fresh fixture copy. The header stays pinned outside
+        # the scroll canvas, which is what this test guards.
+        assert hdr.winfo_height() <= 230, hdr.winfo_height()
         y0 = hdr.winfo_rooty()
         tab.main_canvas.yview_moveto(1.0); app.update()
         assert tab.main_canvas.yview()[0] > 0.5  # really scrolled
@@ -140,10 +145,12 @@ def test_header_content_debtor_allergy_and_clean():
     app = _boot("1380x1000")
     try:
         hdr = app.info_panel
-        red = debt_red(mode() == "dark")
+        # Round 55: the name sits on a pastel strip cell in BOTH themes, so the debtor red is ALWAYS the light-mode (dark) red -- never the dark-mode #F87171 (~2:1 on pastel).
+        red = debt_red(False)
         app.select_patient(fid_alert); app.update()
         assert hdr._name_lbl.cget("fg") == red
-        assert f"#{fid_alert}" in hdr._file_lbl.cget("text")
+        # Round 55: the file number rides INSIDE the name cell ("Name: …  #fid"); no separate _file_lbl now.
+        assert f"#{fid_alert}" in hdr._name_lbl.cget("text")
         assert hdr._health_lbls["diseases"].cget("fg") == red
         assert hdr._health_lbls["allergies"].cget("fg") == red
         assert hdr._health_lbls["current_medications"].cget("fg") != red
@@ -176,7 +183,8 @@ def test_no_patient_clears_header():
         try:
             assert app.current_patient is None
             assert "R22" not in hdr.info_text()
-            assert hdr._file_lbl.cget("text") == ""
+            # Round 55: no separate _file_lbl -- cleared header shows the title in the name cell, no file no.
+            assert "#" not in hdr._name_lbl.cget("text")
             for lbl in hdr._health_lbls.values():
                 assert lbl.cget("text") == ""
             assert hdr.alert_strip.winfo_ismapped() == 0

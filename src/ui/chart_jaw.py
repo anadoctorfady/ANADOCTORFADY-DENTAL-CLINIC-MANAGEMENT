@@ -27,10 +27,26 @@ def jaw_sets(chart):
 
 def select_jaw(chart, scope):
     """Replace the chart selection with one jaw scope ('all' =
-    both jaws) and notify exactly like a tooth click does."""
+    both jaws) and notify exactly like a tooth click does.
+    Round 43 (owner): pressing the button whose set is ALREADY the
+    exact selection toggles it OFF -- selection cleared, the entry
+    tooth box emptied via on_select([]), and the chart's optional
+    on_jaw_clear hook (set by the clinical tab) scrubs that set's
+    auto-inserted numbers out of the four clinical fields, so no
+    manual removal is needed. Any other press sets the scope."""
     upper, lower = jaw_sets(chart)
-    chart.selected = {"all": upper | lower, "upper": upper,
-                      "lower": lower}[scope]
+    target = {"all": upper | lower, "upper": upper,
+              "lower": lower}[scope]
+    if chart.selected == target:
+        chart.selected = set()
+        chart.refresh()
+        if chart.on_select:
+            chart.on_select([], chart.tooth_type.get())
+        hook = getattr(chart, "on_jaw_clear", None)
+        if hook is not None:
+            hook(sorted(target))
+        return
+    chart.selected = target
     chart.refresh()
     if chart.on_select:
         chart.on_select(sorted(chart.selected), chart.tooth_type.get())

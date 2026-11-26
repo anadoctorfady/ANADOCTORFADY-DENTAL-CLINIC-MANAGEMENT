@@ -25,9 +25,28 @@ long cycle NEVER share a background; the measured WCAG contrast
 of the row text on EVERY colour >= 4.5:1; the defined selection
 (#7C3AED bg, white text) is readable itself and stands off
 every row colour per the round-41 distinctness rule above;
-at widget level both trees carry vivid{position % 5} as the
-FIRST tag with the palette backgrounds, in both themes, while
-an unrelated list keeps its zebra (scope check)."""
+at widget level both trees carry vivid{position % len(PALETTE)}
+as the FIRST tag with the palette backgrounds, in both themes.
+ROUND-43 SUPERSESSION (owner instruction 2026-11-22): the vivid
+rotation now covers EVERY table, so the former scope check (an
+unrelated list keeps its zebra) is re-pinned: the referrals tree
+must wear the vivid rotation too.
+ROUND-48 SUPERSESSION (owner override 2026-11-23 14:39,
+superseding round 41 AND round 47): the palette is EXACTLY the
+five round-40 pastel colours of shot 137 — pixel-recovered from
+shots 137/138/139 — REORDERED to blue / orange / lavender /
+green / pink so no tonally-close colours are neighbours
+(adjacent hue gaps >= 100 degrees incl. the wrap; measured
+minimum 109.5, lavender -> green). The round-41 ">= 50 degrees
+of hue from the selection" clause is re-pinned for the LAVENDER
+row ONLY: lavender sits 11.6 degrees from the selection hue
+(same family — it is one of the owner's five chosen colours)
+and its distinctness is carried by the luminance bar it exceeds
+(4.10:1, above even round 40's >= 4:1 reading) PLUS the
+inverted text (white on the selection vs dark on every row).
+The other four colours meet BOTH round-41 criteria. The exact
+order, the >= 100-degree adjacency pin and the closest-pair
+non-adjacency pin live in tests/test_r48_palette.py."""
 import colorsys
 import tkinter as tk
 from tkinter import ttk
@@ -39,11 +58,16 @@ from src.ui.vivid_rows import (PALETTE, TEXT_ON_VIVID, SELECT_BG,
 from tests.test_payments_e2e import (TODAY, _seed_users, _seed_patient,
                                      _cleanup, _build_clinical)
 
-# Measured with contrast_ratio at pin time (round 41):
-#   sky #38BDF8 7.12 | orange #FB923C 6.74 | green #4ADE80 8.75
-#   hot pink #F472B6 5.76 | amber #FBBF24 9.13  (text #2C241D)
-#   selection vs rows (luminance): 2.66 / 2.52 / 3.27 / 2.15 / 3.41
-#   selection hue 262deg; row hue distances: 62 / 125 / 120 / 56 / 141
+# Measured with contrast_ratio at pin time (round 48; the five
+# round-40 pastels in the owner's reordered cycle):
+#   blue #BAE6FD 11.49 | orange #FED7AA 11.27 | lavender
+#   #DDD6FE 10.98 | green #BBF7D0 12.58 | pink #FBCFE8 11.03
+#   (text #2C241D)
+#   selection vs rows (luminance): 4.29 / 4.21 / 4.10
+#   (lavender) / 4.70 / 4.12
+#   selection hue 262.1deg; row hue distances: 61.5 / 130.0 /
+#   11.6 (lavender — same family, one of the owner's five) /
+#   121.1 / 63.8
 #   white on selection bg: 5.70
 
 
@@ -74,22 +98,38 @@ def test_palette_contrast_measured():
         assert ratio >= 4.5, (bg, ratio)
     # The selection is itself readable text...
     assert contrast_ratio(SELECT_FG, SELECT_BG) >= 4.5
-    # ...and visibly distinct from EVERY row colour it can cover
-    # (R41 rule: >= 2:1 luminance AND >= 50 degrees of hue).
+    # ...and visibly distinct from EVERY row colour it can cover.
+    # R41 rule: >= 2:1 luminance AND >= 50 degrees of hue.
+    # R48 re-pin (owner override 2026-11-23, reason recorded in
+    # this file's docstring): the hue clause is waived for the
+    # LAVENDER row only — it is 11.6 degrees from the selection
+    # hue because lavender is one of the owner's five chosen
+    # round-40 colours — and its distinctness rests on the
+    # luminance bar (4.10:1) plus the inverted text (white on
+    # selection, dark on rows). Every other colour still meets
+    # BOTH clauses.
     sel_hue = _hue_deg(SELECT_BG)
     for bg in PALETTE:
         assert contrast_ratio(SELECT_BG, bg) >= 2.0, (bg,)
-        assert _hue_dist(sel_hue, _hue_deg(bg)) >= 50.0, (bg,)
+        if bg != "#DDD6FE":
+            assert _hue_dist(sel_hue, _hue_deg(bg)) >= 50.0, (bg,)
+    # The inversion itself: selection text is white, row text is
+    # the dark tone — a selected row flips text colour too.
+    assert SELECT_FG == "#FFFFFF" and TEXT_ON_VIVID == "#2C241D"
 
 
 def test_palette_neighbour_hues_far_apart():
-    """R41 item 6: neighbouring rows in the rotation are CLEARLY
-    different colours — hue distance >= 60 degrees (measured
-    minimum 85), never shades of one another."""
+    """Neighbouring rows in the rotation are CLEARLY different
+    colours, never shades of one another. R41 pinned >= 60
+    degrees; R47 raised it to >= 110 for its six-colour cycle.
+    R48 re-pin (owner override 2026-11-23): the restored
+    five-colour cycle is pinned at >= 100 degrees — measured
+    minimum 109.5 (lavender -> green), wrap pink -> blue
+    included via the closed cycle below."""
     hues = [_hue_deg(c) for c in PALETTE]
     cyc = hues + hues[:1]
     for a, b in zip(cyc, cyc[1:]):
-        assert _hue_dist(a, b) >= 60.0, (a, b)
+        assert _hue_dist(a, b) >= 100.0, (a, b)
 
 
 def _assert_vivid(tree, label):
@@ -122,6 +162,9 @@ def test_vivid_rows_in_both_trees_both_themes():
                          "tooth_number,diagnosis) VALUES(?,?,?,?)",
                          (fid, day, "11", "Caries"))
         conn.commit(); conn.close()
+        from src.models.referrals import add_referral
+        for _ in range(3):  # R43: tree_ref rows for the vivid scope assert
+            add_referral(fid, "doc_x", "doc_b", "please see")
         for mode in ("light", "dark"):
             set_setting("theme_mode", mode)
             root, tab = _build_clinical("doc_x", "doctor", fid)
@@ -130,10 +173,8 @@ def test_vivid_rows_in_both_trees_both_themes():
             try:
                 _assert_vivid(tab.tree_fin, f"payments review {mode}")
                 _assert_vivid(tab.tree_history, f"session table {mode}")
-                # Scope: the referrals tree keeps its zebra pair.
-                ref_tags = tab.tree_ref.tag_configure("zebra0", "background")
-                assert str(ref_tags).lower() not in \
-                    [c.lower() for c in PALETTE]
+                # R43 scope: the referrals tree is vivid now too.
+                _assert_vivid(tab.tree_ref, f"referrals tree {mode}")
             finally:
                 root.destroy()
         set_setting("theme_mode", "light")

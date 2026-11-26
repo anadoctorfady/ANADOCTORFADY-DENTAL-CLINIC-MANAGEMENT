@@ -25,6 +25,9 @@ def ensure_tables(conn):
                 for ph in items:
                     c.execute("INSERT OR IGNORE INTO specialty_templates(specialty,category,text_en,text_ar,is_custom) VALUES(?,?,?,?,0)", (sp["id"], cat, ph.get("en", ""), ph.get("ar", "")))
     conn.commit()
+    try:  # R49-E: strip tooth numbers from stored built-in seeds + override keys
+        from src.models.template_cleanup import cleanup_specialty, cleanup_overrides; cleanup_specialty(conn); cleanup_overrides()
+    except Exception: pass
 def _rows(cur):
     return [dict(r) for r in cur.fetchall()]
 def list_templates(conn, specialty=None, category=None):
@@ -45,8 +48,7 @@ def add_template(conn, specialty, category, text_en, text_ar, created_by=""):
     c.execute("INSERT OR IGNORE INTO specialty_templates(specialty,category,text_en,text_ar,is_custom,created_by) VALUES(?,?,?,?,1,?)",
               (specialty, category, text_en, text_ar, created_by or ""))
     conn.commit()
-    r = c.execute("SELECT id FROM specialty_templates WHERE specialty=? AND category=? AND text_en=? AND text_ar=?",
-                  (specialty, category, text_en, text_ar)).fetchone()
+    r = c.execute("SELECT id FROM specialty_templates WHERE specialty=? AND category=? AND text_en=? AND text_ar=?", (specialty, category, text_en, text_ar)).fetchone()
     return r["id"] if r else None
 def update_template(conn, template_id, text_en=None, text_ar=None, category=None, specialty=None):
     """Edit a CUSTOM template only (seeded rows are protected). Returns bool."""
@@ -90,8 +92,7 @@ def list_custom_specialties(conn):
 def list_all_specialties(conn):
     """Built-in (is_custom=0) + custom (is_custom=1) specialties."""
     ensure_tables(conn)
-    out = [{"id": s["id"], "name_en": s["name_en"], "name_ar": s["name_ar"], "is_custom": 0}
-           for s in load_specialties()]
+    out = [{"id": s["id"], "name_en": s["name_en"], "name_ar": s["name_ar"], "is_custom": 0} for s in load_specialties()]
     out += [{**s, "is_custom": 1} for s in list_custom_specialties(conn)]
     return out
 # --- Seed overrides in src/data/user_templates.json: {"overrides": [{"category",
@@ -115,8 +116,7 @@ def set_seed_override(category, en, ar, new_en=None, new_ar=None, hidden=None, d
     alias). A no-op (no change, not deleted) removes the override."""
     if hidden is not None: deleted = hidden
     cur = find_override(category, en, ar) or {}
-    ovs = [o for o in load_user_overrides()
-           if (o.get("category"), o.get("en"), o.get("ar")) != (category, en, ar)]
+    ovs = [o for o in load_user_overrides() if (o.get("category"), o.get("en"), o.get("ar")) != (category, en, ar)]
     rec = {"category": category, "en": en or "", "ar": ar or ""}
     for key, val, seed in (("new_en", new_en, en), ("new_ar", new_ar, ar)):
         v = (val or "").strip() if val is not None else (cur.get(key) or "")
@@ -174,9 +174,7 @@ def seed_templates(category, lang="en", include_hidden=False):
             o = ovs.get((category, en, ar))
             if _is_deleted(o): continue
             eff_en, eff_ar = (o or {}).get("new_en") or en, (o or {}).get("new_ar") or ar
-            out.append({"specialty": sp.get("id", ""), "category": category, "en": eff_en, "ar": eff_ar,
-                        "text": _one(eff_en, eff_ar, lang), "is_custom": False, "seed_en": en, "seed_ar": ar,
-                        "edited": bool(o and (o.get("new_en") or o.get("new_ar"))), "hidden": False, "deleted": False})
+            out.append({"specialty": sp.get("id", ""), "category": category, "en": eff_en, "ar": eff_ar, "text": _one(eff_en, eff_ar, lang), "is_custom": False, "seed_en": en, "seed_ar": ar, "edited": bool(o and (o.get("new_en") or o.get("new_ar"))), "hidden": False, "deleted": False})
     return out
 def effective_pool(conn, category, lang=None, include_hidden=False):
     """Seed pool (overrides applied) + custom DB rows, one language, deduped. `include_hidden` legacy/ignored (R21)."""

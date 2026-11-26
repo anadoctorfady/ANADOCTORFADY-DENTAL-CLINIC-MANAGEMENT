@@ -82,7 +82,7 @@ def test_fresh_init_creates_full_schema_and_defaults():
         finally:
             conn.close()
         assert {"clinic_name", "language", "theme_mode",
-                "default_currency", "whatsapp"} <= keys
+                "default_currency", "telegram", "centre_phone"} <= keys
         # Two-pass completion in ONE call: the phase-4 sync ensure runs
         # before complaints/financials/expenses/lab_costs are created,
         # so old code only added their sync/finance columns on the

@@ -167,8 +167,8 @@ except Exception:
     MIGRATION = {"migrated": False, "reason": "error"}
 CLINIC = "ANADOCTORFADY"
 CLINIC_AR = "عيادة أنا دكتور فادي"
-WHATSAPP = "+963944234456"
-WA_URL = "https://wa.me/963944234456"
+TELEGRAM = "+1 424 231 0526"
+TG_URL = "https://t.me/+14242310526"
 ABOUT_EN = ("This app is completely free and we ask Allah to make it "
     "ongoing charity for the developer Dr Fady Abdulkafy Dadoush and his "
     "parents, brothers, wife and children")

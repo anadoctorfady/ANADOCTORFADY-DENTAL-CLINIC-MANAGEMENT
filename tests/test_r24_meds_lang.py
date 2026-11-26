@@ -63,7 +63,11 @@ def test_display_ar_has_no_latin_generic_or_brand():
     for m in list_medications():
         text = display(m, "ar")
         assert m["generic_en"] not in text, (m["generic_en"], text)
-        assert m["brand_en"] not in text, (m["generic_en"], text)
+        # R49: combos and the new singles carry brand_en "" by
+        # design (no brand is claimed for them); an empty brand
+        # cannot leak into the AR display, so skip it.
+        assert not m["brand_en"] or m["brand_en"] not in text, \
+            (m["generic_en"], text)
     # Form/strength stay in their standard Latin units.
     assert display(get_medication("Amoxicillin"), "ar") == \
         "أموكسيسيلين — Capsule 500 mg"

@@ -23,7 +23,7 @@ _R16_MODULES = ("strings_r16_clinical", "strings_r16_patients",
                 "strings_r16_settings")
 # Latin tokens that are data, not wording.
 _ALLOWED = re.compile(
-    r"^(pdf|cbct|stl|ply|obj|sqlite|whatsapp|fady|post|get|api|ui|id|"
+    r"^(pdf|cbct|stl|ply|obj|sqlite|telegram|fady|post|get|api|ui|id|"
     r"in|out|rx|sql|bak|db|am|pm|2d|3d|en|ar|http|https|www|com|"
     r"anadoctorfady)$", re.I)  # + the app brand name (round 42)
 
@@ -84,7 +84,7 @@ def test_en_and_ar_values_differ():
     """Every key that carries wording actually translates (no key left
     showing the other language's text by accident). Pure format
     strings (placeholders/symbols only, e.g. '≈ {amt} {base} @ {rate}')
-    and brand/data values ('💬 WhatsApp {number}') are exempt: they
+    and brand/data values ('💬 Telegram {number}') are exempt: they
     contain no wording in either language."""
     en, ar = _all_strings()
     assert set(en) == set(ar)

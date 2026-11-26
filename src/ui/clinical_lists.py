@@ -66,19 +66,16 @@ def _make_tree(tab, nb, spec):
                   stretch=c not in ("date", "tooth"))
     if attr == "tree_fin":
         # R28 item 2: the payments list is BOUNDED (6 rows) with its
-        # own vertical scrollbar + wheel -- a long payment history
-        # scrolls INSIDE the section instead of stretching the page.
+        # own vertical scrollbar. R56: NO wheel binding of its own
+        # any more -- the wheel over this table scrolls the page
+        # (wheel_scroll.install_page_wheel, the global page-scroll
+        # rule); the scrollbar still scrolls the list itself.
         tr.configure(height=FIN_LIST_ROWS)
         sb = ttk.Scrollbar(wrap.inner, orient="vertical", command=tr.yview)
         tr.configure(yscrollcommand=sb.set)
         sb.pack(side="right", fill="y")
         tr.pack(side="left", fill="both", expand=True)
         tr._v_scrollbar = sb
-        def _fin_wheel(e, tr=tr):
-            tr.yview_scroll(-1 if (getattr(e, "num", 0) == 4 or getattr(e, "delta", 0) > 0) else 1, "units")
-            return "break"
-        for _ev in ("<MouseWheel>", "<Button-4>", "<Button-5>"):
-            tr.bind(_ev, _fin_wheel, add="+")
     else:
         tr.pack(fill="both", expand=True)
     setattr(tab, attr, tr)

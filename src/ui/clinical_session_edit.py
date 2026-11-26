@@ -2,24 +2,24 @@
 checks behind Edit/Delete (delete itself: clinical_session_delete).
 
 PERMISSIONS (standing rules, non-negotiable):
-- Clinical edit/delete follows src.models.edit_rules.check_record
-  per kind present in the session (complaint / diagnosis /
-  procedure, from the session's meta tuples + visit_date as the
-  fallback): admin always; the author doctor within 24h; legacy
-  author-less rows any doctor within 24h; nurses never (the rule
-  itself returns False for non-doctor/non-admin roles).
-- MONEY additionally needs the finance.edit_amounts permission
-  (permissions.has_perm: admin by default, or an extra grant).
-  Without it, Edit loads the session with the money boxes LOCKED
-  (disabled + a visible note) and saving touches clinical text
-  only; Delete of a session WITH money is refused (see _delete).
-Edit identity: date + tooth are the session's identity and stay
-FIXED in edit mode (their entry boxes are disabled). <200 lines."""
+- Clinical edit/delete follows edit_rules.check_record per kind
+  present (from the session's meta tuples + visit_date fallback):
+  admin always; author doctor within 24h; legacy author-less rows
+  any doctor within 24h; nurses never.
+- MONEY additionally needs finance.edit_amounts (has_perm: admin
+  by default, or a grant). Without it the money boxes load LOCKED
+  and saving touches clinical text only; Delete of a session WITH
+  money is refused (see _delete).
+Edit identity: the tooth stays FIXED in edit mode (its entry box
+is disabled). Round 49 (Section F): the DATE box is disabled too
+for everyone EXCEPT admin — date editing is admin-only, layered
+on top of the 24h rule (see change_session_date). <200 lines."""
 import tkinter as tk
+from datetime import datetime
 from tkinter import messagebox
 from src.config.strings import t
 from src.config.strings_r24_session import sess_t
-from src.models.edit_rules import check_record
+from src.models.edit_rules import can_edit_date, check_record, valid_date
 from src.models.permissions import has_perm
 from src.ui import clinical_history as _hist
 from src.ui import clinical_session_entry as _entry
@@ -135,11 +135,14 @@ def set_editing_ui(tab, session):
         else:
             btn.pack_forget()
     state = "disabled" if editing else "normal"
-    for attr in ("e_sess_date", "e_sess_tooth"):
+    # R49 F: in edit mode the DATE opens only for admin; tooth fixed.
+    dstate = "normal" if editing and can_edit_date(
+        getattr(tab, "current_role", None)) else state
+    for attr, st in (("e_sess_date", dstate), ("e_sess_tooth", state)):
         w = getattr(tab, attr, None)
         if w is not None:
             try:
-                w.config(state=state)
+                w.config(state=st)
             except Exception:
                 pass
     locked = editing and not can_edit_money(tab)
@@ -154,3 +157,44 @@ def set_editing_ui(tab, session):
     lock_lbl = getattr(tab, "lbl_money_lock", None)
     if lock_lbl is not None:
         lock_lbl.config(text="🔒 " + sess_t("sess.money_locked", lang) if locked else "")
+
+
+def change_session_date(fid, session, new_date, role):
+    """R49 F: move a session to `new_date` — ADMIN ONLY (guard for
+    the store/save path; layered on the 24h rule). Moves the
+    session's own diagnoses / procedures / financial rows, plus
+    the visit complaints row when no other session stays on the
+    old date; bumps updated_at on every moved row and queues the
+    financial rows for sync. session["date"] is updated in place,
+    so replace_session_money lands on the NEW date. True on a
+    move, False when unchanged. ValueError: bad date.
+    PermissionError: not admin (nothing is touched)."""
+    from src.models.database import get_connection, init_db
+    from src.models.finance_sync import queue_synced_row
+    old = session.get("date") or ""
+    if new_date == old:
+        return False
+    if not valid_date(new_date):
+        raise ValueError("session date must be a real YYYY-MM-DD date")
+    if not can_edit_date(role):
+        raise PermissionError("Only the admin may change a session date")
+    init_db(); now = datetime.now().isoformat()
+    conn = get_connection(); cur = conn.cursor()
+    try:
+        own = set(session.get("diagnosis_ids") or ()) | set(session.get("procedure_ids") or ())
+        others = sum(1 for tb in ("diagnoses", "procedures")
+                     for r in cur.execute(f"SELECT id FROM {tb} WHERE patient_file=? AND visit_date=?", (fid, old)) if r[0] not in own)
+        groups = (("diagnoses", "diagnosis_ids"), ("procedures", "procedure_ids"), ("financials", "financial_ids"))
+        for tb, idkey in groups:
+            for rid in session.get(idkey) or ():
+                cur.execute(f"UPDATE {tb} SET visit_date=?, updated_at=? WHERE id=? AND patient_file=?", (new_date, now, rid, fid))
+                if tb == "financials":
+                    queue_synced_row(conn, "financials", rid)
+        if session.get("complaints_id") and others == 0:
+            cur.execute("UPDATE complaints SET visit_date=?, updated_at=? WHERE patient_file=? AND visit_date=?", (new_date, now, fid, old))
+        conn.commit()
+    except Exception:
+        conn.rollback(); raise
+    finally: conn.close()
+    session["date"] = new_date
+    return True

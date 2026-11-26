@@ -89,3 +89,20 @@ def nationality_en_for(value):
     if " / " in str(value):
         return str(value).split(" / ")[0].strip()
     return (value or "Syrian").strip()
+
+
+def default_nationality_en():
+    """Round 48: the Settings 'default_nationality' value as the EN
+    canonical name; 'Syrian' when the setting is unset or blank.
+    Used for NEW patients only — existing records keep their own."""
+    try:
+        from src.models.database import get_setting
+        v = (get_setting("default_nationality", "") or "").strip()
+    except Exception:
+        v = ""
+    return v or "Syrian"
+
+
+def default_nationality_display(lang=None):
+    """The configured default nationality in ONE language."""
+    return display_for(default_nationality_en(), lang)

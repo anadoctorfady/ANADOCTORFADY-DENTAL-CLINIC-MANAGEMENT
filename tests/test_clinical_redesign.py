@@ -9,7 +9,7 @@ from src.models.specialties import all_phrases, load_specialties
 from src.ui.phrase_picker import combined_templates
 from src.ui.clinical import ClinicalTab
 from src.ui.about_tab import AboutTab
-from src.config.settings import ABOUT_EN, ABOUT_AR, WHATSAPP
+from src.config.settings import ABOUT_EN, ABOUT_AR, TELEGRAM
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -111,7 +111,7 @@ def test_clinical_layout_chart_top_procedures_rx_below():
         # name widget; a patient refresh must still run cleanly.
         assert not hasattr(tab, "lbl_pat_name")
         tab.app.current_patient = {"full_name": "Ahmed Mohammed Ali Hassan",
-                                   "file_number": 1, "mobile1": "0944000111",
+                                   "file_number": 1, "mobile1": "0794000111",
                                    "birth_date_greg": "1990-05-15"}
         tab._refresh_patient_panel()
         # Order on the page: chart above the fields, Rx section below them.
@@ -158,9 +158,12 @@ def test_about_tab_exists_and_prescriptions_tab_removed():
                  if isinstance(w, (tk.Label, tk.Button)) and str(w.cget("text")).strip()]
         joined = "\n".join(texts)
         assert "Dr Fady Abdulkafy Dadoush" in joined
-        assert "د. فادي عبد الكافي دعدوش" in joined
-        assert WHATSAPP in joined
-        assert "Contact via WhatsApp only" in joined
+        # R52 Section F supersedes the old bilingual pin: the tab
+        # follows the ACTIVE language only (the stub is English),
+        # so the Arabic dedication must NOT appear alongside.
+        assert "د. فادي عبد الكافي دعدوش" not in joined
+        assert TELEGRAM in joined
+        assert "Contact via Telegram only" in joined
         assert "ANADOCTORFADY" in joined
     finally:
         root.destroy()

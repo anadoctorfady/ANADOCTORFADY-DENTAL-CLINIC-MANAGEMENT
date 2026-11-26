@@ -11,9 +11,9 @@ def test_insert_search():
     init_db()
     conn = get_connection(); cur = conn.cursor()
     cur.execute("INSERT INTO patients(first_name,father_name,grand_name,last_name,full_name,birth_date_greg,mobile1,emergency_phone,nationality) VALUES(?,?,?,?,?,?,?,?,?)",
-                ("Test", "Father", "Grand", "Last", "Test Father Grand Last", "2000-01-01", "0944111222", "0999888777", "سورية"))
+                ("Test", "Father", "Grand", "Last", "Test Father Grand Last", "2000-01-01", "0794111222", "0799888777", "سورية"))
     fid = cur.lastrowid; conn.commit()
-    cur.execute("SELECT * FROM patients WHERE mobile1=?", ("0944111222",))
+    cur.execute("SELECT * FROM patients WHERE mobile1=?", ("0794111222",))
     assert cur.fetchone() is not None
     cur.execute("DELETE FROM patients WHERE file_number=?", (fid,)); conn.commit(); conn.close()
 def test_finance():

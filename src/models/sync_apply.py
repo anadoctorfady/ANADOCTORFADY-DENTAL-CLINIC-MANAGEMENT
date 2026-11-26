@@ -17,6 +17,10 @@ def _now():
 
 def _upsert(conn, table, key_col, key, item, incoming_ts):
     """Insert/update one row, last-write-wins on updated_at. Returns 1/0."""
+    # R49 defensive filter: a pulled payload can never write the
+    # settings table (wa_* credentials are per-device, never synced).
+    if table == "settings":
+        return 0
     cols = {r[1] for r in conn.execute(f"PRAGMA table_info({table})")}
     if not cols: return 0
     data = {k: v for k, v in item.items() if k in cols and k != key_col}; data[key_col] = key

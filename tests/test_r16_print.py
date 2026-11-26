@@ -30,8 +30,8 @@ PATIENT = {"file_number": 77, "full_name": "Test Patient",
            "birth_date_greg": "1990-05-15",
            "birth_date_hijri": "20 Shawwal 1410",
            "age_years": 36, "age_months": 5, "age_days": 21,
-           "nationality": "Syrian", "mobile1": "0944234456", "mobile2": "",
-           "emergency_phone": "0999888777", "address": "Damascus",
+           "nationality": "Syrian", "mobile1": "0791234567", "mobile2": "",
+           "emergency_phone": "0799888777", "address": "Damascus",
            "created_at": "2026-11-05", "diseases": "Diabetes, Hypertension"}
 _TMP = Path(tempfile.mkdtemp(prefix="r16_print_"))
 _AR = re.compile(r"[\u0600-\u06FF\uFB50-\uFDFF\uFE70-\uFEFF]")

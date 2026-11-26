@@ -30,11 +30,11 @@ SRC = ROOT / "src"
 
 def test_r31_radius_constants():
     assert (RADIUS_CARD, RADIUS_PANEL) == (16, 16)
-    assert RADIUS_TABLE == 16, RADIUS_TABLE  # R30: 12 -> R31: 16
+    assert RADIUS_TABLE == 24, RADIUS_TABLE  # R31: 16 -> R43: 24 (owner: tables MORE rounded, corners antialiased)
     assert RADIUS_TEXT == 16, RADIUS_TEXT    # R30: 12 -> R31: 16
     assert RADIUS_FIELD == 14, RADIUS_FIELD  # R30: 12 -> R31: 14
     assert (RADIUS_BTN, RADIUS_ICON) == (12, 12)  # unchanged in R31
-    assert theme.RADIUS_TABLE == 16 and theme.RADIUS_FIELD == 14
+    assert theme.RADIUS_TABLE == 24 and theme.RADIUS_FIELD == 14
 
 
 def test_no_hardcoded_radius_literals_in_src():
@@ -79,7 +79,7 @@ def test_wrappers_instantiate_with_new_radii():
         e = RoundedEntry(root, width=8); e.pack()
         assert e._radius == RADIUS_FIELD == 14
         tr = rounded_tree(root, ("a",))
-        assert tr._rounded_wrapper._radius == RADIUS_TABLE == 16
+        assert tr._rounded_wrapper._radius == RADIUS_TABLE == 24
         root.update_idletasks()
     finally:
         root.destroy()

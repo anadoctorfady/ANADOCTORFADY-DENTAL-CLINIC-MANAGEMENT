@@ -16,9 +16,19 @@ DATA = Path(__file__).resolve().parent.parent / "src" / "data"
 # number, optional /number (combination or per-volume), unit, and an
 # optional denominator: 500 mg, 800/160 mg, 125 mcg, 0.005%,
 # 100 IU/ml, 100,000 IU/ml, 3.35 g/5 ml, 25 mcg/h, 100 mcg/dose.
+# R50: the audited FDC corrections added three legitimate shapes --
+# multi-component chains sharing one unit (4/5/1.25 mg,
+# 150/75/400/275 mg), per-component units (50 mg/200 mcg,
+# 600 mg/400 IU), and " + "-joined concentrations
+# (100 IU/ml + 33 mcg/ml) -- so the pattern accepts those too.
+_NUM = r"[0-9][0-9,]*(\.[0-9]+)?"
+_UNIT = r"(mg|mcg|g|IU|%)"
+_DEN = r"(/(ml|5 ml|0\.5 ml|dose|h))?"
+_DOSE = _NUM + r"\s*" + _UNIT + _DEN
 STRENGTH_RE = re.compile(
-    r"^[0-9][0-9,]*(\.[0-9]+)?(/[0-9][0-9,]*(\.[0-9]+)?)?\s*"
-    r"(mg|mcg|g|IU|%)(/(ml|5 ml|0\.5 ml|dose|h))?$")
+    r"^(" + _DOSE + r"|" + _NUM + r"(/" + _NUM + r")+\s*" + _UNIT + _DEN
+    + r"|" + _DOSE + r"(/" + _DOSE + r")+"
+    + r"|" + _DOSE + r"( \+ " + _DOSE + r")+)$")
 EXPECTED_STRENGTH = {
     "Cefixime": "400 mg", "Cefpodoxime": "200 mg", "Ceftriaxone": "1 g", "Cefazolin": "1 g",
     "Cefdinir": "300 mg", "Meropenem": "1 g", "Imipenem": "500 mg", "Ertapenem": "1 g",
@@ -61,7 +71,7 @@ EXPECTED_STRENGTH = {
     "Olanzapine": "10 mg", "Quetiapine": "100 mg", "Aripiprazole": "10 mg", "Chlorpromazine": "25 mg",
     "Clozapine": "100 mg", "Lithium": "400 mg", "Lamotrigine": "100 mg", "Levetiracetam": "500 mg",
     "Topiramate": "50 mg", "Lorazepam": "1 mg", "Alprazolam": "0.5 mg", "Clonazepam": "0.5 mg",
-    "Zolpidem": "10 mg", "Donepezil": "10 mg", "Memantine": "10 mg", "Levodopa": "25/100 mg",
+    "Zolpidem": "10 mg", "Donepezil": "10 mg", "Memantine": "10 mg", "Levodopa": "100 mg",  # R50 F14: was "25/100 mg" (Sinemet FDC notation on a single)
     "Selegiline": "10 mg", "Methylprednisolone": "4 mg", "Betamethasone": "0.5 mg", "Triamcinolone": "40 mg/ml",
     "Ethinyl Estradiol": "30 mcg", "Levonorgestrel": "1.5 mg", "Medroxyprogesterone": "150 mg/ml", "Testosterone": "1%",
     "Desmopressin": "0.2 mg", "Azathioprine": "50 mg", "Cyclosporine": "100 mg", "Tacrolimus": "1 mg",
@@ -110,9 +120,9 @@ def _meds():
 def _by_name():
     return {m["generic_en"]: m for m in _meds()}
 
-def test_count_still_315_and_no_empty_strength():
+def test_count_still_463_and_no_empty_strength():  # R49: 315 + 40 singles + 108 combos
     meds = _meds()
-    assert len(meds) == 315, len(meds)
+    assert len(meds) == 463, len(meds)  # R49 count pin (was 315)
     assert all(m["strength"].strip() for m in meds), (
         [m["generic_en"] for m in meds if not m["strength"].strip()])
 

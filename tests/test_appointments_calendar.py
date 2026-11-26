@@ -60,6 +60,12 @@ def _gui_tab():
         stub = type("Stub", (), {"lang": "en", "current_patient": None})()
         tab = AppointmentsTab(root, stub)
         tab.pack(fill="both", expand=True)
+        # R53: the page is a scroll page now -- its host is sized by
+        # the canvas <Configure>, which only fires in a MAPPED window
+        # at a real size (a withdrawn 1px root leaves the host at its
+        # requested width, so the tree measured wider than the tab).
+        # Deiconify at the 1380px width this test's docstring promises.
+        root.deiconify(); root.geometry("1380x820")
         root.update()
         return root, tab
     except Exception:

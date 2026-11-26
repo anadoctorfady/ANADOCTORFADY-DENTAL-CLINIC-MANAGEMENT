@@ -105,6 +105,9 @@ def _merge_note_seeds(c):
     return _merge_category_seeds(c, "note")
 def seed_if_empty():
     ensure_tables()
+    try:  # R49-E: strip tooth numbers from stored built-in seeds (never breaks seeding)
+        from src.models.template_cleanup import cleanup_phrases; cleanup_phrases()
+    except Exception: pass
     conn = get_connection(); c = conn.cursor()
     n = c.execute("SELECT COUNT(*) FROM reusable_phrases").fetchone()[0]
     if n:

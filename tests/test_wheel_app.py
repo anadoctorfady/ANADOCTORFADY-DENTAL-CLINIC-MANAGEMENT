@@ -82,6 +82,14 @@ def test_full_app_wheel():
     root.deiconify()
     root.geometry("1380x900")
     root.update()
+    # R56: destroy the bare root NOW -- it was left alive, and as
+    # the first Tk it hijacked _default_root for the rest of the
+    # process (Tk only assigns _default_root when it is None), so
+    # every later ttk.Style() with no master bound to its
+    # interpreter and the Appointments tree lost its rowheight-24
+    # style (full gate: its page stopped scrolling). The App is
+    # its own root and needs no bare root before it.
+    root.destroy()
     with _isolated_db():
         from src.ui.shell import App
         app = App()
@@ -95,7 +103,14 @@ def test_full_app_wheel():
                 app.tree.insert("", "end", values=(9000 + i, f"Wheel {i}", "000"))
             app.update()
             assert app.tree.yview()[1] < 1.0, "patient list not scrollable"
-            _down_up(app, app.tree, app.tree.yview)
+            # R56: wheel over the patient list scrolls the SIDEBAR
+            # (its scroll host), not the list itself.
+            sidebar = _canvas_of(app, app.tree)
+            assert sidebar is not None, "patient list has no sidebar canvas"
+            assert sidebar.yview()[1] < 1.0, "sidebar not scrollable"
+            t0 = app.tree.yview()
+            _down_up(app, app.tree, sidebar.yview)
+            assert app.tree.yview() == t0, "wheel moved the patient list"
             nb = next(w for w in _walk(app) if isinstance(w, ttk.Notebook))
             nb.select(app.clinical)
             app.update()
@@ -103,7 +118,12 @@ def test_full_app_wheel():
             # (input tables now live in a fixed, canvas-less block).
             canvas = _canvas_of(app.clinical, app.clinical.history_section)
             assert canvas.yview()[1] < 1.0, "clinical page not scrollable"
-            s0 = app.settings._canvas.yview()
+            s0 = app.settings._canvas.yview()  # R52: first access BUILDS the lazy Settings tab (no idle chain any more) -- let its canvas settle before recording the baseline, or the settle itself reads as "moved"
+            for _ in range(5):
+                app.update()
+                if app.settings._canvas.yview() == s0:
+                    break
+                s0 = app.settings._canvas.yview()
             _down_up(app, app.clinical.history_section, canvas.yview)
             assert app.settings._canvas.yview() == s0, "clinical wheel moved settings"
             nb.select(app.settings)

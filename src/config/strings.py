@@ -45,7 +45,7 @@ EN = {
     "dlg.at_refresh": "Refresh", "dlg.at_in": "In ✓", "dlg.at_out": "Out",
     "dlg.pp_title": "Templates — {category}", "dlg.pp_heading": "Templates (all fields, one pool)",
     "dlg.pp_search": "Search", "dlg.pp_insert": "Insert", "dlg.pp_save_template": "＋ Save as template",
-    "dlg.pp_favorite": "⭐ Favorite", "dlg.pp_close": "Close",
+    "dlg.pp_favorite": "⭐ Favorite", "dlg.pp_close": "Close", "dlg.pp_copy": "Copy", "dlg.pp_paste": "Paste",
     "dlg.pp_empty_msg": "Write the phrase first (min 3 chars).", "dlg.pp_saved_title": "Saved",
     "dlg.pp_saved_msg": "Saved as a template", "dlg.pp_picker_btn": "📋 Templates",
     "dlg.pp_clip_title": "📋 Clipboard History", "dlg.pp_clip_clear": "Clear history",
@@ -95,7 +95,7 @@ AR = {
     "dlg.at_refresh": "تحديث", "dlg.at_in": "دخول ✓", "dlg.at_out": "خروج",
     "dlg.pp_title": "قوالب — {category}", "dlg.pp_heading": "قوالب (كل الحقول، مجموعة واحدة)",
     "dlg.pp_search": "بحث:", "dlg.pp_insert": "إدراج", "dlg.pp_save_template": "＋ حفظ قالب",
-    "dlg.pp_favorite": "⭐ مفضلة", "dlg.pp_close": "إغلاق",
+    "dlg.pp_favorite": "⭐ مفضلة", "dlg.pp_close": "إغلاق", "dlg.pp_copy": "نسخ", "dlg.pp_paste": "لصق",
     "dlg.pp_empty_msg": "اكتب العبارة أولاً (3 أحرف على الأقل).", "dlg.pp_saved_title": "تم الحفظ",
     "dlg.pp_saved_msg": "تم حفظ القالب.", "dlg.pp_picker_btn": "📋 قوالب", "dlg.pp_clip_title": "📋 سجل الحافظة",
     "dlg.pp_clip_clear": "مسح السجل", "dlg.pp_clip_refresh": "تحديث", "dlg.cat_complaint": "الشكوى",
@@ -188,11 +188,11 @@ try:
     from src.config.strings_r19_patient import EN as _a, AR as _b; EN.update(_a); AR.update(_b)
 except ImportError:
     pass
-try:
-    from src.config.strings_r24_session import EN as _a, AR as _b; EN.update(_a); AR.update(_b)
-except ImportError:
-    pass
-try:
-    from src.config.strings_r27 import EN as _a, AR as _b; EN.update(_a); AR.update(_b)
-except ImportError:
-    pass
+try: from src.config.strings_r24_session import EN as _a, AR as _b; EN.update(_a); AR.update(_b)
+except ImportError: pass
+try: from src.config.strings_r27 import EN as _a, AR as _b; EN.update(_a); AR.update(_b)
+except ImportError: pass
+try: from src.config.strings_r49_wa import EN as _a, AR as _b; EN.update(_a); AR.update(_b)
+except ImportError: pass
+try: from src.config.strings_r49_stats import EN as _a, AR as _b; EN.update(_a); AR.update(_b)
+except ImportError: pass

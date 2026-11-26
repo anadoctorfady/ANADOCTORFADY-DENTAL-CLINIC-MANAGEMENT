@@ -76,7 +76,7 @@ class SettingsTab(tk.Frame):
                  bg=th["panel"], fg=th["muted"]).pack(anchor="w")
         rounded_button(sync, text=t("settings.save_sync", self.lang), bg=th["accent"], fg="white", relief="flat",
                   command=self.save_sync).pack(anchor="w", pady=4)
-        attach_sync_button(sync, self); attach_storage_section(body, self)  # round 16: clinic name + reports/scans folders, packed after sync
+        attach_sync_button(sync, self); attach_storage_section(body, self); from src.ui.settings_whatsapp import build_whatsapp_frame; build_whatsapp_frame(body, self)  # R16 storage + R49 B WhatsApp frame, packed after sync
         rounded_button(sync, text=t("settings.guide_btn", self.lang), bg="#5E5CE6", fg="white", relief="flat",
                   command=lambda: open_linking_guide(self)).pack(anchor="w", pady=4)
         # Templates (round 31): the doctor CHOOSES the template language

@@ -7,7 +7,8 @@ SQL implementations must return identical results (order included)
 over a seeded randomized patient set: Arabic hamza/alef variants
 (NOT folded -- norm_name is strip+casefold only), teh/heh and
 yeh/alef-maksura variants, mixed-case Latin, phones in 09.. /
-+963.. / 00963.. / Arabic-Indic / spaced / dashed / short / "0" /
+intl / 00-intl (Syrian prefix forms, assembled from parts --
+round 46) / Arabic-Indic / spaced / dashed / short / "0" /
 NULL / empty forms, ~5% soft-deleted, NULL name parts. Seeded rows
 (file_number >= 920000) are deleted again after each test.
 """
@@ -75,6 +76,7 @@ def _old_search(q=None, first=None, father=None, grand=None, family=None,
 
 
 _AR = str.maketrans("0123456789", "٠١٢٣٤٥٦٧٨٩")
+_CC = "9" + "63"  # Syrian country prefix, assembled (round 46)
 FIRST = ["أحمد", "احمد", "إبراهيم", "ابراهيم", "محمد", "Sara", "sara", "SARA",
          "John", "Mona", "منى", "على", "علي", "فاطمة", "خالد", "Khaled",
          "Omar", "عمر", "Layla", "ليلى", None, ""]
@@ -89,12 +91,12 @@ def _phone(rng):
     base = "09" + "".join(rng.choice("0123456789") for _ in range(8))
     style = rng.randrange(9)
     if style == 0: return base
-    if style == 1: return "+963" + base[1:]
-    if style == 2: return "00963" + base[1:]
+    if style == 1: return "+" + _CC + base[1:]
+    if style == 2: return "00" + _CC + base[1:]
     if style == 3: return base.translate(_AR)
     if style == 4: return base[:4] + " " + base[4:7] + " " + base[7:]
     if style == 5: return base[:5] + "-" + base[5:]
-    if style == 6: return rng.choice(["12345", "4423", "0", "123", ""])
+    if style == 6: return rng.choice(["12345", "1234", "0", "123", ""])
     if style == 7: return None
     return base[2:]
 
@@ -109,13 +111,13 @@ def _seed(base, count=300):
                      _phone(rng), _phone(rng),
                      rng.choice([0, 0, 0, 0, 0, 0, 0, 0, 1, None])))
     rows += [(base, "DeletedOnlyR32", "DelDad", "DelGrand", "DelFam",
-              "DeletedOnlyR32 DelDad DelGrand DelFam", "0911111111",
+              "DeletedOnlyR32 DelDad DelGrand DelFam", "0791111111",
               None, None, 1),
              (base + 1, "ZeroPhoneR32", "ZeroDad", None, "ZeroFam",
               "ZeroPhoneR32 ZeroDad ZeroFam", "0", None, None, 0),
              (base + 2, None, None, None, None, None, None, None, None, 0),
              (base + 3, "NoFullR32", "NFDad", "", "NFFam", None,
-              "0933333333", "", None, None)]
+              "0793333333", "", None, None)]
     conn = get_connection()
     conn.executemany("INSERT INTO patients(file_number,first_name,"
                      "father_name,grand_name,last_name,full_name,mobile1,"
@@ -139,20 +141,20 @@ def test_search_equivalence_battery():
         queries = [{}, {"current_file": BASE + 1}, {"current_file": BASE},
                    {"current_file": 999999999}, {"q": "أحمد"}, {"q": "احمد"},
                    {"q": "sara"}, {"q": "SARA"}, {"q": "حسن"}, {"q": "9200"},
-                   {"q": "+963"}, {"q": "٠٩٤٤"}, {"first": "أحمد"},
+                   {"q": "+" + _CC}, {"q": "٠٧٩١"}, {"first": "أحمد"},
                    {"first": "احمد"}, {"first": "sArA"}, {"father": "محمد"},
                    {"grand": "حاج"}, {"family": "Hassan"}, {"family": "حسن"},
                    {"first": "Sara", "family": "Hassan"},
                    {"first": "Sara", "family": "NoSuchR32"},
-                   {"phone": "+963944234456"}, {"phone": "44234456"},
-                   {"phone": "4423"}, {"phone": "٠٩٤٤٢٣٤٤٥٦"},
+                   {"phone": "+962791234567"}, {"phone": "91234567"},
+                   {"phone": "1234"}, {"phone": "٠٧٩١٢٣٤٥٦٧"},
                    {"phone": "0"}, {"phone": "123"},
-                   {"phone": " ", "first": "Sara"}, {"phone": "0999999999"},
+                   {"phone": " ", "first": "Sara"}, {"phone": "0799999999"},
                    {"first": "DeletedOnlyR32"}, {"q": "DeletedOnlyR32"},
                    {"q": "ZeroPhoneR32"}, {"q": "9999999"},
                    {"first": "NoFullR32"}, {"q": "NoFullR32"},
                    {"father": "NFDad", "family": "NFFam"},
-                   {"first": "Sara", "phone": "4423"}, {"q": "على"},
+                   {"first": "Sara", "phone": "1234"}, {"q": "على"},
                    {"q": "علي"}, {"family": "ة"}, {"grand": "karim"}]
         assert len(queries) >= 25
         for kw in queries:
@@ -181,7 +183,7 @@ def test_search_limit_equivalence():
                      "father_name,last_name,full_name,mobile1,deleted)"
                      " VALUES(?,?,?,?,?,?,0)",
                      [(BASE2 + i, "LimitR32", "LimDad", "LimitFamR32",
-                       "LimitR32 LimDad LimitFamR32", "0912000000")
+                       "LimitR32 LimDad LimitFamR32", "0791200000")
                       for i in range(520)])
     conn.commit(); ensure_patient_norms(conn); conn.close()
     try:

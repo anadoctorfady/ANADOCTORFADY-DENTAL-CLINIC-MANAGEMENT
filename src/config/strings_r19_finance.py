@@ -17,7 +17,7 @@ EN = {
 AR = {
     'fincur.selector_label': 'العملة:',
     'fincur.all': 'كل العملات',
-    'fincur.raw_note': 'مجاميع خام بـ {cur} (بدون تحويل)',
+    'fincur.raw_note': 'مجاميع خام بـ \u200e{cur}\u200e (بدون تحويل)',  # R55 (D-b): LRM, not LRI/PDI -- see strings_ops.py
     'fincur.breakdown_title': 'التفصيل حسب العملة',
     'fincur.patient_line': '{cur}: الإجمالي {total} · المدفوع {paid} · المتبقي {rem}',
 }

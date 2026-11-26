@@ -18,7 +18,7 @@ CLINIC = "Smile Clinic R30"
 _TMP = Path(tempfile.mkdtemp(prefix="r30_logo_"))
 PATIENT = {"file_number": 77, "full_name": "Test Patient", "birth_date_greg": "1990-05-15",
            "age_years": 36, "age_months": 5, "age_days": 21, "nationality": "Syrian",
-           "mobile1": "0944234456", "mobile2": "", "emergency_phone": "", "address": "Damascus",
+           "mobile1": "0791234567", "mobile2": "", "emergency_phone": "", "address": "Damascus",
            "created_at": "2026-11-05", "diseases": ""}
 _RX = {"date": "2026-11-19", "doctor": "fady"}
 _ITEMS = [{"generic": "Amoxicillin", "dose": "500 mg", "frequency": "3x daily",

@@ -6,8 +6,10 @@ from src.models.interactions import check_interactions
 def test_count_all_classes():
     meds = list_medications()
     # R19-C audit pin: exactly 315 seed drugs (311 audited + 4 added);
-    # any future add/remove must update this pin deliberately.
-    assert len(meds) == 315, len(meds)
+    # R49: 463 = 315 + 40 missing single components + 108 new fixed-dose
+    # combinations (2 further combos were already present, upgraded in
+    # place); any future add/remove must update this pin deliberately.
+    assert len(meds) == 463, len(meds)
     cats = {m["category"] for m in meds}
     for c in ["Antibiotic", "Cardiovascular", "Diabetes", "Respiratory", "CNS", "GI"]:
         assert c in cats, c
@@ -48,9 +50,14 @@ def test_r19_audit_coherence_and_additions():
         assert name in by_name, name
     assert by_name["Paracetamol"]["category"] == "Analgesic"
     # Coherence: every NSAID-class drug sits in the NSAID category,
-    # and the merged duplicate buckets are gone.
+    # and the merged duplicate buckets are gone. R50: scoped to
+    # single-ingredient entries -- the F13 audit fix gives the combo
+    # Naproxen + Esomeprazole its primary component's class token
+    # "NSAID" while its picker category stays "Analgesic" (combo
+    # categories are browsing labels; audit section 1). The rule
+    # still holds for every single, verified across the full list.
     assert all(m["category"] == "NSAID" for m in meds
-               if m.get("class") == "NSAID")
+               if m.get("class") == "NSAID" and not m.get("components"))
     cats = {m["category"] for m in meds}
     for gone in ["Antidiabetic", "Antihypertensive", "Sedative",
                  "Antiplatelet / NSAID"]:

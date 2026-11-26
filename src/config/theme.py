@@ -71,7 +71,7 @@ RADIUS_FIELD, RADIUS_TEXT = 14, 16  # rounded input fields / multi-line text
 # in go rounder still -- TABLE/TEXT 16, FIELD 14; CARD/PANEL 16
 # and BTN/ICON 12 unchanged.
 RADIUS_PANEL = 16  # cards / panels (== RADIUS_CARD)
-RADIUS_TABLE = 16  # rounded wrapper around a ttk Treeview
+RADIUS_TABLE = 24  # rounded wrapper around a ttk Treeview (R43: 16 -> 24, owner wants tables MORE rounded; corners antialiased in rounded.py)
 RADIUS_ICON = 12   # icon buttons / calendar cells
 BTN_H, INPUT_H = 40, 38
 FONT = ("system-ui", "Segoe UI", "Tahoma", "Arial", "sans-serif")
@@ -164,11 +164,12 @@ def tree_style(name, t=None):
     Pass t=finance_tokens() for the darker finance surfaces (ITEM 8).
     """
     import tkinter.ttk as _ttk
+    from src.ui.amiri import tree_font, tree_rowheight
     t = t or current()
     st = _ttk.Style()
     st.configure(f"{name}.Treeview", background=t["panel"],
                  fieldbackground=t["panel"], foreground=t["text"],
-                 rowheight=24)
+                 rowheight=tree_rowheight(), font=tree_font())
     st.configure(f"{name}.Treeview.Heading", background=t["card"],
                  foreground=t["text"])
     return f"{name}.Treeview"

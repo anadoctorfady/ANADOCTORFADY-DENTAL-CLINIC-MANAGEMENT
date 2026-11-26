@@ -18,7 +18,7 @@ from src.ui.finance_views import (build_lock_view, build_expenses_tab,
 from src.ui.finance_records import (build_totals_toggles, wire_auto_lock,
                                     hide_finance_numbers, totals_selection,
                                     refresh_all_record_buttons)
-from src.ui.salaries_view import build_salaries_tab, refresh_salaries_tab; from src.ui.rounded import rounded_button; from src.ui.rounded_frame import RoundedFrame; from src.ui.rounded_widgets import RoundedEntry; from src.ui.finance_currency import build_currency_selector, admin_result, doctor_result, build_rate_row; from src.ui.zebra import zebra_tree
+from src.ui.salaries_view import build_salaries_tab, refresh_salaries_tab; from src.ui.finance_stats import build_stats_tab, refresh_stats_tab; from src.ui.rounded import rounded_button; from src.ui.rounded_frame import RoundedFrame; from src.ui.rounded_widgets import RoundedEntry; from src.ui.finance_currency import build_currency_selector, admin_result, doctor_result, build_rate_row; from src.ui.zebra import zebra_tree; from src.ui.scroll_page import make_scroll_page
 from src.models.currency import get_rate, save_rate, latest_rate, default_currency
 class FinanceTab(tk.Frame):
     def __init__(self, parent, app, **kw):
@@ -29,37 +29,39 @@ class FinanceTab(tk.Frame):
         self.gate = getattr(app, "finance_gate", None) or FinanceGate()
         app.finance_gate = self.gate
         self._tv = tree_style("Finance", th)
-        cards = tk.Frame(self, bg=th["bg"]); cards.pack(fill="x", padx=10, pady=8)
+        # R54 (Section G): the whole page rides a vertical scroll page
+        # (Appointments/Users pattern) -- AR rows overflow 1080px, so the
+        # expenses bottom + Edit/Delete were unreachable; overlays stay
+        # placed on the tab itself, above the scroll host.
+        self._scroll_page, body = make_scroll_page(self, th["bg"])
+        cards = tk.Frame(body, bg=th["bg"]); cards.pack(fill="x", padx=10, pady=8)
         self.cards = {}
         # Keys stay the English titles (tests + calc() use them); only
         # the DISPLAYED label goes through t() at build time.
         for title, key, col in [("Total Income", "income", th["income"]), ("Total Expenses", "expenses", th["expenses"]), ("Total Lab", "lab", th["lab"]), ("Total Debts", "debts", th["debts"]), ("Net Income", "net", th["net"])]:
             c = RoundedFrame(cards, bg=th["panel"], border=th["border"])
             c.pack(side="left", fill="x", expand=True, padx=6); c = c.inner
-            tk.Label(c, text=t(f"fin.card_{key}", self.lang), bg=th["panel"], fg=th["muted"], font=("Segoe UI", 8)).pack(pady=(8, 2))
-            lbl = tk.Label(c, text="0.00", bg=th["panel"], fg=col, font=("Segoe UI", 14, "bold")); lbl.pack(pady=(0, 8))
+            tk.Label(c, text=t(f"fin.card_{key}", self.lang), bg=th["panel"], fg=th["muted"], font=("Segoe UI", 8)).pack(pady=(8, 2)); lbl = tk.Label(c, text="0.00", bg=th["panel"], fg=col, font=("Segoe UI", 14, "bold")); lbl.pack(pady=(0, 8))
             tk.Frame(c, bg=col, height=4).pack(fill="x", side="bottom", padx=8)  # R19 item 7: inset so the strip's square corners stay inside the card's rounded corners
             self.cards[title] = lbl
-        build_totals_toggles(self, th)  # Job 9a: lab/salaries/expenses toggles
-        build_currency_selector(self, th)  # R19-E: All / per-currency selector
-        per = RoundedFrame(self, bg=th["panel"], border=th["border"])
+        build_totals_toggles(self, th, body)  # Job 9a: lab/salaries/expenses toggles
+        build_currency_selector(self, th, body)  # R19-E: All / per-currency selector
+        per = RoundedFrame(body, bg=th["panel"], border=th["border"])
         per.pack(fill="x", padx=10, pady=4); per = per.inner
         tk.Label(per, text=t("fin.from", self.lang), bg=th["panel"], fg=th["text"]).pack(side="left", padx=6)
         self.e_from = RoundedEntry(per, width=12); self.e_from.pack(side="left", padx=4); self.e_from.insert(0, date.today().replace(day=1).isoformat())
         tk.Label(per, text=t("fin.to", self.lang), bg=th["panel"], fg=th["text"]).pack(side="left", padx=4)
         self.e_to = RoundedEntry(per, width=12); self.e_to.pack(side="left", padx=4); self.e_to.insert(0, date.today().isoformat())
-        rounded_button(per, text=t("fin.calculate", self.lang), bg=th["accent"], fg=th["btn_text"], relief="flat", command=self.calc).pack(side="left", padx=8)
-        self.lbl_usd = tk.Label(per, text="", bg=th["panel"], fg=th["muted"], font=("Segoe UI", 9)); self.lbl_usd.pack(side="left", padx=8)
-        build_rate_row(self, th)  # today's rate row (R21: ANY currency -> base, manual)
-        nb = ttk.Notebook(self, style=notebook_style("Finance", th)); nb.pack(fill="both", expand=True, padx=10, pady=6)
+        rounded_button(per, text=t("fin.calculate", self.lang), bg=th["accent"], fg=th["btn_text"], relief="flat", command=self.calc).pack(side="left", padx=8); self.lbl_usd = tk.Label(per, text="", bg=th["panel"], fg=th["muted"], font=("Segoe UI", 9)); self.lbl_usd.pack(side="left", padx=8)
+        build_rate_row(self, th, body)  # today's rate row (R21: ANY currency -> base, manual)
+        nb = ttk.Notebook(body, style=notebook_style("Finance", th)); nb.pack(fill="both", expand=True, padx=10, pady=6)
         build_expenses_tab(nb, self); build_lab_tab(nb, self); build_debts_tab(nb, self)
-        build_centers_tab(nb, self); build_salaries_tab(nb, self)
+        build_centers_tab(nb, self); build_salaries_tab(nb, self); build_stats_tab(nb, self)
         for _i in nb.tabs():  # salaries tab paints global panel: recolour to finance surfaces
             _txt = nb.tab(_i, "text")
             if "Salaries" in _txt or "الرواتب" in _txt:
                 recolour_tab_frame(nb.nametowidget(_i), th)
-        self._gate_user = None; self._gate_role = None
-        build_lock_view(self, th); build_doctor_view(self, th); build_nurse_view(self, th)
+        self._gate_user = None; self._gate_role = None; build_lock_view(self, th); build_doctor_view(self, th); build_nurse_view(self, th)
         wire_auto_lock(self)  # Job 9b: re-lock 15 min after last activity
         self.bind("<Map>", self._on_map)
         if not self.gate.is_unlocked: self._show_lock()
@@ -115,8 +117,7 @@ class FinanceTab(tk.Frame):
     def load(self):
         self.gate.touch(); self._needs_load = self._needs_load and not self.gate.is_unlocked
         if not self.gate.is_unlocked: return  # locked: reveal nothing, stay deferred
-        if self._finance_scope() == "none":  # nurse: message, no numbers
-            self._nurse_view.place(relx=0, rely=0, relwidth=1, relheight=1); return
+        if self._finance_scope() == "none": self._nurse_view.place(relx=0, rely=0, relwidth=1, relheight=1); return  # nurse: message, no numbers
         if self._finance_scope() == "own":  # doctor: own income only
             self._doc_view.place(relx=0, rely=0, relwidth=1, relheight=1); self._calc_doctor(); return
         self._doc_view.place_forget(); self._nurse_view.place_forget()
@@ -130,7 +131,7 @@ class FinanceTab(tk.Frame):
         for d in debts_list():
             self.tree_debt.insert("", "end", values=(d["file_number"], d["full_name"], d["total"], d["paid"], d["remain"]))
         zebra_tree(self.tree_exp); zebra_tree(self.tree_lab); zebra_tree(self.tree_debt)  # R21 item 6
-        refresh_centers_tab(self); refresh_salaries_tab(self)
+        refresh_centers_tab(self); refresh_salaries_tab(self); refresh_stats_tab(self)
         conn.close()
         refresh_all_record_buttons(self)
     def calc(self):
@@ -144,8 +145,7 @@ class FinanceTab(tk.Frame):
         self.cards["Total Lab"].config(text=f"{res['total_lab']:.2f}" if "lab" in res["included"] else "—")
         self.cards["Total Debts"].config(text=f"{res['total_debts']:.2f}")
         self.cards["Net Income"].config(text=f"{res['net_income']:.2f}")
-        parts = ", ".join(t(f"fintot.part_{p}", self.lang) for p in res["included"]) or t("fintot.none", self.lang)
-        self.lbl_tot_included.config(text=t("fintot.included", self.lang).format(parts=parts))
+        parts = ", ".join(t(f"fintot.part_{p}", self.lang) for p in res["included"]) or t("fintot.none", self.lang); self.lbl_tot_included.config(text=t("fintot.included", self.lang).format(parts=parts))
         base = res.get("base_currency", self.base_cur)
         if res.get("currency"):
             self.lbl_usd.config(text=t("fincur.raw_note", self.lang).format(cur=res["currency"]))

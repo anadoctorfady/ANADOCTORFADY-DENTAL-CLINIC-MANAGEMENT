@@ -10,7 +10,7 @@ from tkinter import font as tkfont
 
 LONG_EN = "Ahmed Mohammed Ali Hassan"
 LONG_AR = "أحمد محمد علي حسن"
-MOBILE = "+963944234456"
+MOBILE = "+962791234567"
 PAD = 10  # cell padding allowance, px
 
 

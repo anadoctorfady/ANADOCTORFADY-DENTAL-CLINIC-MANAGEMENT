@@ -83,6 +83,12 @@ def _open_viewer(path):
     root.withdraw()
     from src.ui.image_viewer import open_image_viewer
     win = open_image_viewer(root, str(path), path.name, "en")
+    # Headless Xvfb has no window manager, so the viewer never gains
+    # input focus -- and a synthetic key event on an unfocused
+    # Toplevel does not dispatch (proven: the same Escape fires once
+    # the window is focused, and fires on a child widget regardless).
+    # focus_force mirrors a real user, for whom the viewer IS focused.
+    win.focus_force()
     root.update_idletasks()
     return root, win
 
@@ -129,6 +135,7 @@ def test_viewer_rotate_save_and_discard():
         from src.ui.image_viewer import open_image_viewer
         win3 = open_image_viewer(root, str(p), p.name, "en",
                                  on_saved=lambda: saved.append(1))
+        win3.focus_force()
         root.update()
         win3.viewer_rotate(90)
         win3.event_generate("<Escape>")

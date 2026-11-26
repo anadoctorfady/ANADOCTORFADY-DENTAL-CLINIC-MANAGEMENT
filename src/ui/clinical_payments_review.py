@@ -16,13 +16,16 @@ Charges (session totals with no payment) are not rows here — they
 live in the unified session table; they still shift the running
 balances (models.payments.patient_payments does the math)."""
 import tkinter as tk
+from tkinter import messagebox, simpledialog
 
 from src.config.strings import t
 from src.config.strings_r38 import r38_t
 from src.config.theme import credit_color, current, is_dark
+from src.models.edit_rules import can_edit_date
 from src.models.finance import patient_totals
-from src.models.payments import patient_payments
+from src.models.payments import change_payment_date, patient_payments
 from src.ui.clinical_history import flat_cell
+from src.ui.rounded import rounded_button
 
 FIN_COLS = ("date", "amount", "doctor", "by", "balance", "kind", "currency")
 FIN_WIDTHS = {"date": 90, "amount": 110, "currency": 70, "doctor": 120,
@@ -88,3 +91,91 @@ def fill_review(tab, fid):
                         values=tuple(flat_cell(v) for v in vals))
         tab._hist_rows["tree_fin"][iid] = d
     refresh_summary(tab, fid)
+    try:
+        ensure_date_button(tab)
+    except Exception:
+        pass
+
+
+# ---- Round 49 (Section F): admin-only standalone-payment date edit --
+EDIT_DATE_LABEL = "Edit date / تعديل التاريخ"
+
+
+def selected_payment(tab):
+    """The payment dict of the selected review row, or None."""
+    tr = getattr(tab, "tree_fin", None)
+    if tr is None:
+        return None
+    sel = tr.selection()
+    if not sel:
+        return None
+    return (getattr(tab, "_hist_rows", {}) or {}).get("tree_fin", {}).get(sel[0])
+
+
+def sync_date_button(tab):
+    """Enable the Edit-date button only for ADMIN with a standalone
+    payment selected (session-linked rows follow the session)."""
+    btn = getattr(tab, "btn_fin_date", None)
+    if btn is None:
+        return
+    row = selected_payment(tab)
+    ok = can_edit_date(getattr(tab, "current_role", None)) \
+        and row is not None and row.get("row_kind") == "payment"
+    try:
+        btn.config(state="normal" if ok else "disabled")
+    except Exception:
+        pass
+
+
+def ensure_date_button(tab):
+    """Create tab.btn_fin_date once, under the review tree (the
+    tree's page frame is tree -> RoundedFrame.inner -> RoundedFrame
+    -> page), and keep its state in step with the selection."""
+    if getattr(tab, "btn_fin_date", None) is not None:
+        sync_date_button(tab)
+        return
+    tr = tab.tree_fin
+    page = tr.master.master.master
+    th = current()
+    btn = rounded_button(page, text=EDIT_DATE_LABEL, bg=th["card"],
+                         fg=th["text"], state="disabled",
+                         command=lambda: edit_selected_payment_date(tab))
+    btn.pack(fill="x", padx=6, pady=(0, 4))
+    tab.btn_fin_date = btn
+    tr.bind("<<TreeviewSelect>>", lambda _e: sync_date_button(tab), add="+")
+    sync_date_button(tab)
+
+
+def edit_selected_payment_date(tab):
+    """Ask for the new date and apply it via the guarded model
+    path (payments.change_payment_date). Only the DATE changes;
+    on success the review reloads, so the running-balance column
+    re-derives in the new date order. True when a date changed."""
+    lang = getattr(tab.app, "lang", "en")
+    row = selected_payment(tab)
+    fid = getattr(tab, "patient_id", None) or \
+        (tab.app.current_patient or {}).get("file_number")
+    if row is None or not fid:
+        return False
+    if not can_edit_date(getattr(tab, "current_role", None)) \
+            or row.get("row_kind") != "payment":
+        messagebox.showwarning(EDIT_DATE_LABEL,
+                               "Only the admin may change a payment date"
+                               if lang != "ar" else
+                               "لا يمكن تغيير تاريخ الدفعة إلا من قبل المدير")
+        return False
+    new = simpledialog.askstring(EDIT_DATE_LABEL,
+                                 r38_t("pay.date", lang) + " (YYYY-MM-DD)",
+                                 initialvalue=row.get("visit_date") or "",
+                                 parent=tab)
+    if not new:
+        return False
+    try:
+        changed = change_payment_date(fid, row["id"], new.strip(),
+                                      getattr(tab, "current_role", None))
+    except (ValueError, PermissionError, LookupError) as exc:
+        messagebox.showerror(t("clinical.error", lang), str(exc))
+        return False
+    if changed:
+        fill_review(tab, fid)
+    return changed

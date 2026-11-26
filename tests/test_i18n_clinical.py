@@ -134,7 +134,7 @@ def _build_tabs(lang):
         clinical = ClinicalTab(root, app)
         clinical.pack()
         app.current_patient = {"full_name": "Ahmed Mohammed Ali Hassan",
-                               "file_number": 1, "mobile1": "0944000111",
+                               "file_number": 1, "mobile1": "0794000111",
                                "birth_date_greg": "1990-05-15"}
         clinical._refresh_patient_panel()
         root.update_idletasks()

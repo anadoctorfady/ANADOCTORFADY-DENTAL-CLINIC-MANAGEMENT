@@ -1,48 +1,31 @@
-"""Zebra striping for multi-row tables/lists (round 21 item 6).
+"""Row striping for multi-row tables/lists.
 
-Every multi-row Treeview/list gets two alternating row
-backgrounds (theme.zebra_colors: warm paper tones in light mode,
-deep cost-box browns in dark mode -- item 3). The helpers are
-called at the END of each fill routine:
+Round 21 gave every multi-row Treeview/list two alternating
+zebra backgrounds; round 40/41 added the vivid 5-colour rotation
+on two money lists. Round 43 (owner, explicit instruction
+2026-11-22): EVERY table's rows must rotate vivid colours, each
+row different from the row before and after it. These two helpers
+therefore DELEGATE to src.ui.vivid_rows, so every existing call
+site (all at the END of a fill routine) picks up the rotation
+with no per-site change.
 
-- zebra_tree(tree): (re)tags every current row zebra0/zebra1 by
-  position. The zebra tag is placed FIRST in the row's tag list,
-  so meaning tags applied later (patient-name colours, the red
-  "debt" tag, appointment attendance colours) keep precedence
-  for the properties they set -- the zebra tag sets ONLY the
-  background. Selection highlighting comes from the ttk style
-  and stays distinguishable (asserted in the round-21 test).
-- zebra_listbox(lb): per-row background via itemconfigure for
-  plain tk.Listbox surfaces (template picker/manager lists).
-
-Colours are (re)configured on every call, so a theme rebuild
-(fresh widgets) and a mode switch both stay correct.
+Meaning FOREGROUNDS are preserved: ttk tag precedence follows
+tag CREATION order (first-configured tag wins a conflicting
+option -- probed on DISPLAY:98, 2026-11-22), and every meaning
+tag in the app (patient name colours, the red "debt" tag,
+appointment attendance statuses) is configured BEFORE the first
+striping call on its tree; the vivid tags set the background and
+a dark foreground that those earlier tags still override.
 <200 lines."""
-from src.config.theme import is_dark, zebra_colors
-
-_TAGS = ("zebra0", "zebra1")
+from src.ui.vivid_rows import vivid_listbox, vivid_tree
 
 
 def zebra_tree(tree):
-    """Alternate zebra0/zebra1 backgrounds over the tree's rows."""
-    try:
-        even, odd = zebra_colors(is_dark())
-        tree.tag_configure("zebra0", background=even)
-        tree.tag_configure("zebra1", background=odd)
-        for i, iid in enumerate(tree.get_children("")):
-            tags = [tg for tg in tree.item(iid, "tags") if tg not in _TAGS]
-            tree.item(iid, tags=tuple([_TAGS[i % 2]] + tags))
-    except Exception:
-        pass
+    """Round 43: vivid rotation over the tree's rows (was zebra)."""
+    vivid_tree(tree)
 
 
 def zebra_listbox(lb):
-    """Alternate row backgrounds in a tk.Listbox (a RoundedListbox
+    """Round 43: vivid rotation in a tk.Listbox (a RoundedListbox
     wrapper is unwrapped to its inner Listbox first)."""
-    try:
-        lb = getattr(lb, "listbox", lb)
-        even, odd = zebra_colors(is_dark())
-        for i in range(lb.size()):
-            lb.itemconfigure(i, background=even if i % 2 == 0 else odd)
-    except Exception:
-        pass
+    vivid_listbox(lb)

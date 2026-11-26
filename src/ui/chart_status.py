@@ -134,3 +134,39 @@ def insert_selected_teeth(tab, teeth):
         w = getattr(tab, attr, None)
         if w is not None:
             _insert_into(w, teeth)
+
+
+def _scrub_field(widget, drop):
+    """Remove auto-inserted tooth numbers (the `drop` set) from one
+    field: a comma segment is removed only when it consists solely
+    of dropped numbers, so typed text -- even text containing a
+    number inside a sentence -- is never touched."""
+    cur = widget.get("1.0", tk.END).strip()
+    if not cur:
+        return
+    kept = []
+    for seg in cur.split(","):
+        toks = seg.split()
+        if toks and all(tok in drop for tok in toks):
+            continue  # a pure auto-inserted number segment
+        if seg.strip():
+            kept.append(seg.strip())
+    new = ", ".join(kept)
+    if new != cur:
+        widget.delete("1.0", tk.END)
+        if new:
+            widget.insert("1.0", new)
+
+
+def remove_teeth_from_fields(tab, teeth):
+    """Round 43: jaw-button toggle-off scrub -- remove `teeth`'
+    numbers from ALL FOUR clinical fields (the exact fields
+    insert_selected_teeth appends to). Scoped to the jaw buttons:
+    single-tooth deselection still never deletes (round 16 rule)."""
+    drop = {str(n) for n in teeth}
+    if not drop:
+        return
+    for attr in FIELD_ATTRS:
+        w = getattr(tab, attr, None)
+        if w is not None:
+            _scrub_field(w, drop)

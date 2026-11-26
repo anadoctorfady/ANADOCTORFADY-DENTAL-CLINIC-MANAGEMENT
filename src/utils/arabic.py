@@ -21,7 +21,11 @@ def reshape(s):
 def ar(s):
     return reshape(s)
 def bidi_isolate(s):
-    """Wrap Latin/numbers inside Arabic so order stays correct."""
-    return "\u2066" + str(s) + "\u2069"
+    """Wrap Latin/numbers inside Arabic so order stays correct.
+    Round 55: LRM (U+200E) on both sides, NOT the LRI/PDI
+    isolates (U+2066..U+2069) -- those rendered as small visible
+    marks around Latin runs under Windows Segoe UI on the owner's
+    machine, while LRM is zero-width in every font Tk can use."""
+    return "\u200e" + str(s) + "\u200e"
 def mixed_ar(ar_text, latin):
     return f"{reshape(ar_text)} {bidi_isolate(latin)}"

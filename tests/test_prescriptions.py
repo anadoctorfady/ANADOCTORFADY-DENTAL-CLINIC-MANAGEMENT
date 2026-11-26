@@ -20,7 +20,7 @@ def test_safe_combo():
 def test_save_and_pdf():
     init_db()
     conn = get_connection(); cur = conn.cursor()
-    cur.execute("INSERT INTO patients(first_name,full_name,birth_date_greg,mobile1,nationality,current_medications,allergies) VALUES(?,?,?,?,?,?,?)", ("Rx", "Rx Test", "1990-01-01", "0944000111", "Syrian", "Warfarin", ""))
+    cur.execute("INSERT INTO patients(first_name,full_name,birth_date_greg,mobile1,nationality,current_medications,allergies) VALUES(?,?,?,?,?,?,?)", ("Rx", "Rx Test", "1990-01-01", "0794000111", "Syrian", "Warfarin", ""))
     fid = cur.lastrowid; conn.commit(); conn.close()
     pid = save_prescription(fid, [{"generic": "Amoxicillin", "brand": "Amoxil", "dose": "500 mg", "frequency": "3x daily", "duration_days": "5", "instructions": "After food"}], doctor="fady", acknowledged=[{"severity": "severe", "message_en": "test", "message_ar": "اختبار"}])
     assert pid and len(list_prescriptions(fid)) >= 1 and get_prescription_items(pid)[0]["generic"] == "Amoxicillin"

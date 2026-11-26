@@ -2,8 +2,10 @@
 
 Round 22 (owner redesign): the tab opens with a PINNED HEADER
 (patient_info.PatientInfoPanel: personal info + Health lines +
-both alert strips + Edit/Delete/Refer) packed OUTSIDE the
-scroll canvas, so it stays visible while the main area scrolls.
+both alert strips) packed OUTSIDE the scroll canvas, so it
+stays visible while the main area scrolls (R54: the Edit /
+Delete / Refer buttons moved to the top bar, by Manage
+templates; the header itself is a narrow card).
 The scroll flow below it, in order: dental chart, the UNIFIED
 clinical table (round 24, clinical_session.build_unified: entry
 area + session record rows with Edit / Delete -- replacing the
@@ -61,7 +63,8 @@ class ClinicalTab(tk.Frame):
         # canvas so it never scrolls away. Registered as
         # app.info_panel: the shell's refresh calls (select /
         # logout / new patient / login) keep landing here.
-        self.header_panel = PatientInfoPanel(self, app)
+        self.header_panel = PatientInfoPanel(self, app, action_host=bar)
+        # R55: the 3-row strip spans the FULL main area (fill="x") -- the round-54 narrow card is gone; the chart moves up.
         self.header_panel.pack(fill="x", padx=8, pady=(2, 4))
         app.info_panel = self.header_panel
         self.mid_paned = None; self.left_col = None; self.right_col = self
@@ -70,6 +73,7 @@ class ClinicalTab(tk.Frame):
         self.main_canvas = inner.master
         # Scroll flow: chart first (it scrolls away; the header does not).
         self.chart = DentalChartFrame(inner, lang=getattr(app, "lang", "en"), on_select=self._on_chart_select); self.chart.pack(fill="x", padx=8, pady=2)
+        self.chart.on_jaw_clear = lambda teeth: _chart_status.remove_teeth_from_fields(self, teeth)  # R43: jaw toggle-off scrubs the fields
         # Round 24: ONE unified clinical table after the chart
         # (entry area + session records; sets self.input_block).
         _session.build_unified(self, inner)

@@ -22,11 +22,11 @@ def test_radius_constants_reduced():
     # Round 31 scale: R30 was CARD/PANEL 16, all others 12; R31
     # raises TABLE/TEXT to 16 and FIELD to 14 (owner live use).
     assert (RADIUS_CARD, RADIUS_PANEL) == (16, 16), (RADIUS_CARD, RADIUS_PANEL)
-    assert RADIUS_TABLE == 16, RADIUS_TABLE
+    assert RADIUS_TABLE == 24, RADIUS_TABLE  # R43: 16 -> 24 (owner: tables more rounded)
     assert (RADIUS_TEXT, RADIUS_ICON) == (16, 12), (RADIUS_TEXT, RADIUS_ICON)
     assert (RADIUS_FIELD, RADIUS_BTN) == (14, 12), (RADIUS_FIELD, RADIUS_BTN)
     assert max(RADIUS_CARD, RADIUS_PANEL, RADIUS_TABLE, RADIUS_TEXT,
-               RADIUS_ICON, RADIUS_FIELD, RADIUS_BTN) == 16
+               RADIUS_ICON, RADIUS_FIELD, RADIUS_BTN) == 24
     assert min(RADIUS_CARD, RADIUS_PANEL, RADIUS_TABLE, RADIUS_TEXT,
                RADIUS_ICON, RADIUS_FIELD, RADIUS_BTN) == 12
     assert theme.RADIUS_CARD == RADIUS_CARD  # single source of truth
@@ -67,7 +67,7 @@ def test_image_cache_key_includes_radius():
         b = RoundedFrame(root, bg="#EDE4D3", border="#D9C39A", radius=12)
         b.pack(fill="both", expand=True)
         root.update_idletasks(); root.update()
-        radii = {k[3] for k in _cache_for(root) if k and k[0] == "frame"}
+        radii = {k[3] for tier in _cache_for(root).values() for k in tier if k and k[0] == "frame"}  # R52: cache is tiered (small/large dicts)
         assert 6 in radii and 12 in radii, radii  # radius is in the key
     finally:
         root.destroy()

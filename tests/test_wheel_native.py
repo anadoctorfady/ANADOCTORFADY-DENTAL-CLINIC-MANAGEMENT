@@ -1,9 +1,10 @@
 """Round 14 wheel audit: native-scroll sweep over the remaining
-scrollable surfaces. These scroll via Tk's own class bindings
-(Treeview / Listbox / Text / ScrolledText) — no app code binds their
-wheel — so the sweep guards against a future global handler breaking
-them, and proves each one moves under a real GUI event, not by code
-inspection. GUI tests skip gracefully when no display is available.
+scrollable surfaces. R56: trees/lists that live INSIDE a scroll
+page now scroll the PAGE (the global page-scroll rule); only
+surfaces in NO scroll page keep their native self-scroll (the
+delegate's fallback). These tests pin both halves: in-page trees
+move the page, dialog/standalone lists still move themselves.
+GUI tests skip gracefully when no display is available.
 """
 import tkinter as tk
 from tkinter import ttk
@@ -17,6 +18,7 @@ from src.ui.scans_tab import build_scans_section
 from src.ui.settings_sync_guide import open_linking_guide
 from src.ui.template_manager import open_template_manager
 from src.ui.users_tab import UsersTab
+from src.ui.wheel_scroll import install_page_wheel, page_canvas_for
 from src.utils.finance_gate import FinanceGate
 
 
@@ -69,12 +71,41 @@ def _wheel_moves(root, widget, view, label):
     assert view()[0] < mid[0], f"{label}: Button-4 did not scroll back"
 
 
+def _wheel_moves_page(root, widget, page, label):
+    """R56: down (MouseWheel + Button-5) then up (MouseWheel +
+    Button-4) over an in-page widget: the PAGE must move every
+    time; the widget itself must not move at all."""
+    assert page.yview()[1] < 1.0, f"{label}: page not scrollable"
+    own0 = widget.yview()
+    before = page.yview()
+    widget.event_generate("<MouseWheel>", delta=-120)
+    root.update()
+    assert page.yview()[0] > before[0], \
+        f"{label}: MouseWheel down did not scroll page"
+    assert widget.yview() == own0, f"{label}: wheel moved the widget"
+    widget.event_generate("<Button-5>")
+    root.update()
+    assert page.yview()[0] > before[0], \
+        f"{label}: Button-5 did not scroll page"
+    mid = page.yview()
+    widget.event_generate("<MouseWheel>", delta=120)
+    root.update()
+    assert page.yview()[0] < mid[0], \
+        f"{label}: MouseWheel up did not scroll page back"
+    widget.event_generate("<Button-4>")
+    root.update()
+    assert page.yview()[0] < mid[0], \
+        f"{label}: Button-4 did not scroll page back"
+    assert widget.yview() == own0, f"{label}: wheel-up moved the widget"
+
+
 def test_finance_trees():
     root = _root()
     if root is None:
         print("SKIP test_finance_trees (no display)")
         return
     try:
+        install_page_wheel(root)  # R56: the App installs this once
         app = _Stub()
         app.finance_gate = FinanceGate(verify_fn=lambda u, p: True)
         tab = FinanceTab(root, app)
@@ -98,7 +129,11 @@ def test_finance_trees():
                     break
             _fill_tree(tr, 120, 4)
             root.update()
-            _wheel_moves(root, tr, tr.yview, label)
+            # R56: in-page trees scroll the Finance page, not
+            # themselves (round-14 native self-scroll superseded).
+            page = page_canvas_for(tr)
+            assert page is not None, f"{label}: tree has no page"
+            _wheel_moves_page(root, tr, page, label)
     finally:
         root.destroy()
 
@@ -109,14 +144,19 @@ def test_appointments_tree_and_slots():
         print("SKIP test_appointments_tree_and_slots (no display)")
         return
     try:
+        install_page_wheel(root)  # R56: the App installs this once
         tab = AppointmentsTab(root, _Stub())
         tab.pack(fill="both", expand=True)
         root.update()
         _fill_tree(tab.tree, 120, 6)
         root.update()
-        _wheel_moves(root, tab.tree, tab.tree.yview, "appointments tree")
-        _wheel_moves(root, tab.lb_slots.widget, tab.lb_slots.widget.yview,
-                     "appointments slots")
+        # R56: the appointments tree + slots list scroll the
+        # Appointments page, not themselves.
+        page = page_canvas_for(tab.tree)
+        assert page is not None, "appointments tree has no page"
+        _wheel_moves_page(root, tab.tree, page, "appointments tree")
+        _wheel_moves_page(root, tab.lb_slots.widget, page,
+                          "appointments slots")
     finally:
         root.destroy()
 
@@ -127,6 +167,7 @@ def test_scans_attendance_users_trees():
         print("SKIP test_scans_attendance_users_trees (no display)")
         return
     try:
+        install_page_wheel(root)  # R56: the App installs this once
         # R27 SUPERSESSION: the scans Treeview is now a thumbnail
         # GRID. In the real app the grid sits inside the clinical
         # page's scroll canvas, so the wheel over a tile scrolls
@@ -154,6 +195,8 @@ def test_scans_attendance_users_trees():
         tr = next(w for w in _walk(win) if isinstance(w, ttk.Treeview))
         _fill_tree(tr, 120, 4)
         root.update()
+        # R56: the attendance dialog has NO scroll page, so the
+        # delegate falls back to the native self-scroll.
         _wheel_moves(root, tr, tr.yview, "attendance tree")
         win.destroy()
         nb = ttk.Notebook(root)
@@ -163,7 +206,9 @@ def test_scans_attendance_users_trees():
         root.update()
         _fill_tree(tab.tree, 60, 3)
         root.update()
-        _wheel_moves(root, tab.tree, tab.tree.yview, "users tree")
+        # R56: the Users tree lives in the Users scroll page, so
+        # its wheel scrolls the page, not the tree.
+        _wheel_moves_page(root, tab.tree, tab._scroll, "users tree")
     finally:
         root.destroy()
 
@@ -174,6 +219,10 @@ def test_template_phrase_listboxes_and_guide():
         print("SKIP test_template_phrase_listboxes_and_guide (no display)")
         return
     try:
+        # R56: these dialogs have NO scroll page, so the delegate
+        # falls back to the native self-scroll -- install the real
+        # policy and pin the fallback, not the uninstalled default.
+        install_page_wheel(root)
         win = open_template_manager(root, "fady", lang="en")
         root.update()
         lb = next(w for w in _walk(win) if isinstance(w, tk.Listbox))

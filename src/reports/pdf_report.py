@@ -8,7 +8,7 @@ from reportlab.platypus import (SimpleDocTemplate, Paragraph, Spacer,
     Table, TableStyle, Image as RLImage)
 from src.reports.pdf_styles import styles, IOS, FONT_EN
 from src.reports.pdf_common import (reports_dir, report_header,
-                                    footer_block, _av, name_value, name_style)
+                                    footer_block, _av, name_value, name_style, top_strip)
 from src.config.strings_r16_print import PDF_LABELS
 from src.utils.arabic import ar
 from src.utils.hijri_age import format_birth_date, format_hijri_date
@@ -193,7 +193,7 @@ def create_patient_pdf(patient, complaints=None, diagnoses=None,
         canvas.saveState(); canvas.setFillColor(IOS["primary"])
         canvas.roundRect(10*mm, 282*mm, 190*mm, 6*mm, 2*mm, fill=1, stroke=0)
         canvas.setFillColor(white); canvas.setFont(FONT_EN, 8)  # R37: banner 8pt (was 7pt); app footer stays the only 7pt
-        canvas.drawCentredString(105*mm, 284.5*mm, "ANADOCTORFADY • Dental Clinic • +963944234456")
+        canvas.drawCentredString(105*mm, 284.5*mm, top_strip())
         canvas.restoreState()
     doc.build(story, onFirstPage=footer, onLaterPages=footer)
     return str(out)

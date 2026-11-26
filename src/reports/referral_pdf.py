@@ -81,7 +81,9 @@ def _header(st, lang, clinic):
                              fontName=_fnt, fontSize=18,
                              textColor=HexColor("#1C1C1E"),
                              alignment=TA_CENTER)
-    return logo_header_flowables() + [Paragraph(_txt, head_st),
+    from src.reports.centre_contact import centre_contact_flowables
+    return logo_header_flowables() + [Paragraph(_txt, head_st)] \
+        + centre_contact_flowables(st) + [
             HRFlowable(width="100%", thickness=1.2, color=IOS["primary"],
                        spaceAfter=6)]
 
@@ -105,7 +107,11 @@ def referral_preview_lines(patient, referral, lang="en", clinic_name=None):
     p, r = patient or {}, referral or {}
     clinic = _clinic(clinic_name)
     note = str(r.get("note") or "").strip()
-    lines = ([clinic, ""] if clinic else []) + [
+    # R54 (Section E): the preview shows the same centre-contact
+    # block as the PDF header (only the fields the centre set).
+    from src.reports.centre_contact import centre_contact_lines
+    _contact = [v for v in centre_contact_lines() if v]
+    lines = ([clinic] + _contact + [""] if clinic else _contact) + [
         tr("refer.pdf_title", lang),
         f"{tr('refer.pdf_patient', lang)}: {p.get('full_name', '')}",
         f"{tr('refer.pdf_file', lang)}: {p.get('file_number', '')}",

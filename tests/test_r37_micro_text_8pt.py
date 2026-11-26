@@ -24,7 +24,7 @@ from tests.test_r31_pdf_footer import (_TMP, _build_all, _drawn_sizes,
                                        _MIN_GAP)
 
 APP_LINE = "ANADOCTORFADY DENTAL CLINIC MANAGEMENT"
-BANNER = "ANADOCTORFADY • Dental Clinic • +963944234456"
+BANNER = "ANADOCTORFADY • Dental Clinic • +962791234567"  # R45: fictional centre_phone set by the test below
 
 
 def test_small_style_is_8pt_and_app_line_stays_7():
@@ -59,6 +59,7 @@ def test_rendered_unique_minimum_and_gaps():
     with isolated_db():
         from src.models.database import set_setting
         set_setting("clinic_name", "")
+        set_setting("centre_phone", "+962791234567")  # R45: the banner number is the centre_phone setting now (was hardcoded)
         for lang in ("en", "ar"):
             for kind, pdf in _build_all(lang, _TMP / "r37" / lang).items():
                 tag = (kind, lang)
@@ -68,11 +69,17 @@ def test_rendered_unique_minimum_and_gaps():
                 at_min = {t.strip() for s, t in runs
                           if s == 7.0 and t.strip()}
                 assert at_min == {APP_LINE}, (tag, at_min)
-                banner = [s for s, t in runs if "963944234456" in t]
+                banner = [s for s, t in runs if "962791234567" in t]  # intl form: cannot collide with the patient's national-format mobile in the body
+                # R52 re-pin (Section E supersedes the R45-era pin):
+                # the centre mobile now ALSO appears in the centred
+                # header contact block at 10pt on ALL FOUR documents
+                # (owner's explicit round-52 instruction), so report
+                # + invoice carry it at 8.0 (strip) AND 10.0 (header
+                # block); Rx + referral carry it at 10.0 only.
                 if kind in ("report", "invoice"):
-                    assert banner == [8.0], (tag, banner)
-                else:  # live Rx + referral carry no banner strip
-                    assert banner == [], (tag, banner)
+                    assert banner == [8.0, 10.0], (tag, banner)
+                else:
+                    assert banner == [10.0], (tag, banner)
                 drawn = _drawn_sizes(pdf)
                 assert drawn.get(APP_LINE) == 7.0, (tag, drawn.get(APP_LINE))
                 if kind == "rx" and lang == "en":

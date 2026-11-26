@@ -9,26 +9,19 @@ echo.
 cd /d %~dp0
 cd ..
 echo Repo folder: %CD%
-if not exist installer\dist\ANADOCTORFADY.exe (
-  if exist installer\dist\ANADOCTORFADY_x86.exe (
-    echo [INFO] Found installer\dist\ANADOCTORFADY_x86.exe but not ANADOCTORFADY.exe.
-    echo The x86 build IS the app EXE - copying it to ANADOCTORFADY.exe now...
-    copy /Y installer\dist\ANADOCTORFADY_x86.exe installer\dist\ANADOCTORFADY.exe >nul
-    if exist installer\dist\ANADOCTORFADY.exe echo [OK] Copied. Continuing with the installer build.
-  )
-)
-if not exist installer\dist\ANADOCTORFADY.exe (
-  echo [ERROR] EXE file not found.
+if not exist installer\dist\ANADOCTORFADY\ANADOCTORFADY.exe (
+  echo [ERROR] ONEDIR build not found.
   echo Checked this exact path:
-  echo   %CD%\installer\dist\ANADOCTORFADY.exe
+  echo   %CD%\installer\dist\ANADOCTORFADY\ANADOCTORFADY.exe
   echo.
   echo What is actually inside installer\dist right now:
   if exist installer\dist dir /b installer\dist
   if not exist installer\dist echo   The installer\dist folder does not exist.
   echo.
-  echo Build the EXE FIRST:
-  echo   installer\build_exe.bat
-  echo   Recommended: installer\build_exe_x86.bat - it works on x86 and x64.
+  echo Build the ONEDIR program folder FIRST:
+  echo   installer\build_exe_onedir.bat - it works on x86 and x64.
+  echo The installer ships the whole dist\ANADOCTORFADY folder
+  echo onedir build - starts faster, no unpacking on launch.
   echo Then run this file again.
   echo.
   echo If you DID build the EXE and it is gone now, Windows Security
@@ -39,7 +32,7 @@ if not exist installer\dist\ANADOCTORFADY.exe (
   echo   %CD%
   echo under Virus and threat protection settings, Exclusions.
   echo.
-  echo [ERROR] EXE file not found - build the EXE first, then try again.
+  echo [ERROR] ONEDIR build not found - build it first, then try again.
   pause
   exit /b 1
 )

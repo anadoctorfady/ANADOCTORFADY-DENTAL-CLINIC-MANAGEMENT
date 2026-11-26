@@ -25,7 +25,7 @@ from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.enums import TA_CENTER
 from reportlab.platypus import (SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, HRFlowable)
 from src.reports.pdf_styles import styles, IOS, FONT_EN, FONT_EN_B, FONT_AR, FONT_AR_B
-from src.reports.pdf_common import reports_dir, footer_block, _av, APP_LINE, clinic_name as _clinic_setting, name_value, name_style
+from src.reports.pdf_common import reports_dir, footer_block, _av, APP_LINE, clinic_name as _clinic_setting, name_value, name_style, top_strip
 from src.reports.centre_logo import logo_header_flowables
 from src.config.strings_r16_print import PDF_LABELS
 from src.config.strings_r18_invoice import inv_t
@@ -92,14 +92,14 @@ def _header(st, lang, clinic):
     elif _ar: _txt, _fnt = ar(inv_t("inv.title", "ar")), FONT_AR_B
     else: _txt, _fnt = f"<b>{inv_t('inv.title', 'en')}</b>", FONT_EN_B
     head_st = ParagraphStyle("InvHead", parent=st["title_en"], fontName=_fnt, fontSize=18, textColor=HexColor("#1C1C1E"), alignment=TA_CENTER)
-    return logo_header_flowables() + [Paragraph(_txt, head_st), HRFlowable(width="100%", thickness=1.2, color=IOS["primary"], spaceAfter=6)]
+    from src.reports.centre_contact import centre_contact_flowables; return logo_header_flowables() + [Paragraph(_txt, head_st)] + centre_contact_flowables(st) + [HRFlowable(width="100%", thickness=1.2, color=IOS["primary"], spaceAfter=6)]
 def invoice_preview_lines(patient, payments, totals, kind="detailed", lang="en", clinic_name=None, currency=None):
-    """Plain-text rendering of the invoice in ONE language — same
-    sections/order as the PDF; used by the print preview + tests."""
+    """Plain-text rendering of the invoice in ONE language — same sections/order as the PDF; used by the print preview + tests."""
     p = patient or {}; clinic = _clinic(clinic_name)
     L = PDF_LABELS["ar" if lang == "ar" else "en"]; groups = _doc_groups(payments, totals, currency)
-    lines = ([clinic, ""] if clinic else []) + [
-             f"{inv_t('inv.title', lang)} — {inv_t('inv.' + kind, lang)}",
+    from src.reports.centre_contact import centre_contact_lines
+    _contact = [v for v in centre_contact_lines() if v]
+    lines = ([clinic] + _contact + [""] if clinic else _contact) + [f"{inv_t('inv.title', lang)} — {inv_t('inv.' + kind, lang)}",
              f"{inv_t('inv.patient', lang)}: {p.get('full_name', '')}",
              f"{inv_t('inv.file_number', lang)}: {p.get('file_number', '')}",
              f"{inv_t('inv.issued', lang)}: {datetime.now():%Y-%m-%d %H:%M}", ""]
@@ -194,7 +194,7 @@ def build_invoice_pdf(patient, payments, totals, kind="detailed", lang="en", cli
         canvas.saveState(); canvas.setFillColor(IOS["primary"])
         canvas.roundRect(10 * mm, 282 * mm, 190 * mm, 6 * mm, 2 * mm, fill=1, stroke=0)
         canvas.setFillColor(white); canvas.setFont(FONT_EN, 8)  # R37: banner 8pt (was 7pt); app footer stays the only 7pt
-        canvas.drawCentredString(105 * mm, 284.5 * mm, "ANADOCTORFADY • Dental Clinic • +963944234456")
+        canvas.drawCentredString(105 * mm, 284.5 * mm, top_strip())
         canvas.restoreState()
     doc.build(story, onFirstPage=_banner, onLaterPages=_banner)
     return str(out)

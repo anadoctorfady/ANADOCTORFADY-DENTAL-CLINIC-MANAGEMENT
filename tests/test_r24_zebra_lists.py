@@ -1,7 +1,8 @@
-"""Round 24 (item 6): zebra on the LISTBOX surfaces -- template
+"""Round 24 (item 6): striping on the LISTBOX surfaces -- template
 picker, template manager and the clipboard-history panel (the
 panel was the R24 fix: its refresh never striped). Helpers shared
-from tests/test_r24_zebra_audit.py. Isolated DB, skips w/o display."""
+from tests/test_r24_zebra_audit.py. Isolated DB, skips w/o display.
+R43: the shared helper now asserts the vivid rotation."""
 import tkinter as tk
 
 from src.models.database import set_setting

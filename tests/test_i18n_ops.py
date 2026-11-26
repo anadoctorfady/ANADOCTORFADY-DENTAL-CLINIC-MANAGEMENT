@@ -85,7 +85,7 @@ def _check_ar(app):
               "تطبيق السمة والعملة"):
         assert any(s in x for x in texts_set), s
     texts_about = _texts(app.about)
-    for s in ("إدارة عيادة الأسنان", "للتواصل واتساب فقط", "+963944234456"):
+    for s in ("إدارة عيادة الأسنان", "للتواصل تيليغرام فقط", "+1 424 231 0526"):
         assert any(s in x for x in texts_about), texts_about
     assert any("صدقة" in x for x in texts_about), texts_about
 
@@ -189,8 +189,8 @@ def test_ops_en_texts_single_language_and_arabic_present():
     assert t("settings.apply", "ar") == "تطبيق السمة والعملة"
     assert t("users.create_btn", "en") == "Create User"
     assert t("users.create_btn", "ar") == "إنشاء مستخدم"
-    assert t("about.contact", "en") == "Contact via WhatsApp only"
-    assert t("about.contact", "ar") == "للتواصل واتساب فقط"
+    assert t("about.contact", "en") == "Contact via Telegram only"
+    assert t("about.contact", "ar") == "للتواصل تيليغرام فقط"
     assert t("sync.guide_close", "en") == "Close"
     assert t("sync.guide_close", "ar") == "إغلاق"
     assert t("no.such.key", "ar") == "no.such.key"  # fallback = key

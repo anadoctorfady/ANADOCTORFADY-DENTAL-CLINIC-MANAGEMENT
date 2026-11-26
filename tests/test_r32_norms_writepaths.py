@@ -54,22 +54,22 @@ def _data(first, father, last, mobile, grand="WpGrand"):
 def test_save_create_and_edit_refresh_norms():
     init_db()
     fid = save_patient_record(_data("WpCreateR32", "WpDad", "WpFam",
-                                    "0944111000"))
+                                    "0794111000"))
     try:
         assert _norms(fid) == compute_norms(fetch_patient(fid))
-        assert _norms(fid)["sig_p1"] == "944111000"
+        assert _norms(fid)["sig_p1"] == "794111000"
         assert fid in _ids(search_patients(first="WpCreateR32"))
-        assert fid in _ids(search_patients(phone="+963944111000"))
+        assert fid in _ids(search_patients(phone="+962794111000"))
         assert find_duplicate("WpCreateR32", "WpDad", "WpFam") == fid
         save_patient_record(_data("WpEditedR32", "WpDad", "WpFam",
-                                  "+963955666777"), current_file=fid)
+                                  "+962795666777"), current_file=fid)
         assert _norms(fid) == compute_norms(fetch_patient(fid))
         assert _norms(fid)["norm_first"] == "wpeditedr32"
-        assert _norms(fid)["sig_p1"] == "955666777"
+        assert _norms(fid)["sig_p1"] == "962795666777"
         assert fid not in _ids(search_patients(first="WpCreateR32"))
         assert fid in _ids(search_patients(first="WpEditedR32"))
-        assert fid in _ids(search_patients(phone="0955666777"))
-        assert fid not in _ids(search_patients(phone="0944111000"))
+        assert fid in _ids(search_patients(phone="0795666777"))
+        assert fid not in _ids(search_patients(phone="0794111000"))
         assert find_duplicate("WpEditedR32", "WpDad", "WpFam") == fid
         assert find_duplicate("WpCreateR32", "WpDad", "WpFam") is None
     finally:
@@ -82,7 +82,7 @@ def test_sync_upsert_recomputes_norms():
     base = {"first_name": "SyncR32", "father_name": "SyncDad",
             "grand_name": "SyncGrand", "last_name": "SyncFam",
             "full_name": "SyncR32 SyncDad SyncGrand SyncFam",
-            "mobile1": "0944111222", "updated_at": "2026-01-01T00:00:00"}
+            "mobile1": "0794111222", "updated_at": "2026-01-01T00:00:00"}
     try:
         assert _upsert(conn, "patients", "file_number", f1, dict(base),
                        base["updated_at"]) == 1
@@ -94,23 +94,23 @@ def test_sync_upsert_recomputes_norms():
                        bogus["updated_at"]) == 1
         conn.commit(); conn.close()
         assert _norms(f1)["norm_first"] == "syncr32"
-        assert _norms(f1)["sig_p1"] == "944111222"
+        assert _norms(f1)["sig_p1"] == "794111222"
         assert _norms(f2)["norm_first"] == "synctwor32"
         assert "BOGUS" not in _norms(f2).values()
-        assert _norms(f2)["sig_p1"] == "944111222"
+        assert _norms(f2)["sig_p1"] == "794111222"
         assert f1 in _ids(search_patients(first="SyncR32"))
         assert f2 in _ids(search_patients(first="SyncTwoR32"))
         assert f2 not in _ids(search_patients(first="BOGUS"))
         assert find_duplicate("SyncTwoR32", "SyncDad", "SyncFam2") == f2
         conn = get_connection()
-        upd = dict(base, mobile1="0955333444",
+        upd = dict(base, mobile1="0795333444",
                    updated_at="2026-02-01T00:00:00")
         assert _upsert(conn, "patients", "file_number", f1, upd,
                        upd["updated_at"]) == 1
         conn.commit(); conn.close()
-        assert _norms(f1)["sig_p1"] == "955333444"
-        assert f1 in _ids(search_patients(phone="0955333444"))
-        assert f1 not in _ids(search_patients(phone="0944111222"))
+        assert _norms(f1)["sig_p1"] == "795333444"
+        assert f1 in _ids(search_patients(phone="0795333444"))
+        assert f1 not in _ids(search_patients(phone="0794111222"))
     finally:
         conn = get_connection(); conn.close(); _cleanup(f1, f2)
 
@@ -138,11 +138,11 @@ def test_migration_old_db_backfilled_and_idempotent():
                 " deleted INTEGER DEFAULT 0)")
     raw.executemany("INSERT INTO patients VALUES(?,?,?,?,?,?,?,?,?,?)", [
         (1, "Mig", "MigDad", "MigGrand", "MigFam",
-         "Mig MigDad MigGrand MigFam", "0944234456", None, None, 0),
+         "Mig MigDad MigGrand MigFam", "0791234567", None, None, 0),
         (2, "MigDel", "MigDad", "MigGrand", "MigFam",
-         "MigDel MigDad MigGrand MigFam", "0933111222", None, None, 1),
+         "MigDel MigDad MigGrand MigFam", "0781112223", None, None, 1),
         (3, "MigAr", "MigDad", None, "MigFam", "MigAr MigDad MigFam",
-         "٠٩٤٤٢٣٤٤٥٦", None, None, None)])
+         "٠٧٩١٢٣٤٥٦٧", None, None, None)])
     raw.commit(); raw.close()
     with _patched(db):
         init_db()
@@ -160,9 +160,9 @@ def test_migration_old_db_backfilled_and_idempotent():
                 "idx_complaints_patient_file",
                 "idx_appointments_patient_file"} <= idx, idx
         assert norms[1]["norm_first"] == "mig"
-        assert norms[1]["sig_p1"] == "944234456"
-        assert norms[1]["rev_p1"] == "944234456"[::-1]
-        assert norms[3]["sig_p1"] == "944234456"  # Arabic-Indic source
+        assert norms[1]["sig_p1"] == "791234567"
+        assert norms[1]["rev_p1"] == "791234567"[::-1]
+        assert norms[3]["sig_p1"] == "791234567"  # Arabic-Indic source
         assert 1 in _ids(search_patients(first="Mig"))
         assert 2 not in _ids(search_patients(first="MigDel"))
         assert find_duplicate("Mig", "MigDad", "MigFam") == 1
@@ -175,4 +175,4 @@ def test_migration_old_db_backfilled_and_idempotent():
                               ", ".join(NORM_COLUMNS) + " FROM patients")}
         conn.close()
         assert again == norms, "second full init changed the norms"
-        assert 1 in _ids(search_patients(phone="+963944234456"))
+        assert 1 in _ids(search_patients(phone="+962791234567"))

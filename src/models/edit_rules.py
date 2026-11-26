@@ -143,6 +143,26 @@ def authorize_edit(conn, table, row_id, role, username, lang=None, now=None):
             "fallback_date": fallback}
 
 
+# ---- Round 49 (Section F): DATE editing is ADMIN-ONLY -------------
+# Layered ON TOP of the 24h rule above: a doctor who may edit a
+# record's content within 24h still may NOT move it to another date.
+def can_edit_date(role):
+    """True only for the admin role."""
+    return role == "admin"
+
+
+def valid_date(value):
+    """True iff `value` is a real calendar date in strict
+    YYYY-MM-DD form (zero-padded, nothing before/after)."""
+    if not isinstance(value, str):
+        return False
+    try:
+        parsed = datetime.strptime(value, "%Y-%m-%d")
+    except (ValueError, TypeError):
+        return False
+    return parsed.strftime("%Y-%m-%d") == value
+
+
 def delete_record_checked(conn, table, row_id, role, username, lang=None,
                           now=None):
     """Delete one record after the 24h check. Returns True on success,

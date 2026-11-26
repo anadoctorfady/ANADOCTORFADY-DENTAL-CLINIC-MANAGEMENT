@@ -19,8 +19,8 @@ PATIENT = {"file_number": 77, "full_name": "Test Patient",
            "birth_date_greg": "1990-05-15",
            "birth_date_hijri": "20 Shawwal 1410",
            "age_years": 36, "age_months": 5, "age_days": 21,
-           "nationality": "Syrian", "mobile1": "0944234456", "mobile2": "",
-           "emergency_phone": "0999888777", "address": "Damascus",
+           "nationality": "Syrian", "mobile1": "0791234567", "mobile2": "",
+           "emergency_phone": "0799888777", "address": "Damascus",
            "created_at": "2026-11-05", "diseases": "Diabetes"}
 _RX = {"date": "2026-11-15", "doctor": "fady"}
 _RX_ITEMS = [{"generic": "Amoxicillin", "dose": "500 mg",

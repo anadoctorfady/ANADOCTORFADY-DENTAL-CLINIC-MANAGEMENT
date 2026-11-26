@@ -1,9 +1,9 @@
 """Appointment booking helpers (Job 8, round 12): free-slot search and
 double-booking guard. Pure DB logic, no tkinter. <200 lines.
-Round 17: status is STORED as Arabic ('قادم') and translated AT
-DISPLAY via translate_status() — storage never changes.
-Round 18 (W4): attendance is COMPUTED at display from the first
-procedure-writing time that day (procedures.created_at, round12)."""
+Round 17: status is STORED as Arabic ('قادم'), translated AT DISPLAY
+via translate_status() — storage never changes. Round 18 (W4):
+attendance is COMPUTED at display from the first procedure-writing
+time that day (procedures.created_at, round12)."""
 from datetime import date, datetime, timedelta
 
 from src.ui.calendar_grid import time_slots
@@ -104,8 +104,7 @@ def _has_created_at(cur):
 
 def _first_proc_dt(cur, patient_file, date_str, has_col=True):
     """Earliest parseable procedures.created_at that day, else None."""
-    if not has_col:
-        return None
+    if not has_col: return None
     cur.execute("SELECT created_at FROM procedures WHERE patient_file=?"
                 " AND substr(created_at,1,10)=?", (patient_file, date_str))
     first = None
@@ -151,7 +150,7 @@ def attendance_for(patient_file, date_str, time_str, now=None):
 
 def attendance_batch(items, now=None):
     """{key: status} for many appointments in ONE connection, first
-    procedure fetched once per (patient, day) — no N+1 connections."""
+    procedure fetched once per distinct day (R51 batch fetch)."""
     now = now or datetime.now()
     items = [dict(it) for it in items]  # also accepts sqlite3.Row
     out, todo = {}, {}
@@ -165,13 +164,13 @@ def attendance_batch(items, now=None):
                          appt_dt)
     if todo:
         from src.models.database import get_connection
+        from src.models.proc_times import first_proc_map
         conn = get_connection()
         try:
-            cur = conn.cursor(); has_col = _has_created_at(cur); cache = {}
+            cur = conn.cursor()
+            first = first_proc_map(cur, todo.values(), _proc_dt) if _has_created_at(cur) else {}
             for key, (pf, dstr, appt_dt) in todo.items():
-                if (pf, dstr) not in cache:
-                    cache[(pf, dstr)] = _first_proc_dt(cur, pf, dstr, has_col)
-                out[key] = _classify(appt_dt, cache[(pf, dstr)], now)
+                out[key] = _classify(appt_dt, first.get((pf, dstr)), now)
         finally:
             conn.close()
     return out
@@ -186,11 +185,14 @@ def worst_status(statuses):
     return best
 
 
-def day_attendance(items, now=None):
+def day_attendance(items, now=None, per_item=None):
     """{'YYYY-MM-DD': worst status or None} per day in `items`
-    (same mapping shape as attendance_batch) — for calendar tinting."""
+    (same mapping shape as attendance_batch) — for calendar tinting.
+    R51: `per_item` reuses a caller's attendance_batch result
+    instead of paying for the identical batch a second time."""
     items = [dict(it) for it in items]
-    per_item = attendance_batch(items, now=now)
+    if per_item is None:
+        per_item = attendance_batch(items, now=now)
     by_day = {}
     for it in items:
         dstr = str(it["appointment_date"])[:10]

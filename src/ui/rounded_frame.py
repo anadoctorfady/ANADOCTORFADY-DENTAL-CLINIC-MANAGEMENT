@@ -26,6 +26,14 @@ class RoundedFrame(tk.Frame):
 
     def __init__(self, parent, bg, border=None, radius=RADIUS_CARD,
                  pad=6, title=None, title_fg=None, **kw):
+        # R43: the square-cornered .inner must stay INSIDE the curve:
+        # its corner sits at (pad, pad), the corner circle centre at
+        # (radius, radius) -- inside iff pad >= radius*(1 - 1/sqrt2).
+        # At radius 24 (tables) the old pad 6 would let the tree's
+        # square corners poke past the curve; the floor below keeps
+        # every radius safe (radius 16 still yields the classic 6).
+        import math
+        pad = max(pad, math.ceil(radius * 0.2929) + 1)
         outer = kw.pop("outer_bg", None)
         if outer is None:
             try:
@@ -43,9 +51,26 @@ class RoundedFrame(tk.Frame):
         self.inner = tk.Frame(self, bg=bg)
         self.inner.pack(fill="both", expand=True, padx=pad, pady=pad)
         self._img = None; self._size = (0, 0)
+        self._redraw_pending = False
         self.bind("<Configure>", self._redraw, add="+")
 
     def _redraw(self, _e=None):
+        # R51: <Configure> fires repeatedly during layout with
+        # TRANSIENT sizes; rendering every one (a supersampled PIL
+        # render + PhotoImage per size) dominated startup/toggles.
+        # Coalesce to one trailing redraw at the final size.
+        if self._redraw_pending:
+            return
+        self._redraw_pending = True
+        self.after_idle(self._redraw_now)
+
+    def _redraw_now(self):
+        self._redraw_pending = False
+        try:
+            if not self.winfo_exists():
+                return
+        except Exception:
+            return
         w, h = self.winfo_width(), self.winfo_height()
         if w <= 2 or h <= 2 or (w, h) == self._size:
             return

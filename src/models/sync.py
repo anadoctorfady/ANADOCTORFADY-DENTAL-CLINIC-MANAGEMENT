@@ -20,8 +20,17 @@ def ensure_tables(conn):
     ensure_finance_columns(conn)
     conn.commit()
 def queue_change(conn, table_name, record_id, payload_dict):
-    """Queue one local change for push (payload carries patient_file)."""
+    """Queue one local change for push (payload carries patient_file).
+
+    R49 defensive filter: settings rows NEVER sync - above all the
+    wa_* keys (reminder token / phone-number id are per-device
+    credentials). No caller queues settings today; this guard keeps
+    it that way even if one ever tries."""
+    if table_name == "settings" or str(record_id or "").startswith("wa_"):
+        return
     ensure_tables(conn); p = dict(payload_dict or {})
+    if any(str(k).startswith("wa_") for k in p):
+        return
     conn.cursor().execute("INSERT OR REPLACE INTO sync_queue(table_name,record_id,"
         "payload_json,updated_at,synced) VALUES(?,?,?,?,0)", (table_name,
         str(record_id), json.dumps(p, ensure_ascii=False), p.get("updated_at") or _now()))

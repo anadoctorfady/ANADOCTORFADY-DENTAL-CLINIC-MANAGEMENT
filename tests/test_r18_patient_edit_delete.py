@@ -75,7 +75,7 @@ def test_edit_dialog_updates_and_persists():
     name UNCHANGED does not trip the duplicate check (self
     excluded); edits persist into the SAME file; dialog closes."""
     init_db()
-    fid = _seed("R18Ed", "R18Dad", "R18Gpa", "R18Fam", m1="0912000444")
+    fid = _seed("R18Ed", "R18Dad", "R18Gpa", "R18Fam", m1="0791200044")
     try:
         root = tk.Tk(); root.withdraw()
     except tk.TclError:
@@ -93,7 +93,7 @@ def test_edit_dialog_updates_and_persists():
         assert not caps["error"], caps["error"]
         assert not win.winfo_exists(), "dialog stayed open after save"
         win = open_edit_patient_dialog(app, fid, parent=root); form = win.form
-        _set(form.e_first, "R18Ed2"); _set(form.e_m1, "0999888777")
+        _set(form.e_first, "R18Ed2"); _set(form.e_m1, "0799888777")
         _set(form.e_diseases, "Diabetes"); _set(form.e_meds, "Metformin")
         _set(form.e_allergies, "Penicillin"); _set(form.e_addr, "Damascus")
         form.save(); root.update_idletasks()
@@ -103,12 +103,12 @@ def test_edit_dialog_updates_and_persists():
         row = _row(fid)
         assert row["first_name"] == "R18Ed2", row
         assert row["full_name"].startswith("R18Ed2 R18Dad"), row
-        assert row["mobile1"] == "0999888777"
+        assert row["mobile1"] == "0799888777"
         assert row["diseases"] == "Diabetes"
         assert row["current_medications"] == "Metformin"
         assert row["allergies"] == "Penicillin"
         assert row["address"] == "Damascus"
-        assert fid in _ids(search_patients(phone="+963999888777"))
+        assert fid in _ids(search_patients(phone="+962799888777"))
     finally:
         restore(); root.destroy(); _cleanup(fid)
 

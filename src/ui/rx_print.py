@@ -84,11 +84,15 @@ def rx_preview_lines(patient, rx, items, lang="en", clinic_name=""):
     # Round 21 (item 13): mirror the reworked PDF -- the header is
     # the clinic name alone (or the Rx heading when unset), and the
     # app-name line appears only at the very end (footer, small).
+    # R54 (Section E): the preview shows the same centre-contact
+    # block as the PDF header (only the fields the centre set).
     from src.reports.pdf_common import APP_LINE
+    from src.reports.centre_contact import centre_contact_lines
+    _contact = [v for v in centre_contact_lines() if v]
     if clinic and clinic.upper() != "ANADOCTORFADY":
-        lines = [clinic, L("rx.pdf_heading"), ""]
+        lines = [clinic] + _contact + [L("rx.pdf_heading"), ""]
     else:
-        lines = [L("rx.pdf_heading"), ""]
+        lines = [L("rx.pdf_heading")] + _contact + [""]
     lines += [f"{L('rx.pdf_patient')}: {p.get('full_name', '')}",
               f"{L('rx.pdf_file')}: {p.get('file_number', '')}",
               f"{L('rx.pdf_date')}: {r.get('date', '')}",

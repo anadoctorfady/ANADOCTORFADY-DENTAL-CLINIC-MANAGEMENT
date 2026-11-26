@@ -16,13 +16,13 @@ from src.utils.medications import list_medications, get_medication
 
 def test_coverage_all_315_reviewed():
     meds = list_medications()
-    assert len(meds) == 315, len(meds)
+    assert len(meds) == 463, len(meds)  # R49 count pin (was 315)
     outcomes = {}
     for m in meds:
         kind, _key = review_outcome(m["generic_en"])
         assert kind != "unreviewed", m["generic_en"]
         outcomes[kind] = outcomes.get(kind, 0) + 1
-    assert sum(outcomes.values()) == 315
+    assert sum(outcomes.values()) == 463  # R49 count pin (was 315)
     assert outcomes.get("class", 0) > 200, outcomes  # class-driven
 
 def test_dataset_manifests_complete():

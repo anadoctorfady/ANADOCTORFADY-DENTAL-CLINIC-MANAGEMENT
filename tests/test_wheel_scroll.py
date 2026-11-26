@@ -110,11 +110,26 @@ def test_wheel_scrolls_clinical_page():
         section.event_generate("<Button-4>")
         root.update()
         assert canvas.yview()[0] < before, "Button-4 did not scroll clinical page up"
-        # Wheel over a Text must NOT move the canvas (the Text owns it).
+        # R56: wheel over a Text moves the TEXT when its content
+        # overflows; when it fits, the wheel moves the page.
+        tab.txt_complaint.delete("1.0", "end")
+        tab.txt_complaint.insert("1.0", "\n".join(
+            f"line {i}" for i in range(30)))
+        root.update()
+        assert tab.txt_complaint.yview() != (0.0, 1.0), \
+            "complaint field not overflowing in setup"
         before = canvas.yview()
         tab.txt_complaint.event_generate("<MouseWheel>", delta=-120)
         root.update()
-        assert canvas.yview() == before, "wheel over Text hijacked the canvas"
+        assert canvas.yview() == before, \
+            "wheel over overflowing Text hijacked the canvas"
+        tab.txt_complaint.delete("1.0", "end")
+        root.update()
+        before = canvas.yview()[0]
+        tab.txt_complaint.event_generate("<MouseWheel>", delta=-120)
+        root.update()
+        assert canvas.yview()[0] > before, \
+            "wheel over fitting Text did not scroll page"
     finally:
         root.destroy()
 

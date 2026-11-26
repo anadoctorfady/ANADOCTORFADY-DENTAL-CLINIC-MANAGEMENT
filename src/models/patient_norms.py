@@ -37,8 +37,9 @@ def phone_digits(s):
 
 
 def normalize_phone(s):
-    """Significant digits: phone_digits() minus a leading 00963 /
-    963 prefix (when more digits follow) and one trunk 0."""
+    """Significant digits: phone_digits() minus a leading
+    country-code prefix (00-form or bare form, when more digits
+    follow) and one trunk 0."""
     d = phone_digits(s)
     if d.startswith("00963") and len(d) > 12:
         d = d[5:]

@@ -23,7 +23,6 @@ from src.ui import chart_status as _status
 from src.ui.chart_tooltip import ToothTooltip, format_history
 from src.ui.tooth_image import load_tooth_images
 from src.ui.tooth_map import display_order, tooth_image_name, tooth_type_for
-from src.ui.wheel_scroll import bind_canvas_wheel
 from src.utils.helpers import PERMANENT, DECIDUOUS
 
 TEETH_DIR = Path(__file__).resolve().parents[2] / "assets" / "teeth"
@@ -65,7 +64,7 @@ class DentalChartFrame(tk.Frame):
         self.area = tk.Frame(self._canvas, bg=th["bg"])
         self._canvas.create_window((0, 0), window=self.area, anchor="nw", tags="inner")
         self.area.bind("<Configure>", self._fit); self._canvas.bind("<Configure>", self._fit)
-        bind_canvas_wheel(self._canvas, orient="horizontal")  # round 14: wheel scrolls the jaw
+        # R56: no wheel binding on the chart any more -- the wheel over it scrolls the clinical PAGE (global page-scroll rule); the jaw still scrolls via its scrollbar.
         self.refresh()
 
     def _load_images(self):

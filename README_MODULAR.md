@@ -14,7 +14,7 @@ iOS27 cycle violet/magenta/orange/teal. Header still iOS27 gradient
 ```
 main.py (18) - entry only
 src/config/theme.py (43) - Warm Sand tokens
-src/config/settings.py (25) - clinic, paths, WhatsApp
+src/config/settings.py (25) - clinic, paths, Telegram
 src/models/database.py (110) - SQLite core
 src/models/finance.py (31) - net income / debts
 src/utils/hijri_age.py (57) - Hijri 1990-05-15 = 20 Shawwal 1410
@@ -194,7 +194,7 @@ Build EXE: installer/build_exe.bat (see v1 folder for spec; copy assets/fonts).
 ## Anonymous usage statistics (silent automatic, count + countries only)
 
 - **Always ON (silent, owner's decision, NO off switch).** No consent dialog, no
-  ask-once flow — see `TELEMETRY.md`. Settings holds only the server URL field.
+  ask-once flow. Settings holds only the server URL field.
 - **Sent (max once every 4 hours, 3s timeout, background thread, silent offline):**
   exactly `{install_id, app_version, platform}` — a random UUID, the app
   version, `windows`. Nothing else.
@@ -202,7 +202,7 @@ Build EXE: installer/build_exe.bat (see v1 folder for spec; copy assets/fonts).
   server-side from IP, then IP discarded), location/GPS, usage details, IP.
 - **No server URL configured (default empty) = nothing is ever sent.**
   Fady must host `server/telemetry_server.py` (stdlib only, port 8000)
-  and paste its URL in Settings first — see `TELEMETRY.md` +
+  and paste its URL in Settings first — see
   `server/README.md`. Server stores only `(date, country_code,
   sha256(install_id))`; `POST /ping` rejects extra fields;
   `GET /stats?token=...` returns `{total_users, users_by_country,

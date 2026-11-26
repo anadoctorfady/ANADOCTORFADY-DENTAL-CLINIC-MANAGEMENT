@@ -96,6 +96,10 @@ REVIEWED_NO_PAIR = {
     "Neuraminidase", "NRTI", "Anthelmintic", "Oxytocic",
     "Antifibrinolytic", "OpioidAntagonist", "Antibacterial",
     "Miotic", "Retinoid",
+    # Round 49: classes of the round-49 additions (antimalarials,
+    # antiparkinson partners, caffeine, sacubitril) -- reviewed,
+    # no significant pairs at this aid's scope.
+    "Antimalarial", "Antiparkinson", "Stimulant", "Neprilysin",
 }
 
 def test_participation_coverage():

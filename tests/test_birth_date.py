@@ -87,8 +87,8 @@ def test_pdf_shows_ddmmyyyy():
     patient = {"file_number": 78, "full_name": "Birth Date Test",
         "birth_date_greg": "1990-05-15", "birth_date_hijri": "20 شوال 1410هـ",
         "age_years": 36, "age_months": 5, "age_days": 21,
-        "nationality": "Syrian", "mobile1": "0944234456", "mobile2": "",
-        "emergency_phone": "0999888777", "address": "Damascus",
+        "nationality": "Syrian", "mobile1": "0791234567", "mobile2": "",
+        "emergency_phone": "0799888777", "address": "Damascus",
         "created_at": "2026-11-05"}
     for language, bilingual in (("en", False), ("ar", False), ("ar", True)):
         out = create_patient_pdf(patient, [], [], [], [], [], language=language,
@@ -122,7 +122,12 @@ def test_form_label_and_no_old_format():
     # never the raw string -- exactly as this test requires.
     clin_src = Path("src/ui/clinical.py").read_text(encoding="utf-8")
     assert 'p.get("birth_date_greg")' not in clin_src
-    info_src = Path("src/ui/patient_info.py").read_text(encoding="utf-8")
+    # Round 55 RE-PIN (with cause): the birth-line formatting moved
+    # with the strip into header_strip.birth_lines (patient_info.py
+    # builds the grid from there); the pin is the same -- the panel
+    # formats the stored ISO value via format_birth_date, never
+    # the raw string -- exactly as this test requires.
+    info_src = Path("src/ui/header_strip.py").read_text(encoding="utf-8")
     assert "format_birth_date(birth)" in info_src
     assert 'lbl_pat_birth.config(text=p.get("birth_date_greg")' not in clin_src
 

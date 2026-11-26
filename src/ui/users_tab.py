@@ -3,7 +3,7 @@ Local clinic.db first, then the sync server (POST /users) when a sync
 URL is set. The tab is HIDDEN without the users.manage permission
 (round 21 item 10: admin by default, or an admin-granted extra
 permission from this tab's permission tree). Center is server-side
-only - local rows are shown with this device's center. <200 lines."""
+only - local rows are shown with this device's center."""
 import tkinter as tk
 from tkinter import ttk, messagebox
 from src.config.theme import current; from src.ui.rounded import rounded_button; from src.ui.rounded_frame import RoundedFrame; from src.ui.rounded_widgets import RoundedEntry; from src.ui.rounded_lists import RoundedCombobox, rounded_tree; from src.ui.tree_scroll import narrow_tree; from src.ui.zebra import zebra_tree
@@ -21,12 +21,16 @@ class UsersTab(tk.Frame):
         th = current(); super().__init__(parent, bg=th["bg"], **kw)
         self.app = app
         self.lang = getattr(app, "lang", "en") or "en"
-        tk.Label(self, text=t("users.title", self.lang), bg=th["bg"], fg=th["accent"],
+        # R52: the page SCROLLS (scroll_page.py scaffold, the Settings/Statistics pattern).
+        from src.ui.scroll_page import make_scroll_page
+        _sc, host = make_scroll_page(self, th["bg"])
+        self._scroll = _sc
+        tk.Label(host, text=t("users.title", self.lang), bg=th["bg"], fg=th["accent"],
                  font=("Segoe UI", 11, "bold")).pack(anchor="w", padx=10, pady=(8, 2))
-        tk.Label(self, text=t("users.subtitle", self.lang),
+        tk.Label(host, text=t("users.subtitle", self.lang),
                  bg=th["bg"], fg=th["muted"], justify="left").pack(anchor="w", padx=10)
         # Round 16: create form is NARROW (anchor="w", entries width 12) so the permissions tree gets the space.
-        cf = RoundedFrame(self, bg=th["panel"], border=th["border"], title=t("users.create_frame", self.lang), title_fg=th["text"]); cf.pack(anchor="w", padx=10, pady=8); cf = cf.inner
+        cf = RoundedFrame(host, bg=th["panel"], border=th["border"], title=t("users.create_frame", self.lang), title_fg=th["text"]); cf.pack(anchor="w", padx=10, pady=8); cf = cf.inner
         self.e_name = RoundedEntry(cf, width=12); self.e_name.grid(row=0, column=1, padx=4, pady=4)
         self.e_pw = RoundedEntry(cf, width=12, show="•"); self.e_pw.grid(row=0, column=3, padx=4, pady=4)
         self.role_var = tk.StringVar(value="doctor")
@@ -46,7 +50,7 @@ class UsersTab(tk.Frame):
         rounded_button(cf, text=t("users.create_btn", self.lang), bg=th["accent"], fg="white", relief="flat",
                   command=self.create).grid(row=3, column=0, columnspan=2, pady=6, sticky="w", padx=6)
         # Round 16: list (narrow, 2-3 names + wheel) and permissions tree share one row — list docks left, tree takes the rest so it is fully visible, not clipped.
-        mid = tk.Frame(self, bg=th["bg"]); mid.pack(fill="both", expand=True, padx=10, pady=8)
+        mid = tk.Frame(host, bg=th["bg"]); mid.pack(fill="both", expand=True, padx=10, pady=8)
         lf = RoundedFrame(mid, bg=th["panel"], border=th["border"], title=t("users.list_frame", self.lang), title_fg=th["text"]); lf.pack(side="left", fill="y"); lf = lf.inner
         bf = tk.Frame(lf, bg=th["panel"]); bf.pack(side="bottom", fill="x", pady=(6, 0))
         rounded_button(bf, text=t("users.refresh", self.lang), bg=th["accent"], fg="white", relief="flat",
@@ -55,8 +59,7 @@ class UsersTab(tk.Frame):
                   command=self.delete).pack(side="left", padx=6)
         self.tree = narrow_tree(lf, ("user", "role", "center"), 3, (110, 70, 80))
         self.tree.heading("user", text=t("users.col_user", self.lang)); self.tree.heading("role", text=t("users.col_role", self.lang)); self.tree.heading("center", text=t("users.col_center", self.lang))
-        # Job 10: per-user extra-permission tree. Grants only ADD to
-        # the role default, never remove it (permissions.has_perm).
+        # Job 10: per-user extra-permission tree. Grants only ADD to the role default, never remove it (permissions.has_perm).
         pf = RoundedFrame(mid, bg=th["panel"], border=th["border"], title=t("perm.title", self.lang), title_fg=th["text"]); pf.pack(side="left", fill="both", expand=True, padx=(10, 0)); pf = pf.inner
         self.perm_user_lbl = tk.Label(pf, text=t("perm.select_user", self.lang), bg=th["panel"], fg=th["muted"])
         self.perm_user_lbl.pack(anchor="w")
@@ -64,7 +67,7 @@ class UsersTab(tk.Frame):
         self.perm_tree.bind("<Button-1>", self._on_perm_click)
         self.perm_note = tk.Label(pf, text=t("perm.subtitle", self.lang), bg=th["panel"], fg=th["muted"], wraplength=800, justify="left")
         self.perm_note.pack(anchor="w")
-        self.note = tk.Label(self, text="", bg=th["bg"], fg=th["muted"], wraplength=800, justify="left")
+        self.note = tk.Label(host, text="", bg=th["bg"], fg=th["muted"], wraplength=800, justify="left")
         self.note.pack(anchor="w", padx=10, pady=4)
         self.tree.bind("<<TreeviewSelect>>", lambda e: self._load_perms())
         self._build_perm_tree()
@@ -80,8 +83,7 @@ class UsersTab(tk.Frame):
                 iid = f"p:{key}"
                 self._perm_items[key] = iid
                 self.perm_tree.insert(gid, "end", iid=iid, text=f"☐ {perm_label(key, self.lang)}")
-        # Round 16: tall enough for EVERY group + permission row, so
-        # the tree is fully visible with no vertical scrolling at all.
+        # Round 16: tall enough for EVERY group + permission row, so the tree is fully visible with no vertical scrolling at all.
         self.perm_tree.configure(height=len(self._perm_items) + len(PERM_GROUPS))
     def _perm_selected_user(self):
         sel = self.tree.selection()
@@ -98,8 +100,7 @@ class UsersTab(tk.Frame):
             self.perm_tree.item(iid, text=f"{mark} {perm_label(key, self.lang)}")
     def _toggle_perm(self, name, key):
         """Flip one extra grant for `name`; persists to user_grants.
-        Grant EDITING stays admin-role-only in round 21 (a
-        users.manage delegate manages users; only admin grants)."""
+        Grant EDITING stays admin-role-only in round 21 (a users.manage delegate manages users; only admin grants)."""
         if get_current_role() != "admin" or not name or key not in self._perm_items:
             return False
         if key in get_user_grants(name):
@@ -134,8 +135,7 @@ class UsersTab(tk.Frame):
     def _load(self):
         for i in self.tree.get_children(): self.tree.delete(i)
         center = get_setting("sync_center_id", "main") or "main"
-        for u, r in list_users():
-            self.tree.insert("", "end", values=(u, r, center))
+        for u, r in list_users(): self.tree.insert("", "end", values=(u, r, center))
         self._load_perms(); zebra_tree(self.tree)  # R21 item 6
     def _say(self, title, text, error=False):
         self.note.config(text=text, fg="#EF4444" if error else current()["muted"])

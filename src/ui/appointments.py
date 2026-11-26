@@ -7,7 +7,7 @@ all three states are coloured via row tags (see load() / ATT_FG)."""
 import tkinter as tk
 from tkinter import ttk, messagebox
 from datetime import date, datetime
-from src.config.theme import current, tree_style, is_dark; from src.ui.rounded import rounded_button; from src.ui.rounded_frame import RoundedFrame; from src.ui.rounded_widgets import RoundedEntry; from src.ui.rounded_lists import RoundedListbox; from src.ui.zebra import zebra_tree, zebra_listbox as _zebra_lb
+from src.config.theme import current, tree_style, is_dark; from src.ui.rounded import rounded_button; from src.ui.rounded_frame import RoundedFrame; from src.ui.rounded_widgets import RoundedEntry; from src.ui.rounded_lists import RoundedListbox; from src.ui.zebra import zebra_tree, zebra_listbox as _zebra_lb; from src.ui.scroll_page import make_scroll_page
 from src.config.strings import t; from src.config.strings_r18_appts import attendance_label
 from src.models.database import get_connection
 from src.models.appointments import translate_status, attendance_batch, day_attendance
@@ -29,14 +29,15 @@ class AppointmentsTab(tk.Frame):
         self.lang = getattr(app, "lang", "en") or "en"
         self.selected_date = date.today()
         self.selected_time = "10:00"
-        top = RoundedFrame(self, bg=th["panel"], border=th["border"])
+        self._scroll_page, self._body = make_scroll_page(self, th["bg"])  # R53: the whole page rides a vertical scroll page (Settings/Users scaffold): however tall the mid section renders at the active font/DPI, the table below stays reachable instead of being squeezed to zero height.
+        top = RoundedFrame(self._body, bg=th["panel"], border=th["border"])
         top.pack(fill="x", padx=10, pady=(8, 4)); top = top.inner
         tk.Label(top, text=t("appt.title", self.lang), bg=th["panel"], fg=th["accent"],
                  font=("Segoe UI", 11, "bold")).pack(side="left", padx=10, pady=8)
         self.lbl_patient = tk.Label(top, text="", bg=th["panel"],
                                     fg=th["muted"])
         self.lbl_patient.pack(side="right", padx=10)
-        mid = tk.Frame(self, bg=th["bg"])
+        mid = tk.Frame(self._body, bg=th["bg"])
         mid.pack(fill="x", padx=10, pady=4)
         self._weekday_frame(mid, th)
         self._slot_frame(mid, th)
@@ -81,7 +82,7 @@ class AppointmentsTab(tk.Frame):
         self.lb_slots.bind("<<ListboxSelect>>", self._on_pick_slot)
 
     def _booking_row(self, th):
-        f = RoundedFrame(self, bg=th["panel"], border=th["border"])
+        f = RoundedFrame(self._body, bg=th["panel"], border=th["border"])
         f.pack(fill="x", padx=10, pady=4); f = f.inner
         self.lbl_selected = tk.Label(f, bg=th["panel"], fg=th["text"],
                                      font=("Segoe UI", 10, "bold"))
@@ -89,17 +90,16 @@ class AppointmentsTab(tk.Frame):
         self._refresh_selected_label()
         tk.Label(f, text=t("appt.reason", self.lang), bg=th["panel"],
                  fg=th["text"]).pack(side="left", padx=4)
-        self.e_reason = RoundedEntry(f, width=14)
-        self.e_reason.pack(side="left", padx=4)
+        self.e_reason = RoundedEntry(f, width=14); self.e_reason.pack(side="left", padx=4)
         rounded_button(f, text=t("appt.add", self.lang), bg=th["accent"],
                   fg="white", command=self.add).pack(side="left", padx=8)
         # Quick-book on its OWN row (round 13: one row squeezed it to 1px).
-        f2 = RoundedFrame(self, bg=th["panel"], border=th["border"])
+        f2 = RoundedFrame(self._body, bg=th["panel"], border=th["border"])
         f2.pack(fill="x", padx=10, pady=(0, 4)); f2 = f2.inner
         attach_quickbook(self, f2, th)
 
     def _table(self, th):
-        frm = RoundedFrame(self, bg=th["panel"], border=th["border"])
+        frm = RoundedFrame(self._body, bg=th["panel"], border=th["border"])
         frm.pack(fill="both", expand=True, padx=10, pady=(4, 8)); frm = frm.inner
         cols = [c for c, _ in COLUMNS]
         self.tree = ttk.Treeview(frm, columns=cols, show="headings",
@@ -181,7 +181,7 @@ class AppointmentsTab(tk.Frame):
                     " patients p ON a.patient_file=p.file_number"
                     " ORDER BY a.appointment_date DESC LIMIT 500")
         rows = [dict(r) for r in cur.fetchall()]; conn.close()
-        att, days, marked = attendance_batch(rows), day_attendance(rows), set()
+        att = attendance_batch(rows); days, marked = day_attendance(rows, per_item=att), set()
         fg = ATT_FG[is_dark()]
         for _s in ("absent", "late", "attended"): self.tree.tag_configure(_s, foreground=fg[_s])
         for r in rows:

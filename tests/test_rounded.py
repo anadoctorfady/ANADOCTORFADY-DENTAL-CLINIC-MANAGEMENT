@@ -41,7 +41,11 @@ def test_rounded_pil_transparent_corners():
     assert im.getpixel((39, 29))[3] == 0
     assert im.getpixel((20, 15))[3] == 255
     assert im.getpixel((20, 15))[:3] == (168, 95, 51)
-    assert im.getpixel((20, 0))[:3] == (227, 216, 204)  # border on edge
+    # R43 re-pin: the supersampled (antialiased) edge blends toward
+    # the fill (measured (223, 208, 193), max channel delta 11) --
+    # was the EXACT border colour under the 1x aliased draw.
+    assert all(abs(a - b) <= 12 for a, b in
+               zip(im.getpixel((20, 0))[:3], (227, 216, 204)))
 
 def test_gradient_pil_ends_and_corners():
     im = gradient_pil(90, 30, 8)
@@ -51,7 +55,7 @@ def test_gradient_pil_ends_and_corners():
     assert im.getpixel((89, 15))[:3] == hex_to_rgb(GRADIENT[-1])
 
 def test_radius_tokens():
-    assert (RADIUS_BTN, RADIUS_CARD, RADIUS_PANEL, RADIUS_TABLE) == (12, 16, 16, 16)  # R31: TABLE 12->16 (owner live use); R30 had (12, 16, 16, 12), R28 (6, 8, 8, 6), originally (8, 12, 12, 10)
+    assert (RADIUS_BTN, RADIUS_CARD, RADIUS_PANEL, RADIUS_TABLE) == (12, 16, 16, 24)  # R43: TABLE 16->24 (owner: tables more rounded); R31 had TABLE 16, R30 12, R28 6
     assert all(1 <= r <= 24 for r in (RADIUS_BTN, RADIUS_CARD, RADIUS_PANEL, RADIUS_TABLE))
 
 def test_rounded_button_builds_clicks_and_states():
@@ -185,7 +189,7 @@ def test_appointments_tab_uses_rounded_widgets():
     finally:
         root.destroy()
 
-def test_about_tab_whatsapp_button_rounded():
+def test_about_tab_telegram_button_rounded():
     root = _root()
     if root is None:
         return
@@ -196,8 +200,8 @@ def test_about_tab_whatsapp_button_rounded():
         tab.pack(fill="both", expand=True); root.update()
         btns = [w for w in _walk(tab) if isinstance(w, RoundedButton)]
         # Round 42 re-pin: the About tab gained a License
-        # RoundedButton ahead of the WhatsApp one, so search all
-        # rounded buttons for the WhatsApp number instead of [0].
-        assert btns and any("963944234456" in b.cget("text") for b in btns)
+        # RoundedButton ahead of the contact one, so search all
+        # rounded buttons for its number instead of [0]. (R45: Telegram.)
+        assert btns and any("+1 424 231 0526" in b.cget("text") for b in btns)
     finally:
         root.destroy()

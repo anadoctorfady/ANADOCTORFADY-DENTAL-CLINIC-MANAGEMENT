@@ -93,7 +93,7 @@ def build_save_row(tab, parent, on_save):
     tk.Label(row, text=t("savegate.note", lang), bg=bg,
              fg=th["text"], font=("Segoe UI", 9, "bold")).pack(
                  side="left", padx=(2, 4))
-    note = RoundedText(row, height=1, font=("Segoe UI", 10), wrap="word",
+    note = RoundedText(row, height=1, width=1, font=("Segoe UI", 10), wrap="word",
                        bg=th["card"], fg=th["text"])
     note.pack(side="left", fill="x", expand=True, padx=(0, 6))
     tab.txt_visit_note = note

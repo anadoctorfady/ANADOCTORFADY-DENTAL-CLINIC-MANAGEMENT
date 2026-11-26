@@ -17,7 +17,15 @@
   "category": "Antibiotic",
   "form": "Tablet",
   "strength": "625 mg",
-  "class": "Penicillin"
+  "class": "Penicillin",
+  "components": [
+   "Amoxicillin",
+   "Clavulanic Acid"
+  ],
+  "component_classes": [
+   "Penicillin",
+   ""
+  ]
  },
  {
   "generic_en": "Ampicillin",
@@ -157,7 +165,15 @@
   "category": "Antibiotic",
   "form": "Tablet",
   "strength": "800/160 mg",
-  "class": "Sulfonamide"
+  "class": "Sulfonamide",
+  "components": [
+   "Sulfamethoxazole",
+   "Trimethoprim"
+  ],
+  "component_classes": [
+   "Sulfonamide",
+   ""
+  ]
  },
  {
   "generic_en": "Ibuprofen",
@@ -2517,7 +2533,7 @@
   "category": "CNS",
   "class": "Antiparkinson",
   "form": "Tablet",
-  "strength": "25/100 mg"
+  "strength": "100 mg"
  },
  {
   "generic_en": "Selegiline",
@@ -3148,5 +3164,2367 @@
   "class": "Miotic",
   "form": "Eye drops",
   "strength": "2%"
+ },
+ {
+  "generic_en": "Aceclofenac",
+  "generic_ar": "أسيكلوفيناك",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "NSAID",
+  "form": "Tablet",
+  "strength": "100 mg",
+  "class": "NSAID"
+ },
+ {
+  "generic_en": "Alogliptin",
+  "generic_ar": "ألوغليبتين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diabetes",
+  "form": "Tablet",
+  "strength": "25 mg",
+  "class": "DPP4"
+ },
+ {
+  "generic_en": "Amiloride",
+  "generic_ar": "أميلورايد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diuretic",
+  "form": "Tablet",
+  "strength": "5 mg",
+  "class": "Diuretic"
+ },
+ {
+  "generic_en": "Artemether",
+  "generic_ar": "أرتيميثر",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antiparasitic",
+  "form": "Tablet",
+  "strength": "20 mg",
+  "class": "Antimalarial"
+ },
+ {
+  "generic_en": "Bempedoic Acid",
+  "generic_ar": "حمض البيمبيدويك",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "180 mg",
+  "class": "Cholesterol"
+ },
+ {
+  "generic_en": "Benserazide",
+  "generic_ar": "بنزيرازيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "CNS",
+  "form": "Tablet",
+  "strength": "25 mg",
+  "class": "Antiparkinson"
+ },
+ {
+  "generic_en": "Bismuth Subcitrate",
+  "generic_ar": "تحت سترات البزموت",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "GI",
+  "form": "Tablet",
+  "strength": "120 mg",
+  "class": "Antacid"
+ },
+ {
+  "generic_en": "Caffeine",
+  "generic_ar": "كافيين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "CNS",
+  "form": "Tablet",
+  "strength": "100 mg",
+  "class": "Stimulant"
+ },
+ {
+  "generic_en": "Carbidopa",
+  "generic_ar": "كاربيدوبا",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "CNS",
+  "form": "Tablet",
+  "strength": "25 mg",
+  "class": "Antiparkinson"
+ },
+ {
+  "generic_en": "Cefoperazone",
+  "generic_ar": "سيفوبيرازون",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antibiotic",
+  "form": "Injection",
+  "strength": "1 g",
+  "class": "Cephalosporin"
+ },
+ {
+  "generic_en": "Chlorzoxazone",
+  "generic_ar": "كلورزوكسازون",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Muscle relaxant",
+  "form": "Tablet",
+  "strength": "250 mg",
+  "class": "MuscleRelaxant"
+ },
+ {
+  "generic_en": "Clavulanic Acid",
+  "generic_ar": "حمض الكلافولانيك",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antibiotic",
+  "form": "Tablet",
+  "strength": "125 mg",
+  "class": "BetaLactamaseInhibitor"
+ },
+ {
+  "generic_en": "Desogestrel",
+  "generic_ar": "ديسوجيستريل",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Endocrine",
+  "form": "Tablet",
+  "strength": "150 mcg",
+  "class": "Contraceptive"
+ },
+ {
+  "generic_en": "Dexketoprofen",
+  "generic_ar": "ديكسكيتوبروفين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "NSAID",
+  "form": "Tablet",
+  "strength": "25 mg",
+  "class": "NSAID"
+ },
+ {
+  "generic_en": "Drospirenone",
+  "generic_ar": "دروسبيرينون",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Endocrine",
+  "form": "Tablet",
+  "strength": "3 mg",
+  "class": "Contraceptive"
+ },
+ {
+  "generic_en": "Entacapone",
+  "generic_ar": "إنتاكابون",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "CNS",
+  "form": "Tablet",
+  "strength": "200 mg",
+  "class": "Antiparkinson"
+ },
+ {
+  "generic_en": "Glimepiride",
+  "generic_ar": "غليميبيرايد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diabetes",
+  "form": "Tablet",
+  "strength": "2 mg",
+  "class": "Sulfonylurea"
+ },
+ {
+  "generic_en": "Glycopyrronium",
+  "generic_ar": "غليكوبيرونيوم",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Respiratory",
+  "form": "Inhaler",
+  "strength": "44 mcg/dose",
+  "class": "Anticholinergic"
+ },
+ {
+  "generic_en": "Hydrocodone",
+  "generic_ar": "هيدروكودون",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Analgesic",
+  "form": "Tablet",
+  "strength": "5 mg",
+  "class": "Opioid"
+ },
+ {
+  "generic_en": "Indacaterol",
+  "generic_ar": "إنداكاتيرول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Respiratory",
+  "form": "Inhaler",
+  "strength": "150 mcg/dose",
+  "class": "Bronchodilator"
+ },
+ {
+  "generic_en": "Lercanidipine",
+  "generic_ar": "ليركانيديبين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "10 mg",
+  "class": "CCB"
+ },
+ {
+  "generic_en": "Lixisenatide",
+  "generic_ar": "ليكسيسيناتيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diabetes",
+  "form": "Injection",
+  "strength": "20 mcg",
+  "class": "GLP1"
+ },
+ {
+  "generic_en": "Lumefantrine",
+  "generic_ar": "لوميفانترين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antiparasitic",
+  "form": "Tablet",
+  "strength": "120 mg",
+  "class": "Antimalarial"
+ },
+ {
+  "generic_en": "Methocarbamol",
+  "generic_ar": "ميثوكاربامول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Muscle relaxant",
+  "form": "Tablet",
+  "strength": "500 mg",
+  "class": "MuscleRelaxant"
+ },
+ {
+  "generic_en": "Olodaterol",
+  "generic_ar": "أولوداتيرول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Respiratory",
+  "form": "Inhaler",
+  "strength": "5 mcg/dose",
+  "class": "Bronchodilator"
+ },
+ {
+  "generic_en": "Ornidazole",
+  "generic_ar": "أورنيدازول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antibiotic",
+  "form": "Tablet",
+  "strength": "500 mg",
+  "class": "Nitroimidazole"
+ },
+ {
+  "generic_en": "Piperacillin",
+  "generic_ar": "بيبيراسيلين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antibiotic",
+  "form": "Injection",
+  "strength": "4 g",
+  "class": "Penicillin"
+ },
+ {
+  "generic_en": "Pyrimethamine",
+  "generic_ar": "بيريميثامين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antiparasitic",
+  "form": "Tablet",
+  "strength": "25 mg",
+  "class": "Antimalarial"
+ },
+ {
+  "generic_en": "Sacubitril",
+  "generic_ar": "ساكوبيتريل",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "49 mg",
+  "class": "Neprilysin"
+ },
+ {
+  "generic_en": "Sulbactam",
+  "generic_ar": "سولباكتام",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antibiotic",
+  "form": "Injection",
+  "strength": "1 g",
+  "class": "BetaLactamaseInhibitor"
+ },
+ {
+  "generic_en": "Sulfadoxine",
+  "generic_ar": "سلفادوكسين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antiparasitic",
+  "form": "Tablet",
+  "strength": "500 mg",
+  "class": "Sulfonamide"
+ },
+ {
+  "generic_en": "Sulfamethoxazole",
+  "generic_ar": "سلفاميثوكسازول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antibiotic",
+  "form": "Tablet",
+  "strength": "400 mg",
+  "class": "Sulfonamide"
+ },
+ {
+  "generic_en": "Tazobactam",
+  "generic_ar": "تازوباكتام",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antibiotic",
+  "form": "Injection",
+  "strength": "500 mg",
+  "class": "BetaLactamaseInhibitor"
+ },
+ {
+  "generic_en": "Telmisartan",
+  "generic_ar": "تيلميسارتان",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "40 mg",
+  "class": "ARB"
+ },
+ {
+  "generic_en": "Thiocolchicoside",
+  "generic_ar": "ثيوكولشيكوسيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Muscle relaxant",
+  "form": "Tablet",
+  "strength": "4 mg",
+  "class": "MuscleRelaxant"
+ },
+ {
+  "generic_en": "Trandolapril",
+  "generic_ar": "تراندولابريل",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "2 mg",
+  "class": "ACE-I"
+ },
+ {
+  "generic_en": "Triamterene",
+  "generic_ar": "تريامتيرين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diuretic",
+  "form": "Tablet",
+  "strength": "50 mg",
+  "class": "Diuretic"
+ },
+ {
+  "generic_en": "Umeclidinium",
+  "generic_ar": "أوميكليدينيوم",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Respiratory",
+  "form": "Inhaler",
+  "strength": "62.5 mcg/dose",
+  "class": "Anticholinergic"
+ },
+ {
+  "generic_en": "Vilanterol",
+  "generic_ar": "فيلانتيرول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Respiratory",
+  "form": "Inhaler",
+  "strength": "25 mcg/dose",
+  "class": "Bronchodilator"
+ },
+ {
+  "generic_en": "Vildagliptin",
+  "generic_ar": "فيلداغليبتين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diabetes",
+  "form": "Tablet",
+  "strength": "50 mg",
+  "class": "DPP4"
+ },
+ {
+  "generic_en": "Amlodipine + Valsartan",
+  "generic_ar": "أملوديبين + فالسارتان",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "5/160 mg",
+  "class": "ARB",
+  "components": [
+   "Amlodipine",
+   "Valsartan"
+  ],
+  "component_classes": [
+   "CCB",
+   "ARB"
+  ]
+ },
+ {
+  "generic_en": "Amlodipine + Losartan",
+  "generic_ar": "أملوديبين + لوسارتان",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "5/50 mg",
+  "class": "ARB",
+  "components": [
+   "Amlodipine",
+   "Losartan"
+  ],
+  "component_classes": [
+   "CCB",
+   "ARB"
+  ]
+ },
+ {
+  "generic_en": "Amlodipine + Telmisartan",
+  "generic_ar": "أملوديبين + تيلميسارتان",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "5/40 mg",
+  "class": "ARB",
+  "components": [
+   "Amlodipine",
+   "Telmisartan"
+  ],
+  "component_classes": [
+   "CCB",
+   "ARB"
+  ]
+ },
+ {
+  "generic_en": "Amlodipine + Olmesartan",
+  "generic_ar": "أملوديبين + أولميسارتان",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "5/20 mg",
+  "class": "ARB",
+  "components": [
+   "Amlodipine",
+   "Olmesartan"
+  ],
+  "component_classes": [
+   "CCB",
+   "ARB"
+  ]
+ },
+ {
+  "generic_en": "Amlodipine + Perindopril",
+  "generic_ar": "أملوديبين + بيريندوبريل",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "5/4 mg",
+  "class": "ACE-I",
+  "components": [
+   "Amlodipine",
+   "Perindopril"
+  ],
+  "component_classes": [
+   "CCB",
+   "ACE-I"
+  ]
+ },
+ {
+  "generic_en": "Amlodipine + Lisinopril",
+  "generic_ar": "أملوديبين + ليزينوبريل",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "5/10 mg",
+  "class": "ACE-I",
+  "components": [
+   "Amlodipine",
+   "Lisinopril"
+  ],
+  "component_classes": [
+   "CCB",
+   "ACE-I"
+  ]
+ },
+ {
+  "generic_en": "Amlodipine + Enalapril",
+  "generic_ar": "أملوديبين + إنالابريل",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "5/10 mg",
+  "class": "ACE-I",
+  "components": [
+   "Amlodipine",
+   "Enalapril"
+  ],
+  "component_classes": [
+   "CCB",
+   "ACE-I"
+  ]
+ },
+ {
+  "generic_en": "Amlodipine + Bisoprolol",
+  "generic_ar": "أملوديبين + بيسوبرولول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "5/5 mg",
+  "class": "BetaBlocker",
+  "components": [
+   "Amlodipine",
+   "Bisoprolol"
+  ],
+  "component_classes": [
+   "CCB",
+   "BetaBlocker"
+  ]
+ },
+ {
+  "generic_en": "Amlodipine + Hydrochlorothiazide",
+  "generic_ar": "أملوديبين + هيدروكلوروثيازيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "5/12.5 mg",
+  "class": "CCB",
+  "components": [
+   "Amlodipine",
+   "Hydrochlorothiazide"
+  ],
+  "component_classes": [
+   "CCB",
+   "Diuretic"
+  ]
+ },
+ {
+  "generic_en": "Amlodipine + Indapamide",
+  "generic_ar": "أملوديبين + إنداباميد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "5/1.5 mg",
+  "class": "CCB",
+  "components": [
+   "Amlodipine",
+   "Indapamide"
+  ],
+  "component_classes": [
+   "CCB",
+   "Diuretic"
+  ]
+ },
+ {
+  "generic_en": "Valsartan + Hydrochlorothiazide",
+  "generic_ar": "فالسارتان + هيدروكلوروثيازيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "160/12.5 mg",
+  "class": "ARB",
+  "components": [
+   "Valsartan",
+   "Hydrochlorothiazide"
+  ],
+  "component_classes": [
+   "ARB",
+   "Diuretic"
+  ]
+ },
+ {
+  "generic_en": "Losartan + Hydrochlorothiazide",
+  "generic_ar": "لوسارتان + هيدروكلوروثيازيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "50/12.5 mg",
+  "class": "ARB",
+  "components": [
+   "Losartan",
+   "Hydrochlorothiazide"
+  ],
+  "component_classes": [
+   "ARB",
+   "Diuretic"
+  ]
+ },
+ {
+  "generic_en": "Telmisartan + Hydrochlorothiazide",
+  "generic_ar": "تيلميسارتان + هيدروكلوروثيازيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "40/12.5 mg",
+  "class": "ARB",
+  "components": [
+   "Telmisartan",
+   "Hydrochlorothiazide"
+  ],
+  "component_classes": [
+   "ARB",
+   "Diuretic"
+  ]
+ },
+ {
+  "generic_en": "Olmesartan + Hydrochlorothiazide",
+  "generic_ar": "أولميسارتان + هيدروكلوروثيازيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "20/12.5 mg",
+  "class": "ARB",
+  "components": [
+   "Olmesartan",
+   "Hydrochlorothiazide"
+  ],
+  "component_classes": [
+   "ARB",
+   "Diuretic"
+  ]
+ },
+ {
+  "generic_en": "Irbesartan + Hydrochlorothiazide",
+  "generic_ar": "إربيسارتان + هيدروكلوروثيازيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "150/12.5 mg",
+  "class": "ARB",
+  "components": [
+   "Irbesartan",
+   "Hydrochlorothiazide"
+  ],
+  "component_classes": [
+   "ARB",
+   "Diuretic"
+  ]
+ },
+ {
+  "generic_en": "Lisinopril + Hydrochlorothiazide",
+  "generic_ar": "ليزينوبريل + هيدروكلوروثيازيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "10/12.5 mg",
+  "class": "ACE-I",
+  "components": [
+   "Lisinopril",
+   "Hydrochlorothiazide"
+  ],
+  "component_classes": [
+   "ACE-I",
+   "Diuretic"
+  ]
+ },
+ {
+  "generic_en": "Enalapril + Hydrochlorothiazide",
+  "generic_ar": "إنالابريل + هيدروكلوروثيازيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "10/25 mg",
+  "class": "ACE-I",
+  "components": [
+   "Enalapril",
+   "Hydrochlorothiazide"
+  ],
+  "component_classes": [
+   "ACE-I",
+   "Diuretic"
+  ]
+ },
+ {
+  "generic_en": "Ramipril + Hydrochlorothiazide",
+  "generic_ar": "راميبريل + هيدروكلوروثيازيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "5/25 mg",
+  "class": "ACE-I",
+  "components": [
+   "Ramipril",
+   "Hydrochlorothiazide"
+  ],
+  "component_classes": [
+   "ACE-I",
+   "Diuretic"
+  ]
+ },
+ {
+  "generic_en": "Perindopril + Indapamide",
+  "generic_ar": "بيريندوبريل + إنداباميد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "4/1.25 mg",
+  "class": "ACE-I",
+  "components": [
+   "Perindopril",
+   "Indapamide"
+  ],
+  "component_classes": [
+   "ACE-I",
+   "Diuretic"
+  ]
+ },
+ {
+  "generic_en": "Perindopril + Amlodipine + Indapamide",
+  "generic_ar": "بيريندوبريل + أملوديبين + إنداباميد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "4/5/1.25 mg",
+  "class": "CCB",
+  "components": [
+   "Perindopril",
+   "Amlodipine",
+   "Indapamide"
+  ],
+  "component_classes": [
+   "ACE-I",
+   "CCB",
+   "Diuretic"
+  ]
+ },
+ {
+  "generic_en": "Amlodipine + Valsartan + Hydrochlorothiazide",
+  "generic_ar": "أملوديبين + فالسارتان + هيدروكلوروثيازيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "5/160/12.5 mg",
+  "class": "ARB",
+  "components": [
+   "Amlodipine",
+   "Valsartan",
+   "Hydrochlorothiazide"
+  ],
+  "component_classes": [
+   "CCB",
+   "ARB",
+   "Diuretic"
+  ]
+ },
+ {
+  "generic_en": "Bisoprolol + Hydrochlorothiazide",
+  "generic_ar": "بيسوبرولول + هيدروكلوروثيازيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "5/6.25 mg",
+  "class": "BetaBlocker",
+  "components": [
+   "Bisoprolol",
+   "Hydrochlorothiazide"
+  ],
+  "component_classes": [
+   "BetaBlocker",
+   "Diuretic"
+  ]
+ },
+ {
+  "generic_en": "Nebivolol + Hydrochlorothiazide",
+  "generic_ar": "نيبيفولول + هيدروكلوروثيازيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "5/12.5 mg",
+  "class": "BetaBlocker",
+  "components": [
+   "Nebivolol",
+   "Hydrochlorothiazide"
+  ],
+  "component_classes": [
+   "BetaBlocker",
+   "Diuretic"
+  ]
+ },
+ {
+  "generic_en": "Spironolactone + Hydrochlorothiazide",
+  "generic_ar": "سبيرونولاكتون + هيدروكلوروثيازيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diuretic",
+  "form": "Tablet",
+  "strength": "25/25 mg",
+  "class": "Diuretic",
+  "components": [
+   "Spironolactone",
+   "Hydrochlorothiazide"
+  ],
+  "component_classes": [
+   "Diuretic",
+   "Diuretic"
+  ]
+ },
+ {
+  "generic_en": "Amiloride + Hydrochlorothiazide",
+  "generic_ar": "أميلورايد + هيدروكلوروثيازيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diuretic",
+  "form": "Tablet",
+  "strength": "5/50 mg",
+  "class": "Diuretic",
+  "components": [
+   "Amiloride",
+   "Hydrochlorothiazide"
+  ],
+  "component_classes": [
+   "Diuretic",
+   "Diuretic"
+  ]
+ },
+ {
+  "generic_en": "Triamterene + Hydrochlorothiazide",
+  "generic_ar": "تريامتيرين + هيدروكلوروثيازيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diuretic",
+  "form": "Tablet",
+  "strength": "37.5/25 mg",
+  "class": "Diuretic",
+  "components": [
+   "Triamterene",
+   "Hydrochlorothiazide"
+  ],
+  "component_classes": [
+   "Diuretic",
+   "Diuretic"
+  ]
+ },
+ {
+  "generic_en": "Lercanidipine + Enalapril",
+  "generic_ar": "ليركانيديبين + إنالابريل",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "10/20 mg",
+  "class": "ACE-I",
+  "components": [
+   "Lercanidipine",
+   "Enalapril"
+  ],
+  "component_classes": [
+   "CCB",
+   "ACE-I"
+  ]
+ },
+ {
+  "generic_en": "Verapamil + Trandolapril",
+  "generic_ar": "فيراباميل + تراندولابريل",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "180/2 mg",
+  "class": "ACE-I",
+  "components": [
+   "Verapamil",
+   "Trandolapril"
+  ],
+  "component_classes": [
+   "CCB",
+   "ACE-I"
+  ]
+ },
+ {
+  "generic_en": "Bisoprolol + Perindopril",
+  "generic_ar": "بيسوبرولول + بيريندوبريل",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "5/5 mg",
+  "class": "ACE-I",
+  "components": [
+   "Bisoprolol",
+   "Perindopril"
+  ],
+  "component_classes": [
+   "BetaBlocker",
+   "ACE-I"
+  ]
+ },
+ {
+  "generic_en": "Sacubitril + Valsartan",
+  "generic_ar": "ساكوبيتريل + فالسارتان",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "49/51 mg",
+  "class": "ARB",
+  "components": [
+   "Sacubitril",
+   "Valsartan"
+  ],
+  "component_classes": [
+   "",
+   "ARB"
+  ]
+ },
+ {
+  "generic_en": "Metformin + Sitagliptin",
+  "generic_ar": "ميتفورمين + سيتاغليبتين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diabetes",
+  "form": "Tablet",
+  "strength": "1000/50 mg",
+  "class": "DPP4",
+  "components": [
+   "Metformin",
+   "Sitagliptin"
+  ],
+  "component_classes": [
+   "Biguanide",
+   "DPP4"
+  ]
+ },
+ {
+  "generic_en": "Metformin + Linagliptin",
+  "generic_ar": "ميتفورمين + ليناغليبتين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diabetes",
+  "form": "Tablet",
+  "strength": "1000/2.5 mg",
+  "class": "DPP4",
+  "components": [
+   "Metformin",
+   "Linagliptin"
+  ],
+  "component_classes": [
+   "Biguanide",
+   "DPP4"
+  ]
+ },
+ {
+  "generic_en": "Metformin + Vildagliptin",
+  "generic_ar": "ميتفورمين + فيلداغليبتين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diabetes",
+  "form": "Tablet",
+  "strength": "1000/50 mg",
+  "class": "DPP4",
+  "components": [
+   "Metformin",
+   "Vildagliptin"
+  ],
+  "component_classes": [
+   "Biguanide",
+   "DPP4"
+  ]
+ },
+ {
+  "generic_en": "Metformin + Saxagliptin",
+  "generic_ar": "ميتفورمين + ساكساغليبتين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diabetes",
+  "form": "Tablet",
+  "strength": "1000/5 mg",
+  "class": "DPP4",
+  "components": [
+   "Metformin",
+   "Saxagliptin"
+  ],
+  "component_classes": [
+   "Biguanide",
+   "DPP4"
+  ]
+ },
+ {
+  "generic_en": "Metformin + Alogliptin",
+  "generic_ar": "ميتفورمين + ألوغليبتين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diabetes",
+  "form": "Tablet",
+  "strength": "1000/12.5 mg",
+  "class": "DPP4",
+  "components": [
+   "Metformin",
+   "Alogliptin"
+  ],
+  "component_classes": [
+   "Biguanide",
+   "DPP4"
+  ]
+ },
+ {
+  "generic_en": "Metformin + Empagliflozin",
+  "generic_ar": "ميتفورمين + إمباغليفلوزين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diabetes",
+  "form": "Tablet",
+  "strength": "1000/12.5 mg",
+  "class": "SGLT2",
+  "components": [
+   "Metformin",
+   "Empagliflozin"
+  ],
+  "component_classes": [
+   "Biguanide",
+   "SGLT2"
+  ]
+ },
+ {
+  "generic_en": "Metformin + Dapagliflozin",
+  "generic_ar": "ميتفورمين + داباغليفلوزين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diabetes",
+  "form": "Tablet",
+  "strength": "1000/10 mg",
+  "class": "SGLT2",
+  "components": [
+   "Metformin",
+   "Dapagliflozin"
+  ],
+  "component_classes": [
+   "Biguanide",
+   "SGLT2"
+  ]
+ },
+ {
+  "generic_en": "Metformin + Glimepiride",
+  "generic_ar": "ميتفورمين + غليميبيرايد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diabetes",
+  "form": "Tablet",
+  "strength": "500/2 mg",
+  "class": "Sulfonylurea",
+  "components": [
+   "Metformin",
+   "Glimepiride"
+  ],
+  "component_classes": [
+   "Biguanide",
+   "Sulfonylurea"
+  ]
+ },
+ {
+  "generic_en": "Metformin + Gliclazide",
+  "generic_ar": "ميتفورمين + غليكلازيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diabetes",
+  "form": "Tablet",
+  "strength": "500/80 mg",
+  "class": "Sulfonylurea",
+  "components": [
+   "Metformin",
+   "Gliclazide"
+  ],
+  "component_classes": [
+   "Biguanide",
+   "Sulfonylurea"
+  ]
+ },
+ {
+  "generic_en": "Metformin + Glibenclamide",
+  "generic_ar": "ميتفورمين + غليبينكلاميد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diabetes",
+  "form": "Tablet",
+  "strength": "500/5 mg",
+  "class": "Sulfonylurea",
+  "components": [
+   "Metformin",
+   "Glibenclamide"
+  ],
+  "component_classes": [
+   "Biguanide",
+   "Sulfonylurea"
+  ]
+ },
+ {
+  "generic_en": "Metformin + Pioglitazone",
+  "generic_ar": "ميتفورمين + بيوغليتازون",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diabetes",
+  "form": "Tablet",
+  "strength": "850/15 mg",
+  "class": "Thiazolidinedione",
+  "components": [
+   "Metformin",
+   "Pioglitazone"
+  ],
+  "component_classes": [
+   "Biguanide",
+   "Thiazolidinedione"
+  ]
+ },
+ {
+  "generic_en": "Empagliflozin + Linagliptin",
+  "generic_ar": "إمباغليفلوزين + ليناغليبتين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diabetes",
+  "form": "Tablet",
+  "strength": "25/5 mg",
+  "class": "DPP4",
+  "components": [
+   "Empagliflozin",
+   "Linagliptin"
+  ],
+  "component_classes": [
+   "SGLT2",
+   "DPP4"
+  ]
+ },
+ {
+  "generic_en": "Dapagliflozin + Sitagliptin",
+  "generic_ar": "داباغليفلوزين + سيتاغليبتين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diabetes",
+  "form": "Tablet",
+  "strength": "10/100 mg",
+  "class": "DPP4",
+  "components": [
+   "Dapagliflozin",
+   "Sitagliptin"
+  ],
+  "component_classes": [
+   "SGLT2",
+   "DPP4"
+  ]
+ },
+ {
+  "generic_en": "Insulin Glargine + Lixisenatide",
+  "generic_ar": "أنسولين غلارجين + ليكسيسيناتيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diabetes",
+  "form": "Injection",
+  "strength": "100 IU/ml + 33 mcg/ml",
+  "class": "GLP1",
+  "components": [
+   "Insulin Glargine",
+   "Lixisenatide"
+  ],
+  "component_classes": [
+   "Insulin",
+   "GLP1"
+  ]
+ },
+ {
+  "generic_en": "Insulin Degludec + Liraglutide",
+  "generic_ar": "أنسولين ديغلوديك + ليراغلوتيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diabetes",
+  "form": "Injection",
+  "strength": "100 IU/ml + 3.6 mg/ml",
+  "class": "GLP1",
+  "components": [
+   "Insulin Degludec",
+   "Liraglutide"
+  ],
+  "component_classes": [
+   "Insulin",
+   "GLP1"
+  ]
+ },
+ {
+  "generic_en": "Insulin Regular + Insulin NPH",
+  "generic_ar": "أنسولين عادي + أنسولين NPH",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Diabetes",
+  "form": "Injection",
+  "strength": "100 IU/ml",
+  "class": "Insulin",
+  "components": [
+   "Insulin Regular",
+   "Insulin NPH"
+  ],
+  "component_classes": [
+   "Insulin",
+   "Insulin"
+  ]
+ },
+ {
+  "generic_en": "Paracetamol + Ibuprofen",
+  "generic_ar": "باراسيتامول + إيبوبروفين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Analgesic",
+  "form": "Tablet",
+  "strength": "500/200 mg",
+  "class": "Analgesic",
+  "components": [
+   "Paracetamol",
+   "Ibuprofen"
+  ],
+  "component_classes": [
+   "Analgesic",
+   "NSAID"
+  ]
+ },
+ {
+  "generic_en": "Paracetamol + Codeine",
+  "generic_ar": "باراسيتامول + كودايين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Analgesic",
+  "form": "Tablet",
+  "strength": "500/30 mg",
+  "class": "Opioid",
+  "components": [
+   "Paracetamol",
+   "Codeine"
+  ],
+  "component_classes": [
+   "Analgesic",
+   "Opioid"
+  ]
+ },
+ {
+  "generic_en": "Paracetamol + Tramadol",
+  "generic_ar": "باراسيتامول + ترامادول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Analgesic",
+  "form": "Tablet",
+  "strength": "325/37.5 mg",
+  "class": "Opioid",
+  "components": [
+   "Paracetamol",
+   "Tramadol"
+  ],
+  "component_classes": [
+   "Analgesic",
+   "Opioid"
+  ]
+ },
+ {
+  "generic_en": "Paracetamol + Caffeine",
+  "generic_ar": "باراسيتامول + كافيين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Analgesic",
+  "form": "Tablet",
+  "strength": "500/65 mg",
+  "class": "Analgesic",
+  "components": [
+   "Paracetamol",
+   "Caffeine"
+  ],
+  "component_classes": [
+   "Analgesic",
+   ""
+  ]
+ },
+ {
+  "generic_en": "Paracetamol + Diclofenac",
+  "generic_ar": "باراسيتامول + ديكلوفيناك",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Analgesic",
+  "form": "Tablet",
+  "strength": "500/50 mg",
+  "class": "Analgesic",
+  "components": [
+   "Paracetamol",
+   "Diclofenac"
+  ],
+  "component_classes": [
+   "Analgesic",
+   "NSAID"
+  ]
+ },
+ {
+  "generic_en": "Paracetamol + Aspirin + Caffeine",
+  "generic_ar": "باراسيتامول + أسبرين + كافيين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Analgesic",
+  "form": "Tablet",
+  "strength": "250/250/65 mg",
+  "class": "Analgesic",
+  "components": [
+   "Paracetamol",
+   "Aspirin",
+   "Caffeine"
+  ],
+  "component_classes": [
+   "Analgesic",
+   "NSAID",
+   ""
+  ]
+ },
+ {
+  "generic_en": "Aceclofenac + Paracetamol",
+  "generic_ar": "أسيكلوفيناك + باراسيتامول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Analgesic",
+  "form": "Tablet",
+  "strength": "100/500 mg",
+  "class": "Analgesic",
+  "components": [
+   "Aceclofenac",
+   "Paracetamol"
+  ],
+  "component_classes": [
+   "NSAID",
+   "Analgesic"
+  ]
+ },
+ {
+  "generic_en": "Ibuprofen + Codeine",
+  "generic_ar": "إيبوبروفين + كودايين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Analgesic",
+  "form": "Tablet",
+  "strength": "200/12.8 mg",
+  "class": "Opioid",
+  "components": [
+   "Ibuprofen",
+   "Codeine"
+  ],
+  "component_classes": [
+   "NSAID",
+   "Opioid"
+  ]
+ },
+ {
+  "generic_en": "Oxycodone + Paracetamol",
+  "generic_ar": "أوكسيكودون + باراسيتامول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Analgesic",
+  "form": "Tablet",
+  "strength": "5/325 mg",
+  "class": "Analgesic",
+  "components": [
+   "Oxycodone",
+   "Paracetamol"
+  ],
+  "component_classes": [
+   "Opioid",
+   "Analgesic"
+  ]
+ },
+ {
+  "generic_en": "Hydrocodone + Paracetamol",
+  "generic_ar": "هيدروكودون + باراسيتامول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Analgesic",
+  "form": "Tablet",
+  "strength": "5/325 mg",
+  "class": "Analgesic",
+  "components": [
+   "Hydrocodone",
+   "Paracetamol"
+  ],
+  "component_classes": [
+   "Opioid",
+   "Analgesic"
+  ]
+ },
+ {
+  "generic_en": "Oxycodone + Naloxone",
+  "generic_ar": "أوكسيكودون + نالوكسون",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Analgesic",
+  "form": "Tablet",
+  "strength": "10/5 mg",
+  "class": "Opioid",
+  "components": [
+   "Oxycodone",
+   "Naloxone"
+  ],
+  "component_classes": [
+   "Opioid",
+   ""
+  ]
+ },
+ {
+  "generic_en": "Tramadol + Dexketoprofen",
+  "generic_ar": "ترامادول + ديكسكيتوبروفين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Analgesic",
+  "form": "Tablet",
+  "strength": "75/25 mg",
+  "class": "Opioid",
+  "components": [
+   "Tramadol",
+   "Dexketoprofen"
+  ],
+  "component_classes": [
+   "Opioid",
+   "NSAID"
+  ]
+ },
+ {
+  "generic_en": "Diclofenac + Misoprostol",
+  "generic_ar": "ديكلوفيناك + ميزوبروستول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Analgesic",
+  "form": "Tablet",
+  "strength": "50 mg/200 mcg",
+  "class": "Prostaglandin",
+  "components": [
+   "Diclofenac",
+   "Misoprostol"
+  ],
+  "component_classes": [
+   "NSAID",
+   ""
+  ]
+ },
+ {
+  "generic_en": "Naproxen + Esomeprazole",
+  "generic_ar": "نابروكسين + إيزوميبرازول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Analgesic",
+  "form": "Tablet",
+  "strength": "500/20 mg",
+  "class": "NSAID",
+  "components": [
+   "Naproxen",
+   "Esomeprazole"
+  ],
+  "component_classes": [
+   "NSAID",
+   "PPI"
+  ]
+ },
+ {
+  "generic_en": "Paracetamol + Orphenadrine",
+  "generic_ar": "باراسيتامول + أورفينادرين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Muscle relaxant",
+  "form": "Tablet",
+  "strength": "650/50 mg",
+  "class": "MuscleRelaxant",
+  "components": [
+   "Paracetamol",
+   "Orphenadrine"
+  ],
+  "component_classes": [
+   "Analgesic",
+   "MuscleRelaxant"
+  ]
+ },
+ {
+  "generic_en": "Paracetamol + Methocarbamol",
+  "generic_ar": "باراسيتامول + ميثوكاربامول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Muscle relaxant",
+  "form": "Tablet",
+  "strength": "325/400 mg",
+  "class": "MuscleRelaxant",
+  "components": [
+   "Paracetamol",
+   "Methocarbamol"
+  ],
+  "component_classes": [
+   "Analgesic",
+   "MuscleRelaxant"
+  ]
+ },
+ {
+  "generic_en": "Paracetamol + Chlorzoxazone",
+  "generic_ar": "باراسيتامول + كلورزوكسازون",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Muscle relaxant",
+  "form": "Tablet",
+  "strength": "325/250 mg",
+  "class": "MuscleRelaxant",
+  "components": [
+   "Paracetamol",
+   "Chlorzoxazone"
+  ],
+  "component_classes": [
+   "Analgesic",
+   "MuscleRelaxant"
+  ]
+ },
+ {
+  "generic_en": "Paracetamol + Diclofenac + Chlorzoxazone",
+  "generic_ar": "باراسيتامول + ديكلوفيناك + كلورزوكسازون",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Muscle relaxant",
+  "form": "Tablet",
+  "strength": "325/50/250 mg",
+  "class": "MuscleRelaxant",
+  "components": [
+   "Paracetamol",
+   "Diclofenac",
+   "Chlorzoxazone"
+  ],
+  "component_classes": [
+   "Analgesic",
+   "NSAID",
+   "MuscleRelaxant"
+  ]
+ },
+ {
+  "generic_en": "Ibuprofen + Methocarbamol",
+  "generic_ar": "إيبوبروفين + ميثوكاربامول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Muscle relaxant",
+  "form": "Tablet",
+  "strength": "200/500 mg",
+  "class": "MuscleRelaxant",
+  "components": [
+   "Ibuprofen",
+   "Methocarbamol"
+  ],
+  "component_classes": [
+   "NSAID",
+   "MuscleRelaxant"
+  ]
+ },
+ {
+  "generic_en": "Paracetamol + Thiocolchicoside",
+  "generic_ar": "باراسيتامول + ثيوكولشيكوسيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Muscle relaxant",
+  "form": "Tablet",
+  "strength": "500/4 mg",
+  "class": "MuscleRelaxant",
+  "components": [
+   "Paracetamol",
+   "Thiocolchicoside"
+  ],
+  "component_classes": [
+   "Analgesic",
+   "MuscleRelaxant"
+  ]
+ },
+ {
+  "generic_en": "Piperacillin + Tazobactam",
+  "generic_ar": "بيبيراسيلين + تازوباكتام",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antibiotic",
+  "form": "Injection",
+  "strength": "4/0.5 g",
+  "class": "Penicillin",
+  "components": [
+   "Piperacillin",
+   "Tazobactam"
+  ],
+  "component_classes": [
+   "Penicillin",
+   ""
+  ]
+ },
+ {
+  "generic_en": "Cefoperazone + Sulbactam",
+  "generic_ar": "سيفوبيرازون + سولباكتام",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antibiotic",
+  "form": "Injection",
+  "strength": "1/0.5 g",
+  "class": "Cephalosporin",
+  "components": [
+   "Cefoperazone",
+   "Sulbactam"
+  ],
+  "component_classes": [
+   "Cephalosporin",
+   ""
+  ]
+ },
+ {
+  "generic_en": "Ceftriaxone + Sulbactam",
+  "generic_ar": "سيفترياكسون + سولباكتام",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antibiotic",
+  "form": "Injection",
+  "strength": "1/0.5 g",
+  "class": "Cephalosporin",
+  "components": [
+   "Ceftriaxone",
+   "Sulbactam"
+  ],
+  "component_classes": [
+   "Cephalosporin",
+   ""
+  ]
+ },
+ {
+  "generic_en": "Amoxicillin + Metronidazole",
+  "generic_ar": "أموكسيسيلين + ميترونيدازول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antibiotic",
+  "form": "Tablet",
+  "strength": "500/400 mg",
+  "class": "Nitroimidazole",
+  "components": [
+   "Amoxicillin",
+   "Metronidazole"
+  ],
+  "component_classes": [
+   "Penicillin",
+   "Nitroimidazole"
+  ]
+ },
+ {
+  "generic_en": "Ciprofloxacin + Tinidazole",
+  "generic_ar": "سيبروفلوكساسين + تينيدازول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antibiotic",
+  "form": "Tablet",
+  "strength": "500/600 mg",
+  "class": "Nitroimidazole",
+  "components": [
+   "Ciprofloxacin",
+   "Tinidazole"
+  ],
+  "component_classes": [
+   "Fluoroquinolone",
+   "Nitroimidazole"
+  ]
+ },
+ {
+  "generic_en": "Ofloxacin + Ornidazole",
+  "generic_ar": "أوفلوكساسين + أورنيدازول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antibiotic",
+  "form": "Tablet",
+  "strength": "200/500 mg",
+  "class": "Nitroimidazole",
+  "components": [
+   "Ofloxacin",
+   "Ornidazole"
+  ],
+  "component_classes": [
+   "Fluoroquinolone",
+   "Nitroimidazole"
+  ]
+ },
+ {
+  "generic_en": "Rifampicin + Isoniazid",
+  "generic_ar": "ريفامبيسين + إيزونيازيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antibiotic",
+  "form": "Tablet",
+  "strength": "300/150 mg",
+  "class": "Antitubercular",
+  "components": [
+   "Rifampicin",
+   "Isoniazid"
+  ],
+  "component_classes": [
+   "Antitubercular",
+   "Antitubercular"
+  ]
+ },
+ {
+  "generic_en": "Rifampicin + Isoniazid + Pyrazinamide + Ethambutol",
+  "generic_ar": "ريفامبيسين + إيزونيازيد + بيرازيناميد + إيثامبوتول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antibiotic",
+  "form": "Tablet",
+  "strength": "150/75/400/275 mg",
+  "class": "Antitubercular",
+  "components": [
+   "Rifampicin",
+   "Isoniazid",
+   "Pyrazinamide",
+   "Ethambutol"
+  ],
+  "component_classes": [
+   "Antitubercular",
+   "Antitubercular",
+   "Antitubercular",
+   "Antitubercular"
+  ]
+ },
+ {
+  "generic_en": "Bismuth Subcitrate + Metronidazole + Tetracycline",
+  "generic_ar": "تحت سترات البزموت + ميترونيدازول + تتراسيكلين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antibiotic",
+  "form": "Capsule",
+  "strength": "140/125/125 mg",
+  "class": "Tetracycline",
+  "components": [
+   "Bismuth Subcitrate",
+   "Metronidazole",
+   "Tetracycline"
+  ],
+  "component_classes": [
+   "",
+   "Nitroimidazole",
+   "Tetracycline"
+  ]
+ },
+ {
+  "generic_en": "Artemether + Lumefantrine",
+  "generic_ar": "أرتيميثر + لوميفانترين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antiparasitic",
+  "form": "Tablet",
+  "strength": "20/120 mg",
+  "class": "Antimalarial",
+  "components": [
+   "Artemether",
+   "Lumefantrine"
+  ],
+  "component_classes": [
+   "",
+   ""
+  ]
+ },
+ {
+  "generic_en": "Sulfadoxine + Pyrimethamine",
+  "generic_ar": "سلفادوكسين + بيريميثامين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antiparasitic",
+  "form": "Tablet",
+  "strength": "500/25 mg",
+  "class": "Sulfonamide",
+  "components": [
+   "Sulfadoxine",
+   "Pyrimethamine"
+  ],
+  "component_classes": [
+   "Sulfonamide",
+   ""
+  ]
+ },
+ {
+  "generic_en": "Atorvastatin + Ezetimibe",
+  "generic_ar": "أتورفاستاتين + إيزيتيميب",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Statin",
+  "form": "Tablet",
+  "strength": "10/10 mg",
+  "class": "Statin",
+  "components": [
+   "Atorvastatin",
+   "Ezetimibe"
+  ],
+  "component_classes": [
+   "Statin",
+   ""
+  ]
+ },
+ {
+  "generic_en": "Rosuvastatin + Ezetimibe",
+  "generic_ar": "روزوفاستاتين + إيزيتيميب",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Statin",
+  "form": "Tablet",
+  "strength": "10/10 mg",
+  "class": "Statin",
+  "components": [
+   "Rosuvastatin",
+   "Ezetimibe"
+  ],
+  "component_classes": [
+   "Statin",
+   ""
+  ]
+ },
+ {
+  "generic_en": "Simvastatin + Ezetimibe",
+  "generic_ar": "سيمفاستاتين + إيزيتيميب",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Statin",
+  "form": "Tablet",
+  "strength": "20/10 mg",
+  "class": "Statin",
+  "components": [
+   "Simvastatin",
+   "Ezetimibe"
+  ],
+  "component_classes": [
+   "Statin",
+   ""
+  ]
+ },
+ {
+  "generic_en": "Atorvastatin + Fenofibrate",
+  "generic_ar": "أتورفاستاتين + فينوفايبرات",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Statin",
+  "form": "Tablet",
+  "strength": "10/160 mg",
+  "class": "Fibrate",
+  "components": [
+   "Atorvastatin",
+   "Fenofibrate"
+  ],
+  "component_classes": [
+   "Statin",
+   "Fibrate"
+  ]
+ },
+ {
+  "generic_en": "Rosuvastatin + Fenofibrate",
+  "generic_ar": "روزوفاستاتين + فينوفايبرات",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Statin",
+  "form": "Tablet",
+  "strength": "10/160 mg",
+  "class": "Fibrate",
+  "components": [
+   "Rosuvastatin",
+   "Fenofibrate"
+  ],
+  "component_classes": [
+   "Statin",
+   "Fibrate"
+  ]
+ },
+ {
+  "generic_en": "Bempedoic Acid + Ezetimibe",
+  "generic_ar": "حمض البيمبيدويك + إيزيتيميب",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Statin",
+  "form": "Tablet",
+  "strength": "180/10 mg",
+  "class": "Cholesterol",
+  "components": [
+   "Bempedoic Acid",
+   "Ezetimibe"
+  ],
+  "component_classes": [
+   "",
+   ""
+  ]
+ },
+ {
+  "generic_en": "Atorvastatin + Amlodipine",
+  "generic_ar": "أتورفاستاتين + أملوديبين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Cardiovascular",
+  "form": "Tablet",
+  "strength": "10/5 mg",
+  "class": "CCB",
+  "components": [
+   "Atorvastatin",
+   "Amlodipine"
+  ],
+  "component_classes": [
+   "Statin",
+   "CCB"
+  ]
+ },
+ {
+  "generic_en": "Salbutamol + Ipratropium Bromide",
+  "generic_ar": "سالبوتامول + إبراتروبيوم",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Respiratory",
+  "form": "Inhaler",
+  "strength": "100/20 mcg/dose",
+  "class": "Anticholinergic",
+  "components": [
+   "Salbutamol",
+   "Ipratropium"
+  ],
+  "component_classes": [
+   "Bronchodilator",
+   "Anticholinergic"
+  ]
+ },
+ {
+  "generic_en": "Fluticasone Propionate + Salmeterol",
+  "generic_ar": "فلوتيكازون + سالمترول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Respiratory",
+  "form": "Inhaler",
+  "strength": "250/25 mcg/dose",
+  "class": "Bronchodilator",
+  "components": [
+   "Fluticasone",
+   "Salmeterol"
+  ],
+  "component_classes": [
+   "Corticosteroid",
+   "Bronchodilator"
+  ]
+ },
+ {
+  "generic_en": "Budesonide + Formoterol",
+  "generic_ar": "بوديسونيد + فورموتيرول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Respiratory",
+  "form": "Inhaler",
+  "strength": "200/6 mcg/dose",
+  "class": "Bronchodilator",
+  "components": [
+   "Budesonide",
+   "Formoterol"
+  ],
+  "component_classes": [
+   "Corticosteroid",
+   "Bronchodilator"
+  ]
+ },
+ {
+  "generic_en": "Fluticasone Propionate + Vilanterol",
+  "generic_ar": "فلوتيكازون + فيلانتيرول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Respiratory",
+  "form": "Inhaler",
+  "strength": "100/25 mcg/dose",
+  "class": "Bronchodilator",
+  "components": [
+   "Fluticasone",
+   "Vilanterol"
+  ],
+  "component_classes": [
+   "Corticosteroid",
+   "Bronchodilator"
+  ]
+ },
+ {
+  "generic_en": "Beclometasone Dipropionate + Formoterol",
+  "generic_ar": "بيكلوميثازون + فورموتيرول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Respiratory",
+  "form": "Inhaler",
+  "strength": "100/6 mcg/dose",
+  "class": "Bronchodilator",
+  "components": [
+   "Beclomethasone",
+   "Formoterol"
+  ],
+  "component_classes": [
+   "Corticosteroid",
+   "Bronchodilator"
+  ]
+ },
+ {
+  "generic_en": "Umeclidinium + Vilanterol",
+  "generic_ar": "أوميكليدينيوم + فيلانتيرول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Respiratory",
+  "form": "Inhaler",
+  "strength": "62.5/25 mcg/dose",
+  "class": "Bronchodilator",
+  "components": [
+   "Umeclidinium",
+   "Vilanterol"
+  ],
+  "component_classes": [
+   "Anticholinergic",
+   "Bronchodilator"
+  ]
+ },
+ {
+  "generic_en": "Tiotropium + Olodaterol",
+  "generic_ar": "تيوتروبيوم + أولوداتيرول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Respiratory",
+  "form": "Inhaler",
+  "strength": "5/5 mcg/dose",
+  "class": "Bronchodilator",
+  "components": [
+   "Tiotropium",
+   "Olodaterol"
+  ],
+  "component_classes": [
+   "Anticholinergic",
+   "Bronchodilator"
+  ]
+ },
+ {
+  "generic_en": "Glycopyrronium + Indacaterol",
+  "generic_ar": "غليكوبيرونيوم + إنداكاتيرول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Respiratory",
+  "form": "Inhaler",
+  "strength": "50/110 mcg/dose",
+  "class": "Bronchodilator",
+  "components": [
+   "Glycopyrronium",
+   "Indacaterol"
+  ],
+  "component_classes": [
+   "Anticholinergic",
+   "Bronchodilator"
+  ]
+ },
+ {
+  "generic_en": "Fluticasone Propionate + Umeclidinium + Vilanterol",
+  "generic_ar": "فلوتيكازون + أوميكليدينيوم + فيلانتيرول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Respiratory",
+  "form": "Inhaler",
+  "strength": "100/62.5/25 mcg/dose",
+  "class": "Bronchodilator",
+  "components": [
+   "Fluticasone",
+   "Umeclidinium",
+   "Vilanterol"
+  ],
+  "component_classes": [
+   "Corticosteroid",
+   "Anticholinergic",
+   "Bronchodilator"
+  ]
+ },
+ {
+  "generic_en": "Omeprazole + Domperidone",
+  "generic_ar": "أوميبرازول + دومبيريدون",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "PPI",
+  "form": "Capsule",
+  "strength": "20/10 mg",
+  "class": "Antiemetic",
+  "components": [
+   "Omeprazole",
+   "Domperidone"
+  ],
+  "component_classes": [
+   "PPI",
+   "Antiemetic"
+  ]
+ },
+ {
+  "generic_en": "Pantoprazole + Domperidone",
+  "generic_ar": "بانتوبرازول + دومبيريدون",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "PPI",
+  "form": "Tablet",
+  "strength": "40/10 mg",
+  "class": "Antiemetic",
+  "components": [
+   "Pantoprazole",
+   "Domperidone"
+  ],
+  "component_classes": [
+   "PPI",
+   "Antiemetic"
+  ]
+ },
+ {
+  "generic_en": "Aspirin + Clopidogrel",
+  "generic_ar": "أسبرين + كلوبيدوغريل",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antiplatelet",
+  "form": "Tablet",
+  "strength": "100/75 mg",
+  "class": "Antiplatelet",
+  "components": [
+   "Aspirin",
+   "Clopidogrel"
+  ],
+  "component_classes": [
+   "Antiplatelet",
+   "Antiplatelet"
+  ]
+ },
+ {
+  "generic_en": "Aspirin + Dipyridamole",
+  "generic_ar": "أسبرين + ديبيريدامول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Antiplatelet",
+  "form": "Capsule",
+  "strength": "25/200 mg",
+  "class": "Antiplatelet",
+  "components": [
+   "Aspirin",
+   "Dipyridamole"
+  ],
+  "component_classes": [
+   "Antiplatelet",
+   "Antiplatelet"
+  ]
+ },
+ {
+  "generic_en": "Ethinyl Estradiol + Levonorgestrel",
+  "generic_ar": "إثينيل إستراديول + ليفونورجيستريل",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Endocrine",
+  "form": "Tablet",
+  "strength": "30/150 mcg",
+  "class": "Contraceptive",
+  "components": [
+   "Ethinyl Estradiol",
+   "Levonorgestrel"
+  ],
+  "component_classes": [
+   "",
+   ""
+  ]
+ },
+ {
+  "generic_en": "Ethinyl Estradiol + Drospirenone",
+  "generic_ar": "إثينيل إستراديول + دروسبيرينون",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Endocrine",
+  "form": "Tablet",
+  "strength": "0.03/3 mg",
+  "class": "Contraceptive",
+  "components": [
+   "Ethinyl Estradiol",
+   "Drospirenone"
+  ],
+  "component_classes": [
+   "",
+   ""
+  ]
+ },
+ {
+  "generic_en": "Ethinyl Estradiol + Desogestrel",
+  "generic_ar": "إثينيل إستراديول + ديسوجيستريل",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Endocrine",
+  "form": "Tablet",
+  "strength": "30/150 mcg",
+  "class": "Contraceptive",
+  "components": [
+   "Ethinyl Estradiol",
+   "Desogestrel"
+  ],
+  "component_classes": [
+   "",
+   ""
+  ]
+ },
+ {
+  "generic_en": "Timolol + Latanoprost",
+  "generic_ar": "تيمولول + لاتانوبروست",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Ophthalmology",
+  "form": "Eye drops",
+  "strength": "0.5/0.005 %",
+  "class": "Prostaglandin",
+  "components": [
+   "Timolol",
+   "Latanoprost"
+  ],
+  "component_classes": [
+   "BetaBlocker",
+   "Prostaglandin"
+  ]
+ },
+ {
+  "generic_en": "Timolol + Dorzolamide",
+  "generic_ar": "تيمولول + دورزولاميد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Ophthalmology",
+  "form": "Eye drops",
+  "strength": "0.5/2 %",
+  "class": "CarbonicAnhydrase",
+  "components": [
+   "Timolol",
+   "Dorzolamide"
+  ],
+  "component_classes": [
+   "BetaBlocker",
+   "CarbonicAnhydrase"
+  ]
+ },
+ {
+  "generic_en": "Timolol + Brimonidine",
+  "generic_ar": "تيمولول + بريمونيدين",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Ophthalmology",
+  "form": "Eye drops",
+  "strength": "0.5/0.2 %",
+  "class": "AlphaAgonist",
+  "components": [
+   "Timolol",
+   "Brimonidine"
+  ],
+  "component_classes": [
+   "BetaBlocker",
+   "AlphaAgonist"
+  ]
+ },
+ {
+  "generic_en": "Levodopa + Carbidopa",
+  "generic_ar": "ليفودوبا + كاربيدوبا",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "CNS",
+  "form": "Tablet",
+  "strength": "100/25 mg",
+  "class": "Antiparkinson",
+  "components": [
+   "Levodopa",
+   "Carbidopa"
+  ],
+  "component_classes": [
+   "",
+   ""
+  ]
+ },
+ {
+  "generic_en": "Levodopa + Benserazide",
+  "generic_ar": "ليفودوبا + بنزيرازيد",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "CNS",
+  "form": "Tablet",
+  "strength": "100/25 mg",
+  "class": "Antiparkinson",
+  "components": [
+   "Levodopa",
+   "Benserazide"
+  ],
+  "component_classes": [
+   "",
+   ""
+  ]
+ },
+ {
+  "generic_en": "Levodopa + Carbidopa + Entacapone",
+  "generic_ar": "ليفودوبا + كاربيدوبا + إنتاكابون",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "CNS",
+  "form": "Tablet",
+  "strength": "100/25/200 mg",
+  "class": "Antiparkinson",
+  "components": [
+   "Levodopa",
+   "Carbidopa",
+   "Entacapone"
+  ],
+  "component_classes": [
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "generic_en": "Calcium Carbonate + Cholecalciferol",
+  "generic_ar": "كربونات الكالسيوم + كوليكالسيفيرول",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Supplement",
+  "form": "Tablet",
+  "strength": "600 mg/400 IU",
+  "class": "Vitamin",
+  "components": [
+   "Calcium Carbonate",
+   "Cholecalciferol"
+  ],
+  "component_classes": [
+   "",
+   ""
+  ]
+ },
+ {
+  "generic_en": "Iron Sulfate + Folic Acid",
+  "generic_ar": "كبريتات الحديد + حمض الفوليك",
+  "brand_en": "",
+  "brand_ar": "",
+  "category": "Supplement",
+  "form": "Tablet",
+  "strength": "200/0.4 mg",
+  "class": "Vitamin",
+  "components": [
+   "Iron Sulfate",
+   "Folic Acid"
+  ],
+  "component_classes": [
+   "",
+   ""
+  ]
  }
 ]

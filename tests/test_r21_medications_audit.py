@@ -18,10 +18,10 @@ def _meds():
     return json.loads((DATA / "medications.json").read_text(encoding="utf-8"))
 
 
-def test_file_parses_and_count_is_315():
+def test_file_parses_and_count_is_463():  # R49: 315 + 40 singles + 108 combos = 463
     meds = _meds()
     assert isinstance(meds, list)
-    assert len(meds) == 315, len(meds)
+    assert len(meds) == 463, len(meds)  # R49 count pin (was 315)
 
 
 def test_no_duplicate_generic_en():
@@ -46,9 +46,11 @@ def test_r21_pde5_inhibitors_moved_to_urology():
     # Interaction class untouched by the category move.
     assert by_name["Sildenafil"]["class"] == "PDE5"
     assert by_name["Tadalafil"]["class"] == "PDE5"
-    # Bucket sizes pin the move (37 - 2 and 5 + 2).
+    # Bucket sizes pin the move (37 - 2 and 5 + 2). R49: the
+    # Cardiovascular bucket grew to 68 with the antihypertensive
+    # fixed-dose combinations and new cardiovascular singles.
     cats = [m["category"] for m in _meds()]
-    assert cats.count("Cardiovascular") == 35
+    assert cats.count("Cardiovascular") == 68
     assert cats.count("Urology") == 7
 
 

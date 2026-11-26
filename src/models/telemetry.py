@@ -74,7 +74,8 @@ def get_firebase_url():
     Firebase console for the owner's project).
 
     EMPTY by default: a fresh build sends nothing to Firebase. The owner
-    sets it on his own machine only (see TELEMETRY.md). It is NEVER
+    sets it on his own machine only (there is deliberately no UI for it).
+    It is NEVER
     hardcoded here — the source is published under the ANADOCTORFADY
     Free Use License, and a hardcoded URL would route every user's
     stats to the owner's DB.

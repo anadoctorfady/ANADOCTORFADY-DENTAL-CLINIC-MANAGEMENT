@@ -26,8 +26,25 @@ def _fired(allergen):
     comes from the allergy branch)."""
     return {d for d in ALL_DRUGS if check_interactions(d, [], [allergen], [])}
 
+# Round 49 (Section A): matching is component-aware -- a
+# combination fires for the classes of ALL its components, not
+# only its own `class`. Expected sets are derived the same way
+# from the data (own class + component_classes + each
+# component's own class), else every combo reads as a false
+# positive against the round-29 expectations.
+_BY_NAME = {m["generic_en"]: m for m in MEDS}
+
+def _class_tokens(m):
+    toks = {m.get("class") or ""}
+    toks |= set(m.get("component_classes") or [])
+    for comp in m.get("components") or []:
+        cm = _BY_NAME.get(comp)
+        if cm:
+            toks.add(cm.get("class") or "")
+    return {t for t in toks if t}
+
 def _expected(cls):
-    s = set(BY_CLASS.get(cls, set()))
+    s = {m["generic_en"] for m in MEDS if cls in _class_tokens(m)}
     for legacy, members in CLASSES.items():
         if legacy.lower() == cls.lower():
             s |= set(members)

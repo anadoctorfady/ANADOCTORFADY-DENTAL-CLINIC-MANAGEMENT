@@ -32,5 +32,5 @@ Thank you for helping make this free dental clinic system better!
 ## Where to start / من أين تبدأ
 
 Good first issues: a translation fix, a new reusable phrase, a missing drug
-or interaction (with a source), a UI polish, or a new test. Ask on WhatsApp
-+963944234456 if you are unsure.
+or interaction (with a source), a UI polish, or a new test. Ask on Telegram
++1 424 231 0526 if you are unsure.

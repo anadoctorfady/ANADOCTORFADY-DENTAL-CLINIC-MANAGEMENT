@@ -14,11 +14,16 @@ WEEKDAYS_EN = ["Monday", "Tuesday", "Wednesday", "Thursday",
 WEEKDAYS_AR = ["الاثنين", "الثلاثاء", "الأربعاء", "الخميس",
                "الجمعة", "السبت", "الأحد"]
 WEEKDAYS_SHORT_EN = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-WEEKDAYS_SHORT_AR = ["اثن", "ثلا", "أرب", "خمي", "جمع", "سبت", "أحد"]
-MONTHS_EN = ["January", "February", "March", "April", "May", "June", "July",
-             "August", "September", "October", "November", "December"]
-MONTHS_AR = ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو",
-             "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"]
+# R52: the calendar header shows the FULL Arabic weekday names
+# (WEEKDAYS_AR) -- the old abbreviated header row (اثن، ثلا، ...)
+# is gone by owner request; English headers keep the short forms.
+WEEKDAYS_SHORT_AR = WEEKDAYS_AR
+# Month names live in ONE central module (R52, Section D): the
+# Arabic set follows the Settings choice (Levant default).
+from src.config.month_names import MONTHS_EN, MONTH_SETS  # noqa: E402
+
+MONTHS_AR = MONTH_SETS["egypt_gulf"]  # legacy alias; display code
+# routes through month_names.current_month_name_ar() instead.
 # Round 18 (W4): day-cell tint by the day's WORST computed attendance
 # (absent > late > attended). Round 24: tints STRENGTHENED (the pale
 # round-18 washes were hard to spot against the panel) + a light
@@ -98,13 +103,16 @@ class MonthCalendar(RoundedFrame):
                               bg=self.t["panel"], fg=self.t["text"], padx=2, pady=2, radius=RADIUS_BTN,
                               command=lambda r=r, c=c: self._click(r, c))
                 b.grid(row=r + 1, column=c, sticky="nsew", padx=1, pady=1)
-                grid.rowconfigure(r + 1, weight=1)
+                grid.rowconfigure(r + 1, weight=0)  # R53: day rows keep their content height and never stretch (a taller mid sibling used to stretch all six rows and squeeze the table below the fold)
                 self._day_btns[(r, c)] = b
         self._render()
 
     def month_label(self):
-        m = MONTHS_AR[self.month - 1] if self.lang == "ar" \
-            else MONTHS_EN[self.month - 1]
+        if self.lang == "ar":
+            from src.config.month_names import current_month_name_ar
+            m = current_month_name_ar(self.month)
+        else:
+            m = MONTHS_EN[self.month - 1]
         return f"{m} {self.year}"
 
     def prev_month(self):

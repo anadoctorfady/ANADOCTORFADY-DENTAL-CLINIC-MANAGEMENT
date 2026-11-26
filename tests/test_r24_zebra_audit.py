@@ -10,7 +10,7 @@ precedence):
            Rx items + history trees, template picker/manager
            lists, category picker list.
   R27:     tree_xray + scans tree became THUMBNAIL GRIDS whose
-           tiles alternate the same zebra pair (_assert_grid_zebra).
+           tiles rotate the same palette (R43; was the zebra pair).
   FIXED in R24: phrase_picker clipboard-history panel,
            shell.select_patient's manual insert path, appointments
            weekday + time-slot selector listboxes.
@@ -19,14 +19,16 @@ precedence):
 
 Builds the real tabs in BOTH themes on the isolated DB and
 asserts, per audited tree: rows exist, row i's FIRST tag is
-zebra{i%2} with the theme's zebra_colors backgrounds. Listboxes:
-per-row backgrounds alternate the same colours. Skips w/o display.
-ROUND-40 SUPERSESSION: the session tree + tree_fin wear the
-VIVID rotation instead; every other surface keeps zebra."""
+vivid{i%len(PALETTE)} with the vivid PALETTE background. Listboxes and
+thumbnail grids: per-row/tile backgrounds rotate the palette.
+Skips w/o display.
+ROUND-43 SUPERSESSION (owner instruction 2026-11-22): the vivid
+rotation covers EVERY surface -- the R24 zebra pair and the
+R40 two-tree scope are both superseded; zebra.py delegates to
+vivid_rows, so the helper names below keep their call sites."""
 import tkinter as tk
 from tkinter import ttk
 
-from src.config.theme import zebra_colors
 from src.models.database import get_connection, init_db, set_setting
 from tests.test_templates_edit import isolated_db
 
@@ -52,15 +54,9 @@ def _mk_patient():
 
 
 def _assert_tree_zebra(tree, dark, label):
-    kids = tree.get_children("")
-    assert kids, f"{label}: no rows to stripe"
-    even, odd = zebra_colors(dark)
-    got0 = str(tree.tag_configure("zebra0", "background")).lower()
-    got1 = str(tree.tag_configure("zebra1", "background")).lower()
-    assert (got0, got1) == (even.lower(), odd.lower()), (label, got0, got1)
-    for i, k in enumerate(kids):
-        tags = tree.item(k, "tags")
-        assert tags and tags[0] == f"zebra{i % 2}", (label, i, tags)
+    # R43: every tree wears the vivid rotation (name kept for the
+    # many call sites; `dark` is now irrelevant -- same colours).
+    _assert_tree_vivid(tree, label)
 
 
 def _assert_tree_vivid(tree, label):
@@ -76,19 +72,22 @@ def _assert_tree_vivid(tree, label):
 
 
 def _assert_listbox_zebra(lb, dark, label):
+    # R43: listbox rows rotate the vivid palette, dark text on top.
+    from src.ui.vivid_rows import PALETTE, TEXT_ON_VIVID
     inner = getattr(lb, "listbox", lb)
     assert inner.size() >= 2, f"{label}: needs >= 2 rows"
-    even, odd = zebra_colors(dark)
-    bgs = [str(inner.itemcget(i, "background")).lower() for i in range(min(inner.size(), 4))]
-    want = [(even if i % 2 == 0 else odd).lower() for i in range(len(bgs))]
-    assert bgs == want, (label, bgs, want)
+    for i in range(min(inner.size(), 6)):
+        got = str(inner.itemcget(i, "background")).lower()
+        assert got == PALETTE[i % len(PALETTE)].lower(), (label, i, got)
+        fg = str(inner.itemcget(i, "foreground")).lower()
+        assert fg == TEXT_ON_VIVID.lower(), (label, i, fg)
 
 
-def _assert_grid_zebra(grid, dark, label):  # R27 thumbnail grids
+def _assert_grid_zebra(grid, dark, label):  # R27 grids, R43 palette
+    from src.ui.vivid_rows import PALETTE
     assert grid.tiles, f"{label}: no tiles to stripe"
-    even, odd = zebra_colors(dark)
     for i, tile in enumerate(grid.tiles):
-        want = (even if i % 2 == 0 else odd).lower()
+        want = PALETTE[i % len(PALETTE)].lower()
         got = str(tile.cget("bg")).lower()
         assert got == want, (label, i, got, want)
 

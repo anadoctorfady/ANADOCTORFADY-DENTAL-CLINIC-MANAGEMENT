@@ -113,7 +113,7 @@ def test_r22_header_and_main_flow_panels():
     comes after tab.history_section in right_inner pack order)."""
     fid = _seed_patient("", "")
     try:
-        patient = {"file_number": fid, "full_name": "Ahmed Mohammed Ali Hassan", "age_years": 36, "birth_date_greg": "1990-05-15", "mobile1": "0944000111", "current_medications": "", "allergies": "Penicillin"}
+        patient = {"file_number": fid, "full_name": "Ahmed Mohammed Ali Hassan", "age_years": 36, "birth_date_greg": "1990-05-15", "mobile1": "0794000111", "current_medications": "", "allergies": "Penicillin"}
         root, tab = _build("en", patient)
         if tab is None:
             print("SKIP test_r22_header_and_main_flow (no display)")

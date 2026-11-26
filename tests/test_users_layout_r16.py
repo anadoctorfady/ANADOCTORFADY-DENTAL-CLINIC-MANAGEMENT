@@ -75,18 +75,44 @@ def test_users_layout_gui():
             # Vertical scrollbar present and mapped.
             assert hasattr(tab.tree, "_v_scrollbar")
             assert tab.tree._v_scrollbar.winfo_ismapped()
-            # Wheel bindings exist on the tree itself.
+            # R56: no per-widget wheel binding anymore -- the ONE
+            # central class binding (installed by the App at
+            # startup; installed here explicitly, this tab is
+            # built bare) owns Treeview/Listbox wheels.
+            from src.ui.wheel_scroll import install_page_wheel
+            install_page_wheel(root)
             for ev in ("<Button-4>", "<Button-5>", "<MouseWheel>"):
-                assert tab.tree.bind(ev), f"no wheel binding for {ev}"
-            # A real wheel event scrolls the 21-row list.
+                assert root.bind_class("Treeview", ev), \
+                    f"no class wheel binding for {ev}"
+            assert not tab.tree.bind("<Button-4>"), \
+                "stale per-widget wheel binding"
+            # R56: the wheel goes to whatever can scroll -- the
+            # Users page when it overflows, the tree itself when
+            # the page fits (the fallback). The page is borderline
+            # at 1200x800 (region 764 vs 771px viewport in EN;
+            # a saved AR language makes it overflow), so pin
+            # BOTH branches instead of assuming one.
             assert len(tab.tree.get_children()) == 21
             assert tab.tree.yview()[0] == 0.0
+            page_moves = tab._scroll.yview() != (0.0, 1.0)
+            page0, tree0 = tab._scroll.yview(), tab.tree.yview()
             tab.tree.event_generate("<Button-5>")
             root.update_idletasks()
-            assert tab.tree.yview()[0] > 0.0, tab.tree.yview()
-            tab.tree.event_generate("<Button-4>")
-            root.update_idletasks()
-            assert tab.tree.yview()[0] == 0.0, tab.tree.yview()
+            if page_moves:
+                assert tab._scroll.yview()[0] > page0[0], \
+                    "wheel did not scroll the Users page"
+                assert tab.tree.yview() == tree0, \
+                    "wheel moved the tree instead of the page"
+                mid = tab._scroll.yview()
+                tab.tree.event_generate("<Button-4>")
+                root.update_idletasks()
+                assert tab._scroll.yview()[0] < mid[0], \
+                    "wheel-up did not scroll the page back"
+            else:
+                assert tab.tree.yview()[0] > 0.0, tab.tree.yview()
+                tab.tree.event_generate("<Button-4>")
+                root.update_idletasks()
+                assert tab.tree.yview()[0] == 0.0, tab.tree.yview()
             # Permissions tree: every row visible, nothing clipped.
             assert int(tab.perm_tree.cget("height")) == 16
             for iid in tab.perm_tree.get_children(""):

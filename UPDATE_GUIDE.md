@@ -31,7 +31,7 @@ logic. Edit the file, save, run the tests, rebuild the EXE.
 | Add a currency or country/nationality | `src/data/currencies.json` / `src/data/countries.json` |
 | Add a reusable phrase (complaint, diagnosis…) | `src/data/phrases_seed.json` (or use “＋ حفظ” inside the app — it learns automatically) |
 | Change a colour / dark-mode token | `src/config/theme.py` |
-| Change the clinic name, WhatsApp, About text | `src/config/settings.py` |
+| Change the clinic name, contact, About text | `src/config/settings.py` |
 
 ## Rule 3 — Code changes: where to look / تغييرات الكود: أين أجدها
 

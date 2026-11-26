@@ -104,20 +104,19 @@ def test_standalone_structure_header_and_panels():
         assert slaves[0] is tab.chart and slaves[1] is tab.input_block
         # ROUND-24 SUPERSESSION: no panels section at all; the
         # unified history section follows the input block directly.
-        assert not hasattr(tab, "panels_section")
-        assert not hasattr(tab, "panel_frames")
-        assert not hasattr(tab, "panel_texts")
+        for _a in ("panels_section", "panel_frames", "panel_texts"): assert not hasattr(tab, _a)
         assert slaves.index(tab.history_section) > slaves.index(tab.input_block)
         assert tab.history_section in _chain(tab.tree_history)
         assert tab.right_inner in _chain(tab.tree_history)
         hdr = tab.header_panel  # pinned: in the tab, NOT the canvas
         assert isinstance(hdr, PatientInfoPanel) and hdr.master is tab
         assert tab.main_canvas not in _chain(hdr) and tab.app.info_panel is hdr
+        # R54: Edit/Delete/Refer moved to the tab's top bar beside
+        # Manage templates -- created by the panel, hosted in the bar.
+        bar = hdr.edit_btn.master
         for btn in (hdr.edit_btn, hdr.delete_btn, hdr.refer_btn):
-            assert btn is not None and hdr in _chain(btn)
-        for attr in ("left_info_frame", "clin_info_panel", "patient_header_frame",
-                     "lbl_pat_name", "lbl_pat_meta", "alert_strip"):
-            assert not hasattr(tab, attr), attr  # info lives in the header only
+            assert btn is not None and btn.master is bar and bar.master is tab
+        for attr in ("left_info_frame", "clin_info_panel", "patient_header_frame", "lbl_pat_name", "lbl_pat_meta", "alert_strip"): assert not hasattr(tab, attr), attr  # info lives in the header only
     finally:
         root.destroy()
 

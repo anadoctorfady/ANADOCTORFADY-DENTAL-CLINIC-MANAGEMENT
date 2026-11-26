@@ -25,7 +25,7 @@ def test_soft_delete_hides_but_preserves():
     """Deleted patient gone from search/list/fetch/duplicate, still
     in the DB, linked rows untouched, freed name re-registerable."""
     init_db()
-    fid = _seed("R18Del", "R18Dad", "R18Gpa", "R18Fam", m1="0944234456")
+    fid = _seed("R18Del", "R18Dad", "R18Gpa", "R18Fam", m1="0791234567")
     conn = get_connection(); cur = conn.cursor()
     cur.execute("INSERT INTO financials(patient_file, total_cost, "
                 "paid_amount, remaining, visit_date) "
@@ -48,13 +48,13 @@ def test_soft_delete_hides_but_preserves():
         assert search_patients(first="R18Del") == []
         # (Phone/q by fid: the gate DB may hold other patients
         # sharing a number, e.g. the clinic's own.)
-        assert fid not in _ids(search_patients(phone="+963944234456"))
-        assert fid not in _ids(search_patients(q="0944234456"))
+        assert fid not in _ids(search_patients(phone="+962791234567"))
+        assert fid not in _ids(search_patients(q="0791234567"))
         assert search_patients(current_file=fid) == []
         assert fetch_list_row(fid) is None
         assert fetch_patient(fid) is None
         assert find_duplicate("R18Del", "R18Dad", "R18Fam") is None
-        new_fid = _seed("R18Del", "R18Dad", "R18Gpa", "R18Fam", m1="0912000999")
+        new_fid = _seed("R18Del", "R18Dad", "R18Gpa", "R18Fam", m1="0791200099")
         assert new_fid != fid and fetch_patient(new_fid) is not None
     finally:
         conn = get_connection(); cur = conn.cursor()
@@ -69,7 +69,7 @@ def test_delete_role_gate_panel():
     (patient untouched). Admin: enabled, naming confirmation,
     confirmed delete hides the patient and clears the open file."""
     init_db()
-    fid = _seed("R18Gate", "R18Dad", "R18Gpa", "R18Fam", m1="0912000555")
+    fid = _seed("R18Gate", "R18Dad", "R18Gpa", "R18Fam", m1="0791200055")
     try:
         root = tk.Tk(); root.withdraw()
     except tk.TclError:

@@ -22,6 +22,7 @@ from reportlab.platypus import Paragraph, Spacer, Table, TableStyle, HRFlowable
 from src.config.settings import REPORTS, APP_NAME
 from src.config.strings_r16_print import PDF_LABELS
 from src.reports.centre_logo import logo_header_flowables
+from src.reports.centre_contact import centre_contact_flowables
 from src.reports.pdf_styles import IOS, FONT_EN, FONT_EN_B, FONT_AR, FONT_AR_B
 from src.utils.arabic import ar, has_arabic
 
@@ -59,6 +60,14 @@ def clinic_name():
     if not name or name.upper() == APP_NAME.upper():
         return ""
     return name
+
+
+def top_strip():
+    """8pt banner text for the printed documents (R45): the
+    `centre_phone` segment appears only when the centre set one —
+    no dangling separator when it is empty."""
+    p = str(_get_setting("centre_phone", "") or "").strip()
+    return "ANADOCTORFADY • Dental Clinic" + (f" • {p}" if p else "")
 
 
 def _p(text, style):
@@ -125,25 +134,26 @@ def report_header(st, language, bilingual=False):
                                fontSize=18, textColor=HexColor("#1C1C1E"))
     hr = HRFlowable(width="100%", thickness=1.2,
                     color=IOS["primary"], spaceAfter=6)
+    contact = centre_contact_flowables(st)  # R52: [] when unset
     if bilingual:
         if clinic:
-            return _logo + [_p(f"<b>{_ct}</b>", clinic_st), hr]
+            return _logo + [_p(f"<b>{_ct}</b>", clinic_st)] + contact + [hr]
         return _logo + [Table([[_p(f"<b>{REPORT_TITLE['en']}</b>", st["title_en"]),
                         _p(ar(REPORT_TITLE["ar"]), st["title_ar"])]],
-                       colWidths=[90 * mm, 90 * mm]), hr]
+                       colWidths=[90 * mm, 90 * mm])] + contact + [hr]
     if clinic:
-        return _logo + [_p(f"<b>{_ct}</b>", clinic_st), hr]
+        return _logo + [_p(f"<b>{_ct}</b>", clinic_st)] + contact + [hr]
     if language == "ar":
         title_st = ParagraphStyle("ReportTitleAr", parent=st["title_ar"],
                                   fontName=FONT_AR_B, fontSize=18,
                                   alignment=TA_CENTER,
                                   textColor=HexColor("#1C1C1E"))
-        return _logo + [_p(ar(REPORT_TITLE["ar"]), title_st), hr]
+        return _logo + [_p(ar(REPORT_TITLE["ar"]), title_st)] + contact + [hr]
     title_st = ParagraphStyle("ReportTitle", parent=st["title_en"],
                               fontName=FONT_EN_B, fontSize=18,
                               alignment=TA_CENTER,
                               textColor=HexColor("#1C1C1E"))
-    return _logo + [_p(f"<b>{REPORT_TITLE['en']}</b>", title_st), hr]
+    return _logo + [_p(f"<b>{REPORT_TITLE['en']}</b>", title_st)] + contact + [hr]
 
 
 def footer_block(st, language, bilingual=False, user_name="fady"):

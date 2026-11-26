@@ -1,11 +1,10 @@
 """Narrow scrollable tree (round 16, Users tab).
 
-A rounded_tree with fixed narrow columns, a vertical scrollbar and
-its own mouse-wheel bindings (Linux <Button-4>/<Button-5> + Windows
-<MouseWheel>). The tree scrolls itself: the wheel handlers return
-"break" so no canvas behind it double-scrolls, and they are bound
-with add="+" so they never replace another widget's wheel handler
-(round 14 lesson). <200 lines.
+A rounded_tree with fixed narrow columns, a vertical scrollbar.
+R56: the tree has NO wheel binding of its own any more -- the
+wheel over it scrolls the containing page (wheel_scroll.
+install_page_wheel, the global page-scroll rule); when it lives
+in no scroll page, that delegate scrolls the tree itself. <200 lines.
 """
 import tkinter as tk
 from tkinter import ttk
@@ -25,15 +24,9 @@ def narrow_tree(parent, columns, height, widths, **kw):
     tree.configure(yscrollcommand=sb.set)
     sb.pack(side="left", fill="y")
     tree._v_scrollbar = sb
-
-    def _wheel(event):
-        if getattr(event, "num", 0) == 4 or getattr(event, "delta", 0) > 0:
-            steps = -1
-        else:
-            steps = 1
-        tree.yview_scroll(steps, "units")
-        return "break"
-
-    for ev in ("<MouseWheel>", "<Button-4>", "<Button-5>"):
-        tree.bind(ev, _wheel, add="+")
+    # R56: NO wheel binding of its own any more -- the wheel over
+    # this tree scrolls the containing page (wheel_scroll.
+    # install_page_wheel, the global page-scroll rule); when the
+    # tree lives in no scroll page, that same delegate scrolls
+    # the tree itself. The scrollbar still scrolls it directly.
     return tree

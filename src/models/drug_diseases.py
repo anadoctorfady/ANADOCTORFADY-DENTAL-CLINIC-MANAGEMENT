@@ -57,27 +57,55 @@ def _med(generic):
     except Exception:
         return {}
 
+def _classes_and_names(generic):
+    """R49: (classes, names) for a drug -- for a combo, the entry's
+    class plus every component's class (component entry class and
+    stored component_classes token), and the generic plus every
+    component name. Singles return just their own class/name."""
+    med = _med(generic)
+    classes, names = [], [generic]
+    def _add(t):
+        if t and t not in classes:
+            classes.append(t)
+    _add(med.get("class") or "")
+    tokens = med.get("component_classes") or []
+    for i, comp in enumerate(med.get("components") or []):
+        names.append(comp)
+        _add(_med(comp).get("class") or "")
+        if i < len(tokens):
+            _add(tokens[i])
+    return classes, names
+
 def check_drug_diseases(generic, diseases):
     """Alerts {severity, message_en, message_ar, drug_a, drug_b}
     in the SAME shape as models.interactions.check_interactions.
-    A drug-specific rule OVERRIDES the class rule for the same
-    condition (note AND severity): the specific entry is the more
-    precise curation. In the delivered dataset all 22 overlaps are
-    severity upgrades or equal (e.g. Aspirin in peptic ulcer:
-    severe by drug rule, moderate by Antiplatelet class rule)."""
+    R49 merge semantics: per condition the MAXIMUM severity wins
+    (severe < moderate < mild); on a severity tie the drug-specific
+    rule's note is preferred over the class rule's. Rules are
+    evaluated for the drug's class AND every component class, and
+    for the generic AND each component name (combos). For singles
+    this reduces to the old behaviour except that a severer class
+    rule is no longer downgraded by a milder drug rule."""
     conds = match_conditions(diseases)
     if not conds or not generic:
         return []
     med = _med(generic)
-    cls = med.get("class") or ""
     gen_ar = med.get("generic_ar") or generic
+    classes, names = _classes_and_names(generic)
     hits = {}  # condition -> (severity, note_en, note_ar, specific?)
+    def _offer(r, specific):
+        cur = hits.get(r["condition"])
+        if cur is None or _ORDER[r["severity"]] < _ORDER[cur[0]] or (
+                _ORDER[r["severity"]] == _ORDER[cur[0]]
+                and specific and not cur[3]):
+            hits[r["condition"]] = (r["severity"], r["note_en"],
+                                    r["note_ar"], specific)
     for r in _load()["class_rules"]:
-        if r["class"] == cls and r["condition"] in conds:
-            hits[r["condition"]] = (r["severity"], r["note_en"], r["note_ar"], False)
+        if r["class"] in classes and r["condition"] in conds:
+            _offer(r, False)
     for r in _load()["drug_rules"]:
-        if r["drug"] == generic and r["condition"] in conds:
-            hits[r["condition"]] = (r["severity"], r["note_en"], r["note_ar"], True)
+        if r["drug"] in names and r["condition"] in conds:
+            _offer(r, True)
     alerts = []
     for key, (sev, note_en, note_ar, _spec) in hits.items():
         cond = conditions()[key]
@@ -91,11 +119,28 @@ def review_outcome(generic):
     """Per-drug audit outcome: ('specific', drug) if the drug has
     its own rule, ('class', cls) if its class carries rules,
     ('reviewed', cls) if its class was reviewed with no major
-    disease caution, else ('unreviewed', cls)."""
+    disease caution, else ('unreviewed', cls). R49: a combo is
+    covered only if EVERY component class is covered/reviewed;
+    otherwise ('unreviewed', offending class)."""
     data = _load()
+    med = _med(generic)
+    if med.get("components"):
+        covered = {r["class"] for r in data["class_rules"]} | \
+            set(data.get("no_rule_classes", [])) | \
+            set(data.get("classes_reviewed", []))
+        classes, _names = _classes_and_names(generic)
+        for cls in classes:
+            if cls not in covered:
+                return ("unreviewed", cls)
+        if any(r["drug"] == generic for r in data["drug_rules"]):
+            return ("specific", generic)
+        cls = med.get("class") or ""
+        if any(r["class"] in classes for r in data["class_rules"]):
+            return ("class", cls)
+        return ("reviewed", cls)
     if any(r["drug"] == generic for r in data["drug_rules"]):
         return ("specific", generic)
-    cls = _med(generic).get("class") or ""
+    cls = med.get("class") or ""
     if any(r["class"] == cls for r in data["class_rules"]):
         return ("class", cls)
     if cls in data.get("no_rule_classes", []) or \

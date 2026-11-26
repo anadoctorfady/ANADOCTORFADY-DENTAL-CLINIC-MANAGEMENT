@@ -118,9 +118,10 @@ def test_button_configure_after_cache_eviction():
         b = RoundedButton(root, text="1", bg="#123456", fg="white",
                           padx=2, pady=2, radius=6)
         b.pack(); root.update()
+        from src.ui.image_cache import cache_size
         cache = getattr(root, "_r24_photo_cache", None)
-        assert cache is not None and len(cache) >= 4
-        cache.clear()  # eviction storm: cache no longer holds the images
+        assert cache is not None and cache_size(root) >= 4
+        for tier in cache.values(): tier.clear()  # R52: tiered cache -- eviction storm empties both tiers
         b.config(text="20 \u2022", state="normal")  # must not raise
         b.config(bg="#991B1B", fg="white"); root.update()
         assert b.cget("text") == "20 \u2022"

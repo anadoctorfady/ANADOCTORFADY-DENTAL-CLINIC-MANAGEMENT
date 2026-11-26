@@ -22,10 +22,15 @@ Tk draws the label over the image (compound="center"), and the text
 only influences the image through the measured (w, h), which ARE in
 the key.
 
-Bounded: at most MAX_ENTRIES entries and MAX_PIXELS total pixels
-(w*h read from key[1] / key[2]); oldest entries evict first. The
-toggle key space is small (2 languages x 2 themes x the app's fixed
-widget sizes), so eviction is a safety valve, not the normal path.
+Bounded, in TWO tiers (Round 52): small images (buttons and other
+widgets up to SMALL_PX pixels) and large ones (rounded-frame panels)
+evict independently, so a burst of big panel renders can never flush
+the button working set and vice versa. The toggle key space is
+2 languages x 2 themes x the app's widget sizes; Round 51's single
+1024-entry / 32M-pixel cache sat AT both caps after every toggle and
+thrashed (a warm toggle re-rendered as much as a cold one) -- the
+tier budgets below hold the full 4-combination working set with
+headroom, and eviction remains a safety valve, not the normal path.
 Single images over MAX_IMAGE_PIXELS are NOT cached at all: layout
 transients produce one-off giant sizes (a 2752x1947 paper tile was
 measured during one build) that would evict the useful entries.
@@ -37,21 +42,25 @@ from collections import OrderedDict
 
 from PIL import ImageTk
 
-MAX_ENTRIES = 1024
-MAX_PIXELS = 32_000_000  # ~128 MB of RGBA worst case, all sizes summed
+SMALL_PX = 65_536  # <= 256x256: buttons, pills, small tiles
+SMALL_MAX_ENTRIES = 8192
+SMALL_MAX_PIXELS = 48_000_000
+LARGE_MAX_ENTRIES = 256
+LARGE_MAX_PIXELS = 64_000_000
 MAX_IMAGE_PIXELS = 3_000_000  # bigger than any steady-state widget
 _ATTR = "_r24_photo_cache"
 
 
 def _cache_for(master):
-    """The OrderedDict {key: (PhotoImage, pixels)} on master's root."""
+    """{'s': OrderedDict, 'l': OrderedDict} on master's root:
+    {key: (PhotoImage, pixels)} per tier."""
     try:
         top = master.winfo_toplevel()
     except Exception:
         top = master
     cache = getattr(top, _ATTR, None)
     if cache is None:
-        cache = OrderedDict()
+        cache = {"s": OrderedDict(), "l": OrderedDict()}
         setattr(top, _ATTR, cache)
     return cache
 
@@ -66,7 +75,11 @@ def cached_photo(master, key, make_pil):
         px = 0
     if px > MAX_IMAGE_PIXELS:  # transient giant: render, don't cache
         return ImageTk.PhotoImage(make_pil(), master=master)
-    cache = _cache_for(master)
+    tiers = _cache_for(master)
+    if px <= SMALL_PX:
+        cache, max_n, max_px = tiers["s"], SMALL_MAX_ENTRIES, SMALL_MAX_PIXELS
+    else:
+        cache, max_n, max_px = tiers["l"], LARGE_MAX_ENTRIES, LARGE_MAX_PIXELS
     hit = cache.get(key)
     if hit is not None:
         cache.move_to_end(key)
@@ -74,7 +87,7 @@ def cached_photo(master, key, make_pil):
     img = ImageTk.PhotoImage(make_pil(), master=master)
     cache[key] = (img, px)
     total = sum(p for _, p in cache.values())
-    while len(cache) > 1 and (len(cache) > MAX_ENTRIES or total > MAX_PIXELS):
+    while len(cache) > 1 and (len(cache) > max_n or total > max_px):
         _, (_, p) = cache.popitem(last=False)
         total -= p
     return img
@@ -82,4 +95,5 @@ def cached_photo(master, key, make_pil):
 
 def cache_size(master):
     """Entries currently cached for master's interpreter (tests)."""
-    return len(_cache_for(master))
+    tiers = _cache_for(master)
+    return len(tiers["s"]) + len(tiers["l"])

@@ -55,16 +55,18 @@ def test_zebra_tree_tagging():
             zebra_tree(tr)
             kids = tr.get_children("")
             tags = [tr.item(k, "tags") for k in kids]
-            assert tags[0][0] == "zebra0" and tags[1][0] == "zebra1"
-            assert tags[2][0] == "zebra0" and tags[3][0] == "zebra1"
-            even, odd = zebra_colors(is_dark())
-            got0 = str(tr.tag_configure("zebra0", "background")).lower()
-            got1 = str(tr.tag_configure("zebra1", "background")).lower()
-            assert got0 == even.lower() and got1 == odd.lower()
-            # Meaning tags keep precedence: zebra goes FIRST.
-            tr.item(kids[0], tags=("zebra0", "debt"))
+            # R43 re-pin: zebra_tree delegates to the vivid rotation;
+            # R48: period = len(PALETTE) (five colours), never a literal.
+            from src.ui.vivid_rows import PALETTE
+            n = len(PALETTE)
+            for i in range(4):
+                assert tags[i][0] == f"vivid{i % n}", tags
+                got = str(tr.tag_configure(f"vivid{i % n}", "background")).lower()
+                assert got == PALETTE[i % n].lower(), got
+            # Meaning tags keep precedence: vivid goes FIRST.
+            tr.item(kids[0], tags=("vivid0", "debt"))
             zebra_tree(tr)
-            assert tr.item(kids[0], "tags") == ("zebra0", "debt")
+            assert tr.item(kids[0], "tags") == ("vivid0", "debt")
         finally:
             root.destroy()
 
@@ -140,11 +142,13 @@ def test_field_border_on_widgets():
 
 def test_zebra_applied_in_app():
     """End-to-end on the real App: patient list, clinical trees,
-    appointments and finance expenses all carry zebra tags."""
+    appointments and finance expenses all carry row tags (R43:
+    the vivid rotation everywhere; was zebra pairs)."""
     from tests.test_r18_info_panel_visible import _login
     from src.ui.shell import App
     from src.models.database import get_connection, save_financial
     from src.models.finance import add_expense
+    from src.ui.vivid_rows import PALETTE as _PAL; _NP = len(_PAL)
     with isolated_db():
         conn = get_connection(); cur = conn.cursor()
         cur.execute("INSERT INTO patients(first_name,father_name,"
@@ -170,7 +174,8 @@ def test_zebra_applied_in_app():
             kids = app.tree.get_children("")
             assert kids, "patient rows expected"
             for i, k in enumerate(kids):
-                assert app.tree.item(k, "tags")[0] == f"zebra{i % 2}"
+                # R43 re-pin: the patient list wears the vivid rotation.
+                assert app.tree.item(k, "tags")[0] == f"vivid{i % _NP}"
             app.select_patient(1); app.update()
             ct = app.clinical
             # R24: tree_diag is gone; the unified tree carries it.
@@ -179,17 +184,17 @@ def test_zebra_applied_in_app():
                 rows = tree.get_children("")
                 assert rows, "clinical rows expected"
                 for i, k in enumerate(rows):
-                    assert tree.item(k, "tags")[0] == f"vivid{i % 5}"
+                    assert tree.item(k, "tags")[0] == f"vivid{i % _NP}"
             app.notebook.select(app.appt); app.update()
             rows = app.appt.tree.get_children("")
             assert rows, "appointment rows expected"
             for i, k in enumerate(rows):
-                assert app.appt.tree.item(k, "tags")[0] == f"zebra{i % 2}"
+                assert app.appt.tree.item(k, "tags")[0] == f"vivid{i % _NP}"
             assert app.fin.gate.try_unlock("fady", "1234")
             app.fin.load(); app.update()
             rows = app.fin.tree_exp.get_children("")
             assert rows, "expense rows expected"
             for i, k in enumerate(rows):
-                assert app.fin.tree_exp.item(k, "tags")[0] == f"zebra{i % 2}"
+                assert app.fin.tree_exp.item(k, "tags")[0] == f"vivid{i % _NP}"
         finally:
             app.destroy()

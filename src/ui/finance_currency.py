@@ -63,10 +63,11 @@ def refresh_currency_selector(tab):
         note.config(text=t("fincur.raw_note", _L(tab)).format(cur=cur) if cur else "")
 
 
-def build_currency_selector(tab, th):
+def build_currency_selector(tab, th, parent=None):
     """Build the selector row on the Finance tab (admin view; the
-    doctor overlay carries its own combobox on the same variable)."""
-    fr = RoundedFrame(tab, bg=th["panel"], border=th["border"])
+    doctor overlay carries its own combobox on the same variable).
+    R54 (Section G): `parent` is the Finance scroll host."""
+    fr = RoundedFrame(parent or tab, bg=th["panel"], border=th["border"])
     fr.pack(fill="x", padx=10, pady=4); fr = fr.inner
     tk.Label(fr, text=t("fincur.selector_label", _L(tab)), bg=th["panel"],
              fg=th["text"]).pack(side="left", padx=6)
@@ -140,14 +141,15 @@ def doctor_result(tab, user):
         return doctor_income_currency(user, cur)
 
 
-def build_rate_row(tab, th):
+def build_rate_row(tab, th, parent=None):
     """Round 21 (item 8): the Today's-rate row, generalised from
     USD-only to ANY currency. A searchable picker over the FULL
     currency list (178) chooses the source currency; the manual
     rate box + Save work for the chosen pair exactly as they did
     for USD (models.currency.save_rate / latest_rate are already
     pair-generic). Changing the picker reloads the pair's last
-    saved rate into the box. tab.rate_from_code() -> the code."""
+    saved rate into the box. tab.rate_from_code() -> the code.
+    R54 (Section G): `parent` is the Finance scroll host."""
     from src.models.currency import default_currency, latest_rate
     from src.ui.rounded import rounded_button
     from src.ui.rounded_widgets import RoundedEntry
@@ -156,7 +158,7 @@ def build_rate_row(tab, th):
     from src.ui.currency_picker import CurrencyPicker
     lang = _L(tab)
     tab.base_cur = default_currency()
-    rate = RoundedFrame(tab, bg=th["panel"], border=th["border"])
+    rate = RoundedFrame(parent or tab, bg=th["panel"], border=th["border"])
     rate.pack(fill="x", padx=10, pady=4); rate = rate.inner
     tk.Label(rate, text=t("fin.rate_today", lang), bg=th["panel"],
              fg=th["text"], font=("Segoe UI", 9, "bold")).pack(side="left", padx=6)
